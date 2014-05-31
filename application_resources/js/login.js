@@ -30,19 +30,10 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }
     });
-
-});
-
-
-
-var base_url = js_base_url;
-var site_url = js_site_url;
-
-
-
-function login() {
-
-    var login_username = $('#txtusername').val();
+    
+    $('#login-submit').click(function(){
+        
+            var login_username = $('#txtusername').val();
     var login_password = $('#txtpassword').val();
 
 
@@ -50,7 +41,8 @@ function login() {
     if ($('#login_form').valid()) {
 
 //                    $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-//        $(".load-anim").fadeIn('slow').animate({opacity: 1.0}, 1500).effect("pulsate", {times: 2}, 800).fadeOut('slow');
+     var x=   $('.load-anim').show().delay(5000);
+
 //
 
         $.ajax({
@@ -64,7 +56,7 @@ function login() {
                 if (msg == 1) {
                     $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
                     setTimeout("location.href = site_url+'/login/login_controller/';", 100);
-
+                    x.fadeOut('slow');
                 } else {
 
                     $('#login_msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
@@ -73,4 +65,17 @@ function login() {
             }
         });
     }
-}
+        
+    });
+    
+    
+
+});
+
+
+
+var base_url = js_base_url;
+var site_url = js_site_url;
+
+
+
