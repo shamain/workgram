@@ -42,7 +42,7 @@
 //$route['default_controller'] = "welcome";
 //$route['404_override'] = '';
 
-$route['default_controller'] = "login_controller";
+$route['default_controller'] = "login/login_controller";
 $route['404_override'] = '';
 
 

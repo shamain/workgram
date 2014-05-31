@@ -225,7 +225,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'EXAM_WEB_DEV';//edited
+$config['encryption_key'] = 'WORKGRAM_WEB_DEV';//edited
 
 /*
 |--------------------------------------------------------------------------

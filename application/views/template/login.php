@@ -20,10 +20,9 @@
         <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
-        
-        
+
+
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
-        
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
@@ -31,9 +30,9 @@
         <div class="container">
             <div class="row login-container column-seperation">  
                 <div class="col-md-5 col-md-offset-1">
-                    <h2>Sign in to webarch</h2>
+                    <h2>Sign in to workgram</h2>
                     <p>Use Facebook, Twitter or your email to sign in.<br>
-                        <a href="#">Sign up Now!</a> for a webarch account,It's free and always will be..</p>
+                        <a href="#">Sign up Now!</a> for a workgram account,It's free and always will be..</p>
                     <br>
 
                     <button class="btn btn-block btn-info col-md-8" type="button">
@@ -45,7 +44,7 @@
                     </button>
                 </div>
                 <div class="col-md-5 "> <br>
-                    <form id="login-form" class="login-form" action="http://www.revox.io/webarch/HTML/index.html" method="post">
+                    <form id="login_form" class="login-form" action="http://www.revox.io/webarch/HTML/index.html" method="post">
                         <div class="row">
                             <div class="form-group col-md-10">
                                 <label class="form-label">Username</label>
@@ -62,12 +61,17 @@
                                 <label class="form-label">Password</label>
                                 <span class="help"></span>
                                 <div class="controls">
-                                    <div class="input-with-icon  right">                                       
+                                    <div class="input-with-icon  left">                                       
                                         <i class=""></i>
-                                        <input type="password" name="txtpassword" id="txtpassword" class="form-control">                                 
+                                        <input type="password" name="txtpassword" id="txtpassword" class="form-control"> 
+
                                     </div>
+
                                 </div>
                             </div>
+
+
+
                         </div>
                         <div class="row">
                             <div class="control-group  col-md-10">
@@ -79,7 +83,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-10">
-                                <button class="btn btn-primary btn-cons pull-right" type="submit">Login</button>
+                                <div class="pull-right">
+                                    <i id="animate-icon" class="fa fa-spinner fa fa-3x fa-spin"></i>
+                                </div>
+                                <button class="btn btn-primary btn-cons pull-right" type="button" onclick="login()">Login</button>
+
+                                
                             </div>
                         </div>
                     </form>
