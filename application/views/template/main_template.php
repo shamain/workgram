@@ -91,7 +91,7 @@
                     <div class="pull-right">
                         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
                                 <div class="user-details">
-                                    <div class="username"> <span class="badge badge-important">3</span> John <span class="bold">Smith</span> </div>
+                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo $this->session->userdata('EMPLOYEE_NAME'); ?> <span class="bold">Smith</span> </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
@@ -137,7 +137,7 @@
                                     <li><a href="calender.html">My Calendar</a> </li>
                                     <li><a href="email.html"> My Inbox&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a> </li>
                                     <li class="divider"></li>
-                                    <li><a href="login.html"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
+                                    <li><a  href="<?php echo site_url(); ?>/login/login_controller/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
                                 </ul>
                             </li>
                             <li class="quicklinks"> <span class="h-seperate"></span></li>
@@ -2031,6 +2031,14 @@
         <!--[if lt IE 9]>
         <script src="<?php echo base_url(); ?>application_resources/plugins/respond.js"></script>
         <![endif]-->
+        
+         <script type="text/javascript">
+
+            var js_base_url = "<?php echo base_url(); ?>";
+            var js_site_url = "<?php echo site_url(); ?>";
+
+            //alert(js_url_path);
+        </script>
 
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>

@@ -20,23 +20,23 @@
         <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
-        
+
         <!-- CUSTOM CSS -->
-         <link href="<?php echo base_url(); ?>application_resources/css/custom_css.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/css/custom_css.css" rel="stylesheet" type="text/css"/>
         <!-- END CUSTOM CSS -->
-        
+
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
-        
-        
+
+
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     <body class="error-body no-top">
         <div class="load-anim">
             <center>
-        <i id="animate-icon" class="fa fa-spinner fa fa-3x fa-spin loader-icon-margin"></i>
-                </center>
-        
+                <i id="animate-icon" class="fa fa-spinner fa fa-3x fa-spin loader-icon-margin"></i>
+            </center>
+
         </div>
         <div class="container">
             <div class="row login-container column-seperation">  
@@ -55,7 +55,7 @@
                     </button>
                 </div>
                 <div class="col-md-5 "> <br>
-                    <form id="login_form" class="login-form" action="http://www.revox.io/webarch/HTML/index.html" method="post">
+                    <form id="login_form" class="login-form"  method="post">
                         <div class="row">
                             <div class="form-group col-md-10">
                                 <label class="form-label">Username</label>
@@ -94,10 +94,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-10">
-                                
+
                                 <button class="btn btn-primary btn-cons pull-right" type="button" onclick="login()">Login</button>
 
-                                
+
                             </div>
                         </div>
                     </form>
@@ -108,6 +108,15 @@
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN CORE JS FRAMEWORK-->
+
+        <script type="text/javascript">
+
+                                    var js_base_url = "<?php echo base_url(); ?>";
+                                    var js_site_url = "<?php echo site_url(); ?>";
+
+                                    //alert(js_url_path);
+        </script>
+
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
