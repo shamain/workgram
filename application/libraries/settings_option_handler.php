@@ -32,6 +32,7 @@ class Settings_option_handler extends CI_Controller {
     }
 
     public function get_option($setting_login_type_id, $emp_code, $company_code) {
+
         //parameters = setting_id,employee_code,company_id
 //        $user_settingsmodel = new User_settingsmodel();
 //        $user_settingsservice = new User_settingsservice();

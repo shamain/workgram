@@ -1,6 +1,5 @@
 <?php
 
-// function getEmployeeswithdep() ->  // designation 23 -> is managing director   not get report
 class Employee_service extends CI_Model {
 
     function __construct() {
@@ -8,35 +7,36 @@ class Employee_service extends CI_Model {
         parent::__construct();
     }
 
-    function authenticateUser($employeemodel) {
+    function authenticate_user($employee_model) {
 
-        $parameters = array('Email' => $employeemodel->getEmail() /* , 'Password'=>$employeemodel->getPassword() */, 'Status' => '1');
-        $query = $this->db->get_where('lcs_employee', $parameters);
+        $data = array('employee_email' => $employee_model->get_employee_email() /* , 'Password'=>$employee_model->get_employee_password() */, 'del_ind' => '1');
+        $query = $this->db->get_where('employee', $data);
         return $query->row();
     }
 
-    function authenticateUserwithpassword($employeemodel) {
+    function authenticate_user_with_password($employee_model) {
 
-        $parameters = array('Email' => $employeemodel->getEmail(), 'Password' => $employeemodel->getPassword(), 'Status' => '1');
-        $query = $this->db->get_where('lcs_employee', $parameters);
+        $data = array('employee_email' => $employee_model->get_employee_email(), 'employee_password' => $employee_model->get_employee_password(), 'del_ind' => '1');
+        $query = $this->db->get_where('employee', $data);
         return $query->row();
     }
 
-    function getServerByEmail($employeemodel) {
+    function get_server_by_email($employee_model) {
 
         $server = 0;
         $this->db->select('*');
-        $this->db->from('lcs_employee');
-        $this->db->where('lcs_employee.Email', $employeemodel->getEmail());
-        $this->db->where('Status', '1'); //)&NOV2013 Barathy
+        $this->db->from('employee');
+        $this->db->where('employee.employee_email', $employee_model->get_employee_email());
+        $this->db->where('del_ind', '1'); 
         $query = $this->db->get();
         foreach ($query->result() as $emp) {
-            $server = $emp->mail_server;
+//            $server = $emp->mail_server;
+            $server=1;
         }
         return $server;
     }
 
-    function getEmployees($emp_status = 1) {
+    function get_employees($emp_status = 1) {
 
         $keywords = $this->input->post('keywords');
         if (trim($keywords) != "") {
@@ -61,112 +61,61 @@ class Employee_service extends CI_Model {
         return $query->result();
     }
 
-    function getEmployeeswithdep($emp_status = 1, $date = '', $order = '', $notdep = array(), $md = TRUE) {
+    
 
-        if ($date == '') {
-            $date = date('Y-m-d');
-        }
-        $this->db->select('lcs_employee.*, lcs_department.Department_Name,lcs_designations.Lcs_Designation_Name ');
-        $this->db->from('lcs_employee');
-        $this->db->join('lcs_employee_departments', 'lcs_employee.Employee_Code = lcs_employee_departments.Employee_Code', 'right');
-        $this->db->join('lcs_department', 'lcs_department.Department_Code = lcs_employee_departments.Department_Code');
-        $this->db->join('lcs_designations', 'lcs_designations.Lcs_Designation_Id = lcs_employee.Designation', 'Left');
-        if (!empty($notdep)) {
-            $this->db->where_in('lcs_department.Department_Code', $notdep);
-        }
-        $this->db->where('lcs_employee.Status', '1');
-        if ($md) {
-            $this->db->where('lcs_employee.Designation !=', '23');   // 23 is managing director not get report
-        }
-
-        $this->db->where('lcs_employee.Employee_Code !=', '0');
-        $this->db->where('lcs_employee.employee_no !=', '');
-        if ($emp_status == 1) {
-            $this->db->where("(lcs_employee.resigned_date >=  '" . $date . "'  or lcs_employee.resigned_date = '0000-00-00')");
-        }
-        /* else {
-          $this->db->where('lcs_employee.resigned_date <', $date);
-          $this->db->where('lcs_employee.resigned_date !=', '0000-00-00');
-          } */
-        $this->db->group_by("lcs_employee.employee_no");
-        if ($order != '') {
-            $this->db->order_by($order);
-        }
-        $this->db->order_by('CAST(lcs_employee.employee_no as SIGNED INTEGER)');
-        $query = $this->db->get();
-        //echo $this->db->last_query();
-        //$this->db->order_by('Employee_Code',"desc");
-        return $query->result();
-    }
-
-    function getEmployeesOnCompany($company_id) {
-        $this->db->select('Employee_Code, Employee_Name');
-        $this->db->from('lcs_employee');
-        $this->db->where('status', '1');
-        $this->db->where('company_id', $company_id);
+    function get_employees_on_company($company_code) {
+        $this->db->select('employee_code, employee_no,employee_fname,employee_lname');
+        $this->db->from('employee');
+        $this->db->where('del_ind', '1');
+        $this->db->where('company_code', $company_code);
         $result = $this->db->get();
         return $result->result();
     }
 
-    function getEmployeesWithEmpNo($emp_status = 1) {
+//    function getEmployeesWithEmpNo($emp_status = 1) {
+//
+//        $this->db->where('Status', '1');
+//        if ($emp_status == 1) {
+//            $this->db->where('resigned_date >=', "date('Y-m-d')");
+//            $this->db->or_where('resigned_date =', '0000-00-00');
+//        } else {
+//            $this->db->where('resigned_date <', "date('Y-m-d')");
+//            $this->db->where('resigned_date !=', '0000-00-00');
+//        }
+//        $this->db->where('Employee_Code !=', '0');
+//        $this->db->where('employee_no !=', '');
+//        $this->db->order_by("Employee_Name");
+//        $query = $this->db->get('lcs_employee');
+//        //echo $this->db->last_query();
+//        return $query->result();
+//    }
 
-        $this->db->where('Status', '1');
-        if ($emp_status == 1) {
-            $this->db->where('resigned_date >=', "date('Y-m-d')");
-            $this->db->or_where('resigned_date =', '0000-00-00');
-        } else {
-            $this->db->where('resigned_date <', "date('Y-m-d')");
-            $this->db->where('resigned_date !=', '0000-00-00');
-        }
-        $this->db->where('Employee_Code !=', '0');
-        $this->db->where('employee_no !=', '');
-        $this->db->order_by("Employee_Name");
-        $query = $this->db->get('lcs_employee');
-        //echo $this->db->last_query();
-        return $query->result();
-    }
+//    function getactiveEmployeescount() {
+//
+//        $query = $this->db->get_where('lcs_employee', array('Status' => '1', 'Employee_Code !=' => '0'));
+//        return $query->num_rows();
+//    }
 
-    function getactiveEmployeescount() {
+    function add_employee($employee_model) {
 
-        $query = $this->db->get_where('lcs_employee', array('Status' => '1', 'Employee_Code !=' => '0'));
-        return $query->num_rows();
-    }
-
-    function addEmployee($employeemodel) {
-
-        //echo 1;
-        $this->db->insert('lcs_employee', $employeemodel);
+        $this->db->insert('employee', $employee_model);
         $this->db->last_query();
         return $this->db->insert_id();
     }
 
-    function deleteemployee() {
-
-        //07Nov2013 Barathy return $this->db->delete('lcs_employee', array('Employee_Code' => Employeemodel:: getEmployee_Code()));
-        //07Nov2013 Barathy Begin
-        $data = array('Status' => '0');
-        $this->db->where('Employee_Code', Employeemodel:: getEmployee_Code());
-        return $this->db->update('lcs_employee', $data);
-        //07Nov2013 Barathy END
+    function delete_employee($emp_code) {
+        $data = array('del_ind' => '0');
+        $this->db->where('employee_code', $emp_code);
+        return $this->db->update('employee', $data);
     }
 
-    function getEmployeebyid() {
+    function get_employee_by_id($emp_code) {
 
-        $query = $this->db->get_where('lcs_employee', array('Employee_Code' => Employeemodel:: getEmployee_Code()));
+        $query = $this->db->get_where('employee', array('employee_code' =>$emp_code));
         return $query->row();
     }
 
-    function max_empNo($below) {
-
-        $this->db->select('employee_no');
-        $this->db->from('lcs_employee');
-        $this->db->where('CAST(employee_no as SIGNED INTEGER)<', $below);
-        $this->db->order_by('CAST(employee_no as SIGNED INTEGER)', 'DESC');
-        $this->db->limit(1);
-        $query = $this->db->get();
-
-        return $query->row();
-    }
+    
 
     function updateEmployee($employeemodel) {
 
@@ -179,10 +128,9 @@ class Employee_service extends CI_Model {
         return $this->db->update('lcs_employee', $data);
     }
 
-    public function get_employee($employeemodel) {
+    public function get_employee($emp_code) {
 
-        //07Nov2013 Barathy added 'Status' => '1' to where clause
-        $query = $this->db->get_where('lcs_employee', array('Employee_Code' => $employeemodel->getEmployee_Code(), 'Status' => '1'));
+        $query = $this->db->get_where('employee', array('employee_code' => $emp_code ,'del_ind' => '1'));
         return $query->row();
     }
 
@@ -322,120 +270,7 @@ class Employee_service extends CI_Model {
         return $this->db->update('lcs_employee', $data);
     }
 
-    /*
 
-      public function loadEmpDetails()
-      {
-
-      //return $this->db->query('SELECT Employee_Code,Employee_Name,Designation,Level_Code,Department_Code, Email FROM ta_ims_employee WHERE Employee_Code='.$this->session->userdata('emp_id'));
-      return $this->db->query('
-      SELECT
-      ta_ims_employee.Employee_Code,
-      ta_ims_employee.Employee_Name,
-      ta_ims_employee.Designation,
-      ta_ims_employee.Level_Code,
-      ta_ims_employee.Department_Code,
-      ta_ims_employee.Email,
-      ta_ims_employee.Password,
-      ta_ims_employee.Confirmation_Code,
-      ta_ims_employee.Status,
-      ta_ims_department.Department_Code,
-      ta_ims_department.Department_ID,
-      ta_ims_department.Department_Name,
-      ta_ims_department.Active,
-      ta_ims_level.Level_Code,
-      ta_ims_level.Level,
-      ta_ims_level.Description
-      FROM ta_ims_employee
-      INNER JOIN ta_ims_department ON ta_ims_department.Department_Code = ta_ims_employee.Department_Code
-      INNER JOIN ta_ims_level ON ta_ims_level.Level_Code = ta_ims_employee.Level_Code
-      WHERE ta_ims_employee.Employee_Code='.$this->session->userdata('emp_id'));
-
-      }
-
-
-
-      function saveNewPassword($userModel)
-      {
-      $query= $this->db->query('SELECT Password FROM ta_ims_employee WHERE Employee_Code='.$this->session->userdata('emp_id'));
-
-      foreach ($query->result() as $row)
-      {
-      $row->Password;
-      }
-
-
-
-      if( $row->Password==$userModel->getPassword())
-      {
-
-
-      $result =$this->db->query("UPDATE ta_ims_employee SET Password = '" . $userModel->getConfirmpass() . "' WHERE Employee_Code = " . $this->session->userdata('emp_id'));
-      if($result == 1)
-      {
-      return 'Password Changed # Password  inserted to the database successfully. # success';
-      }
-      else
-      {
-      return 'Error Changing Password # Password cannot be Changed. Please contact system administrator... # error';
-      }
-
-      }
-      else
-      {
-      return 'Error in Changing Password # Password cannot be Changed. Please contact system administrator... # error';
-      }
-
-
-
-
-      }
-
-      public function getEmployeeByCode($employeemodel)
-      {
-
-      $employeeCode = $employeemodel->getEmployee_Code();
-      $query = $this->db->query('SELECT ta_ims_employee.Employee_Name , ta_ims_department.Department_Name FROM ta_ims_employee,ta_ims_department WHERE (ta_ims_employee.Department_Code=ta_ims_department.Department_Code) AND (ta_ims_employee.Employee_Code='.$employeeCode.')');
-
-      $employeeModelArr=array();
-
-      foreach($query->result() as $row)
-      {
-      $employeemodel = new Employeemodel();
-      $departmentmodel = new Departmentmodel();
-
-      $employeemodel->setEmployee_Name($row->Employee_Name);
-      $departmentmodel->setDepartment_Name($row->Department_Name);
-
-      $employeeModelArr[0]=$employeemodel;
-      $employeeModelArr[1]=$departmentmodel;
-      }
-      return $employeeModelArr;
-      }
-
-      public function getEmployeeCodeDepartment()
-      {
-
-      //$employee = $employeemodel->getEmployee_Code();
-      $query = $this->db->query('SELECT ta_ims_employee.Employee_Name , ta_ims_department.Department_Name , ta_ims_employee.Employee_Code  FROM ta_ims_employee,ta_ims_department WHERE (ta_ims_employee.Department_Code=ta_ims_department.Department_Code) ORDER BY ta_ims_employee.Employee_Name ASC');
-
-      $name=array();
-      //$employeeModelArr=array();
-      //$departmentmodelArr=array();
-
-      foreach($query->result() as $row)
-      {
-      $name[]=$row->Employee_Name._.$row->Department_Name._.$row->Employee_Code;
-      }
-
-      return $name;
-      }
-
-      public function insertEmployee()
-      {
-
-      }
-     */
 
     public function getMarketiers() {
 
@@ -475,11 +310,11 @@ class Employee_service extends CI_Model {
     }
 
     //viran
-    function getEmployeeCompanyandCodewithEmail($employeemodel) {
+    function get_employee_company_and_code_with_email($employee_model) {
 
-        $this->db->select('lcs_employee.Employee_Code,lcs_employee.company_id');
-        $this->db->from('lcs_employee');
-        $this->db->where('lcs_employee.Email ', $employeemodel->getEmail());
+        $this->db->select('employee.employee_code,employee.company_code');
+        $this->db->from('employee');
+        $this->db->where('employee.employee_email ', $employee_model->get_employee_email());
         $query = $this->db->get();
         return $query->row();
     }
@@ -526,39 +361,4 @@ class Employee_service extends CI_Model {
         return $query->num_rows();
     }
 
-    //end email and emp no checks
-    function getACDDetails() {
-
-        $this->db->select('lcs_employee.*');
-        $this->db->from('lcs_employee');
-        $this->db->where('lcs_employee.Designation', '5');
-        $this->db->where('lcs_employee.Status ', '1');
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    function getMDDetails() {
-
-        $this->db->select('lcs_employee.*');
-        $this->db->from('lcs_employee');
-        $this->db->where('lcs_employee.Designation', '23');
-        $this->db->where('lcs_employee.Status ', '1');
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    //function to get employees with designation
-
-    function getEmployeesFromDesignation($designation_id) {
-        $this->db->select('*');
-        $this->db->from('lcs_employee');
-        $this->db->where('Designation', (int) $designation_id);
-        $this->db->where('Status ', '1');
-
-        $query = $this->db->get();
-
-        return $query->result();
-    }
-
-    //end function
 }

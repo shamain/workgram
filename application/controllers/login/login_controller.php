@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -43,7 +44,7 @@ class Login_controller extends CI_Controller {
     function index() {
         if ($this->session->userdata('EMPLOYEE_LOGGED_IN')) {
 //            redirect(base_url() . 'index.php/TA/dashboard_controller/');
-           $this->template->load('template/main_template');
+            $this->template->load('template/main_template');
         } else {
 
             $this->template->load('template/login');
@@ -51,7 +52,7 @@ class Login_controller extends CI_Controller {
     }
 
     //Login details checking function 
-    function authenticateUser() {
+    function authenticate_user() {
 
         $setting_login_type_id = '1'; //setting id 1 = User Login Options , in main_settings table
 
@@ -63,26 +64,26 @@ class Login_controller extends CI_Controller {
         // set user name with @lankacom.net
         $username_arr = explode('@', $email);
         if (!isset($username_arr[1])) {
-            $email = $username_arr[0] . '@lankacom.net';
+            $email = $username_arr[0] . '@gmail.com';
         }
 
-        $employee_model->setEmail($email);
-        $employee_code_compnay_details = $employee_service->getEmployeeCompanyandCodewithEmail($employee_model);
+        $employee_model->set_employee_email($email);
+        $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
 
         //calling settings_option_handler library's getOption(x,y,z) function to get the set option
         //parameters = setting_id,employee_code,company_id
 
-        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->Employee_Code, $employee_code_compnay_details->company_id);
+        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
 
 
         // 1 = Username & Password
         if ($login_option == 1) {
 
             //  $logged_user_result = '';
-            $employee_model->setEmail($email);
-            $employee_model->setPassword(md5($this->input->post('login_password', TRUE))); // password md 5 change 
+            $employee_model->set_employee_email($email);
+            $employee_model->set_employee_password(md5($this->input->post('login_password', TRUE))); // password md 5 change 
 
-            if (count($employee_service->authenticateUserwithpassword($employee_model)) == 0) {
+            if (count($employee_service->authenticate_user_with_password($employee_model)) == 0) {
                 $logged_user_result = false;
             } else {
                 $logged_user_result = true;
@@ -97,7 +98,7 @@ class Login_controller extends CI_Controller {
             //die();
 
             $logged_user_result = true;
-            $employee_model->setEmail($email);
+            $employee_model->set_employee_email($email);
             //$employeemodel->setPassword(md5($this->input->post('login_password', TRUE))); // password md 5 change 
         }
 
@@ -105,18 +106,18 @@ class Login_controller extends CI_Controller {
         if ($login_option == 3) {
 
 
-            $employee_model->setEmail($email);
-            $employee_model->setPassword($this->input->post('login_password', TRUE)); // password md 5 change
+            $employee_model->set_employee_email($email);
+            $employee_model->set_employee_password($this->input->post('login_password', TRUE)); // password md 5 change
 
-            $mailServer = $employee_service->getServerByEmail($employee_model);
+            $mailServer = $employee_service->get_server_by_email($employee_model);
 
             //$logged_user_result = $this->authenticateUserEmail($employeemodel,$this->config->item('MAILBOX'));// chamge
             //echo $logged_user_details->server;die;
 
             if ($mailServer == 1) {
-                $logged_user_result = $this->authenticateUserEmail($employee_model, $this->config->item('MAILBOX'));
+                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX'));
             } else if ($mailServer == 2) {
-                $logged_user_result = $this->authenticateUserEmail($employee_model, $this->config->item('MAILBOX2'));
+                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX2'));
             } else {
                 $logged_user_result = FALSE;
             }
@@ -128,9 +129,9 @@ class Login_controller extends CI_Controller {
         /* Remove Imap authenticate error login with some machine */
         // $logged_user_result =  true;
         if ($logged_user_result) {// chamge
-            $logged_user_details = $employee_service->authenticateUser($employee_model);
+            $logged_user_details = $employee_service->authenticate_user($employee_model);
 //print_r($logged_user_details);
-     
+
 
 
             if (count($logged_user_details) == 0) {
@@ -139,17 +140,19 @@ class Login_controller extends CI_Controller {
             } else {
 
                 //Setting sessions		
-                $this->session->set_userdata('EMPLOYEE_CODE', $logged_user_details->Employee_Code);
-                $this->session->set_userdata('EMPLOYEE_WELCOME', $logged_user_details->preferred_welcome_sys);
+                $this->session->set_userdata('EMPLOYEE_CODE', $logged_user_details->employee_code);
+//                $this->session->set_userdata('EMPLOYEE_WELCOME', $logged_user_details->preferred_welcome_sys);
                 $this->session->set_userdata('EMPLOYEE_FIRST', '1'); //check first time log in and redirect to welcome page
-                $this->session->set_userdata('EMPLOYEE_NAME', $logged_user_details->Employee_Name);
-                $this->session->set_userdata('EMPLOYEE_EMAIL', $logged_user_details->Email);
-                $this->session->set_userdata('EMPLOYEE_PROPIC', $logged_user_details->emp_image);
-                $this->session->set_userdata('EMPLOYEE_COMPANY', $logged_user_details->company_id);
+                $this->session->set_userdata('EMPLOYEE_NAME', $logged_user_details->employee_fname . ' ' . $logged_user_details->employee_lname);
+                $this->session->set_userdata('EMPLOYEE_FNAME', $logged_user_details->employee_fname);
+                $this->session->set_userdata('EMPLOYEE_LNAME', $logged_user_details->employee_lname);
+                $this->session->set_userdata('EMPLOYEE_EMAIL', $logged_user_details->employee_email);
+                $this->session->set_userdata('EMPLOYEE_PROPIC', $logged_user_details->employee_avatar);
+                $this->session->set_userdata('EMPLOYEE_COMPANY', $logged_user_details->company_code);
 
 
                 //checking gor teh DOB and saving  a note in a session , LCS_EMPLOYEE_BD
-                $bd = explode("-", $logged_user_details->birthday);
+                $bd = explode("-", $logged_user_details->employee_bday);
 
                 if ($bd[1] . '-' . $bd[2] == date('m-d')) {
                     $this->session->set_userdata('EMPLOYEE_BD', 'Y');
@@ -165,7 +168,7 @@ class Login_controller extends CI_Controller {
         }// if($logged_user_result){
     }
 
-    function getEmailUser($employeemodel) {// change chamika
+    function get_email_user($employeemodel) {// change chamika
         $username_arr = explode('@', $employeemodel->getEmail());
 
 
@@ -180,7 +183,7 @@ class Login_controller extends CI_Controller {
     }
 
     // chamge
-    function authenticateUserEmail($employeemodel, $mailbox) {
+    function authenticate_user_email($employee_model, $mail_box) {
 //
 //        // imap_timeout(IMAP_OPENTIMEOUT,10);
 //        $conn = imap_open($mailbox, $this->getEmailUser($employeemodel), $employeemodel->getPassword(), null) or die();

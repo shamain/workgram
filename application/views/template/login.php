@@ -62,7 +62,7 @@
                                 <div class="controls">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input type="text" name="txtusername" id="txtusername" class="form-control">                                 
+                                        <input type="text" name="txtusername" id="txtusername" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)">                                 
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="controls">
                                     <div class="input-with-icon  left">                                       
                                         <i class=""></i>
-                                        <input type="password" name="txtpassword" id="txtpassword" class="form-control"> 
+                                        <input type="password" name="txtpassword" id="txtpassword" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)"> 
 
                                     </div>
 
@@ -95,7 +95,7 @@
                         <div class="row">
                             <div class="col-md-10">
 
-                                <button class="btn btn-primary btn-cons pull-right" type="button"id="login-submit" >Login</button>
+                                <button class="btn btn-primary btn-cons pull-right" type="button"id="login-submit" onclick="login()">Login</button>
 
 
                             </div>

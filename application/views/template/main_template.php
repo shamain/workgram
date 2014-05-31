@@ -92,7 +92,7 @@
                     <div class="pull-right">
                         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
                                 <div class="user-details">
-                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo $this->session->userdata('EMPLOYEE_NAME'); ?> <span class="bold">Smith</span> </div>
+                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo $this->session->userdata('EMPLOYEE_FNAME'); ?> <span class="bold"><?php echo $this->session->userdata('EMPLOYEE_LNAME'); ?></span> </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
@@ -174,7 +174,7 @@
                         <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
                         <div class="user-info">
                             <div class="greeting">Welcome</div>
-                            <div class="username">John <span class="semi-bold">Smith</span></div>
+                            <div class="username"><?php echo $this->session->userdata('EMPLOYEE_FNAME'); ?> <span class="semi-bold"><?php echo $this->session->userdata('EMPLOYEE_LNAME'); ?></span></div>
                             <div class="status">Status<a href="#">
                                     <div class="status-icon green"></div>
                                     Online</a></div>

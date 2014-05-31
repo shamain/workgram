@@ -2,322 +2,171 @@
 
 class Employee_model extends CI_Model {
 
-    var $employee_no; //11Oct2013 Barathy
-    var $Employee_Code;
-    var $Employee_Name;
-    var $Designation;
-    var $Email;
-    //26Aug2013 Barathy var $username;
-    var $Password;
-    var $Confirmation_Code;
-    var $Status;
-    //26Aug2013 Barathy - Begin
-    var $last_name;
-    var $full_name;
-    var $birthday;
-    var $nic;
-    var $gender;
-    var $marital_status;
-    var $address1;
-    var $address2;
-    var $city;
-    var $mobile_no;
-    var $phone_extension;
-    var $joined_date;
-    var $resigned_date;
+    var $employee_code;
+    var $employee_no;
+    var $employee_fname;
+    var $employee_lname;
+    var $employee_password;
+    var $employee_email;
+    var $employee_type;
+    var $employee_bday;
+    var $employee_contact;
+    var $employee_salary;
+    var $employee_contract;
+    var $employee_avatar;
+    var $company_code;
+    var $del_ind;
     var $added_by;
     var $added_date;
-    var $emp_image;
-    var $mail_server;
-    //26Aug2013 Barathy - End
-    //var $LoginType; 
-    var $preferred_welcome_sys; // edited 9_6
-    //17Oct2013 Barathy 
-    var $roster_id;
-    //17Oct2013 Barathy
-    var $contract_type;
-    var $emp_cat_id;
-    //2013-12-20 Viran 
-    var $company_id;
-
-    //17Oct2013 Barathy End
+    var $updated_by;
+    var $updated_date;
 
     function __construct() {
         parent::__construct();
     }
 
-//getters
+    public function get_employee_code() {
+        return $this->employee_code;
+    }
 
-    function getEmployee_no() {
+    public function set_employee_code($employee_code) {
+        $this->employee_code = $employee_code;
+    }
+
+    public function get_employee_no() {
         return $this->employee_no;
     }
 
-//11Oct2013 Barathy
-
-    function getEmployee_Code() {
-        return $this->Employee_Code;
-    }
-
-    function getEmployee_Name() {
-        return $this->Employee_Name;
-    }
-
-    function getDesignation() {
-        return $this->Designation;
-    }
-
-    function getEmail() {
-        return $this->Email;
-    }
-
-    /* 26Aug2013 Barathy
-      function getEmailUser(){// chamge chamika
-      $username_arr = explode('@',$this->Email);
-
-
-      $this->username = $username_arr[0];
-      return $this->username;
-
-      }
-     */
-
-    function getPassword() {
-        return $this->Password;
-    }
-
-    function getConfirmation_Code() {
-        return $this->Confirmation_Code;
-    }
-
-    function getStatus() {
-        return $this->Status;
-    }
-
-    //26Aug2013 Barathy - Begin
-    function getLast_name() {
-        return $this->last_name;
-    }
-
-    function getBirthday() {
-        return $this->birthday;
-    }
-
-    function getNic() {
-        return $this->nic;
-    }
-
-    function getGender() {
-        return $this->gender;
-    }
-
-    function getMarital_status() {
-        return $this->marital_status;
-    }
-
-    function getAddress1() {
-        return $this->address1;
-    }
-
-    function getAddress2() {
-        return $this->address2;
-    }
-
-    function getCity() {
-        return $this->city;
-    }
-
-    function getMobile_no() {
-        return $this->mobile_no;
-    }
-
-    function getPhone_extension() {
-        return $this->phone_extension;
-    }
-
-    function getJoined_date() {
-        return $this->joined_date;
-    }
-
-    function getResigned_date() {
-        return $this->resigned_date;
-    }
-
-    function getAdded_by() {
-        return $this->added_by;
-    }
-
-    function getAdded_date() {
-        return $this->added_date;
-    }
-
-    function getEmp_image() {
-        return $this->emp_image;
-    }
-
-    function getMail_server() {
-        return $this->mail_server;
-    }
-
-    function getRoster_id() {
-        return $this->roster_id;
-    }
-
-    //26Aug2013 Barathy - End
-    //17Oct2013 Barathy
-    function getContract_type() {
-        return $this->contract_type;
-    }
-
-    function getEmp_cat_id() {
-        return $this->emp_cat_id;
-    }
-
-    //2013-12-20 Viran 
-    function getCompany_id() {
-        return $this->company_id;
-    }
-
-    function getFull_name(){return $this->full_name;}
-
-
-    //17Oct2013 Barathy End
-//setters
-    function setEmployee_no($employee_no) {
+    public function set_employee_no($employee_no) {
         $this->employee_no = $employee_no;
     }
 
-//11Oct2013 Barathy
-
-    function setEmployee_Code($Employee_Code) {
-        $this->Employee_Code = $Employee_Code;
+    public function get_employee_fname() {
+        return $this->employee_fname;
     }
 
-    function setEmployee_Name($Employee_Name) {
-        $this->Employee_Name = $Employee_Name;
+    public function set_employee_fname($employee_fname) {
+        $this->employee_fname = $employee_fname;
     }
 
-    function setDesignation($Designation) {
-        $this->Designation = $Designation;
+    public function get_employee_lname() {
+        return $this->employee_lname;
     }
 
-    function setEmail($Email) {
-        $this->Email = $Email;
+    public function set_employee_lname($employee_lname) {
+        $this->employee_lname = $employee_lname;
     }
 
-    function setPassword($Password) {
-        $this->Password = $Password;
+    public function get_employee_password() {
+        return $this->employee_password;
     }
 
-    function setConfirmation_Code($Confirmation_Code) {
-        $this->Confirmation_Code = $Confirmation_Code;
+    public function set_employee_password($employee_password) {
+        $this->employee_password = $employee_password;
     }
 
-    function setStatus($Status) {
-        $this->Status = $Status;
+    public function get_employee_email() {
+        return $this->employee_email;
     }
 
-    //26Aug2013 Barathy - Begin
-    function setLast_name($x) {
-        $this->last_name = $x;
+    public function set_employee_email($employee_email) {
+        $this->employee_email = $employee_email;
     }
 
-    function setBirthday($x) {
-        $this->birthday = $x;
+    public function get_employee_type() {
+        return $this->employee_type;
     }
 
-    function setNic($x) {
-        $this->nic = $x;
+    public function set_employee_type($employee_type) {
+        $this->employee_type = $employee_type;
     }
 
-    function setGender($x) {
-        $this->gender = $x;
+    public function get_employee_bday() {
+        return $this->employee_bday;
     }
 
-    function setMarital_status($x) {
-        $this->marital_status = $x;
+    public function set_employee_bday($employee_bday) {
+        $this->employee_bday = $employee_bday;
     }
 
-    function setAddress1($x) {
-        $this->address1 = $x;
+    public function get_employee_contact() {
+        return $this->employee_contact;
     }
 
-    function setAddress2($x) {
-        $this->address2 = $x;
+    public function set_employee_contact($employee_contact) {
+        $this->employee_contact = $employee_contact;
     }
 
-    function setCity($x) {
-        $this->city = $x;
+    public function get_employee_salary() {
+        return $this->employee_salary;
     }
 
-    function setMobile_no($x) {
-        $this->mobile_no = $x;
+    public function set_employee_salary($employee_salary) {
+        $this->employee_salary = $employee_salary;
     }
 
-    function setPhone_extension($x) {
-        $this->phone_extension = $x;
+    public function get_employee_contract() {
+        return $this->employee_contract;
     }
 
-    function setJoined_date($x) {
-        $this->joined_date = $x;
+    public function set_employee_contract($employee_contract) {
+        $this->employee_contract = $employee_contract;
     }
 
-    function setResigned_date($x) {
-        $this->resigned_date = $x;
+    public function get_employee_avatar() {
+        return $this->employee_avatar;
     }
 
-    function setAdded_by($x) {
-        $this->added_by = $x;
+    public function set_employee_avatar($employee_avatar) {
+        $this->employee_avatar = $employee_avatar;
     }
 
-    function setAdded_date($x) {
-        $this->added_date = $x;
+    public function get_company_code() {
+        return $this->company_code;
     }
 
-    function setEmp_image($x) {
-        $this->emp_image = $x;
+    public function set_company_code($company_code) {
+        $this->company_code = $company_code;
     }
 
-    function setMail_server($x) {
-        $this->mail_server = $x;
+    public function get_del_ind() {
+        return $this->del_ind;
     }
 
-    //26Aug2013 Barathy - End
-
-    function setRoster_id($x) {
-        $this->roster_id = $x;
+    public function set_del_ind($del_ind) {
+        $this->del_ind = $del_ind;
     }
 
-    //17Oct2013 Barathy function setLoginType($type){$this->LoginType = $type;}
-    //17Oct2013 Barathy function getLoginType(){return $this->LoginType;}
-    function setpreferred_welcome_sys($welcome) {
-        $this->preferred_welcome_sys = $welcome;
+    public function get_added_by() {
+        return $this->added_by;
     }
 
-    function getpreferred_welcome_sys() {
-        return $this->preferred_welcome_sys;
+    public function set_added_by($added_by) {
+        $this->added_by = $added_by;
     }
 
-    //17Oct2013 Barathy
-    function setContract_type($contract_type) {
-        $this->contract_type = $contract_type;
+    public function get_added_date() {
+        return $this->added_date;
     }
 
-    function setEmp_cat_id($emp_cat_id) {
-        $this->emp_cat_id = $emp_cat_id;
+    public function set_added_date($added_date) {
+        $this->added_date = $added_date;
     }
 
-    //2013-12-20 Viran 
-    function setCompany_id($company_id) {
-        $this->company_id = $company_id;
+    public function get_updated_by() {
+        return $this->updated_by;
     }
 
-    //17Oct2013 Barathy -End
+    public function set_updated_by($updated_by) {
+        $this->updated_by = $updated_by;
+    }
 
-    function setFull_name($full_name){$this->full_name = $full_name;}
+    public function get_updated_date() {
+        return $this->updated_date;
+    }
 
-
-
-
-
+    public function set_updated_date($updated_date) {
+        $this->updated_date = $updated_date;
+    }
 
 }
