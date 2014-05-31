@@ -33,7 +33,7 @@
         <link href="<?php echo base_url(); ?>application_resources/css/tiles_responsive.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
         
-        <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE') . ' - ' . $title; ?></title>
+        <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE');  if(!empty($title)){ echo ' - ' . $title; } ?></title>
         
     </head>
     <!-- END HEAD -->

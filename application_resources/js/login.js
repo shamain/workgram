@@ -1,10 +1,15 @@
+
+
+var base_url = js_base_url;
+var site_url = js_site_url;
+
 $(document).ready(function() {
     $('#login_form').validate({
         focusInvalid: false,
         ignore: "",
         rules: {
             txtusername: {
-                minlength: 2,
+                minlength: 6,
                 required: true
             },
             txtpassword: {
@@ -30,52 +35,42 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }
     });
-    
-    $('#login-submit').click(function(){
-        
-            var login_username = $('#txtusername').val();
-    var login_password = $('#txtpassword').val();
 
 
 
-    if ($('#login_form').valid()) {
+//login submit button actions
+    $('#login-submit').click(function() {
 
-//                    $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-     var x=   $('.load-anim').show().delay(5000);
+        var login_username = $('#txtusername').val();
+        var login_password = $('#txtpassword').val();
 
-//
+        if ($('#login_form').valid()) {
 
-        $.ajax({
-            type: "POST",
-            url: site_url + "/login/login_controller/authenticateUser",
-            data: "login_username=" + login_username + "&login_password=" + login_password,
-            async: false,
-            success: function(msg) {
-                $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-                //alert(msg);
-                if (msg == 1) {
+            var x = $('.load-anim').show().delay(5000);
+
+            $.ajax({
+                type: "POST",
+                url: site_url + "/login/login_controller/authenticateUser",
+                data: "login_username=" + login_username + "&login_password=" + login_password,
+                async: false,
+                success: function(msg) {
                     $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-                    setTimeout("location.href = site_url+'/login/login_controller/';", 100);
-                    x.fadeOut('slow');
-                } else {
+                    if (msg == 1) {
+                        $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
+                        setTimeout("location.href = site_url+'/login/login_controller/';", 100);
+                        x.fadeOut('slow');
+                    } else {
 
-                    $('#login_msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                        $('#login_msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                    }
+
                 }
-
-            }
-        });
-    }
-        
+            });
+        }
     });
-    
-    
-
 });
 
 
-
-var base_url = js_base_url;
-var site_url = js_site_url;
 
 
 
