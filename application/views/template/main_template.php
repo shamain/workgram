@@ -86,6 +86,7 @@
                             </li>
                         </ul>
                     </div>
+                    
                     <!-- END TOP NAVIGATION MENU -->
                     <!-- BEGIN CHAT TOGGLER -->
                     <div class="pull-right">
