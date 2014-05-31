@@ -42,6 +42,18 @@
 //
 //});
 
+
+$(document).ready(function() {	
+    $('btn-primary').click(function(){
+        
+         $(".load-anim").fadeIn('slow').animate({opacity: 1.0}, 1500).effect("pulsate", { times: 2 }, 800).fadeOut('slow');
+        
+    });
+   
+    
+});
+
+
 function login() {
     var login_username = $('#txtusername').val();
     var login_password = $('#txtpassword').val();

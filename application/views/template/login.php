@@ -20,13 +20,24 @@
         <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
-
-
+        
+        <!-- CUSTOM CSS -->
+         <link href="<?php echo base_url(); ?>application_resources/css/custom_css.css" rel="stylesheet" type="text/css"/>
+        <!-- END CUSTOM CSS -->
+        
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
+        
+        
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
     <body class="error-body no-top">
+        <div class="load-anim">
+            <center>
+        <i id="animate-icon" class="fa fa-spinner fa fa-3x fa-spin loader-icon-margin"></i>
+                </center>
+        
+        </div>
         <div class="container">
             <div class="row login-container column-seperation">  
                 <div class="col-md-5 col-md-offset-1">
@@ -83,9 +94,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-10">
-                                <div class="pull-right">
-                                    <i id="animate-icon" class="fa fa-spinner fa fa-3x fa-spin"></i>
-                                </div>
+                                
                                 <button class="btn btn-primary btn-cons pull-right" type="button" onclick="login()">Login</button>
 
                                 
