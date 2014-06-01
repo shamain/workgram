@@ -50,7 +50,7 @@
                             </a> </li>
                     </ul>
                     <!-- BEGIN LOGO -->
-                    <a href="index-2.html"><img src="<?php echo base_url(); ?>application_resources/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>application_resources/img/logo.png" data-src-retina="<?php echo base_url(); ?>application_resources/img/logo2x.png" width="106" height="21"/></a>
+                    <a href="index-2.html"><img src="<?php echo base_url(); ?>application_resources/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>application_resources/img/logo.png" data-src-retina="<?php echo base_url(); ?>application_resources/img/logo2x.png" width="106" height="42"/></a>
                     <!-- END LOGO -->
                     <ul class="nav pull-right notifcation-center">
                         <li class="dropdown" id="header_task_bar"> <a href="index-2.html" class="dropdown-toggle active" data-toggle="">
