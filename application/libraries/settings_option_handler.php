@@ -60,6 +60,7 @@ class Settings_option_handler extends CI_Controller {
         $company_setting = $company_settings_service->get_company_setting_by_id($company_settings_model);
 
 
+        
         if (count($company_setting) == 0) {
 
             //this will get the default option for login settings
