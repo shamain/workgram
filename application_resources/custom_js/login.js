@@ -20,11 +20,17 @@ $(document).ready(function() {
             //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter(element).append(label)
+            $('<span class="error"></span>').insertAfter($(element).parent().parent()).append(label)
             var parent = $(element).parent('.input-with-icon');
+            var icon = $(element).parent('.input-with-icon').children('i');
+            icon.removeClass('fa fa-check').addClass('fa fa-exclamation');
             parent.removeClass('success-control').addClass('error-control');
         },
         highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+             var icon = $(element).parent().children('i');
+            icon.removeClass('fa fa-check').addClass('fa fa-exclamation');
+            parent.removeClass('success-control').addClass('error-control');
 
         },
         unhighlight: function(element) { // revert the change done by hightlight
@@ -32,6 +38,8 @@ $(document).ready(function() {
         },
         success: function(label, element) {
             var parent = $(element).parent('.input-with-icon');
+            var icon = $(element).parent('.input-with-icon').children('i');
+            icon.removeClass("fa fa-exclamation").addClass('fa fa-check');
             parent.removeClass('error-control').addClass('success-control');
         }
     });

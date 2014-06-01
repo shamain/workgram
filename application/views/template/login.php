@@ -26,6 +26,12 @@
         <!-- END CUSTOM CSS -->
 
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
+        
+        <style>
+            .input-group .form-control {
+                position: static;
+            }
+        </style>
 
 
     </head>
@@ -60,9 +66,15 @@
                             <div class="form-group col-md-10">
                                 <label class="form-label">Username</label>
                                 <div class="controls">
-                                    <div class="input-with-icon  right">                                       
-                                        <i class=""></i>
-                                        <input type="text" name="txtusername" id="txtusername" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)">                                 
+                                    <div class="input-group"> 
+                                        <span class="input-group-addon primary">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-align-justify"></i>
+                                        </span>
+                                        <div class="input-with-icon right">
+                                            <i class=""></i>
+                                            <input type="text" name="txtusername" id="txtusername" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)" placeholder="User Name">                                 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -72,10 +84,15 @@
                                 <label class="form-label">Password</label>
                                 <span class="help"></span>
                                 <div class="controls">
-                                    <div class="input-with-icon  left">                                       
-                                        <i class=""></i>
-                                        <input type="password" name="txtpassword" id="txtpassword" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)"> 
-
+                                    <div class="input-group">  
+                                        <span class="input-group-addon primary">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-unlock"></i>
+                                        </span>
+                                        <div class="input-with-icon right ">
+                                            <i class=""></i>
+                                            <input type="password" name="txtpassword" id="txtpassword" class="form-control" onFocus="validkey(event)" onClick="validkey(event)" onKeyPress="validkey(event)" placeholder="Password"> 
+                                        </div>
                                     </div>
 
                                 </div>
@@ -111,17 +128,17 @@
 
         <script type="text/javascript">
 
-                                    var js_base_url = "<?php echo base_url(); ?>";
-                                    var js_site_url = "<?php echo site_url(); ?>";
+                                                var js_base_url = "<?php echo base_url(); ?>";
+                                                var js_site_url = "<?php echo site_url(); ?>";
 
-                                    //alert(js_url_path);
+                                                //alert(js_url_path);
         </script>
 
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>application_resources/js/login.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/login.js" type="text/javascript"></script>
         <!-- BEGIN CORE TEMPLATE JS -->
         <!-- END CORE TEMPLATE JS -->
     </body>
