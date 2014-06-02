@@ -30,8 +30,12 @@
                                 <td><?php echo $privilege->privilege; ?></td>
                                 <td><?php echo $privilege->priviledge_code_HF; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/priviledges/edit_priviledges_view/<?php echo $privilege->privilege_code; ?>"><i class="fa fa-pencil"></i></a>
-
+                                    <a href="<?php echo site_url(); ?>/settings/privilege_controller/edit_privileges_view/<?php echo $privilege->privilege_code; ?>">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a style="cursor: pointer;"   title="Delete this Privilege" onclick="delete_privilege(<?php echo $privilege->privilege_code; ?>)">
+                                        <i class="fa fa-times"></i>
+                                    </a>
 
                                 </td>
                             </tr>
@@ -125,7 +129,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
-                
+
             </form>
         </div>
         <!-- /.modal-content -->

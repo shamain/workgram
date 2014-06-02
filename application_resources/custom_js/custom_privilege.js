@@ -83,8 +83,33 @@ $(document).ready(function() {
 
         }
     });
-
-
 });
+
+function delete_privilege(id){
+		
+    if (confirm('Are you sure want to delete this Privilege ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/settings/privilege_controller/delete_privilege',
+            data: "id=" + id,
+            success: function (msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#privileges_' + id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Item Types');
+                }
+            }
+
+        });
+
+    }
+
+		
+		
+}
 
    
