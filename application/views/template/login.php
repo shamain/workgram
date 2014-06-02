@@ -138,7 +138,7 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>application_resources/custom_js/login.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_login.js" type="text/javascript"></script>
         <!-- BEGIN CORE TEMPLATE JS -->
         <!-- END CORE TEMPLATE JS -->
     </body>

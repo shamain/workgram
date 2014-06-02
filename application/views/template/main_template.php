@@ -19,6 +19,12 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
+
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/boostrap-checkbox/css/bootstrap-checkbox.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+
         <!-- BEGIN CORE CSS FRAMEWORK -->
         <link href="<?php echo base_url(); ?>application_resources/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
@@ -451,10 +457,11 @@
             <!-- END CORE JS FRAMEWORK -->
             <!-- BEGIN PAGE LEVEL JS -->
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/webarchScroll.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
+             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
@@ -462,6 +469,16 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/skycons/skycons.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-polymaps/polymaps.min.js" type="text/javascript"></script>
+
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+            <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/lodash.min.js"></script>
+            <!-- END PAGE LEVEL PLUGINS -->
+            <script src="<?php echo base_url(); ?>application_resources/js/datatables.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_privilege.js" type="text/javascript"></script>
+            <!-- BEGIN CORE TEMPLATE JS -->
 
 
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
@@ -473,6 +490,10 @@
             <script src="<?php echo base_url(); ?>application_resources/js/chat.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/demo.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/dashboard_v2.js" type="text/javascript"></script>
+
+
+
+
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".live-tile,.flip-list").liveTile();

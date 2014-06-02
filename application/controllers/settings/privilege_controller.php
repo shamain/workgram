@@ -27,9 +27,9 @@ class Privilege_controller extends CI_Controller {
         $privilege_master_service = new Privilege_master_service();
         $data['heading'] = "Manage Privileges";
 
-        $data['priviledges'] = $privilege_service->get_all_privileges();
+        $data['privileges'] = $privilege_service->get_all_privileges();
 
-        $data['master_priviledges'] = $privilege_master_service->get_all_master_provileges();
+        $data['master_privileges'] = $privilege_master_service->get_all_master_provileges();
 
         $partials = array('content' => 'privileges/manage_privileges_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -38,23 +38,24 @@ class Privilege_controller extends CI_Controller {
 //        }
     }
 
-    function addnewpriviledge() {
-        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
-        if ($perm) {
+    function add_new_privilege() {
+//        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
+//        if ($perm) {
 
-            $priviledgesmodel = new Priviledgesmodel();
+            $privilege_model = new Privilege_model();
+            $privilege_service=new Privilege_service();
 
-            $priviledgesmodel->setPrivilege_Master_Code($this->input->post('Privilege_Master_Code', TRUE));
-            $priviledgesmodel->setPrivilege($this->input->post('Privilege', TRUE));
-            $priviledgesmodel->setPrivilege_Description($this->input->post('Privilege_Description', TRUE));
-            $priviledgesmodel->setPriviledge_Code_HF($this->input->post('Priviledge_Code_HF', TRUE));
+            $privilege_model->set_privilege_master_code($this->input->post('master_privilege_code', TRUE));
+            $privilege_model->set_privilege($this->input->post('privilege', TRUE));
+            $privilege_model->set_privilege_description($this->input->post('privilege_desc', TRUE));
+            $privilege_model->set_priviledge_code_HF($this->input->post('privilege_hf', TRUE));
 
 
 
-            echo Priviledgesservice :: addnewpriviledge($priviledgesmodel);
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+            echo $privilege_service->add_new_privilege($privilege_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
     function deletepriviledge() {
