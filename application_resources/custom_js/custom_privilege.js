@@ -103,13 +103,21 @@ function delete_privilege(id){
                     alert('Cannot be deleted as it is already assigned to Item Types');
                 }
             }
-
         });
+    }	
+}
 
-    }
+//add new privilege			
+//this is to autofill the Privilege Human Code	
+function auto_write_human_friendly_code() {
 
-		
-		
+    var privilege_text = $("#privilege").val();
+
+    //replace spaces with _
+    var replaced_text = privilege_text.replace(/ /g, "_");
+
+    //convert to upper case
+    document.getElementById('privilege_hf').value = replaced_text.toUpperCase();
 }
 
    

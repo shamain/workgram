@@ -90,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="privilege" class="form-control" type="text" name="privilege">                              
+                                <input id="privilege" class="form-control" type="text" name="privilege" onkeyup="auto_write_human_friendly_code()">                              
                             </div>
                         </div>
                     </div>
