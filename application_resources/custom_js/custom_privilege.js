@@ -1,6 +1,8 @@
 var base_url = js_base_url;
 var site_url = js_site_url;
 
+
+//////////////////Privilege//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //privilege table
     var oTable4 = $('#privilege_table').dataTable({
@@ -100,7 +102,7 @@ function delete_privilege(id){
                     $('#privileges_' + id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Item Types');
+                    alert('Cannot be deleted as it is already assigned to Privilege');
                 }
             }
         });
@@ -120,4 +122,26 @@ function auto_write_human_friendly_code() {
     document.getElementById('privilege_hf').value = replaced_text.toUpperCase();
 }
 
+   ////////////////Privilege Master/////////////////////////////////////////////////////////
    
+   function delete_privilege_master(id){
+		
+    if (confirm('Are you sure want to delete this Master Privilege ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/settings/privilege_controller/delete_privilege',
+            data: "id=" + id,
+            success: function (msg) {
+                //alert(msg);
+                if (msg == 1) {
+
+                    $('#privilege_master_' + id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Master Privilege');
+                }
+            }
+        });
+    }	
+}
