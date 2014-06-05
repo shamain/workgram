@@ -13,8 +13,8 @@ class Privilege_master_controller extends CI_Controller {
         } else {
             $this->load->model('privilege_master/privilege_master_model');
             $this->load->model('privilege_master/privilege_master_service');
-
-            $this->load->model('Systems/Systemsservice');
+//
+//            $this->load->model('Systems/Systemsservice');
         }
     }
 
@@ -24,9 +24,9 @@ class Privilege_master_controller extends CI_Controller {
 //        if ($perm) {
 
         $privilege_master_service = new Privilege_master_service();
-        $data['title'] = "Manage Master Privileges";
+        $data['heading'] = "Manage Master Privileges";
 
-        $data['master_privileges'] = $privilege_master_service->get_all_master_provileges();
+        $data['privilege_masters'] = $privilege_master_service->get_all_master_provileges();
 //        $data['systems'] = Systemsservice :: getAllsystems();
 
         $partials = array('content' => 'privilege_master/manage_privilege_master_view');

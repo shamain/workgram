@@ -14,8 +14,8 @@
                     <thead>
                         <tr>
                             <th>Master Privilege ID</th>
-                            <th>Main System</th>
                             <th>Master Privilege</th>
+                            <th>Description</th>
                             <th>Options</th>
 
                         </tr>
@@ -26,8 +26,8 @@
                             ?> 
                             <tr  id="privilege_master_<?php echo $privilege_master->privilege_master_code; ?>">
                                 <td><?php echo $privilege_master->privilege_master_code; ?></td>
-                                <td><?php echo $privilege_master->system; ?></td>
                                 <td><?php echo $privilege_master->master_privilege; ?></td>
+                                <td><?php echo $privilege_master->master_privilege_description; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/privilege_controller/edit_privilege_master_view/<?php echo $privilege_master->privilege_master_code; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -47,11 +47,3 @@
     </div>
 </div>
 
-
-
-
-<script type="text/javascript">
-    $('#priviledges_parent_menu').addClass('active');
-    $('#priviledges_sub_menu').removeClass('closed');
-
-</script>                                  
