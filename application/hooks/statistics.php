@@ -9,7 +9,6 @@ class Statistics {
 
 
 		// Next up, we want to know what page we're on, use the router class
-		$data['section'] = $CI->session->userdata('LCS_SYSTEM');
 		$data['action'] = $CI->router->method;
 		
 		$data['browser'] = $_SERVER['HTTP_USER_AGENT'];
@@ -54,7 +53,7 @@ class Statistics {
 			
 			
 			// And write it to the database
-			$CI->db->insert('lcs_crm_statistics', $data);
+			$CI->db->insert('statistics', $data);
 		}
 
 

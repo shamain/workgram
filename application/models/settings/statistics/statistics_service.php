@@ -27,7 +27,6 @@ class Statistics_service extends CI_Model {
     	$keyword	= $this->input->post('keywords');
     	$from = $this->input->post('from');
     	$to	= $this->input->post('to');
-    	$system	= $this->input->post('systems');
     	 
 
     	//if search type = 1 this means its a new search so set the $start variable to 0
@@ -40,7 +39,6 @@ class Statistics_service extends CI_Model {
     		$this->session->set_userdata('statistics_keywords', $keyword);
     		$this->session->set_userdata('statistics_from', $from);
     		$this->session->set_userdata('statistics_to', $to);
-    		$this->session->set_userdata('statistics_system', $system);
     	}
     	 
     	//use the session data to search the table.
@@ -64,11 +62,7 @@ class Statistics_service extends CI_Model {
     		}
     	}
     	 
-    	 
-    	if($this->session->userdata('statistics_system') != "")
-    	{
-    		$this->db->where('section ='. $this->session->userdata('statistics_system'));
-    	}
+
     	 
     	 
     	if($this->session->userdata('statistics_keywords') != "")
@@ -79,9 +73,8 @@ class Statistics_service extends CI_Model {
     		$this->db->or_like('action', $this->session->userdata('statistics_keywords'));
     	}
     	 
-    	$this->db->select('lcs_crm_statistics.*,Employee_Name,last_name,lcs_system.System');
-    	$this->db->from("lcs_crm_statistics");
-    	$this->db->join('lcs_system', 'System_Code = section');
+    	$this->db->select('statistics.*,Employee_Name,last_name');
+    	$this->db->from("statistics");
     	$this->db->join('lcs_employee', 'Employee_Code = user_id');
     	$this->db->order_by('lcs_crm_statistics.id','DESC');
     	

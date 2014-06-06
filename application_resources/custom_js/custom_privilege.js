@@ -5,8 +5,8 @@ var site_url = js_site_url;
 //////////////////Privilege//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //privilege table
-    var oTable4 = $('#privilege_table').dataTable({
-        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+    var privilege_table = $('#privilege_table').dataTable({
+        "sDom": "<'row'<'col-md-6'l <'toolbar privilege_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
                 {
@@ -26,12 +26,15 @@ $(document).ready(function() {
         },
     });
 
-    $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_btn" data-toggle="modal" data-target="#add_privilege_modal">Add New Privilege</button></div>');
-
-
+$(".privilege_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_btn" data-toggle="modal" data-target="#add_privilege_modal">Add New Privilege</button></div>');
+   
     $('#privilege_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#privilege_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+    
+     
+
+
 
 //add Privilege Form
     $('#add_privilege_form').validate({
@@ -75,7 +78,7 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_controller/add_new_privilege', $('#add_privilege_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" >Privilege</a>has been added.</div>');
+                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
                     add_privilege_form.reset();
                     location.reload();
                 } else {
@@ -130,7 +133,7 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_controller/edit_privilege', $('#edit_privilege_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#edit_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" >Privilege</a>has been updated.</div>');
+                    $("#edit_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been updated.</div>');
                     edit_privilege_form.reset();
                     location.reload();
                 } else {
@@ -209,7 +212,7 @@ function delete_privilege_master(id) {
 $(document).ready(function() {
     //privilege master table
     var oTable4 = $('#privilege_master_table').dataTable({
-        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "sDom": "<'row'<'col-md-6'l <'toolbar privilege_master_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
                 {
@@ -229,7 +232,7 @@ $(document).ready(function() {
         },
     });
 
-    $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_master_btn" data-toggle="modal" data-target="#add_privilege_master_modal">Add New Master Privilege</button></div>');
+    $(".privilege_master_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_master_btn" data-toggle="modal" data-target="#add_privilege_master_modal">Add New Master Privilege</button></div>');
 
     $('#privilege_master_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#privilege_master_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
@@ -271,7 +274,7 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_master_controller/add_new_privilege_master', $('#add_privilege_master_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" >Master Privilege</a>has been added.</div>');
+                    $("#add_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Master Privilege</a>has been added.</div>');
                     add_privilege_master_form.reset();
                     location.reload();
                 } else {
@@ -318,7 +321,7 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_master_controller/edit_master_privilege', $('#edit_privilege_master_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#edit_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" >Master Privilege</a>has been updated.</div>');
+                    $("#edit_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Master Privilege</a>has been updated.</div>');
                     edit_privilege_master_form.reset();
                     location.reload();
                 } else {

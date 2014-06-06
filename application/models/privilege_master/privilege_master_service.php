@@ -11,18 +11,16 @@ class Privilege_master_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('privilege_master');
-        $this->db->join('systems', 'systems.system_code = privilege_master.system_code');
         ;
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function get_master_privileges($main_system_code) {
+    public function get_master_privileges() {
 
 
         $this->db->select('*');
         $this->db->from('privilege_master');
-        $this->db->where('system_code', $main_system_code);
         $query = $this->db->get();
         return $query->result();
     }
@@ -53,7 +51,6 @@ class Privilege_master_service extends CI_Model {
     function update_master_priviledge($privilege_master_model) {
 
         $data = array(
-            'system_code' => $privilege_master_model->get_system_code(),
             'master_privilege' => $privilege_master_model->get_master_privilege(),
             'master_privilege_description' => $privilege_master_model->get_master_privilege_description()
         );
