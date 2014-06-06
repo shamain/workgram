@@ -124,7 +124,7 @@
                     </div>
 
                 </div>
-                <div id="msg" class="form-row"> </div>
+                <div id="add_privilege_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>

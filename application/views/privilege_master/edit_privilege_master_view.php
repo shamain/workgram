@@ -1,101 +1,66 @@
-<div class="grid_4">
+<div class="page-title">	
+    <h3><?php echo $heading; ?></h3>		
+</div>
 
-                                        
-                                          <div class="da-form-row" id="msg">
-                                                    
-                                                </div>
-                                        
-                                        
-                                    </div>                
-                            
-                            
-                            
-                            
-    <div class="grid_4">
-                        	<div class="da-panel">
-                            	<div class="da-panel-header">
-                                	<span class="da-panel-title">
-                                        <img src="../employee/images/icons/color/accept.png" alt="" />
-                                        <?php echo $title;?>
-                                    </span>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="grid simple ">
+            <div class="grid-title">
+                <h4>Advance <span class="semi-bold">Options</span></h4>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+            </div>
+            <div class="grid-body ">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <form id="edit_privilege_master_form" name="edit_privilege_master_form">
+
+                            <div class="row form-row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Master Privilege</label>
+                                        <span style="color: red">*</span>
+                                    </div>
                                 </div>
-                                <div class="da-panel-content">
-                                	<form id="edit_master_priviledge" class="da-form" name="edit_master_priviledge">
-                                            <div id="da-validate-error" class="da-message error" style="display:none;"></div>
-                                            <div class="da-form-inline">
-                                                <div class="da-form-row">
-                                                    <label>LCS System</label>
-                                                    <div class="da-form-item small">
-                                                       <select id="Main_System_Code" name="Main_System_Code">
-                                                       
-                                                        <!-- <option value="">Please Select</option>  -->
-                                                         <?php	foreach($systems as $rowsystems)
-														{  ?> 
-                                                       <option <?php  if($masterpriviledgebyid->Main_System_Code==$rowsystems->System_Code){  echo 'selected="selected"'; }?> value="<?php echo $rowsystems->System_Code;?>"><?php echo $rowsystems->System;?></option>
-                                                       <?php } ?>
-                                                       </select>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                <div class="da-form-row">
-                                                    <label>Master Priviledge</label>
-                                                    <div class="da-form-item large">
-                                                        <input type="text" name="Master_Privilege" id="Master_Privilege" value="<?php echo $masterpriviledgebyid->Master_Privilege; ?>" />
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                              
-                                              <div class="da-form-row">
-                                          <label>Master Priviledge Description</label>
-                                          <div class="da-form-item large">
-                                              <input type="text" name="Master_Privilege_Description"  id="Master_Privilege_Description" value="<?php echo $masterpriviledgebyid->Master_Privilege_Description; ?>"  />
-                                                    </div>
-                                                </div>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                                
-                                                
-                                                
-                                                
-                                                
-                                            <div class="da-button-row">
-                                     
-      <input type="hidden" name="Privilege_Master_Code"  id="Privilege_Master_Code" value="<?php  echo $masterpriviledgebyid->Privilege_Master_Code;?>" />
-
-                                     
-                                     
-           <input type="submit" value="Save" class="da-button pink left"  onclick="editmasterpriviledge()"/>
-                                             
-                                        </div>    
-                                                
-                                              
-                                              
-                                            </div>
-                                        </form>
-                                        
-                                        
-                                    <div class="da-form-row" id="msg">
-                                                    
-                                                </div>    
+                                <div class="col-md-6">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <input id="master_privilege" class="form-control" type="text" name="master_privilege" value="<?php echo $privilege_master->master_privilege ;?>" >                              
+                                    </div>
                                 </div>
                             </div>
-                        </div>                        
-              
-                        
-      
-      
-      
-      
- <script type="text/javascript">        
- $('#priviledges_parent_menu').addClass('active');  
-  $('#priviledges_sub_menu').removeClass('closed'); 
+                            <div class="row form-row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Master Privilege Description</label>
+                                        <span style="color: red">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <input id="master_privilege_desc" class="form-control" type="text" name="master_privilege_desc" value="<?php echo $privilege_master->master_privilege_description;?>">                              
+                                    </div>
+                                </div>
+                            </div>
 
-</script>                          
+                            <div id="edit_privilege_master_msg" class="form-row"> </div>
+
+                            <input type="hidden" id="privilege_master_code" name="privilege_master_code" value="<?php echo $privilege_master->privilege_master_code; ?>"/>
+                            
+                            <div class="form-actions">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary btn-cons" type="submit">
+                                        <i class="icon-ok"></i>
+                                        Save
+                                    </button>
+                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

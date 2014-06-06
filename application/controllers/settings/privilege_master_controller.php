@@ -66,7 +66,7 @@ class Privilege_master_controller extends CI_Controller {
 //        }
     }
 
-    function edit_master_priviledges_view($id) {
+    function edit_master_privileges_view($id) {
 
 //        $perm = Access_controllerservice :: checkAccess('EDIT_MASTER_PRIVILEGES');
 //        if ($perm) {
@@ -75,7 +75,7 @@ class Privilege_master_controller extends CI_Controller {
 
         $data['heading'] = "Edit Master Privilege";
 
-        $data['masterpriviledgebyid'] = $privilege_master_service->get_master_privilege_by_id($id);
+        $data['privilege_master'] = $privilege_master_service->get_master_privilege_by_id($id);
 
         $partials = array('content' => 'privilege_master/edit_privilege_master_view');
         $this->template->load('template/main_template', $partials, $data);

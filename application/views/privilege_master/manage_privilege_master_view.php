@@ -29,7 +29,7 @@
                                 <td><?php echo $privilege_master->master_privilege; ?></td>
                                 <td><?php echo $privilege_master->master_privilege_description; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/settings/privilege_controller/edit_privilege_master_view/<?php echo $privilege_master->privilege_master_code; ?>">
+                                    <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/edit_master_privileges_view/<?php echo $privilege_master->privilege_master_code; ?>">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Master Privilege" onclick="delete_privilege_master(<?php echo $privilege_master->privilege_master_code; ?>)">
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="msg" class="form-row"> </div>
+                <div id="add_privilege_master_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>

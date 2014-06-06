@@ -12,7 +12,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                    <form id="add_privilege_form" name="add_privilege_form">
+                    <form id="edit_privilege_form" name="edit_privilege_form">
 
                         <div class="form-group">
                             <label class="form-label">Master Privilege</label>
@@ -23,7 +23,7 @@
                                 <select name="master_privilege_code" id="master_privilege_code" class="select2 form-control"  >
                                     <?php foreach ($master_privileges as $master_privilege) {
                                         ?> 
-                                        <option value="<?php echo $master_privilege->privilege_master_code; ?>"><?php echo $master_privilege->master_privilege; ?></option>
+                                    <option value="<?php echo $master_privilege->privilege_master_code; ?>" <?php if($master_privilege->privilege_master_code == $privilege->privilege_master_code){ ?> selected="true" <?php } ?>><?php echo $master_privilege->master_privilege; ?></option>
                                     <?php } ?>
                                 </select>                               
                             </div>
@@ -35,7 +35,7 @@
 
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="privilege" class="form-control" type="text" name="privilege">                              
+                                <input id="privilege" class="form-control" type="text" name="privilege" value="<?php echo $privilege->privilege;?>">                              
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@
 
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="privilege_desc" class="form-control" type="text" name="privilege_desc">                              
+                                <input id="privilege_desc" class="form-control" type="text" name="privilege_desc" value="<?php echo $privilege->privilege_description;?>">                              
                             </div>
                         </div>
 
@@ -56,11 +56,13 @@
 
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="privilege_hf" class="form-control" type="text" name="privilege_hf">                              
+                                <input id="privilege_hf" class="form-control" type="text" name="privilege_hf" value="<?php echo $privilege->priviledge_code_HF;?>">                              
                             </div>
                         </div>
 
-                        <div id="msg" class="form-row"> </div>
+                        <div id="edit_privilege_msg" class="form-row"> </div>
+                        
+                        <input type="hidden" id="privilege_code" name="privilege_code" value="<?php echo $privilege->privilege_code;?>"/>
                         <div class="form-actions">
                             <div class="pull-right">
                                 <button class="btn btn-primary btn-cons" type="submit">

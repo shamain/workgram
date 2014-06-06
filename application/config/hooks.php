@@ -14,7 +14,7 @@
 $hook['post_controller_constructor'] = array(
 		'class'    => 'Statistics',
 		'function' => 'log_activity',
-		'filename' => 'Statistics.php',
+		'filename' => 'statistics.php',
 		'filepath' => 'hooks'
 );
 
