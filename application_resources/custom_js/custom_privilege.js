@@ -33,6 +33,7 @@ $(document).ready(function() {
     $('#privilege_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
+//add Privilege Form
     $('#add_privilege_form').validate({
         focusInvalid: false,
         ignore: "",
@@ -78,7 +79,7 @@ $(document).ready(function() {
                     add_privilege_form.reset();
                     location.reload();
                 } else {
-                    $("#msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The daily<a class="link" href="#">Privilege</a>has failed.</div>');
+                    $("#msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
                 }
             });
 
@@ -87,15 +88,17 @@ $(document).ready(function() {
     });
 });
 
-function delete_privilege(id){
-		
+
+//delete privileges
+function delete_privilege(id) {
+
     if (confirm('Are you sure want to delete this Privilege ?')) {
 
         $.ajax({
             type: "POST",
             url: site_url + '/settings/privilege_controller/delete_privilege',
             data: "id=" + id,
-            success: function (msg) {
+            success: function(msg) {
                 //alert(msg);
                 if (msg == 1) {
                     //document.getElementById(trid).style.display='none';
@@ -106,7 +109,7 @@ function delete_privilege(id){
                 }
             }
         });
-    }	
+    }
 }
 
 //add new privilege			
@@ -122,17 +125,18 @@ function auto_write_human_friendly_code() {
     document.getElementById('privilege_hf').value = replaced_text.toUpperCase();
 }
 
-   ////////////////Privilege Master/////////////////////////////////////////////////////////
-   
-   function delete_privilege_master(id){
-		
+////////////////Privilege Master/////////////////////////////////////////////////////////
+
+//delete master pivileges
+function delete_privilege_master(id) {
+
     if (confirm('Are you sure want to delete this Master Privilege ?')) {
 
         $.ajax({
             type: "POST",
-            url: site_url + '/settings/privilege_controller/delete_privilege',
+            url: site_url + '/settings/privilege_master_controller/delete_privilege_master',
             data: "id=" + id,
-            success: function (msg) {
+            success: function(msg) {
                 //alert(msg);
                 if (msg == 1) {
 
@@ -143,5 +147,82 @@ function auto_write_human_friendly_code() {
                 }
             }
         });
-    }	
+    }
 }
+
+$(document).ready(function() {
+    //privilege master table
+    var oTable4 = $('#privilege_master_table').dataTable({
+        "sDom": "<'row'<'col-md-6'l <'toolbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "oTableTools": {
+            "aButtons": [
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                    "aButtons": ["csv", "xls", "pdf", "copy"]
+                }
+            ]
+        },
+        "aoColumnDefs": [
+            {"bSortable": false, "aTargets": [0]}
+        ],
+        "aaSorting": [[3, "desc"]],
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ ",
+            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+        },
+    });
+
+    $("div.toolbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_master_btn" data-toggle="modal" data-target="#add_privilege_master_modal">Add New Master Privilege</button></div>');
+
+    $('#privilege_master_table_wrapper .dataTables_filter input').addClass("input-medium ");
+    $('#privilege_master_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
+    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+
+    //add Master Privilege Form
+    $('#add_privilege_master_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            master_privilege: {
+                required: true
+            },
+            master_privilege_desc: {
+                required: true
+            }
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/settings/privilege_master_controller/add_new_privilege_master', $('#add_privilege_master_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" >Master Privilege</a>has been added.</div>');
+                    add_privilege_master_form.reset();
+                    location.reload();
+                } else {
+                    $("#msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege</a>has failed.</div>');
+                }
+            });
+        }
+    });
+
+});

@@ -13,6 +13,8 @@ class Privilege_controller extends CI_Controller {
         } else {
             $this->load->model('privilege/privilege_model');
             $this->load->model('privilege/privilege_service');
+            
+            $this->load->model('privilege_master/privilege_master_model');
             $this->load->model('privilege_master/privilege_master_service');
 //            $this->load->model('Employee_user_priviledges/Employeeuserpriviledgesmodel');
 //            $this->load->model('Employee_user_priviledges/Employeeuserpriviledgesservice');
@@ -76,35 +78,36 @@ class Privilege_controller extends CI_Controller {
         $privilege_master_service = new Privilege_master_service();
 
         $data['heading'] = "Edit Privilege";
-        $data['priviledgebyid'] = $privilege_service->get_privilege_by_id($id);
-        $data['master_priviledges'] = $privilege_master_service->get_all_master_provileges();
+        $data['privilege'] = $privilege_service->get_privilege_by_id($id);
+        $data['master_privileges'] = $privilege_master_service->get_all_master_provileges();
 
-        $partials = array('content' => 'privileges/edit_privileges');
+        $partials = array('content' => 'privileges/edit_privilege_view');
         $this->template->load('template/main_template', $partials, $data);
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
 
-    function editpriviledge() {
+    function edit_privilege() {
 
-        $perm = Access_controllerservice :: checkAccess('EDIT_PRIVILEGES');
-        if ($perm) {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_PRIVILEGES');
+//        if ($perm) {
 
-            $priviledgesmodel = new Priviledgesmodel();
+            $privileges_model = new Privilege_model();
+            $privilege_service = new Privilege_service();
 
-            $priviledgesmodel->setPrivilege_Master_Code($this->input->post('Privilege_Master_Code', TRUE));
-            $priviledgesmodel->setPrivilege($this->input->post('Privilege', TRUE));
-            $priviledgesmodel->setPrivilege_Description($this->input->post('Privilege_Description', TRUE));
-            $priviledgesmodel->setPriviledge_Code_HF($this->input->post('Priviledge_Code_HF', TRUE));
+            $privileges_model->set_privilege_master_code($this->input->post('master_privilege_code', TRUE));
+            $privileges_model->set_privilege($this->input->post('privilege', TRUE));
+            $privileges_model->set_privilege_description($this->input->post('privilege_desc', TRUE));
+            $privileges_model->set_priviledge_code_HF($this->input->post('privilege_hf', TRUE));
 
-            $priviledgesmodel->setPrivilege_Code($this->input->post('Privilege_Code', TRUE));
+            $privileges_model->set_privilege_code($this->input->post('privilege_code', TRUE));
 
 
-            echo Priviledgesservice :: updatepriviledge($priviledgesmodel);
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+            echo $privilege_service->update_privilege($privileges_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
     function getEpmsPerPrivileges($priv_code) {

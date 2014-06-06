@@ -28,8 +28,6 @@ class Privilege_master_service extends CI_Model {
     }
 
     public function get_available_master_provileges() {
-
-
         $this->db->select('*');
         $this->db->from('privilege_master');
         $query = $this->db->get();

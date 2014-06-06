@@ -56,7 +56,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
                     <i class="icon-credit-card icon-7x"></i>
-                    <h4 id="myModalLabel" class="semi-bold">We need your billing info.</h4>
+                    <h4 id="add_privilege_modalLabel" class="semi-bold">We need your billing info.</h4>
                     <p class="no-margin">You'll be charged $29/Month and get immediate access to new plan </p>
                     <br>
                 </div>

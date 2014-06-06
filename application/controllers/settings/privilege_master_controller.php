@@ -36,71 +36,70 @@ class Privilege_master_controller extends CI_Controller {
 //        }
     }
 
-    function addnewmasterpriviledge() {
+    function add_new_privilege_master() {
 
-        $perm = Access_controllerservice :: checkAccess('ADD_MASTER_PRIVILEGES');
-        if ($perm) {
+//        $perm = Access_controllerservice :: checkAccess('ADD_MASTER_PRIVILEGES');
+//        if ($perm) {
 
-            $masterpriviledgesmodel = new Master_priviledgesmodel();
+        $privilege_master_model = new Privilege_master_model();
+        $privilege_master_service = new Privilege_master_service();
 
-            $masterpriviledgesmodel->setMain_System_Code($this->input->post('Main_System_Code', TRUE));
-            $masterpriviledgesmodel->setMaster_Privilege($this->input->post('Master_Privilege', TRUE));
-            $masterpriviledgesmodel->setMaster_Privilege_Description($this->input->post('Master_Privilege_Description', TRUE));
+        $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
+        $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
 
 
-            echo Master_priviledgesservice :: addnewmasterpriviledge($masterpriviledgesmodel);
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+        echo $privilege_master_service->add_new_master_privilege($privilege_master_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
-    function deletemasterpriviledge() {
+    function delete_privilege_master() {
 
-        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
-        if ($perm) {
-            Master_priviledgesmodel :: setPrivilege_Master_Code(trim($this->input->post('id', TRUE)));
+//        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
+//        if ($perm) {
+        $privilege_master_service = new Privilege_master_service();
 
-            echo Master_priviledgesservice :: deletemasterpriviledge();
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+        echo $privilege_master_service->delete_master_privilege(trim($this->input->post('id', TRUE)));
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
     function edit_master_priviledges_view($id) {
 
-        $perm = Access_controllerservice :: checkAccess('EDIT_MASTER_PRIVILEGES');
-        if ($perm) {
-            $data['title'] = "Edit Master Priviledge";
+//        $perm = Access_controllerservice :: checkAccess('EDIT_MASTER_PRIVILEGES');
+//        if ($perm) {
 
-            Master_priviledgesmodel :: setPrivilege_Master_Code($id);
+        $privilege_master_service = new Privilege_master_service();
 
+        $data['heading'] = "Edit Master Privilege";
 
-            $data['masterpriviledgebyid'] = Master_priviledgesservice :: getmasterPriviledgebyid();
-            $data['systems'] = Systemsservice :: getAllsystems();
+        $data['masterpriviledgebyid'] = $privilege_master_service->get_master_privilege_by_id($id);
 
-            $partials = array('content' => 'Master_priviledges/edit_master_priviledges');
-            $this->template->load('template/main_template', $partials, $data);
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+        $partials = array('content' => 'privilege_master/edit_privilege_master_view');
+        $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
-    function editmasterpriviledge() {
+    function edit_master_privilege() {
 
-        $perm = Access_controllerservice :: checkAccess('EDIT_MASTER_PRIVILEGES');
-        if ($perm) {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_MASTER_PRIVILEGES');
+//        if ($perm) {
 
-            $masterpriviledgesmodel = new Master_priviledgesmodel();
+        $privilege_master_model = new Privilege_master_model();
+        $privilege_master_service = new Privilege_master_service();
 
-            $masterpriviledgesmodel->setMain_System_Code($this->input->post('Main_System_Code', TRUE));
-            $masterpriviledgesmodel->setMaster_Privilege($this->input->post('Master_Privilege', TRUE));
-            $masterpriviledgesmodel->setMaster_Privilege_Description($this->input->post('Master_Privilege_Description', TRUE));
-            $masterpriviledgesmodel->setPrivilege_Master_Code($this->input->post('Privilege_Master_Code', TRUE));
+        $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
+        $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
+        $privilege_master_model->set_privilege_master_code($this->input->post('privilege_master_code', TRUE));
 
-            echo Master_priviledgesservice :: updatemasterpriviledge($masterpriviledgesmodel);
-        } else {
-            $this->template->load('template/access_denied_page');
-        }
+        echo $privilege_master_service->update_master_priviledge($privilege_master_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
     }
 
 }
