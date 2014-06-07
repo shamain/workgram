@@ -27,6 +27,7 @@
 
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
         
+        
         <style>
             .input-group .form-control {
                 position: static;
