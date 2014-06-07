@@ -17,9 +17,9 @@ $(document).ready(function() {
             }
         },
         invalidHandler: function(event, validator) {
-            //display error alert on form submit    
+            //display error alert on form submit
         },
-        errorPlacement: function(label, element) { // render error placement for each input type   
+        errorPlacement: function(label, element) { // render error placement for each input type
             $('<span class="error"></span>').insertAfter($(element).parent().parent()).append(label)
             var parent = $(element).parent('.input-with-icon');
             var icon = $(element).parent('.input-with-icon').children('i');
@@ -28,7 +28,7 @@ $(document).ready(function() {
         },
         highlight: function(element) { // hightlight error inputs
             var parent = $(element).parent();
-             var icon = $(element).parent().children('i');
+            var icon = $(element).parent().children('i');
             icon.removeClass('fa fa-check').addClass('fa fa-exclamation');
             parent.removeClass('success-control').addClass('error-control');
 
@@ -43,7 +43,20 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }
     });
-
+    $('#rootwizard').bootstrapWizard({
+        'tabClass': 'form-wizard',
+        'onNext': function(tab, navigation, index) {
+            var $valid = $("#commentForm").valid();
+            if (!$valid) {
+                $validator.focusInvalid();
+                return false;
+            }
+            else {
+                $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).addClass('complete');
+                $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).find('.step').html('<i class="fa fa-check"></i>');
+            }
+        }
+    });
 
 });
 
@@ -64,6 +77,10 @@ function validkey(e) {
         login();
     }
 }
+
+
+
+
 
 
 //login submit button actions
