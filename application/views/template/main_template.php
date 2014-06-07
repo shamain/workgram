@@ -478,6 +478,8 @@
             <!-- END PAGE LEVEL PLUGINS -->
             <script src="<?php echo base_url(); ?>application_resources/js/datatables.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_privilege.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_project.js" type="text/javascript"></script>
+            
             <!-- BEGIN CORE TEMPLATE JS -->
 
 

@@ -11,3 +11,15 @@
         <li > <a href="extended_layout.html">Extended Layout</a> </li>
     </ul>
 </li> 
+
+<li class=""> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Projects</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects"> Manage Projects </a> </li>
+        
+    </ul>
+</li> 
