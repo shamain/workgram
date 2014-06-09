@@ -73,10 +73,10 @@ class Statistics_service extends CI_Model {
     		$this->db->or_like('action', $this->session->userdata('statistics_keywords'));
     	}
     	 
-    	$this->db->select('statistics.*,Employee_Name,last_name');
+    	$this->db->select('statistics.*,employee_fname,employee_lname');
     	$this->db->from("statistics");
-    	$this->db->join('lcs_employee', 'Employee_Code = user_id');
-    	$this->db->order_by('lcs_crm_statistics.id','DESC');
+    	$this->db->join('employee', 'employee_code = user_id');
+    	$this->db->order_by('statistics.statistic_id','DESC');
     	
     	
     	if($total == 1){
