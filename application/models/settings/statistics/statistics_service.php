@@ -67,8 +67,8 @@ class Statistics_service extends CI_Model {
     	 
     	if($this->session->userdata('statistics_keywords') != "")
     	{
-    		$this->db->like('Employee_Name', $this->session->userdata('statistics_keywords'));
-    		$this->db->or_like('last_name', $this->session->userdata('statistics_keywords'));
+    		$this->db->like('employee_fname', $this->session->userdata('statistics_keywords'));
+    		$this->db->or_like('employee_lname', $this->session->userdata('statistics_keywords'));
     		$this->db->or_like('section', $this->session->userdata('statistics_keywords'));
     		$this->db->or_like('action', $this->session->userdata('statistics_keywords'));
     	}

@@ -16,10 +16,10 @@
                         <tr>
                             <th>Project ID</th>
                             <th>Project Name</th>
-                            <th>Project Vendor</th>
-                            <th>Project Duration</th>
-                            <th>Project Deadline</th>
-                            <th>Project Description</th>
+                            <th>Vendor</th>
+                            <th>Duration</th>
+                            <th>Deadline</th>
+                            <th>Description</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                                 <td><?php echo $project->project_vendor; ?></td>
                                 <td><?php echo $project->project_duration; ?></td>
                                 <td><?php echo $project->project_deadline; ?></td>
-                                <td><?php echo $project->project_description;?></td>
+                                <td><?php echo $project->project_description; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -63,7 +63,7 @@
                     <br>
                 </div>
                 <div class="modal-body">
-                    
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                     </div>
-<div class="row form-row">
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">project deadline</label>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div id="add_project_msg" class="form-row"> </div>
                 <div class="modal-footer">
