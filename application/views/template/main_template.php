@@ -459,7 +459,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/webarchScroll.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
-             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
@@ -477,9 +477,15 @@
             <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/lodash.min.js"></script>
             <!-- END PAGE LEVEL PLUGINS -->
             <script src="<?php echo base_url(); ?>application_resources/js/datatables.js" type="text/javascript"></script>
+
+
+            <!-- BEGIN CUSTOM JS -->
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_privilege.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_project.js" type="text/javascript"></script>
-            
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_statistics.js" type="text/javascript"></script>
+            <!-- END CUSTOM JS -->
+
+
             <!-- BEGIN CORE TEMPLATE JS -->
 
 

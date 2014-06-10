@@ -27,12 +27,12 @@ $(document).ready(function() {
         },
     });
 
-$(".project_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_project_btn" data-toggle="modal" data-target="#add_project_modal">Add New Project</button></div>');
-   
+    $(".project_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_project_btn" data-toggle="modal" data-target="#add_project_modal">Add New Project</button></div>');
+
     $('#project_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#project_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
+
     //add project Form
     $('#add_project_form').validate({
         focusInvalid: false,
@@ -49,12 +49,12 @@ $(".project_table_tbar").html('<div class="table-tools-actions"><button class="b
             },
             project_deadline: {
                 required: true
-            } ,
+            },
             project_description: {
                 required: true
             }
-            
-            
+
+
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    
@@ -91,18 +91,39 @@ $(".project_table_tbar").html('<div class="table-tools-actions"><button class="b
 
         }
     });
-
-    
-     
-     });
-     
-     
+});
 
 
 
+//delete projects
+function delete_project(id) {
 
-        
-    
+    if (confirm('Are you sure want to delete this Project ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/project/project_controller/delete_project',
+            data: "id=" + id,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#projects_' + id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Tasks');
+                }
+            }
+        });
+    }
+}
+
+
+
+
+
+
+
 
 
 

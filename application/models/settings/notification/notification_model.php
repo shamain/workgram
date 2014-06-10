@@ -4,7 +4,6 @@ class Notification_model extends CI_Model {
 
     //put your code here
     var $notification_id;
-    var $system_id;
     var $notification_msg;
     var $notification_area_url;
     var $notification_added_date;
@@ -12,12 +11,9 @@ class Notification_model extends CI_Model {
     function __construct() {
         parent::__construct();
     }
+    
     public function get_notification_id() {
         return $this->notification_id;
-    }
-
-    public function get_system_id() {
-        return $this->system_id;
     }
 
     public function get_notification_msg() {
@@ -34,10 +30,6 @@ class Notification_model extends CI_Model {
 
     public function set_notification_id($notification_id) {
         $this->notification_id = $notification_id;
-    }
-
-    public function set_system_id($system_id) {
-        $this->system_id = $system_id;
     }
 
     public function set_notification_msg($notification_msg) {

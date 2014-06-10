@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/project/project_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/settings/privilege_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/projects/manage_projects_view.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/template/menu.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application_resources/custom_js/custom_project.js</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application_resources/custom_js/custom_privilege.js</file>
+=======
+            <file>file:/E:/xampp/htdocs/workgram-sliit/workgram/application/config/database.php</file>
+>>>>>>> 44a83fe0e779cdb940d4238c9fb01226a7d3edbe
+        </group>
+=======
         <group/>
+>>>>>>> parent of c41f264... private.xml
     </open-files>
 </project-private>
