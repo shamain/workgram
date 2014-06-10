@@ -17,6 +17,7 @@ class Project_controller extends CI_Controller {
     }
 
     function manage_projects() {
+
         $project_service = new Project_service();
 
         $data['heading'] = "Manage Projects";
