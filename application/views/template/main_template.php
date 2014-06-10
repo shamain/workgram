@@ -138,7 +138,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profile-pic"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" /> </div>
+                            <div class="profile-pic">
+                                <!--<img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />-->
+                                <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/default_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/default_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />
+
+                                <?php } else { ?>
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/thumb/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/thumb/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />
+
+                                <?php } ?> 
+                            </div>
                         </div>
                         <ul class="nav quick-section ">
                             <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
