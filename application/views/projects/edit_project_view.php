@@ -12,86 +12,77 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                    <form id="edit_project_form" name="edit_project_form">
+                        <form id="edit_project_form" name="edit_project_form">
 
-                      <div class="form-group">
-                            <label class="form-label">project</label>
-                            <span style="color: red">*</span>
+                           
+                            <div class="form-group">
+                                <label class="form-label">Project Name </label>
+                                <span style="color: red">*</span>
 
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project" class="form-control" type="text" name="project" value="<?php echo $project->project;?>">                              
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="project_name" class="form-control" type="text" name="project_name" value="<?php echo $project->project_name; ?>">                              
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="form-label">project Name </label>
-                            <span style="color: red">*</span>
 
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project_name" class="form-control" type="text" name="project_name" value="<?php echo $project->project_name;?>">                              
+                            <div class="form-group">
+                                <label class="form-label">Project Vendor</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="project_vendor" class="form-control" type="text" name="project_vendor" value="<?php echo $project->project_vendor; ?>">                              
+                                </div>
                             </div>
-                        </div>
 
+                            <div class="form-group">
+                                <label class="form-label">Project Duration</label>
+                                <span style="color: red">*</span>
 
-                        <div class="form-group">
-                            <label class="form-label">project Vendor</label>
-                            <span style="color: red">*</span>
-
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project_vendor" class="form-control" type="text" name="project_vendor" value="<?php echo $project->project_vendor;?>">                              
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="project_duration" class="form-control" type="text" name="project_duration" value="<?php echo $project->project_duration; ?>">                              
+                                </div>
                             </div>
-                        </div>
-                    
-                    <div class="form-group">
-                            <label class="form-label">project Duration</label>
-                            <span style="color: red">*</span>
 
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project_duration" class="form-control" type="text" name="project_duration" value="<?php echo $project->project_duration;?>">                              
+                            <div class="form-group">
+                                <label class="form-label">Project Deadline</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="project_deadline" class="form-control" type="text" name="project_deadline" value="<?php echo $project->project_deadline; ?>">                              
+                                </div>
                             </div>
-                        </div>
-                    
-                    <div class="form-group">
-                            <label class="form-label">project Deadline</label>
-                            <span style="color: red">*</span>
+                            <div class="form-group">
+                                <label class="form-label">Project Description</label>
+                                <span style="color: red">*</span>
 
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project_deadline" class="form-control" type="text" name="project_deadline" value="<?php echo $project->project_deadline;?>">                              
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="project_description" class="form-control" type="text" name="project_description" value="<?php echo $project->project_description; ?>">                              
+                                </div>
                             </div>
-                        </div>
-                    <div class="form-group">
-                            <label class="form-label">project Description</label>
-                            <span style="color: red">*</span>
 
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="project_description" class="form-control" type="text" name="project_description" value="<?php echo $project->project_description;?>">                              
+
+
+
+
+                            <div id="edit_project_msg" class="form-row"> </div>
+
+                            <input type="hidden" id="project_id" name="project_id" value="<?php echo $project->project_id; ?>"/>
+                            <div class="form-actions">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary btn-cons" type="submit">
+                                        <i class="icon-ok"></i>
+                                        Save
+                                    </button>
+                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                </div>
                             </div>
-                        </div>
-                    
-                    
-                    
-                    
 
-                        <div id="edit_project_msg" class="form-row"> </div>
-                        
-                        <input type="hidden" id="project_id" name="project_id" value="<?php echo $project->project_id;?>"/>
-                        <div class="form-actions">
-                            <div class="pull-right">
-                                <button class="btn btn-primary btn-cons" type="submit">
-                                    <i class="icon-ok"></i>
-                                    Save
-                                </button>
-                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
-                            </div>
-                        </div>
-
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>

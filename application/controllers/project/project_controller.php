@@ -22,7 +22,7 @@ class Project_controller extends CI_Controller {
 
         $data['heading'] = "Manage Projects";
         $data['projects'] = $project_service->get_all_projects();
-        
+
         $partials = array('content' => 'projects/manage_projects_view');
         $this->template->load('template/main_template', $partials, $data);
     }
@@ -48,9 +48,8 @@ class Project_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-    
-    
-     function delete_project() {
+
+    function delete_project() {
 
 //        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
 //        if ($perm) {
@@ -61,17 +60,17 @@ class Project_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-    
+
     function edit_project_view($id) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
 //        if ($perm) {
-        
+
         $project_service = new Project_service();
-        
+
 
         $data['heading'] = "Edit Project";
         $data['project'] = $project_service->get_project_by_id($id);
-        
+
 
         $partials = array('content' => 'projects/edit_project_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -85,18 +84,20 @@ class Project_controller extends CI_Controller {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
 //        if ($perm) {
 
-            $project_model = new project_model();
-            $project_service = new Project_service();
+        $project_model = new project_model();
+        $project_service = new Project_service();
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        $project_model->set_project_duration($this->input->post('project_duration', TRUE));
-        $project_model->set_project_deadline($this->input->post('project_deadline', TRUE));
+//        $project_model->set_project_duration($this->input->post('project_duration', TRUE));
+//        $project_model->set_project_deadline($this->input->post('project_deadline', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
-            
+        
+        $project_model->set_project_id($this->input->post('project_id', TRUE));
 
 
-            echo $project_service->update_project($project_model);
+
+        echo $project_service->update_project($project_model);
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }

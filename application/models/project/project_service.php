@@ -38,14 +38,15 @@ class Project_service extends CI_Model {
     function update_project($project_model) {
 
         $data = array(
-            '$project_name' => $project_model->get_project_name(),
-            '$project_vendor' => $project_model->get_project_vendor(),
-            '$project_duration' => $project_model->get_project_duration(),
-            '$project_deadline' => $project_model->get_project_deadline(),
-            '$project_description' => $project_model->get_project_description()
+            'project_name' => $project_model->get_project_name(),
+            'project_vendor' => $project_model->get_project_vendor(),
+            'project_duration' => $project_model->get_project_duration(),
+            'project_deadline' => $project_model->get_project_deadline(),
+            'project_description' => $project_model->get_project_description()
         );
 
         $this->db->where('project_id', $project_model->get_project_id());
+       
         return $this->db->update('project', $data);
     }
 

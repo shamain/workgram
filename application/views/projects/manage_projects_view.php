@@ -28,6 +28,7 @@
                         foreach ($projects as $project) {
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
+                                <td><?php echo $project->project_id; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
                                 <td><?php echo $project->project_vendor; ?></td>
                                 <td><?php echo $project->project_duration; ?></td>
