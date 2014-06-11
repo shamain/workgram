@@ -1,4 +1,3 @@
-
 var base_url = js_base_url;
 var site_url = js_site_url;
 
@@ -92,6 +91,68 @@ $(document).ready(function() {
         }
     });
 });
+
+//edit project Form
+    $('#edit_project_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {        
+            
+            project_name: {
+                required: true
+            },
+            project_vendor: {
+                required: true
+            },
+            project_duration: {
+                required: true
+            },
+            project_deadline: {
+                required: true
+            },
+            project_description: {
+                required: true
+            }
+            
+            
+            
+            
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/project/project_controller/edit_project', $('#edit_project_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project</a>has been updated.</div>');
+                    edit_project_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project</a>has failed.</div>');
+                }
+            });
+
+
+        }
+    });
 
 
 
