@@ -45,8 +45,8 @@ class Login_controller extends CI_Controller {
 
     function index() {
         if ($this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(base_url() . 'index.php/TA/dashboard_controller/');
-            $this->template->load('template/main_template');
+            redirect(base_url() . 'index.php/dashboard/dashboard_controller/');
+//            $this->template->load('template/main_template');
         } else {
 
             $this->template->load('template/login');
