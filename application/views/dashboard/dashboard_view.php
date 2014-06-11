@@ -3,8 +3,8 @@
 <div class="row spacing-bottom 2col">
 
 <?php for($i=0;$i<10;$i++){?>
-    <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-<div class="col-md-8 m-b-20">
+    <div class="col-md-2 col-sm-6 spacing-bottom-sm spacing-bottom">
+<div class="col-md-12 m-b-20">
     <div class="widget-item narrow-margin">
         <div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
         <div class="tiles green " style="max-height:345px">
