@@ -1,9 +1,9 @@
 <h3>Employees  at <span class="semi-bold"><?php echo  $company;?></span></h3>
 
-<div class="row spacing-bottom 2col">
+<div class="row">
 
 <?php for($i=0;$i<10;$i++){?>
-    <div class="col-md-2 col-sm-6 spacing-bottom-sm spacing-bottom">
+    <div class="col-md-3 col-sm-5">
 <div class="col-md-12 m-b-20">
     <div class="widget-item narrow-margin">
         <div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
