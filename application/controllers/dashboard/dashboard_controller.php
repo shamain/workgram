@@ -34,7 +34,7 @@ class Dashboard_controller extends CI_Controller {
 
     function index() {
 
-        $data['company'] = "Kolourbox";
+        $data['company'] = $this->session->userdata('EMPLOYEE_COMPANY_NAME');
         $this->session->set_userdata('LCS_SYSTEM', 3);
          $this->session->set_userdata('LCS_PARENT_SYSTEM',7);
 

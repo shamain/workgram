@@ -40,8 +40,8 @@ class Project_service extends CI_Model {
         $data = array(
             'project_name' => $project_model->get_project_name(),
             'project_vendor' => $project_model->get_project_vendor(),
-            'project_duration' => $project_model->get_project_duration(),
-            'project_deadline' => $project_model->get_project_deadline(),
+            'project_start_date' => $project_model->get_project_start_date(),
+            'project_end_date' => $project_model->get_project_end_date(),
             'project_description' => $project_model->get_project_description()
         );
 

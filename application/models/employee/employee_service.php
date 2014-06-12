@@ -10,14 +10,25 @@ class Employee_service extends CI_Model {
     function authenticate_user($employee_model) {
 
         $data = array('employee_email' => $employee_model->get_employee_email() /* , 'Password'=>$employee_model->get_employee_password() */, 'del_ind' => '1');
-        $query = $this->db->get_where('employee', $data);
+
+        $this->db->select('employee.*,company.company_name');
+        $this->db->from('employee');
+        $this->db->join('company', 'employee.company_code = company.company_code');
+        $this->db->where($data);
+        $query = $this->db->get();
+
         return $query->row();
     }
 
     function authenticate_user_with_password($employee_model) {
 
         $data = array('employee_email' => $employee_model->get_employee_email(), 'employee_password' => $employee_model->get_employee_password(), 'del_ind' => '1');
-        $query = $this->db->get_where('employee', $data);
+
+        $this->db->select('employee.*,company.company_name');
+        $this->db->from('employee');
+        $this->db->join('company', 'employee.company_code = company.company_code');
+        $this->db->where($data);
+        $query = $this->db->get();
         return $query->row();
     }
 
@@ -27,11 +38,11 @@ class Employee_service extends CI_Model {
         $this->db->select('*');
         $this->db->from('employee');
         $this->db->where('employee.employee_email', $employee_model->get_employee_email());
-        $this->db->where('del_ind', '1'); 
+        $this->db->where('del_ind', '1');
         $query = $this->db->get();
         foreach ($query->result() as $emp) {
 //            $server = $emp->mail_server;
-            $server=1;
+            $server = 1;
         }
         return $server;
     }
@@ -61,8 +72,6 @@ class Employee_service extends CI_Model {
         return $query->result();
     }
 
-    
-
     function get_employees_on_company($company_code) {
         $this->db->select('employee_code, employee_no,employee_fname,employee_lname');
         $this->db->from('employee');
@@ -89,7 +98,6 @@ class Employee_service extends CI_Model {
 //        //echo $this->db->last_query();
 //        return $query->result();
 //    }
-
 //    function getactiveEmployeescount() {
 //
 //        $query = $this->db->get_where('lcs_employee', array('Status' => '1', 'Employee_Code !=' => '0'));
@@ -111,11 +119,9 @@ class Employee_service extends CI_Model {
 
     function get_employee_by_id($emp_code) {
 
-        $query = $this->db->get_where('employee', array('employee_code' =>$emp_code));
+        $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
         return $query->row();
     }
-
-    
 
     function updateEmployee($employeemodel) {
 
@@ -130,7 +136,7 @@ class Employee_service extends CI_Model {
 
     public function get_employee($emp_code) {
 
-        $query = $this->db->get_where('employee', array('employee_code' => $emp_code ,'del_ind' => '1'));
+        $query = $this->db->get_where('employee', array('employee_code' => $emp_code, 'del_ind' => '1'));
         return $query->row();
     }
 
@@ -269,8 +275,6 @@ class Employee_service extends CI_Model {
         $this->db->where('Employee_Code', $employeemodel->getEmployee_Code());
         return $this->db->update('lcs_employee', $data);
     }
-
-
 
     public function getMarketiers() {
 
