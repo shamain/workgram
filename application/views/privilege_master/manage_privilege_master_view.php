@@ -52,12 +52,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_privilege_master_form" name="add_privilege_master_form">
-                <div class="modal-header">
+                <div class="modal-header tiles green">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="icon-credit-card icon-7x"></i>
-                    <h4 id="add_privilege_master_modalLabel" class="semi-bold">We need your billing info.</h4>
-                    <p class="no-margin">You'll be charged $29/Month and get immediate access to new plan </p>
+                    <i class="fa fa-eye fa-4x"></i>
+                    <h4 id="add_privilege_master_modalLabel" class="semi-bold text-white">Add new Master Privilege</h4>
+                    <p class="no-margin text-white">This is going to be mother for its sub privileges.</p>
                     <br>
                 </div>
                 <div class="modal-body">

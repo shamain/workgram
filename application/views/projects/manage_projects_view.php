@@ -55,12 +55,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_project_form" name="add_project_form">
-                <div class="modal-header">
+                <div class="modal-header tiles green">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="icon-credit-card icon-7x"></i>
-                    <h4 id="add_project_modalLabel" class="semi-bold">We need your billing info.</h4>
-                    <p class="no-margin">You'll be charged $29/Month and get immediate access to new plan </p>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="add_project_modalLabel" class="semi-bold text-white">It's a new project</h4>
+                    <p class="no-margin text-white">Include project details here.</p>
                     <br>
                 </div>
                 <div class="modal-body">
