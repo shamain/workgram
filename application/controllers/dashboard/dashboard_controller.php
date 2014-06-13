@@ -21,22 +21,25 @@ class Dashboard_controller extends CI_Controller {
      * @see http://codeigniter.com/user_guide/general/urls.html 
      */
     function __construct() {
-        
+
         parent::__construct();
 
         if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
             redirect(site_url() . '/login/login_controller');
         } else {
 
-            
+            $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
 
     function index() {
+        $employee_service = new Employee_service();
 
         $data['company'] = $this->session->userdata('EMPLOYEE_COMPANY_NAME');
         $this->session->set_userdata('LCS_SYSTEM', 3);
-         $this->session->set_userdata('LCS_PARENT_SYSTEM',7);
+        $this->session->set_userdata('LCS_PARENT_SYSTEM', 7);
+        $data['employees'] = $employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $partials = array('content' => 'dashboard/dashboard_view');
         $this->template->load('template/main_template', $partials, $data);

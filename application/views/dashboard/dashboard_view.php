@@ -2,7 +2,7 @@
 
 <div class="row">
 
-<?php for($i=0;$i<10;$i++){?>
+<?php foreach ($employees as $employee){?>
     <div class="col-md-3 col-sm-5">
 <div class="col-md-12 m-b-20">
     <div class="widget-item narrow-margin">
@@ -27,7 +27,7 @@
                     <div class="user-comment-wrapper pull-left">
                         <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
                         <div class="comment">
-                            <div class="user-name text-black bold"> David <span class="semi-bold">Cooper</span> </div>
+                            <div class="user-name text-black bold"> <?php echo $employee->employee_fname ; ?> <span class="semi-bold"><?php echo $employee->employee_lname ; ?></span> </div>
                             <div class="preview-wrapper">@ revox </div>
                         </div>
                         <div class="clearfix"></div>

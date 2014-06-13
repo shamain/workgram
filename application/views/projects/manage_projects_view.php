@@ -14,11 +14,11 @@
                 <table class="table" id="project_table" >
                     <thead>
                         <tr>
-                            <th>Project ID</th>
-                            <th>Project Name</th>
+                            <th>Project Code</th>
+                            <th>Project</th>
                             <th>Vendor</th>
-                            <th>Duration</th>
-                            <th>Deadline</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
                             <th>Description</th>
                             <th>Options</th>
                         </tr>
@@ -31,8 +31,8 @@
                                 <td><?php echo $project->project_id; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
                                 <td><?php echo $project->project_vendor; ?></td>
-                                <td><?php echo $project->project_duration; ?></td>
-                                <td><?php echo $project->project_deadline; ?></td>
+                                <td><?php echo $project->project_start_date; ?></td>
+                                <td><?php echo $project->project_end_date; ?></td>
                                 <td><?php echo $project->project_description; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
@@ -68,7 +68,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">project Name</label>
+                                <label class="form-label">Project Name</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">project vendor</label>
+                                <label class="form-label">Vendor</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -96,41 +96,51 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">project duration</label>
+                                <label class="form-label">Start Date</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
+                        <div class="col-md-3">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_dpicker">                                       
                                 <i class=""></i>
-                                <input id="project_duration" class="form-control" type="text" name="project_duration">                              
+                                
+                                    <input class="form-control" type="text" id="project_start_date" name="project_start_date" readonly="true">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
                             </div>
                         </div>
                     </div>
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">project deadline</label>
+                                <label class="form-label">End Date</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
+                        <div class="col-md-3">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_dpicker">                                       
                                 <i class=""></i>
-                                <input id="project_deadline" class="form-control" type="text" name="project_deadline">                              
+                                
+                                <input class="form-control" type="text" id="project_end_date" name="project_end_date" readonly="true">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
                             </div>
                         </div>
                     </div><div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">project description</label>
+                                <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="project_description" class="form-control" type="text" name="project_description">                              
+                                <textarea id="project_description" class="form-control" type="text" name="project_description">    </textarea>                          
                             </div>
                         </div>
                     </div>
@@ -138,8 +148,9 @@
                 </div>
                 <div id="add_project_msg" class="form-row"> </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    
                 </div>
 
             </form>

@@ -7,6 +7,13 @@ class Employee_service extends CI_Model {
         parent::__construct();
     }
 
+    //get active employees in a company by company code
+    function get_employees_by_company_id($company_code) {
+
+        $query = $this->db->get_where('employee', array('company_code' => $company_code,'del_ind'=>'1'));
+        return $query->result();
+    }
+
     function authenticate_user($employee_model) {
 
         $data = array('employee_email' => $employee_model->get_employee_email() /* , 'Password'=>$employee_model->get_employee_password() */, 'del_ind' => '1');

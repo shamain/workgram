@@ -16,6 +16,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.theme.css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
@@ -64,7 +68,7 @@
                     <a href="index-2.html"><img src="<?php echo base_url(); ?>application_resources/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>application_resources/img/logo.png" data-src-retina="<?php echo base_url(); ?>application_resources/img/logo2x.png" width="125" height="30"/></a>
                     <!-- END LOGO -->
                     <ul class="nav pull-right notifcation-center">
-                        <li class="dropdown" id="header_task_bar"> <a href="index-2.html" class="dropdown-toggle active" data-toggle="">
+                        <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url(); ?>/dashboard/dashboard_controller/" class="dropdown-toggle active" data-toggle="">
                                 <div class="iconset top-home"></div>
                             </a> </li>
                         <li class="dropdown" id="header_inbox_bar" > <a href="email.html" class="dropdown-toggle" >
@@ -142,10 +146,10 @@
                                 <!--<img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />-->
                                 <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
-                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/default_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/default_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
                                 <?php } else { ?>
-                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/thumb/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/thumb/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="35" height="35" />
 
                                 <?php } ?> 
                             </div>
@@ -192,7 +196,20 @@
                 <!-- BEGIN MINI-PROFILE -->
                 <div class="page-sidebar-wrapper" id="main-menu-wrapper">
                     <div class="user-info-wrapper">
-                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
+                        <div class="profile-wrapper"> 
+<!--                            <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" width="69" height="69" />
+                            -->
+                            <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+
+                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar2x.jpg" width="69" height="69" />
+
+                            <?php } else { ?>
+                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
+
+                            <?php } ?> 
+
+
+                        </div>
                         <div class="user-info">
                             <div class="greeting">Welcome</div>
                             <div class="username"><?php echo $this->session->userdata('EMPLOYEE_FNAME'); ?> <span class="semi-bold"><?php echo $this->session->userdata('EMPLOYEE_LNAME'); ?></span></div>
@@ -469,6 +486,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/webarchScroll.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>

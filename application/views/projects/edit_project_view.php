@@ -11,10 +11,10 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-5 col-sm-5 col-xs-5">
                         <form id="edit_project_form" name="edit_project_form">
 
-                           
+
                             <div class="form-group">
                                 <label class="form-label">Project Name </label>
                                 <span style="color: red">*</span>
@@ -27,7 +27,7 @@
 
 
                             <div class="form-group">
-                                <label class="form-label">Project Vendor</label>
+                                <label class="form-label">Vendor</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
@@ -37,36 +37,43 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Project Duration</label>
-                                <span style="color: red">*</span>
+                                <label class="form-label">Start Date</label>
+                                <span style="color: red">*</span><br>
 
-                                <div class="input-with-icon  right">                                       
+                                <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_edit_dpicker">                                       
                                     <i class=""></i>
-                                    <input id="project_duration" class="form-control" type="text" name="project_duration" value="<?php echo $project->project_duration; ?>">                              
+
+                                    <input class="form-control" type="text" input-append id="project_start_date" name="project_start_date" readonly="true"  value="<?php echo $project->project_start_date; ?>">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Project Deadline</label>
-                                <span style="color: red">*</span>
+                                <label class="form-label">End Date</label>
+                                <span style="color: red">*</span><br>
 
-                                <div class="input-with-icon  right">                                       
+                                <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
                                     <i class=""></i>
-                                    <input id="project_deadline" class="form-control" type="text" name="project_deadline" value="<?php echo $project->project_deadline; ?>">                              
+
+                                    <input class="form-control" type="text" id="project_end_date" name="project_end_date" readonly="true" value="<?php echo $project->project_end_date; ?>">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Project Description</label>
+                                <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="project_description" class="form-control" type="text" name="project_description" value="<?php echo $project->project_description; ?>">                              
+                                    <textarea id="project_description" class="form-control" type="text" name="project_description"><?php echo $project->project_description; ?> </textarea>                                       
                                 </div>
                             </div>
-
-
-
 
 
                             <div id="edit_project_msg" class="form-row"> </div>

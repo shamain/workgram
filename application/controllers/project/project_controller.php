@@ -36,10 +36,12 @@ class Project_controller extends CI_Controller {
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        //$project_model->set_project_duration($this->input->post('project_duration', TRUE));
-        //$project_model->set_project_deadline($this->input->post('project_deadline', TRUE));
+        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
+        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
-
+        $project_model->set_del_ind('1');
+        $project_model->set_added_date(date("Y-m-d H:i:s"));
+        $project_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
 
 
 
@@ -89,10 +91,10 @@ class Project_controller extends CI_Controller {
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-//        $project_model->set_project_duration($this->input->post('project_duration', TRUE));
-//        $project_model->set_project_deadline($this->input->post('project_deadline', TRUE));
+        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
+        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
-        
+
         $project_model->set_project_id($this->input->post('project_id', TRUE));
 
 
