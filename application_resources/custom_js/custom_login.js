@@ -43,6 +43,54 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }
     });
+    //Form Wizard Validations
+    var $validator = $("#commentForm").validate({
+        rules: {
+            txtCompanyName: {
+                required: true,
+                minlength: 3
+            },
+            txtCompanyEmail: {
+                required: true,
+                email: true,
+                minlength: 3
+            },
+            txtCompanyDesc: {
+                required: true,
+                minlength: 3
+            },
+            txtCompanyContact: {
+                required: true,
+                minlength: 3
+            },
+            txtCompanyAddress: {
+                required: true,
+                minlength: 3
+            },
+            txtPostalCode: {
+                required: true,
+                minlength: 3
+            },
+            txtPhoneCode: {
+                required: true,
+                minlength: 3
+            },
+            txtPhoneNumber: {
+                required: true,
+                minlength: 3
+            },
+            urlfield: {
+                required: true,
+                minlength: 3,
+                url: true
+            }
+        },
+        errorPlacement: function(label, element) {
+            $('<span class="arrow"></span>').insertBefore(element);
+            $('<span class="error"></span>').insertAfter(element).append(label)
+        }
+    });
+
     $('#rootwizard').bootstrapWizard({
         'tabClass': 'form-wizard',
         'onNext': function(tab, navigation, index) {
