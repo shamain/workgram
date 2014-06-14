@@ -167,7 +167,7 @@
                                 </ul>
                             </li>
                             <li class="quicklinks"> <span class="h-seperate"></span></li>
-                            <li class="quicklinks"> <a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle" >
+<!--                            <li class="quicklinks"> <a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle" >
                                     <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
                                 </a>
                                 <div class="simple-chat-popup chat-menu-toggle hide" >
@@ -179,7 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                     <!-- END CHAT TOGGLER -->
@@ -243,14 +243,14 @@
                         <p class="menu-title">PROJECTS </p>
                         <div class="status-widget">
                             <div class="status-widget-wrapper">
-                                <div class="title">Freelancer<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
-                                <p>Redesign home page</p>
+                                <div class="title">Test Project 1<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
+                                <p>Design visual is done</p>
                             </div>
                         </div>
                         <div class="status-widget">
                             <div class="status-widget-wrapper">
-                                <div class="title">envato<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
-                                <p>Statistical report</p>
+                                <div class="title">Test Project 2<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
+                                <p>Gathering requirements</p>
                             </div>
                         </div>
                     </div>
