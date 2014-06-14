@@ -27,18 +27,18 @@
                                 <div class="user-comment-wrapper pull-left">
                                     <div class="profile-wrapper"> 
                                         <!--<img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35">--> 
-                                        <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+                                        <?php if ($employee->employee_avatar == '') { ?>
 
                                             <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
                                         <?php } else { ?>
-                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="35" height="35" />
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar;?>_small2x.jpg" width="35" height="35" />
 
                                         <?php } ?> 
                                     </div>
                                     <div class="comment">
                                         <div class="user-name text-black bold"> <?php echo ucfirst($employee->employee_fname); ?> <span class="semi-bold"><?php echo ucfirst($employee->employee_lname); ?></span> </div>
-                                        <div class="preview-wrapper">@ revox </div>
+                                        <div class="preview-wrapper">@ workgram </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
