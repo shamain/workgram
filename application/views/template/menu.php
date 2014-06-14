@@ -13,7 +13,7 @@
 
 <li class=""> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-wrench"></i> 
         <span class="title">Settings</span> 
         <span class="arrow "></span> 
     </a>

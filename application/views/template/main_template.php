@@ -107,7 +107,7 @@
                     <div class="pull-right">
                         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
                                 <div class="user-details">
-                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo $this->session->userdata('EMPLOYEE_FNAME'); ?> <span class="bold"><?php echo $this->session->userdata('EMPLOYEE_LNAME'); ?></span> </div>
+                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> <span class="bold"><?php echo ucfirst($this->session->userdata('EMPLOYEE_LNAME')); ?></span> </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
@@ -212,7 +212,7 @@
                         </div>
                         <div class="user-info">
                             <div class="greeting">Welcome</div>
-                            <div class="username"><?php echo $this->session->userdata('EMPLOYEE_FNAME'); ?> <span class="semi-bold"><?php echo $this->session->userdata('EMPLOYEE_LNAME'); ?></span></div>
+                            <div class="username"><?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> <span class="semi-bold"><?php echo ucfirst($this->session->userdata('EMPLOYEE_LNAME')); ?></span></div>
                             <div class="status">Status<a href="#">
                                     <div class="status-icon green"></div>
                                     Online</a></div>
