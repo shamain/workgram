@@ -8,14 +8,12 @@ class Company_model extends CI_Model {
     var $company_address;
     var $company_contact;
     var $company_desc;
-    var $del_ind;
-    var $added_date;
+
     
       function __construct() {
         parent::__construct();
     }
 
-  
     public function get_company_code() {
         return $this->company_code;
     }
@@ -62,22 +60,6 @@ class Company_model extends CI_Model {
 
     public function set_company_desc($company_desc) {
         $this->company_desc = $company_desc;
-    }
-
-    public function get_del_ind() {
-        return $this->del_ind;
-    }
-
-    public function set_del_ind($del_ind) {
-        $this->del_ind = $del_ind;
-    }
-
-    public function get_added_date() {
-        return $this->added_date;
-    }
-
-    public function set_added_date($added_date) {
-        $this->added_date = $added_date;
     }
 
 

@@ -19,6 +19,7 @@
         <link href="<?php echo base_url(); ?>application_resources/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
         <!-- END CSS TEMPLATE -->
 
         <!-- CUSTOM CSS -->
@@ -133,7 +134,7 @@
                         <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                         <br>
                         <i class="fa fa-smile-o fa-7x"></i>
-                        <h4 class="semi-bold" id="company-modal-label">Lets bring your company online</h4>
+                        <h4 class="semi-bold" id="company-modal-label">Let's bring your company online</h4>
                         <p class="no-margin">Please enter following details in order to setup your account</p>
                         <br>
                     </div>
@@ -141,16 +142,18 @@
                         <div class="row form-row">
                             <form id="commentForm">
                                 <div id="rootwizard" class="col-md-12">
+                                    <div class='col-md-offset-3'>
                                     <div class="form-wizard-steps">
                                         <ul class="wizard-steps form-wizard">
                                             <li class="active" data-target="#step1"> <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Company information</span> </a> </li>
                                             <li data-target="#step2" class=""> <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Employer Registration</span> </a> </li>
-                                            <li data-target="#step3" class=""> <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Payments</span> </a> </li>
-                                            <li data-target="#step4" class=""> <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Get Started <br>
+                                           <!-- <li data-target="#step3" class=""> <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Payments</span> </a> </li>-->
+                                            <li data-target="#step3" class=""> <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Get Started <br>
                                                     </span> </a> </li>
                                         </ul>
                                         <div class="clearfix"></div>
                                     </div>
+                                        </div>
                                     <div class="tab-content transparent">
                                         <div class="tab-pane active" id="tab1"> 
                                             <br>
@@ -194,12 +197,12 @@
                                                     <input type="text" placeholder="Last Name" class="form-control no-boarder " name="txtLastName" id="txtLastName">
                                                 </div>
                                             </div>
-                                             <div class="row form-row">
+                                            <div class="row form-row">
                                                 <div class="col-md-12">
                                                     <input type="password" placeholder="Password" class="form-control no-boarder " name="txtPassword" id="txtPassword">
                                                 </div>
                                             </div>
-                                             <div class="row form-row">
+                                            <div class="row form-row">
                                                 <div class="col-md-12">
                                                     <input type="password" placeholder="Confirm Password" class="form-control no-boarder " name="txtConfirmPassword" id="txtConfirmPassword">
                                                 </div>
@@ -209,38 +212,42 @@
                                                     <input type="text" placeholder="Email, This will be used as login" class="form-control no-boarder " name="txtEmail" id="txtEmail">
                                                 </div>
                                             </div>
-                                             <div class="row form-row">
-                                                <div class="col-md-12">
-                                                    <input type="text" placeholder="Email, This will be used as login" class="form-control no-boarder " name="txtEmail" id="txtEmail">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="Postal Code" class="form-control no-boarder " name="txtPostalCode" id="txtPostalCode">
-                                            </div>
-
                                             <div class="row form-row">
-                                                <div class="col-md-4">
-                                                    <input type="text" placeholder="+94" class="form-control no-boarder " name="txtPhoneCode" id="txtPhoneCode">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="text" placeholder="Phone Number" class="form-control no-boarder " name="txtPhoneNumber" id="txtPhoneNumber">
+                                                <div class="col-md-12">
+                                                    <input type="text" placeholder="Contact" class="form-control no-boarder " name="txtContact" id="txtContact">
                                                 </div>
                                             </div>
+                                            <div class="row form-row">
+                                                  <div class="col-md-12">
+                                             <div class="input-with-icon  right input-append primary date  no-padding" id="birthday">                                       
+                                <i class=""></i>
+                                
+                                    <input class="form-control" type="text" id="birthdy" name="birthdy" readonly="true">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
+                            </div>
+                                                  </div>
+                                            </div>
+                                            
                                         </div>
 
                                         <div class="tab-pane" id="tab3"> <br>
-                                            <h4 class="semi-bold">Step 3 - <span class="light">User Settings</span></h4>
-                                            <br>
+                                           <div class="row form-row">
+                                               <div class="col-md-12">
+                                                   
+                                                    <i class=" fa fa-check-circle-o fa-7x complete-color col-md-offset-5"></i>
+                                                  
+                                               </div>
+                                           </div>
                                         </div>
-                                        <div class="tab-pane" id="tab4"> <br>
-                                            <h4 class="semi-bold">Step 4 - <span class="light">Feedback</span></h4>
-                                            <br>
-                                        </div>
+                                       
                                         <div class="col-md-12">
                                             <ul class=" wizard wizard-actions">
                                                 <li class="previous first" style="display:none;"><a href="javascript:;" class="btn">&nbsp;&nbsp;First&nbsp;&nbsp;</a></li>
                                                 <li class="previous"><a href="javascript:;" class="btn">&nbsp;&nbsp;Previous&nbsp;&nbsp;</a></li>
-                                                <li class="next last" style="display:none;"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Last&nbsp;&nbsp;</a></li>
+                                                <li class="next last" style="display:none;"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Start&nbsp;&nbsp;</a></li>
                                                 <li class="next"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a></li>
                                             </ul>
                                         </div>
@@ -252,7 +259,7 @@
                     <div class="modal-footer">
                         <div class="col-md-12">
 
-                            <button class="btn btn-primary" type="button">Save changes</button>
+                          
                             <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                         </div>
                     </div>
@@ -278,6 +285,8 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_login.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/boostrap-form-wizard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <!-- BEGIN CORE TEMPLATE JS -->
         <!-- END CORE TEMPLATE JS -->
     </body>

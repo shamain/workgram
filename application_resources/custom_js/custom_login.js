@@ -67,23 +67,34 @@ $(document).ready(function() {
                 required: true,
                 minlength: 3
             },
-            txtPostalCode: {
+            txtFirstName: {
                 required: true,
                 minlength: 3
             },
-            txtPhoneCode: {
+            txtLastName: {
                 required: true,
                 minlength: 3
             },
-            txtPhoneNumber: {
+            txtPassword: {
                 required: true,
                 minlength: 3
             },
-            urlfield: {
-                required: true,
+            txtConfirmPassword: {
                 minlength: 3,
-                url: true
+                equalTo: "#txtPassword"
+            },
+            txtEmail: {
+                required: true,
+                email: true,
+                minlength: 3
+
+            },
+            txtContact: {
+                required: true,
+                minlength: 3
+
             }
+
         },
         errorPlacement: function(label, element) {
             $('<span class="arrow"></span>').insertBefore(element);
@@ -91,18 +102,42 @@ $(document).ready(function() {
         }
     });
 
+
+
     $('#rootwizard').bootstrapWizard({
         'tabClass': 'form-wizard',
         'onNext': function(tab, navigation, index) {
+
             var $valid = $("#commentForm").valid();
             if (!$valid) {
                 $validator.focusInvalid();
                 return false;
             }
             else {
+                   if(index==2){
+                       $('.next').hide();
+                        $('.last').show();
+                   } 
+                 
                 $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).addClass('complete');
                 $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).find('.step').html('<i class="fa fa-check"></i>');
             }
+        },
+        'onLast': function(tab) {
+           
+            $.post(site_url + '/company/company_controller/company_registration', $('#commentForm').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                   
+                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
+                    add_privilege_form.reset();
+                    location.reload();
+                } else {
+                    $("#add_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
+                }
+            });
+
+
         }
     });
 
@@ -123,6 +158,11 @@ $(document).ready(function() {
         }
     });
 
+    $('#birthday').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayHighlight: true
+    });
 });
 
 
