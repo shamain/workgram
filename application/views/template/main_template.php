@@ -498,6 +498,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-polymaps/polymaps.min.js" type="text/javascript"></script>
 
+            
             <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
