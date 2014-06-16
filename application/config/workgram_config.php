@@ -6,6 +6,25 @@
 //This is to set the site title
 $config['APPLICATION_MAIN_TITLE']	= "WORKGRAM ";
 
+
+//Employee Types
+$config['ADMIN']= 1;
+$config['COMPANY_OWNER']= 2;
+$config['EMPLOYEE']= 3;
+
+//Employee Contract
+$config['FULL_TIME']= 'FULL_TIME';
+$config['PART_TIME']= 'PART_TIME';
+
+
+
+
+
+
+
+
+
+
 //LankaCom Country ID
 $config['LCS_COUNTRY_ID']	= "1";
 
