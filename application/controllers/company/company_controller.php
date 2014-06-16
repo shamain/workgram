@@ -44,6 +44,7 @@ class Company_controller extends CI_Controller {
         $password = $this->input->post('txtPassword', TRUE);
         $email = $this->input->post('txtEmail', TRUE);
 
+        $employee_model->set_employee_fname($this->input->post('txtFirstName', TRUE));
         $employee_model->set_employee_lname($this->input->post('txtLastName', TRUE));
         $employee_model->set_employee_password(md5($this->input->post('txtPassword', TRUE)));
         $employee_model->set_employee_email($this->input->post('txtEmail', TRUE));
