@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-   
+
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
@@ -43,12 +43,18 @@
         <link href="<?php echo base_url(); ?>application_resources/css/tiles_responsive.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
 
+        <!-- favicon icon -->
+        <link rel="icon" type="image/ico" href="<?php echo base_url(); ?>application_resources/img/favicon.ico" />
+
         <title><?php
             echo $this->config->item('APPLICATION_MAIN_TITLE');
             if (!empty($title)) {
                 echo ' - ' . $title;
             }
-            ?></title>
+            ?>
+        </title>
+
+
 
     </head>
     <!-- END HEAD -->
@@ -167,19 +173,19 @@
                                 </ul>
                             </li>
                             <li class="quicklinks"> <span class="h-seperate"></span></li>
-<!--                            <li class="quicklinks"> <a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle" >
-                                    <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
-                                </a>
-                                <div class="simple-chat-popup chat-menu-toggle hide" >
-                                    <div class="simple-chat-popup-arrow"></div>
-                                    <div class="simple-chat-popup-inner">
-                                        <div style="width:100px">
-                                            <div class="semi-bold">David Nester</div>
-                                            <div class="message">Hey you there </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>-->
+                            <!--                            <li class="quicklinks"> <a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle" >
+                                                                <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
+                                                            </a>
+                                                            <div class="simple-chat-popup chat-menu-toggle hide" >
+                                                                <div class="simple-chat-popup-arrow"></div>
+                                                                <div class="simple-chat-popup-inner">
+                                                                    <div style="width:100px">
+                                                                        <div class="semi-bold">David Nester</div>
+                                                                        <div class="message">Hey you there </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>-->
                         </ul>
                     </div>
                     <!-- END CHAT TOGGLER -->
@@ -498,7 +504,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-polymaps/polymaps.min.js" type="text/javascript"></script>
 
-            
+
             <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
@@ -543,5 +549,4 @@
             <!-- END CORE TEMPLATE JS -->
     </body>
 
-    <!-- Mirrored from www.revox.io/webarch/HTML/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2014 14:46:40 GMT -->
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-    <!-- Mirrored from www.revox.io/webarch/HTML/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2014 14:46:50 GMT -->
+   
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
@@ -26,6 +26,10 @@
         <link href="<?php echo base_url(); ?>application_resources/css/custom_css.css" rel="stylesheet" type="text/css"/>
         <!-- END CUSTOM CSS -->
 
+         <!-- favicon icon -->
+        <link rel="icon" type="image/ico" href="<?php echo base_url(); ?>application_resources/img/favicon.ico" />
+
+        
         <title><?php echo $this->config->item('APPLICATION_MAIN_TITLE'); ?> - Login</title>
 
 
@@ -291,6 +295,6 @@
         <!-- END CORE TEMPLATE JS -->
     </body>
 
-    <!-- Mirrored from www.revox.io/webarch/HTML/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 May 2014 14:46:51 GMT -->
+    
 </html>
 

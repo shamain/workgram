@@ -10,8 +10,15 @@ class Employee_service extends CI_Model {
     //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {
 
-        $query = $this->db->get_where('employee', array('company_code' => $company_code,'del_ind'=>'1'));
+        $query = $this->db->get_where('employee', array('company_code' => $company_code, 'del_ind' => '1'));
         return $query->result();
+    }
+
+    //get user details by employee code
+    function get_employee_by_id($emp_code) {
+
+        $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
+        return $query->row();
     }
 
     function authenticate_user($employee_model) {
@@ -122,12 +129,6 @@ class Employee_service extends CI_Model {
         $data = array('del_ind' => '0');
         $this->db->where('employee_code', $emp_code);
         return $this->db->update('employee', $data);
-    }
-
-    function get_employee_by_id($emp_code) {
-
-        $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
-        return $query->row();
     }
 
     function updateEmployee($employeemodel) {

@@ -48,7 +48,7 @@ class Privilege_master_service extends CI_Model {
         return $query->row();
     }
 
-    function update_master_priviledge($privilege_master_model) {
+    function update_master_privilege($privilege_master_model) {
 
         $data = array(
             'master_privilege' => $privilege_master_model->get_master_privilege(),

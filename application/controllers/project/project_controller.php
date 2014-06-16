@@ -12,7 +12,7 @@ class Project_controller extends CI_Controller {
             redirect(site_url() . '/login/login_controller');
         } else {
             $this->load->model('project/project_model');
-            $this->load->model('project/Project_service');
+            $this->load->model('project/project_service');
         }
     }
 
@@ -31,7 +31,7 @@ class Project_controller extends CI_Controller {
 //        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
 //        if ($perm) {
 
-        $project_model = new project_model();
+        $project_model = new Project_model();
         $project_service = new Project_service();
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
@@ -86,7 +86,7 @@ class Project_controller extends CI_Controller {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
 //        if ($perm) {
 
-        $project_model = new project_model();
+        $project_model = new Project_model();
         $project_service = new Project_service();
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
