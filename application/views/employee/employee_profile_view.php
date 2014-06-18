@@ -31,21 +31,34 @@
                         </div>
                     </div>
                     <div class="col-md-5 user-description-box  col-sm-5">
+                        
+                        <div class="profile-pic">
+                                <!--<img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />-->
+                                <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
-                        <h4 class="semi-bold no-margin"><?php echo ucfirst($employee->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee->employee_lname); ?></span>;</h4>
-                        <h6 class="no-margin"><?php echo ($employee->employee_no) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->employee_email) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->employee_type) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee->employee_bday) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee->employee_contact) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->employee_contract) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->company_code) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee->del_ind) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->added_by) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee->added_date) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee->updated_by) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee->updated_date) ?></h6>
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
+                                <?php } else { ?>
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>_small2x.jpg" width="35" height="35" />
+
+                                <?php } ?> 
+                             </div>
+
+                        <h4 class="semi-bold no-margin"><?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname); ?></span>;</h4>
+                        <h6 class="no-margin"><?php echo ($employee_detail->employee_no) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_email) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_type) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->employee_bday) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->employee_contact) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_contract) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->added_by) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->added_date) ?></h6>
+                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>
+                                
+                         
                     </div>
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
