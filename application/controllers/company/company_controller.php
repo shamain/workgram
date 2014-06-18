@@ -39,108 +39,87 @@ class Company_controller extends CI_Controller {
         $employee_model = new Employee_model();
         $employee_service = new Employee_service();
 
+        $name = ucfirst($this->input->post('txtFirstName', TRUE)) . ' ' . ucfirst($this->input->post('txtLastName', TRUE));
+        $username = $this->input->post('txtEmail', TRUE);
+        $password = $this->input->post('txtPassword', TRUE);
+        $email = $this->input->post('txtEmail', TRUE);
+        $token = $this->generate_random_string(); //generate account activation token
+
         $employee_model->set_employee_fname($this->input->post('txtFirstName', TRUE));
         $employee_model->set_employee_lname($this->input->post('txtLastName', TRUE));
-        $employee_model->set_employee_password($this->input->post('txtPassword', TRUE));
+        $employee_model->set_employee_password(md5($this->input->post('txtPassword', TRUE)));
         $employee_model->set_employee_email($this->input->post('txtEmail', TRUE));
         $employee_model->set_employee_contact($this->input->post('txtContact', TRUE));
-        $employee_model->set_company_code($company_code); 
-        $employee_model->set_employee_type("admin");
-         $employee_model->set_employee_contract("full time");
+        $employee_model->set_company_code($company_code);
+        $employee_model->set_employee_type($this->config->item('COMPANY_OWNER'));
+        $employee_model->set_employee_contract($this->config->item('FULL_TIME'));
         $employee_model->set_employee_bday($this->input->post('birthdy', TRUE));
-        $employee_model->set_del_ind('1');
+        $employee_model->set_account_activation_code(md5($token));
+        $employee_model->set_del_ind('2'); //account not activated
         $employee_model->set_added_date(date("Y-m-d H:i:s"));
 
-        echo $employee_service->add_employee($employee_model);
+        $emp_id = $employee_service->add_employee($employee_model);
+
+
+
+        $link = base_url() . "index.php/company_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
+
+
+        if ($emp_id) {
+            $msg = "<h1 style='font-size:24px;margin:0px'> Dear $name ,</h1><br/><br/>Your registration is success.<br/>";
+            $msg .= "Your Username - $username <br/>";
+            $msg .= "Your Password - $password <br/><br/>";
+            $msg .= "<a href=\"$link\">click here to proceed.</a>";
+            $msg .= "Thank you.<br/><br/>Administrator,<br/>Workgram.";
+
+            $this->load->library('email');
+
+            $subject = "Workgram - Registration Successful";
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: Workgram Admin <workgram.net>' . "\r\n";
+
+
+            if (mail($email, $subject, $msg, $headers)) {
+                echo "1";
+            } else {
+                echo "0";
+            }
+        } else {
+            echo "0";
+        }
     }
 
-    function manage_projects() {
-
-        $project_service = new Project_service();
-
-        $data['heading'] = "Manage Projects";
-        $data['projects'] = $project_service->get_all_projects();
-
-        $partials = array('content' => 'projects/manage_projects_view');
-        $this->template->load('template/main_template', $partials, $data);
+    //generate token
+    public function generate_random_string($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $random_string = '';
+        for ($i = 0; $i < $length; $i++) {
+            $random_string .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $random_string;
     }
 
-    function add_new_project() {
-//        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
-//        if ($perm) {
+    public function account_activation($emp_id, $token) {
+        $employee_service = new Employee_service();
+        $employee_model = new Employee_model();
 
-        $project_model = new project_model();
-        $project_service = new Project_service();
+        $employee_model->set_employee_code($emp_id);
+        $employee_model->set_account_activation_code($token);
 
-        $project_model->set_project_name($this->input->post('project_name', TRUE));
-        $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
-        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
-        $project_model->set_project_description($this->input->post('project_description', TRUE));
-        $project_model->set_del_ind('1');
-        $project_model->set_added_date(date("Y-m-d H:i:s"));
-        $project_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+        $count = $employee_service->check_user_id_token_combination($employee_model);
 
+        if ($count == 1) {
+            $data['emp_id'] = $emp_id;
+            $employee_model->set_del_ind('1');
+            $employee_service->activate_employee_account($employee_model);
 
+            echo $this->load->view('template/success_account_activated_view', $data);
+        } else {
+            $data['heading'] = "Invalid URL Request";
 
-        echo $project_service->add_new_project($project_model);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
-    }
-
-    function delete_project() {
-
-//        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
-//        if ($perm) {
-        $project_service = new Project_service();
-
-        echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
-    }
-
-    function edit_project_view($id) {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
-
-        $project_service = new Project_service();
-
-
-        $data['heading'] = "Edit Project";
-        $data['project'] = $project_service->get_project_by_id($id);
-
-
-        $partials = array('content' => 'projects/edit_project_view');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
-    }
-
-    function edit_project() {
-
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
-
-        $project_model = new project_model();
-        $project_service = new Project_service();
-
-        $project_model->set_project_name($this->input->post('project_name', TRUE));
-        $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
-        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
-        $project_model->set_project_description($this->input->post('project_description', TRUE));
-
-        $project_model->set_project_id($this->input->post('project_id', TRUE));
-
-
-
-        echo $project_service->update_project($project_model);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+            echo $this->load->view('users/invalid_url', $data);
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class project_model extends CI_Model {
+class Project_model extends CI_Model {
 
     var $project_id;
     var $project_name;

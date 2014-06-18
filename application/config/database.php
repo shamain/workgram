@@ -49,6 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
+//$db['default']['port'] = '3306';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '938200424v';
 $db['default']['database'] = 'workgram';

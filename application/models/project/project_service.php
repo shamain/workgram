@@ -21,7 +21,9 @@ class Project_service extends CI_Model {
     }
 
     function delete_project($project_id) {
-        return $this->db->delete('project', array('project_id' => $project_id));
+        $data = array('del_ind' => '0');
+        $this->db->where('project_id', $project_id);
+        return $this->db->update('project', $data);
     }
 
     function get_project_by_id($project_id) {
@@ -46,7 +48,7 @@ class Project_service extends CI_Model {
         );
 
         $this->db->where('project_id', $project_model->get_project_id());
-       
+
         return $this->db->update('project', $data);
     }
 

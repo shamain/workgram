@@ -5,8 +5,6 @@ if (!defined('BASEPATH'))
 
 class Login_controller extends CI_Controller {
 
-    
-    
     /**
      * Index Page for this controller.
      *
@@ -202,6 +200,100 @@ class Login_controller extends CI_Controller {
         $result = TRUE;
 
         return $result;
+    }
+
+    /*
+     * Login details checking function for desktop client
+     * if username and password wrong
+     * or there's no such user according to that username or pasword 
+     * this function will return 0
+     * otherwise return users' employee code 
+     * as the correct authentication.
+     */
+
+    function authenticate_user_by_desktop_client() {
+
+        $setting_login_type_id = '1'; //setting id 1 = User Login Options , in main_settings table
+
+        $employee_model = new Employee_model();
+        $employee_service = new Employee_service();
+
+        $email = $this->input->post('login_username', TRUE);
+
+        // set user name with @lankacom.net
+        $username_arr = explode('@', $email);
+        if (!isset($username_arr[1])) {
+            $email = $username_arr[0] . '@gmail.com';
+        }
+
+        $employee_model->set_employee_email($email);
+        $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
+
+        //calling settings_option_handler library's getOption(x,y,z) function to get the set option
+        //parameters = setting_id,employee_code,company_id
+
+        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
+
+
+        // 1 = Username & Password
+        if ($login_option == 1) {
+
+
+            $employee_model->set_employee_email($email);
+            $employee_model->set_employee_password(md5($this->input->post('login_password', TRUE))); // password md 5 change 
+
+            if (count($employee_service->authenticate_user_with_password($employee_model)) == 0) {
+                $logged_user_result = false;
+            } else {
+                $logged_user_result = true;
+            }
+        }
+
+        // 2 = Active Directory Authentication
+        if ($login_option == 2) {
+
+            $logged_user_result = true;
+            $employee_model->set_employee_email($email);
+            //$employeemodel->setPassword(md5($this->input->post('login_password', TRUE))); // password md 5 change 
+        }
+
+        // 3 = Corporate Email authentication
+        if ($login_option == 3) {
+
+
+            $employee_model->set_employee_email($email);
+            $employee_model->set_employee_password($this->input->post('login_password', TRUE)); // password md 5 change
+
+            $mailServer = $employee_service->get_server_by_email($employee_model);
+
+            //$logged_user_result = $this->authenticateUserEmail($employeemodel,$this->config->item('MAILBOX'));// chamge
+            //echo $logged_user_details->server;die;
+
+            if ($mailServer == 1) {
+                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX'));
+            } else if ($mailServer == 2) {
+                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX2'));
+            } else {
+                $logged_user_result = FALSE;
+            }
+        }
+
+
+        /* Remove Imap authenticate error login with some machine */
+        // $logged_user_result =  true;
+        if ($logged_user_result) {
+            $logged_user_details = $employee_service->authenticate_user($employee_model);
+
+            if (count($logged_user_details) == 0) {
+
+                echo 0;
+            } else {
+
+                echo $logged_user_details->employee_code;
+            }
+        } else {
+            echo 0;
+        }// if($logged_user_result){
     }
 
 }

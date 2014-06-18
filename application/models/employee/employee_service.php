@@ -10,8 +10,15 @@ class Employee_service extends CI_Model {
     //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {
 
-        $query = $this->db->get_where('employee', array('company_code' => $company_code,'del_ind'=>'1'));
+        $query = $this->db->get_where('employee', array('company_code' => $company_code, 'del_ind' => '1'));
         return $query->result();
+    }
+
+    //get user details by employee code
+    function get_employee_by_id($emp_code) {
+
+        $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
+        return $query->row();
     }
 
     function authenticate_user($employee_model) {
@@ -52,6 +59,21 @@ class Employee_service extends CI_Model {
             $server = 1;
         }
         return $server;
+    }
+
+    //check token match for the actual one
+    public function check_user_id_token_combination($employee_model) {
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        $this->db->where('account_activation_code', $employee_model->get_account_activation_code());
+        $res = $this->db->get('employee');
+        return $res->num_rows();
+    }
+    
+    //check token match for the actual one
+    function activate_employee_account($employee_model) {
+        $data = array('del_ind' => $employee_model->get_del_ind());
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
     }
 
     function get_employees($emp_status = 1) {
@@ -122,12 +144,6 @@ class Employee_service extends CI_Model {
         $data = array('del_ind' => '0');
         $this->db->where('employee_code', $emp_code);
         return $this->db->update('employee', $data);
-    }
-
-    function get_employee_by_id($emp_code) {
-
-        $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
-        return $query->row();
     }
 
     function updateEmployee($employeemodel) {
