@@ -226,7 +226,7 @@
                                              <div class="input-with-icon  right input-append primary date  no-padding" id="birthday">                                       
                                 <i class=""></i>
                                 
-                                    <input class="form-control" type="text" id="birthdy" name="birthdy" readonly="true">
+                                <input class="form-control" type="text" id="birthdy" name="birthdy" readonly="true" placeholder="ex: 1991-04-10">
                                     <span class="add-on">
                                         <span class="arrow"></span>
                                         <i class="fa fa-th"></i>
@@ -251,8 +251,8 @@
                                             <ul class=" wizard wizard-actions">
                                                 <li class="previous first" style="display:none;"><a href="javascript:;" class="btn">&nbsp;&nbsp;First&nbsp;&nbsp;</a></li>
                                                 <li class="previous"><a href="javascript:;" class="btn">&nbsp;&nbsp;Previous&nbsp;&nbsp;</a></li>
-                                                <li class="next last" style="display:none;"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Start&nbsp;&nbsp;</a></li>
-                                                <li class="next"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a></li>
+                                                <li class="next last" style="display:none;" ><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Start&nbsp;&nbsp;</a></li>
+                                                <li class="next" id="nextbtn"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a></li>
                                             </ul>
                                         </div>
                                     </div>
