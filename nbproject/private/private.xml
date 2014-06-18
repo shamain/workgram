@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/projects/edit_project_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/project/project_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/settings/privilege_master_controller.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/settings/privilege_controller.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application_resources/custom_js/custom_project.js</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/privileges/edit_privilege_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application_resources/custom_js/custom_privilege.js</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/employee/employee_profile_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/dashboard/dashboard_controller.php</file>
         </group>
     </open-files>
 </project-private>
