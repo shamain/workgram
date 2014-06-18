@@ -61,6 +61,21 @@ class Employee_service extends CI_Model {
         return $server;
     }
 
+    //check token match for the actual one
+    public function check_user_id_token_combination($employee_model) {
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        $this->db->where('account_activation_code', $employee_model->get_account_activation_code());
+        $res = $this->db->get('employee');
+        return $res->num_rows();
+    }
+    
+    //check token match for the actual one
+    function activate_employee_account($employee_model) {
+        $data = array('del_ind' => $employee_model->get_del_ind());
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
+    }
+
     function get_employees($emp_status = 1) {
 
         $keywords = $this->input->post('keywords');
