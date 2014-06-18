@@ -165,7 +165,7 @@
                                     <div class="iconset top-settings-dark "></div>
                                 </a>
                                 <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-                                    <li><a href="user-profile.html"> My Account</a> </li>
+                                    <li><a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile"> My Account</a> </li>
                                     <li><a href="calender.html">My Calendar</a> </li>
                                     <li><a href="email.html"> My Inbox&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a> </li>
                                     <li class="divider"></li>
