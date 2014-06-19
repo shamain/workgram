@@ -519,7 +519,7 @@
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_project.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_statistics.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_dahami.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_rachini.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_employee_profile.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_kaumadi.js" type="text/javascript"></script>
             <!-- END CUSTOM JS -->
 

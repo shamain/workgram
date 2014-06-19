@@ -1,4 +1,3 @@
- 
 <div class="row">
     <div class="col-md-6">
         <div class=" tiles white col-md-12 no-padding">
@@ -346,5 +345,6 @@
         </div>
     </div>
 </div>
+
 
 
