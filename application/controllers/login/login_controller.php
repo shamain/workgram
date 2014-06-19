@@ -286,13 +286,13 @@ class Login_controller extends CI_Controller {
 
             if (count($logged_user_details) == 0) {
 
-                echo 0;
+                echo '0';die;
             } else {
 
                 echo $logged_user_details->employee_code;
             }
         } else {
-            echo 0;
+            echo '0';
         }// if($logged_user_result){
     }
 

@@ -44,7 +44,7 @@ class Employee_controller extends CI_Controller {
 
 
 
-        echo $employee_service->add_new_employee($employee_model);
+        echo $employee_service->add_employee($employee_model);
 
     }}
 ?>
