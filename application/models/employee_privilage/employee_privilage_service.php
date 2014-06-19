@@ -28,10 +28,8 @@ class Employee_privilege_service extends CI_Model {
      function update_employee_privilege($employee_privilage_model) {
 
         $data = array(
-            'employee_privilege_code' => $employee_privilage_model->get_employee_privilege_code(),
             'employee_code' => $employee_privilage_model->get_employee_code(),
-            'privilage_code' => $employee_privilage_model->get_privilege_code(),
-            
+            'privilage_code' => $employee_privilage_model->get_privilege_code()
         );
 
 

@@ -40,8 +40,6 @@ class Company_controller extends CI_Controller {
         $employee_service = new Employee_service();
 
         $name = ucfirst($this->input->post('txtFirstName', TRUE)) . ' ' . ucfirst($this->input->post('txtLastName', TRUE));
-        $username = $this->input->post('txtEmail', TRUE);
-        $password = $this->input->post('txtPassword', TRUE);
         $email = $this->input->post('txtEmail', TRUE);
         $token = $this->generate_random_string(); //generate account activation token
 
@@ -62,25 +60,25 @@ class Company_controller extends CI_Controller {
 
 
 
-        $link = base_url() . "index.php/company_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
+        $link = base_url() . "index.php/company/company_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
 
 
         if ($emp_id) {
-            $msg = "<h1 style='font-size:24px;margin:0px'> Dear $name ,</h1><br/><br/>Your registration is success.<br/>";
-            $msg .= "Your Username - $username <br/>";
-            $msg .= "Your Password - $password <br/><br/>";
-            $msg .= "<a href=\"$link\">click here to proceed.</a>";
-            $msg .= "Thank you.<br/><br/>Administrator,<br/>Workgram.";
 
-            $this->load->library('email');
+            $data['name'] = $name;
+            $data['link'] = $link;
+            
+            $this->load->library('mail_handler');
 
-            $subject = "Workgram - Registration Successful";
-            $headers = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headers .= 'From: Workgram Admin <workgram.net>' . "\r\n";
+            $email_subject = "Workgram : Activate Your New Account";
+            
 
+            $cc = array('gayathma3@gmail.com');
+            $lcs_system = 'registration';
+            $to = $email;
+            $msg = $this->load->view('template/mail_template/body', $data, TRUE);
 
-            if (mail($email, $subject, $msg, $headers)) {
+            if ($this->mail_handler->sendMailthoughtemplatewithcc($to, $email_subject, $msg, $lcs_system, $cc)) {
                 echo "1";
             } else {
                 echo "0";
@@ -101,6 +99,7 @@ class Company_controller extends CI_Controller {
     }
 
     public function account_activation($emp_id, $token) {
+
         $employee_service = new Employee_service();
         $employee_model = new Employee_model();
 

@@ -129,15 +129,28 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                    
-                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
+                   /* $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
                     add_privilege_form.reset();
-                    location.reload();
+                    location.reload();*/
+                    
+                     $("#commentForm").find('input[type=text], textarea').val('');
+                    
+                       $('#comapnymodal').modal('toggle');
+                        $('#tab1').addClass('active');
+                     $('#tab3').removeClass('active');
                 } else {
                     $("#add_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
                 }
             });
 
 
+        },
+        'onPrevious':function(tab, navigation, index){
+               
+                    $('.last').hide();
+                       $('#nextbtn').show();
+                        
+                   
         }
     });
 
@@ -163,6 +176,8 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true
     });
+    
+   
 });
 
 

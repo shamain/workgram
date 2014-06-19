@@ -17,17 +17,10 @@ class Mail_handler extends CI_Controller {
 
         $data['lcs_system'] = $lcs_system; //System name , Ex : CCM , CRM , IMS , POLLS , TA etc.  
 
-
-
-        $message = $this->load->view('template/mail_template/header', $data, TRUE);
-        $message .= $msg_body;
-        $message .= $this->load->view('template/mail_template/footer', $data, TRUE);
-
-
         $this->email->from('LocalTesting@workgram.net', 'Local Testing Workgram-'.$lcs_system);
         $this->email->to($to);
         $this->email->subject($email_subject.' Local Testing');
-        $this->email->message($message);
+        $this->email->message($msg_body);
 
         return $this->email->send();
     }
@@ -37,17 +30,11 @@ class Mail_handler extends CI_Controller {
         $data['lcs_system'] = $lcs_system; //System name , Ex : CCM , CRM , IMS , POLLS , TA etc.
 
 
-
-        $message = $this->load->view('template/mail_template/header', $data, TRUE);
-        $message .= $msg_body;
-        $message .= $this->load->view('template/mail_template/footer', $data, TRUE);
-
-
         $this->email->from('LocalTesting@workgram.net', 'Local Testing Workgram-'.$lcs_system);
         $this->email->to($to);
         $this->email->cc($cc);
         $this->email->subject($email_subject.' Local Testing');
-        $this->email->message($message);
+        $this->email->message($msg_body);
 
        return $this->email->send();
     }
