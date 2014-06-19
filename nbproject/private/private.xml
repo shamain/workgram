@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/settings/privilege_master_controller.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/settings/privilege_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/project/project_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/models/employee_privilage/employee_privilage_service.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/employee_privilage/employee_privilage_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/privileges/manage_privileges_view.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/models/employee/employee_service.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/employee/employee_profile_controller.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/dashboard/dashboard_controller.php</file>
-=======
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/employee/employee_profile_view.php</file>
->>>>>>> origin/master
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/models/privilege/privilege_service.php</file>
         </group>
     </open-files>
 </project-private>
