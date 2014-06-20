@@ -20,6 +20,7 @@
                             <th>Type</th>
                             <th>Contact No</th>
                             <th>Contract</th>
+                             <th>Options</th>
 
                         </tr>
                     </thead>
