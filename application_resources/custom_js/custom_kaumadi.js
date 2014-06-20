@@ -23,7 +23,7 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        }
+        },
     });
 //
     $(".employee_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_employee_btn" data-toggle="modal" data-target="#add_employee_modal">Add New employee</button></div>');
@@ -89,7 +89,7 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                     $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee</a>has been added.</div>');
-                    add_project_form.reset();
+                    add_employee_form.reset();
 //                    location.reload();
                 } else {
                     $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee</a>has failed.</div>');
