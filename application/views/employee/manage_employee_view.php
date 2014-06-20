@@ -13,13 +13,13 @@
                 <table class="table" id="employee_table" >
                     <thead>
                         <tr>
-                            <th>employee_code</th>
-                            <th>employee_fname</th>
-                            <th>employee_lname</th>
-                            <th>employee_email</th>
-                            <th>employee_type</th>
-                            <th>employee_contact</th>
-                            <th>employee_contract</th>
+                            <th>Employee Code</th>
+                            <th>First Name</th>
+                            <th>Second Name</th>
+                            <th>Email</th>
+                            <th>Type</th>
+                            <th>Contact No</th>
+                            <th>Contract</th>
 
                         </tr>
                     </thead>
