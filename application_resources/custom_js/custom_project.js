@@ -23,7 +23,7 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
+        }
     });
 
     $(".project_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_project_btn" data-toggle="modal" data-target="#add_project_modal">Add New Project</button></div>');

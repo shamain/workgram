@@ -36,7 +36,7 @@
                                 <td><?php echo $employee->employee_contact; ?></td>
                                 <td><?php echo $employee->employee_contract; ?></td>
 
-                             
+
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -69,12 +69,12 @@
                 </div>
                 <div class="modal-body">
 
-                    
-                    
+
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">Employee No</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -85,11 +85,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_fname</label>
+                                <label class="form-label">First Name</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -100,11 +100,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_lname</label>
+                                <label class="form-label">Last Name</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -115,11 +115,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_password</label>
+                                <label class="form-label">Password</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -130,11 +130,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_email</label>
+                                <label class="form-label">Email</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -145,11 +145,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_type</label>
+                                <label class="form-label">Type</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -163,26 +163,26 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_bday</label>
+                                <label class="form-label">Birth Day</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_dpicker">                                       
                                 <i class=""></i>
-                                
-                                    <input class="form-control" type="text" id="employee_bday" name="employee_bday" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
+
+                                <input class="form-control" type="text" id="employee_bday" name="employee_bday" readonly="true">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
-                      <div class="row form-row">
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_contact</label>
+                                <label class="form-label">Contact No</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -193,11 +193,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_salary</label>
+                                <label class="form-label">Salary</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -208,11 +208,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_contract</label>
+                                <label class="form-label">Contract</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -223,11 +223,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_avatar</label>
+                                <label class="form-label">Avatar</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -238,26 +238,11 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
+
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_activation_code</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_activation_code" class="form-control" type="text" name="employee_activation_code">                              
-                            </div>
-                        </div>
-                    </div>
-                    
-                      <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">company_code</label>
+                                <label class="form-label">Company</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -268,105 +253,14 @@
                             </div>
                         </div>
                     </div>
-                    
-                      <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">del_ind</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="del_ind" class="form-control" type="text" name="del_ind">                              
-                            </div>
-                        </div>
+
+
+                    <div id="add_employee_msg" class="form-row"> </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                     </div>
-                    
-                      
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">added_by</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_added_by_dpicker">                                       
-                                <i class=""></i>
-                                
-                                    <input class="form-control" type="text" id="employee_added_by" name="employee_added_by" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">added_date</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_added_date_dpicker">                                       
-                                <i class=""></i>
-                                
-                                <input class="form-control" type="text" id="employee_added_date" name="employee_added_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">updated_by</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_updated_by_dpicker">                                       
-                                <i class=""></i>
-                                
-                                    <input class="form-control" type="text" id="employee_updated_by" name="employee_updated_by" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">updated_date</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_updated_date_dpicker">                                       
-                                <i class=""></i>
-                                
-                                <input class="form-control" type="text" id="employee_updated_date" name="employee_updated_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                            </div>
-                        </div>
-                    </div>
-                <div id="add_employee_msg" class="form-row"> </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    
-                </div>
 
             </form>
         </div>

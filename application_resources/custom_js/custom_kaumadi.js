@@ -25,8 +25,10 @@ $(document).ready(function() {
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
         },
     });
+
 //
-    $(".employee_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_employee_btn" data-toggle="modal" data-target="#add_employee_modal">Add New employee</button></div>');
+
+    $(".employee_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_employee_btn" data-toggle="modal" data-target="#add_employee_modal">Add New Employee</button></div>');
 
     $('#employee_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
@@ -58,8 +60,6 @@ $(document).ready(function() {
             },
             employee_contract: {
                 required: true
-            
-        
             }
 
 
@@ -119,6 +119,6 @@ $(document).ready(function() {
 
 
 
-        
+
 
 
