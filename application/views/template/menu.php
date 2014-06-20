@@ -13,6 +13,18 @@
 
 <li class=""> 
     <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Employees</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/employee/employee_controller/manage_employees"> Manage Employees </a> </li>
+        
+    </ul>
+</li> 
+
+<li class=""> 
+    <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
         <span class="title">Settings</span> 
         <span class="arrow "></span> 
