@@ -132,6 +132,11 @@ class Employee_service extends CI_Model {
 //        $query = $this->db->get_where('lcs_employee', array('Status' => '1', 'Employee_Code !=' => '0'));
 //        return $query->num_rows();
 //    }
+    function add_new_employee($employee_model) {
+
+        return $this->db->insert('employee', $employee_model);
+
+    }
 
     function add_employee($employee_model) {
 

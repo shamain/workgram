@@ -89,7 +89,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee</a>has been added.</div>');
                     add_employee_form.reset();
-//                    location.reload();
+                    location.reload();
                 } else {
                     $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee</a>has failed.</div>');
                 }

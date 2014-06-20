@@ -48,12 +48,13 @@ class Employee_controller extends CI_Controller {
         $employee_model->set_employee_contract($this->input->post('employee_contract', TRUE));
         $employee_model->set_employee_avatar($this->input->post('employee_avatar', TRUE));
         $employee_model->set_company_code($this->input->post('company_code', TRUE));
+        $employee_model->set_account_activation_code($this->config->item('EMPLOYEE'));
         $employee_model->set_del_ind('1');
         $employee_model->set_added_by($this->session->userdata('employee_code'));
         $employee_model->set_added_date(date("Y-m-d H:i:s"));
 
 
-        echo $employee_service->add_employee($employee_model);
+        echo $employee_service->add_new_employee($employee_model);
     }
 
      function delete_employee() {
