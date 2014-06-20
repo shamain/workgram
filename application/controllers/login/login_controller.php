@@ -289,7 +289,7 @@ class Login_controller extends CI_Controller {
                 echo '0';die;
             } else {
 
-                echo $logged_user_details->employee_code;
+                echo "success"."+".$logged_user_details->employee_code."+".$logged_user_details->employee_fname;
             }
         } else {
             echo '0';
