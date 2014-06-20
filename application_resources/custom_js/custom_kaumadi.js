@@ -2,9 +2,9 @@ var base_url = js_base_url;
 var site_url = js_site_url;
 
 
-//////////////////project//////////////////////////////////////////////////////////////
+//////////////////employee//////////////////////////////////////////////////////////////
 $(document).ready(function() {
-    //project table
+    //employee table
     var employee_table = $('#employee_table').dataTable({
         "sDom": "<'row'<'col-md-6'l <'toolbar employee_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
@@ -25,7 +25,7 @@ $(document).ready(function() {
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
         }
     });
-
+//
     $(".employee_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_employee_btn" data-toggle="modal" data-target="#add_employee_modal">Add New employee</button></div>');
 
     $('#employee_table_wrapper .dataTables_filter input').addClass("input-medium ");
