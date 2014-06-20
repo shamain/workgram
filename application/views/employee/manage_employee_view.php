@@ -54,7 +54,8 @@
         </div>
     </div>
 </div>
-<!-- /.modal -->
+
+<!-- Modal -->
 <div class="modal fade" id="add_employee_modal" tabindex="-1" role="dialog" aria-labelledby="add_employee_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -68,8 +69,6 @@
                     <br>
                 </div>
                 <div class="modal-body">
-
-
 
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -254,13 +253,13 @@
                         </div>
                     </div>
 
+                </div>
+                <div id="add_employee_msg" class="form-row"> </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                    <div id="add_employee_msg" class="form-row"> </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                    </div>
+                </div>
 
             </form>
         </div>

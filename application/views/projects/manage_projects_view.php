@@ -50,7 +50,9 @@
             </div>
         </div>
     </div>
-</div><!-- Modal -->
+</div>
+
+<!-- Modal -->
 <div class="modal fade" id="add_project_modal" tabindex="-1" role="dialog" aria-labelledby="add_project_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
