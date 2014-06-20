@@ -35,14 +35,13 @@ $(document).ready(function() {
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
 
+
     //add employee Form
     $('#add_employee_form').validate({
         focusInvalid: false,
         ignore: "",
         rules: {
-            employee_code: {
-                required: true
-            },
+            
             employee_fname: {
                 required: true
             },
@@ -101,6 +100,28 @@ $(document).ready(function() {
     });
 });
 
+//delete projects
+function delete_employee(code) {
+
+    if (confirm('Are you sure want to delete this Employee ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/employee/employee_controller/delete_employee',
+            data: "code=" + code,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#employee_' + code).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Tasks');
+                }
+            }
+        });
+    }
+}
 
 
 
