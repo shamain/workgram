@@ -21,7 +21,7 @@ class Employee_controller extends CI_Controller {
         $employee_service = new employee_service();
 
         $data['heading'] = "Manage Employee";
-        $data['Employee'] = $employee_service->get_all_employee();
+        $data['employees'] = $employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $partials = array('content' => 'employee/manage_employee_view');
         $this->template->load('template/main_template', $partials, $data);

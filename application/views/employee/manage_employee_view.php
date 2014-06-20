@@ -14,50 +14,28 @@
                     <thead>
                         <tr>
                             <th>employee_code</th>
-                            <th>employee_no</th>
                             <th>employee_fname</th>
                             <th>employee_lname</th>
-                            <th>employee_password</th>
                             <th>employee_email</th>
                             <th>employee_type</th>
-                            <th>employee_bday</th>
                             <th>employee_contact</th>
-                            <th>employee_salary</th>
                             <th>employee_contract</th>
-                            <th>employee_avatar</th>
-                            <th>account_activation_code</th>
-                            <th>company_code</th>
-                            <th>del_ind</th>
-                            <th>added_by</th>
-                            <th>added_date</th>
-                            <th>updated_by</th>
-                            <th>updated_date</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($employee as $employee) {
+                        foreach ($employees as $employee) {
                             ?> 
                             <tr  id="employee_<?php echo $employee->employee_code; ?>">
-                                <td><?php echo $employee->employee_no; ?></td>
+                                <td><?php echo $employee->employee_code; ?></td>
                                 <td><?php echo $employee->employee_fname; ?></td>
                                 <td><?php echo $employee->employee_lname; ?></td>
-                                <td><?php echo $employee->employee_password; ?></td>
                                 <td><?php echo $employee->employee_email; ?></td>
                                 <td><?php echo $employee->employee_type; ?></td>
-                                <td><?php echo $employee->employee_bday; ?></td>
                                 <td><?php echo $employee->employee_contact; ?></td>
-                                <td><?php echo $employee->employee_salary; ?></td>
                                 <td><?php echo $employee->employee_contract; ?></td>
-                               
-                                <td><?php echo $employee->employee_avatar; ?></td>
-                                <td><?php echo $employee->account_activation_code; ?></td>
-                                <td><?php echo $employee->company_code; ?></td>
-                                <td><?php echo $employee->del_ind; ?></td>
-                                <td><?php echo $employee->added_by; ?></td>
-                                <td><?php echo $employee->added_date; ?></td>
-                                <td><?php echo $employee->updated_by; ?></td>
-                                <td><?php echo $employee->updated_date; ?></td>
+
                              
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
