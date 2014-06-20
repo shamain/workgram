@@ -49,7 +49,7 @@
                                 <td><?php echo $employee->employee_contact; ?></td>
                                 <td><?php echo $employee->employee_salary; ?></td>
                                 <td><?php echo $employee->employee_contract; ?></td>
-                                <td><?php echo $employee->employee_salary; ?></td>
+                               
                                 <td><?php echo $employee->employee_avatar; ?></td>
                                 <td><?php echo $employee->account_activation_code; ?></td>
                                 <td><?php echo $employee->company_code; ?></td>
@@ -91,20 +91,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">employee_code</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_code" class="form-control" type="text" name="employee_code" >                              
-                            </div>
-                        </div>
-                    </div>
+                    
                     
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -247,14 +234,14 @@
                       <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">employee_contract</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
+                                <input id="employee_contract" class="form-control" type="text" name="employee_contract">                              
                             </div>
                         </div>
                     </div>
@@ -262,14 +249,14 @@
                       <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">employee_avatar</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
+                                <input id="employee_avatar" class="form-control" type="text" name="employee_avatar">                              
                             </div>
                         </div>
                     </div>
@@ -277,14 +264,14 @@
                       <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">employee_activation_code</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
+                                <input id="employee_activation_code" class="form-control" type="text" name="employee_activation_code">                              
                             </div>
                         </div>
                     </div>
@@ -292,14 +279,14 @@
                       <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">company_code</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
+                                <input id="company_code" class="form-control" type="text" name="company_code">                              
                             </div>
                         </div>
                     </div>
@@ -307,74 +294,31 @@
                       <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
+                                <label class="form-label">del_ind</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
+                                <input id="del_ind" class="form-control" type="text" name="del_ind">                              
                             </div>
                         </div>
                     </div>
                     
-                      <div class="row form-row">
+                      
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">employee_no</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
-                            </div>
-                        </div>
-                    </div>
-                    
-                      <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">employee_no</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
-                            </div>
-                        </div>
-                    </div>
-                    
-                      <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">employee_no</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_no" class="form-control" type="text" name="employee_no">                              
-                            </div>
-                        </div>
-                    </div>
-<!--                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Start Date</label>
+                                <label class="form-label">added_by</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_dpicker">                                       
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_added_by_dpicker">                                       
                                 <i class=""></i>
                                 
-                                    <input class="form-control" type="text" id="project_start_date" name="project_start_date" readonly="true">
+                                    <input class="form-control" type="text" id="employee_added_by" name="employee_added_by" readonly="true">
                                     <span class="add-on">
                                         <span class="arrow"></span>
                                         <i class="fa fa-th"></i>
@@ -385,38 +329,61 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">End Date</label>
+                                <label class="form-label">added_date</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_dpicker">                                       
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_added_date_dpicker">                                       
                                 <i class=""></i>
                                 
-                                <input class="form-control" type="text" id="project_end_date" name="project_end_date" readonly="true">
+                                <input class="form-control" type="text" id="employee_added_date" name="employee_added_date" readonly="true">
                                     <span class="add-on">
                                         <span class="arrow"></span>
                                         <i class="fa fa-th"></i>
                                     </span>
                             </div>
                         </div>
-                    </div><div class="row form-row">
+                    </div>
+                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Description</label>
+                                <label class="form-label">updated_by</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
+                        <div class="col-md-3">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_updated_by_dpicker">                                       
                                 <i class=""></i>
-                                <textarea id="project_description" class="form-control" type="text" name="project_description">    </textarea>                          
+                                
+                                    <input class="form-control" type="text" id="employee_updated_by" name="employee_updated_by" readonly="true">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
-
-                </div>
-                <div id="add_project_msg" class="form-row"> </div>
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">updated_date</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_updated_date_dpicker">                                       
+                                <i class=""></i>
+                                
+                                <input class="form-control" type="text" id="employee_updated_date" name="employee_updated_date" readonly="true">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                <div id="add_employee_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -16,7 +16,17 @@ class Employee_controller extends CI_Controller {
             $this->load->model('employee/employee_service');
         }
     }
-       function add_new_project() {
+    function manage_employees() {
+
+        $employee_service = new employee_service();
+
+        $data['heading'] = "Manage Employee";
+        $data['Employee'] = $employee_service->get_all_employee();
+
+        $partials = array('content' => 'employee/manage_employee_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+       function add_new_employee() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
 //        if ($perm) {
 
