@@ -16,6 +16,7 @@ class Employee_controller extends CI_Controller {
             $this->load->model('employee/employee_service');
         }
     }
+
     function manage_employees() {
 
         $employee_service = new employee_service();
@@ -26,7 +27,8 @@ class Employee_controller extends CI_Controller {
         $partials = array('content' => 'employee/manage_employee_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-       function add_new_employee() {
+
+    function add_new_employee() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
 //        if ($perm) {
 
@@ -49,12 +51,11 @@ class Employee_controller extends CI_Controller {
         $employee_model->set_del_ind('1');
         $employee_model->set_added_by($this->session->userdata('employee_code'));
         $employee_model->set_added_date(date("Y-m-d H:i:s"));
-        $employee_model->set_updated_by($this->session->userdata('employee_code'));
-        $employee_model->set_updated_date(date("Y-m-d H:i:s"));
-
 
 
         echo $employee_service->add_employee($employee_model);
+    }
 
-    }}
+}
+
 ?>
