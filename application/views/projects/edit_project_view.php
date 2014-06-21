@@ -16,7 +16,7 @@
 
 
                             <div class="form-group">
-                                <label class="form-label">Project Name </label>
+                                <label class="form-label">Title</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
@@ -52,8 +52,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">End Date</label>
-                                <span style="color: red">*</span><br>
+                                <label class="form-label">Dead Line</label>
+                               <br>
 
                                 <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
                                     <i class=""></i>

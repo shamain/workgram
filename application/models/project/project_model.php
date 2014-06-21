@@ -3,6 +3,7 @@
 class Project_model extends CI_Model {
 
     var $project_id;
+    var $project_logo;
     var $project_name;
     var $project_vendor;
     var $project_start_date;
@@ -22,6 +23,14 @@ class Project_model extends CI_Model {
 
     public function set_project_id($project_id) {
         $this->project_id = $project_id;
+    }
+
+    public function get_project_logo() {
+        return $this->project_logo;
+    }
+
+    public function set_project_logo($project_logo) {
+        $this->project_logo = $project_logo;
     }
 
     public function get_project_name() {

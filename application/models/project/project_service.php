@@ -9,8 +9,9 @@ class Project_service extends CI_Model {
 
     public function get_all_projects() {
 
-        $this->db->select('*');
+        $this->db->select('project.*,employee.employee_fname,employee.employee_lname');
         $this->db->from('project');
+        $this->db->join('employee', 'employee.employee_code = project.added_by');
         $this->db->order_by("project_id", "desc");
         $query = $this->db->get();
         return $query->result();

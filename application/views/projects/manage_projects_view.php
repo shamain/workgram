@@ -14,26 +14,32 @@
                 <table class="table" id="project_table" >
                     <thead>
                         <tr>
-                            <th>Project Code</th>
-                            <th>Project</th>
-                            <th>Vendor</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Description</th>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Founder</th>
+                            <th>Deadline</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $i = 0;
                         foreach ($projects as $project) {
+         
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
-                                <td><?php echo $project->project_id; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
-                                <td><?php echo $project->project_vendor; ?></td>
-                                <td><?php echo $project->project_start_date; ?></td>
-                                <td><?php echo $project->project_end_date; ?></td>
-                                <td><?php echo $project->project_description; ?></td>
+                                <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
+                                <td>
+                                    <?php
+                                    if ($project->project_end_date == "0000-00-00") {
+                                        echo 'Not Set';
+                                    } else {
+                                        echo date('d M Y', strtotime($project->project_end_date));
+                                    }
+                                    ?>
+                                </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -70,7 +76,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Project Name</label>
+                                <label class="form-label">Title</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -105,31 +111,31 @@
                         <div class="col-md-3">
                             <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_dpicker">                                       
                                 <i class=""></i>
-                                
-                                    <input class="form-control" type="text" id="project_start_date" name="project_start_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
+
+                                <input class="form-control" type="text" id="project_start_date" name="project_start_date" readonly="true" value="<?php echo date("Y-m-d"); ?>">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">End Date</label>
-                                <span style="color: red">*</span>
+                                <label class="form-label">Dead Line</label>
+
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_dpicker">                                       
                                 <i class=""></i>
-                                
+
                                 <input class="form-control" type="text" id="project_end_date" name="project_end_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
                             </div>
                         </div>
                     </div><div class="row form-row">
@@ -152,7 +158,7 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    
+
                 </div>
 
             </form>

@@ -16,10 +16,7 @@ $(document).ready(function() {
                 }
             ]
         },
-        "aoColumnDefs": [
-            {"bSortable": false, "aTargets": [0]}
-        ],
-        "aaSorting": [[3, "desc"]],
+        "aaSorting": [[0, "asc"]],
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
@@ -59,9 +56,6 @@ $(document).ready(function() {
                 required: true
             },
             project_start_date: {
-                required: true
-            },
-            project_end_date: {
                 required: true
             },
             project_description: {
@@ -132,10 +126,7 @@ $('#edit_project_form').validate({
         project_vendor: {
             required: true
         },
-        project_duration: {
-            required: true
-        },
-        project_deadline: {
+        project_start_date: {
             required: true
         },
         project_description: {
