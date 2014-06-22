@@ -264,6 +264,7 @@
                     <!-- END SIDEBAR MENU -->
                 </div>
             </div>
+            <a href="#" class="scrollup">Scroll</a>
             <div class="footer-widget">
                 <div class="progress transparent progress-small no-radius no-margin">
                     <div data-percentage="79%" class="progress-bar progress-bar-success animate-progress-bar" ></div>

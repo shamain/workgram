@@ -21,7 +21,7 @@ class Project_controller extends CI_Controller {
         $project_service = new Project_service();
 
         $data['heading'] = "Manage Projects";
-        $data['projects'] = $project_service->get_all_projects();
+        $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $partials = array('content' => 'projects/manage_projects_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -39,6 +39,7 @@ class Project_controller extends CI_Controller {
         $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
         $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
+        $project_model->set_company_code($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $project_model->set_del_ind('1');
         $project_model->set_added_date(date("Y-m-d H:i:s"));
         $project_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
@@ -104,5 +105,6 @@ class Project_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+
 
 }

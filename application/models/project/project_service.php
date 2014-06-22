@@ -7,12 +7,13 @@ class Project_service extends CI_Model {
         $this->load->model('project/project_model');
     }
 
-    public function get_all_projects() {
+    public function get_all_projects_for_company($company_code) {
 
         $this->db->select('project.*,employee.employee_fname,employee.employee_lname');
         $this->db->from('project');
         $this->db->join('employee', 'employee.employee_code = project.added_by');
-        $this->db->order_by("project_id", "desc");
+        $this->db->where('project.company_code', $company_code);
+        $this->db->order_by("project.project_id", "desc");
         $query = $this->db->get();
         return $query->result();
     }

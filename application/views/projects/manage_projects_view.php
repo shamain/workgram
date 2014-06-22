@@ -41,6 +41,9 @@
                                     ?>
                                 </td>
                                 <td>
+                                    <a href="<?php echo site_url(); ?>/task/task_controller/view_task_for_projects/<?php echo $project->project_id; ?>" style="cursor: pointer;"   title="Assign Tasks">
+                                        <i class="fa fa-bolt"></i>
+                                    </a>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
                                         <i class="fa fa-pencil"></i>
                                     </a>

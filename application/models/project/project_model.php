@@ -9,6 +9,7 @@ class Project_model extends CI_Model {
     var $project_start_date;
     var $project_end_date;
     var $project_description;
+    var $company_code;
     var $del_ind;
     var $added_by;
     var $added_date;
@@ -71,6 +72,14 @@ class Project_model extends CI_Model {
 
     public function set_project_description($project_description) {
         $this->project_description = $project_description;
+    }
+
+    public function get_company_code() {
+        return $this->company_code;
+    }
+
+    public function set_company_code($company_code) {
+        $this->company_code = $company_code;
     }
 
     public function get_del_ind() {

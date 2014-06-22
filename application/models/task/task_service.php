@@ -7,11 +7,11 @@ class Task_service extends CI_Model {
         $this->load->model('project/project_model');
     }
 
-    public function get_all_tasks() {
+    public function get_tasks_for_project($project_id) {
 
         $this->db->select('*');
         $this->db->from('task');
-        $this->db->order_by("task_id", "desc");
+        $this->db->where('project_id', $project_id);
         $query = $this->db->get();
         return $query->result();
     }
