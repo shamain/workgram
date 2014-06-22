@@ -18,7 +18,7 @@
                             <th>Type</th>
                             <th>Contact No</th>
                             <th>Contract</th>
-                             <th>Options</th>
+                            <th>Options</th>
 
                         </tr>
                     </thead>
@@ -27,13 +27,30 @@
                         foreach ($employees as $employee) {
                             ?> 
                             <tr  id="employee_<?php echo $employee->employee_code; ?>">
-                                
-                                
-                                <td><?php echo $employee->employee_fname.' '.$employee->employee_lname; ?></td>
+
+
+                                <td><?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?></td>
                                 <td><?php echo $employee->employee_email; ?></td>
-                                <td><?php echo $employee->employee_type; ?></td>
+                                <td>  
+                                    <?php if ($employee->employee_type == $this->config->item('ADMIN')) {
+                                        ?>
+                                        <span class="label label-important"><?php echo 'ADMIN'; ?></span>
+
+                                    <?php } else if ($employee->employee_type == $this->config->item('COMPANY_OWNER')) {
+                                        ?>
+
+                                        <span class="label label-success"><?php echo 'COMPANY OWNER'; ?></span>
+
+                                    <?php } else {
+                                        ?>
+                                        <span class="label label-info"><?php echo 'EMPLOYEE'; ?></span>
+                                    <?php } ?>
+
+                                </td>
+
+
                                 <td><?php echo $employee->employee_contact; ?></td>
-                                
+
                                 <td><?php echo $employee->employee_contract; ?></td>
 
 
@@ -46,9 +63,9 @@
                                     </a>
 
                                 </td>
-                                
+
                             </tr>
-                            
+
                         <?php } ?>    
                     </tbody>
                 </table>
@@ -157,7 +174,12 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_type" class="form-control" type="text" name="employee_type">                              
+                                <select name="employee_type" id="employee_type" class="select2 form-control"  >
+                                    <option value="1">Admin</option>
+                                    <option value="2">Company Owner</option>
+                                     <option value="3">Employee</option>
+                                </select>  
+
                             </div>
                         </div>
                     </div>
@@ -220,7 +242,11 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_contract" class="form-control" type="text" name="employee_contract">                              
+                              <select name="employee_Contract" id="employee_Contract" class="select2 form-control"  >
+                                    <option value="full time">Full Time</option>
+                                    <option value="part time">Part Time</option>
+                                     
+                                </select>                             
                             </div>
                         </div>
                     </div>

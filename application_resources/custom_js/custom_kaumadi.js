@@ -35,7 +35,6 @@ $(document).ready(function() {
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
 
-
     //add employee Form
     $('#add_employee_form').validate({
         focusInvalid: false,
