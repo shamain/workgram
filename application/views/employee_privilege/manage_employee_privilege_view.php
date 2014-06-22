@@ -6,11 +6,11 @@
 
 foreach ($employees as $employee) {
                             ?> 
-             
+    <div class="modal-footer">         
       <button type="button" class="btn btn-default" data-dismiss="modal">ADMIN</button>
       <button type="button" class="btn btn-default" data-dismiss="modal">EMPLOYEE</button>
       <button type="button" class="btn btn-default" data-dismiss="modal">COMPANY_OWNER</button>
-      
+    </div>  
       
 
       
