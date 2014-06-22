@@ -1,4 +1,4 @@
-<ul class="breadcrumb">
+<!--<ul class="breadcrumb">
     <li>
         <p>YOU ARE HERE</p>
     </li>
@@ -7,18 +7,30 @@
 <div class="page-title"> <i class="icon-custom-left"></i>
     <h3>Simple Grids - <span class="semi-bold">Portlets</span></h3 >
 </div>
-
+-->
 <div class="row">
 
     <div class="col-md-12">
-        <div class="grid solid red">
-            <div class="grid-title">
-                <h4>Grid Two</h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+        <div class="grid simple vertical green">
+            <div class="grid-title no-border">
+                <h4>Project <span class="semi-bold"><?php echo $project->project_vendor;?></span></h4>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a>  </div>
+                <span class="label label-important"><?php echo $project->project_end_date;?></span>
+                
             </div>
-            <div class="grid-body">
-                <h3>Colored<span class="semi-bold">grid</span></h3>
-                <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
+            <div class="grid-body no-border">
+                <div class="row-fluid">
+                    <div>
+                        <h3><span class="semi-bold"> <?php echo $project->project_name;?></span></h3>
+                        <div class="color-bands green"></div>
+                        <div class="color-bands purple"></div>
+                        <div class="color-bands red"></div>
+                        <div class="color-bands blue"></div>
+                        <br>
+                        <p>The overflow is clipped, and the rest of the content will be invisible, Play it ». scroll, The overflow is clipped, but a scroll-bar is added to see the rest of the </p>
+                        <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
