@@ -24,7 +24,7 @@
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input id="master_privilege" class="form-control" type="text" name="master_privilege" value="<?php echo $privilege_master->master_privilege ;?>" >                              
+                                        <input id="master_privilege" class="form-control" type="text" name="master_privilege" value="<?php echo $privilege_master->master_privilege; ?>" >                              
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,28 @@
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input id="master_privilege_desc" class="form-control" type="text" name="master_privilege_desc" value="<?php echo $privilege_master->master_privilege_description;?>">                              
+                                        <input id="master_privilege_desc" class="form-control" type="text" name="master_privilege_desc" value="<?php echo $privilege_master->master_privilege_description; ?>">                              
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Assign For</label>
+                                        <span style="color: red">*</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <select name="assign_for" id="assign_for" class="select2 form-control"  >
+                                            <option value="1" <?php if($this->config->item('ADMIN') == 1){?> selected="true" <?php } ?>>Admin</option>
+                                            <option value="2" <?php if($this->config->item('COMPANY_OWNER') == 2){?> selected="true" <?php } ?>>Company Owner</option>
+                                            <option value="3" <?php if($this->config->item('EMPLOYEE') == 3){?> selected="true" <?php } ?>>Employee</option>
+                                            <option value="4" <?php if($this->config->item('ALL') == 4){?> selected="true" <?php } ?>>All</option>
+
+                                        </select>                              
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +67,7 @@
                             <div id="edit_privilege_master_msg" class="form-row"> </div>
 
                             <input type="hidden" id="privilege_master_code" name="privilege_master_code" value="<?php echo $privilege_master->privilege_master_code; ?>"/>
-                            
+
                             <div class="form-actions">
                                 <div class="pull-right">
                                     <button class="btn btn-primary btn-cons" type="submit">

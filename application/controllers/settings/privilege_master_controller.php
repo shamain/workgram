@@ -46,6 +46,7 @@ class Privilege_master_controller extends CI_Controller {
 
         $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
         $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
+        $privilege_master_model->set_assign_for($this->input->post('assign_for', TRUE));
 
 
         echo $privilege_master_service->add_new_master_privilege($privilege_master_model);
@@ -95,6 +96,7 @@ class Privilege_master_controller extends CI_Controller {
         $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
         $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
         $privilege_master_model->set_privilege_master_code($this->input->post('privilege_master_code', TRUE));
+        $privilege_master_model->set_assign_for($this->input->post('assign_for', TRUE));
 
         echo $privilege_master_service->update_master_privilege($privilege_master_model);
 //        } else {

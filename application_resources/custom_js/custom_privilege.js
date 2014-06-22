@@ -26,13 +26,13 @@ $(document).ready(function() {
         },
     });
 
-$(".privilege_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_btn" data-toggle="modal" data-target="#add_privilege_modal">Add New Privilege</button></div>');
-   
+    $(".privilege_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_privilege_btn" data-toggle="modal" data-target="#add_privilege_modal">Add New Privilege</button></div>');
+
     $('#privilege_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#privilege_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
-     
+
+
 
 
 
@@ -248,6 +248,9 @@ $(document).ready(function() {
             },
             master_privilege_desc: {
                 required: true
+            },
+            assign_for: {
+                required: true
             }
         },
         invalidHandler: function(event, validator) {
@@ -294,6 +297,9 @@ $(document).ready(function() {
                 required: true
             },
             master_privilege_desc: {
+                required: true
+            },
+            assign_for: {
                 required: true
             }
         },

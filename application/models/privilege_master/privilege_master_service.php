@@ -52,7 +52,8 @@ class Privilege_master_service extends CI_Model {
 
         $data = array(
             'master_privilege' => $privilege_master_model->get_master_privilege(),
-            'master_privilege_description' => $privilege_master_model->get_master_privilege_description()
+            'master_privilege_description' => $privilege_master_model->get_master_privilege_description(),
+            'assign_for'=>$privilege_master_model->get_assign_for()
         );
 
 
