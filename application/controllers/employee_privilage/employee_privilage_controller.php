@@ -17,6 +17,18 @@ class Employee_privilage_controller extends CI_Controller {
         }
     }
     
+    function manage_employee_privileges() {
+
+        $employee_service = new employee_service();
+
+        $data['heading'] = "Manage Employee Privileges";
+        $data['employees_privileges'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
+        $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
+
+        $partials = array('content' => 'employee/manage_employee_privilege_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+    
    function add_employee_privilage() {
       
         $employee_privilage_model = new employee_privilage_model();
