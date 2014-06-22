@@ -12,10 +12,8 @@
             <div class="grid-body ">
                 <table class="table" id="employee_table" >
                     <thead>
-                        <tr>
-                            <th>Employee Code</th>
-                            <th>First Name</th>
-                            <th>Second Name</th>
+                        <tr>                          
+                            <th>Full Name</th>                    
                             <th>Email</th>
                             <th>Type</th>
                             <th>Contact No</th>
@@ -29,25 +27,28 @@
                         foreach ($employees as $employee) {
                             ?> 
                             <tr  id="employee_<?php echo $employee->employee_code; ?>">
-                                <td><?php echo $employee->employee_code; ?></td>
-                                <td><?php echo $employee->employee_fname; ?></td>
-                                <td><?php echo $employee->employee_lname; ?></td>
+                                
+                                
+                                <td><?php echo $employee->employee_fname.' '.$employee->employee_lname; ?></td>
                                 <td><?php echo $employee->employee_email; ?></td>
                                 <td><?php echo $employee->employee_type; ?></td>
                                 <td><?php echo $employee->employee_contact; ?></td>
+                                
                                 <td><?php echo $employee->employee_contract; ?></td>
 
 
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <i class="fa fa-unlock-alt"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Employee" onclick="delete_employee(<?php echo $employee->employee_code; ?>)">
                                         <i class="fa fa-times"></i>
                                     </a>
 
                                 </td>
+                                
                             </tr>
+                            
                         <?php } ?>    
                     </tbody>
                 </table>
