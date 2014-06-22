@@ -11,6 +11,7 @@ $config['APPLICATION_MAIN_TITLE']	= "WORKGRAM ";
 $config['ADMIN']= 1;
 $config['COMPANY_OWNER']= 2;
 $config['EMPLOYEE']= 3;
+$config['ALL']= 4;
 
 //Employee Contract
 $config['FULL_TIME']= 'FULL_TIME';

@@ -90,6 +90,22 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Assign For</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="assi" class="form-control" type="text" name="master_privilege_desc">                              
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <div id="add_privilege_master_msg" class="form-row"> </div>
                 <div class="modal-footer">
