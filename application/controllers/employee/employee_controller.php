@@ -39,7 +39,7 @@ class Employee_controller extends CI_Controller {
         $employee_model->set_employee_no($this->input->post('employee_no', TRUE));
         $employee_model->set_employee_fname($this->input->post('employee_fname', TRUE));
         $employee_model->set_employee_lname($this->input->post('employee_lname', TRUE));
-        $employee_model->set_employee_password($this->input->post('employee_password', TRUE));
+        $employee_model->set_employee_password(md5($this->input->post('employee_password', TRUE)));
         $employee_model->set_employee_email($this->input->post('employee_email', TRUE));
         $employee_model->set_employee_type($this->input->post('employee_type', TRUE));
         $employee_model->set_employee_bday($this->input->post('employee_bday', TRUE));

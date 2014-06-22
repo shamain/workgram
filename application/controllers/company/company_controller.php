@@ -18,6 +18,7 @@ class Company_controller extends CI_Controller {
         $this->load->model('employee/employee_service');
         $this->load->model('company/company_model');
         $this->load->model('company/company_service');
+        $this->load->library('email');
     }
 
     function company_registration() {
@@ -67,18 +68,20 @@ class Company_controller extends CI_Controller {
 
             $data['name'] = $name;
             $data['link'] = $link;
-            
-            $this->load->library('mail_handler');
+
+
 
             $email_subject = "Workgram : Activate Your New Account";
-            
 
-            $cc = array('gayathma3@gmail.com');
-            $lcs_system = 'registration';
-            $to = $email;
+
             $msg = $this->load->view('template/mail_template/body', $data, TRUE);
 
-            if ($this->mail_handler->sendMailthoughtemplatewithcc($to, $email_subject, $msg, $lcs_system, $cc)) {
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: Workgram <workgram@gmail.com>' . "\r\n";
+            $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
+
+            if (mail($email, $email_subject, $msg, $headers)) {
                 echo "1";
             } else {
                 echo "0";

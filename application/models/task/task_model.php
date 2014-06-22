@@ -8,6 +8,7 @@ class Task_model extends CI_Model {
     var $task_priority;
     var $task_progress;
     var $task_deadline;
+    var $task_task;
     var $project_id;
     var $del_ind;
     var $added_by;
@@ -16,6 +17,7 @@ class Task_model extends CI_Model {
     function __construct() {
         parent::__construct();
     }
+
     public function get_task_id() {
         return $this->task_id;
     }
@@ -64,6 +66,14 @@ class Task_model extends CI_Model {
         $this->task_deadline = $task_deadline;
     }
 
+    public function get_task_task() {
+        return $this->task_task;
+    }
+
+    public function set_task_task($task_task) {
+        $this->task_task = $task_task;
+    }
+
     public function get_project_id() {
         return $this->project_id;
     }
@@ -95,8 +105,5 @@ class Task_model extends CI_Model {
     public function set_added_date($added_date) {
         $this->added_date = $added_date;
     }
-
-
-    
 
 }
