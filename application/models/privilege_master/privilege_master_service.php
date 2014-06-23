@@ -15,16 +15,16 @@ class Privilege_master_service extends CI_Model {
         return $query->result();
     }
 
-    public function get_master_privileges() {
-
+    public function get_privilege_master_by_system_code($system_code){
 
         $this->db->select('*');
         $this->db->from('privilege_master');
+        $this->db->where('system_code',$system_code );
         $query = $this->db->get();
-        return $query->result();
+        return  $query->result();
     }
 
-    public function get_available_master_provileges() {
+    public function get_available_master_privileges() {
         $this->db->select('*');
         $this->db->from('privilege_master');
         $query = $this->db->get();
