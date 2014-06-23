@@ -9,8 +9,9 @@ class Privilege_master_service extends CI_Model {
 
     public function get_all_master_privileges() {
 
-        $this->db->select('*');
+        $this->db->select('privilege_master.*,system.system');
         $this->db->from('privilege_master');
+         $this->db->join('system', 'system.system_code = privilege_master.system_code');
         $query = $this->db->get();
         return $query->result();
     }

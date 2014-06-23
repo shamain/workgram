@@ -30,15 +30,8 @@
                                 <td><?php echo $privilege_master->master_privilege; ?></td>
                                 <td><?php echo $privilege_master->master_privilege_description; ?></td>
                                 <td>
-                                    <?php if ($this->config->item('ADMIN') == $privilege_master->assign_for) { ?> 
-                                        <span class="label label-important">Admin</span>
-                                    <?php } else if ($this->config->item('COMPANY_OWNER') == $privilege_master->assign_for) { ?>
-                                        <span class="label label-important">Company Owner</span>
-                                    <?php } else if ($this->config->item('EMPLOYEE') == $privilege_master->assign_for) { ?>
-                                        <span class="label label-important">Employee</span>
-                                    <?php } else { ?>
-                                        <span class="label label-important">All</span>
-                                    <?php } ?>
+                                    <?php echo  $privilege_master->system;?> 
+                                       
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/edit_master_privileges_view/<?php echo $privilege_master->privilege_master_code; ?>">

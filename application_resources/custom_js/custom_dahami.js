@@ -14,8 +14,14 @@ function save_user_privileges(privilege_code, employee_code) {
 
         } else {
             $("#msg" + privilege_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
-            
+
         }
     });
 
 }
+
+
+$('#emp_privi_tab a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+});
