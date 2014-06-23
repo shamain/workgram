@@ -23,7 +23,7 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
+        }
     });
 
 //
@@ -33,6 +33,13 @@ $(document).ready(function() {
     $('#employee_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+    
+//add project form start date datepicker
+    $('#employee_bday_dpicker').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayHighlight: true
+    });
 
 
     //add employee Form
