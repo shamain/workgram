@@ -20,6 +20,12 @@ class Employee_privilege_controller extends CI_Controller {
 
             $this->load->model('privilege_master/privilege_master_model');
             $this->load->model('privilege_master/privilege_master_service');
+            
+            $this->load->model('privilege/privilege_model');
+            $this->load->model('privilege/privilege_service');
+            
+            $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
 
@@ -27,7 +33,7 @@ class Employee_privilege_controller extends CI_Controller {
 
         $employee_service = new employee_service();
         $system_service = new System_service();
-        $employee_privilege_service = new Employee_privilege_service();
+        $employee_privilege_service = new Employee_privileges_service();
 
         $data['heading'] = "Manage Employee Privileges";
 
@@ -42,14 +48,14 @@ class Employee_privilege_controller extends CI_Controller {
 
         $data['assigned_privileges'] = $privileges;
 
-        $partials = array('content' => 'employee/manage_employee_privilege_view');
+        $partials = array('content' => 'employee_privilege/manage_employee_privilege_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
     function add_employee_privileges() {
 
-        $employee_privilege_model = new Employee_privilege_model();
-        $employee_privilege_service = new Employee_privilege_service();
+        $employee_privilege_model = new Employee_privileges_model();
+        $employee_privilege_service = new Employee_privileges_service();
 
 
         $employee_privilege_model->set_employee_code($this->input->post('employee_code', TRUE));

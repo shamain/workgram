@@ -1,6 +1,6 @@
 <?php
 
-class Employee_privilege_model extends CI_Model {
+class Employee_privileges_model extends CI_Model {
 
     var $employee_privilege_code;
     var $employee_code;

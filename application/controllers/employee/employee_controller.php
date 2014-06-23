@@ -69,7 +69,7 @@ class Employee_controller extends CI_Controller {
 //        }
     }
     
-      function edit_employee_view($code) {
+      function edit_employee_view($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
 //        if ($perm) {
 
@@ -77,7 +77,7 @@ class Employee_controller extends CI_Controller {
 
 
         $data['heading'] = "Edit Employee Deatils";
-        $data['employee'] = $employee_service->get_employee_by_id($code);
+        $data['employee'] = $employee_service->get_employee_by_id($employee_code);
 
 
         $partials = array('content' => 'employee/edit_employee_view');
