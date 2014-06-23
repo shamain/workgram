@@ -125,8 +125,8 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                         <option value="full time">Full Time</option>
-                                         <option value="part time">Part Time</option>
+                                         <option value="FULL_TIME">Full Time</option>
+                                         <option value="PART_TIME">Part Time</option>
                                     </select>                               
                                 </div>
                             </div>
