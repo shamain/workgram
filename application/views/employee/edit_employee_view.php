@@ -76,9 +76,12 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="employee_type" id="employee_type" class="select2 form-control"  >
-                                         <option value="1">Admin</option>
-                                         <option value="2">Company Owner</option>
-                                         <option value="3">Employee</option>
+                                        
+                                        
+                                            <option value="1" <?php if ($this->config->item('ADMIN') == $employee->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
+                                            <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $employee->employee_type) { ?> selected="true" <?php } ?>>Company Owner</option>
+                                            <option value="3" <?php if ($this->config->item('EMPLOYEE') == $employee->employee_type) { ?> selected="true" <?php } ?>>Employee</option>
+                                            
                                     </select>                               
                                 </div>
                             </div>
@@ -125,8 +128,10 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                         <option value="FULL_TIME">Full Time</option>
-                                         <option value="PART_TIME">Part Time</option>
+                                        
+                                           <option value="FULL_TIME" <?php if ($this->config->item('FULL_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Full Time</option>
+                                            <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
+                                            
                                     </select>                               
                                 </div>
                             </div>
