@@ -16,7 +16,7 @@
                             <th>Master Privilege ID</th>
                             <th>Master Privilege</th>
                             <th>Description</th>
-                            <th>Assign For</th>
+                            <th>System</th>
                             <th>Options</th>
 
                         </tr>
@@ -106,19 +106,17 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Assign For</label>
+                                <label class="form-label">System</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select name="assign_for" id="assign_for" class="select2 form-control"  >
-                                    <option value="1">Admin</option>
-                                    <option value="2">Company Owner</option>
-                                    <option value="3">Employee</option>
-                                    <option value="4">All</option>
-
+                                <select name="system_code" id="system_code" class="select2 form-control"  >
+                                    <?php foreach ($systems as $system) { ?>
+                                        <option value="<?php echo $system->system_code;?>" ><?php echo $system->system;?></option>
+                                    <?php } ?>
                                 </select>                              
                             </div>
                         </div>

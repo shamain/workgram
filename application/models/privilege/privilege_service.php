@@ -57,7 +57,8 @@ class Privilege_service extends CI_Model {
             'privilege_master_code' => $priviledge_model->get_privilege_master_code(),
             'privilege' => $priviledge_model->get_privilege(),
             'privilege_description' => $priviledge_model->get_privilege_description(),
-            'priviledge_code_HF' => $priviledge_model->get_priviledge_code_HF()
+            'priviledge_code_HF' => $priviledge_model->get_priviledge_code_HF(),
+            'assign_for' => $priviledge_model->get_assign_for()
         );
 
 

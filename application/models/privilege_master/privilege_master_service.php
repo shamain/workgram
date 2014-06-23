@@ -7,11 +7,10 @@ class Privilege_master_service extends CI_Model {
         $this->load->model('privilege_master/privilege_master_model');
     }
 
-    public function get_all_master_provileges() {
+    public function get_all_master_privileges() {
 
         $this->db->select('*');
         $this->db->from('privilege_master');
-        ;
         $query = $this->db->get();
         return $query->result();
     }
@@ -53,7 +52,7 @@ class Privilege_master_service extends CI_Model {
         $data = array(
             'master_privilege' => $privilege_master_model->get_master_privilege(),
             'master_privilege_description' => $privilege_master_model->get_master_privilege_description(),
-            'assign_for'=>$privilege_master_model->get_assign_for()
+            'system_code'=>$privilege_master_model->get_system_code()
         );
 
 

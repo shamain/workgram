@@ -52,6 +52,9 @@ $(document).ready(function() {
             },
             privilege_hf: {
                 required: true
+            },
+            assign_for: {
+                required: true
             }
         },
         invalidHandler: function(event, validator) {
@@ -107,7 +110,11 @@ $(document).ready(function() {
             },
             privilege_hf: {
                 required: true
+            },
+            assign_for: {
+                required: true
             }
+            
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    
@@ -249,7 +256,7 @@ $(document).ready(function() {
             master_privilege_desc: {
                 required: true
             },
-            assign_for: {
+            system_code: {
                 required: true
             }
         },
@@ -299,7 +306,7 @@ $(document).ready(function() {
             master_privilege_desc: {
                 required: true
             },
-            assign_for: {
+            system_code: {
                 required: true
             }
         },

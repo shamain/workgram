@@ -13,6 +13,9 @@ class Privilege_master_controller extends CI_Controller {
         } else {
             $this->load->model('privilege_master/privilege_master_model');
             $this->load->model('privilege_master/privilege_master_service');
+
+            $this->load->model('settings/system/system_model');
+            $this->load->model('settings/system/system_service');
 //
 //            $this->load->model('Systems/Systemsservice');
         }
@@ -24,10 +27,12 @@ class Privilege_master_controller extends CI_Controller {
 //        if ($perm) {
 
         $privilege_master_service = new Privilege_master_service();
+        $system_service = new System_service();
+
         $data['heading'] = "Manage Master Privileges";
 
-        $data['privilege_masters'] = $privilege_master_service->get_all_master_provileges();
-//        $data['systems'] = Systemsservice :: getAllsystems();
+        $data['privilege_masters'] = $privilege_master_service->get_all_master_privileges();
+        $data['systems'] = $system_service->get_all_systems();
 
         $partials = array('content' => 'privilege_master/manage_privilege_master_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -46,7 +51,7 @@ class Privilege_master_controller extends CI_Controller {
 
         $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
         $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
-        $privilege_master_model->set_assign_for($this->input->post('assign_for', TRUE));
+        $privilege_master_model->set_system_code($this->input->post('system_code', TRUE));
 
 
         echo $privilege_master_service->add_new_master_privilege($privilege_master_model);
@@ -73,10 +78,12 @@ class Privilege_master_controller extends CI_Controller {
 //        if ($perm) {
 
         $privilege_master_service = new Privilege_master_service();
+        $system_service = new System_service();
 
         $data['heading'] = "Edit Master Privilege";
 
         $data['privilege_master'] = $privilege_master_service->get_master_privilege_by_id($id);
+        $data['systems'] = $system_service->get_all_systems();
 
         $partials = array('content' => 'privilege_master/edit_privilege_master_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -96,7 +103,7 @@ class Privilege_master_controller extends CI_Controller {
         $privilege_master_model->set_master_privilege($this->input->post('master_privilege', TRUE));
         $privilege_master_model->set_master_privilege_description($this->input->post('master_privilege_desc', TRUE));
         $privilege_master_model->set_privilege_master_code($this->input->post('privilege_master_code', TRUE));
-        $privilege_master_model->set_assign_for($this->input->post('assign_for', TRUE));
+        $privilege_master_model->set_system_code($this->input->post('system_code', TRUE));
 
         echo $privilege_master_service->update_master_privilege($privilege_master_model);
 //        } else {

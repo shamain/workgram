@@ -46,20 +46,18 @@
                             <div class="row form-row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="form-label">Assign For</label>
+                                        <label class="form-label">System</label>
                                         <span style="color: red">*</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <select name="assign_for" id="assign_for" class="select2 form-control"  >
-                                            <option value="1" <?php if($this->config->item('ADMIN') == 1){?> selected="true" <?php } ?>>Admin</option>
-                                            <option value="2" <?php if($this->config->item('COMPANY_OWNER') == 2){?> selected="true" <?php } ?>>Company Owner</option>
-                                            <option value="3" <?php if($this->config->item('EMPLOYEE') == 3){?> selected="true" <?php } ?>>Employee</option>
-                                            <option value="4" <?php if($this->config->item('ALL') == 4){?> selected="true" <?php } ?>>All</option>
-
-                                        </select>                              
+                                        <select name="system_code" id="system_code" class="select2 form-control"  >
+                                            <?php foreach ($systems as $system) { ?>
+                                                <option value="<?php echo $system->system_code; ?>" <?php if ($system->system_code == $privilege_master->system_code) { ?> selected="true" <?php } ?>><?php echo $system->system; ?></option>
+                                            <?php } ?>
+                                        </select>                                  
                                     </div>
                                 </div>
                             </div>

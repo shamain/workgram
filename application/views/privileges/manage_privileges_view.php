@@ -17,6 +17,7 @@
                             <th>Master Privilege</th>
                             <th>Privilege</th>
                             <th>Human Friendly Code</th>
+                            <th>Assign For</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -29,6 +30,17 @@
                                 <td><?php echo $privilege->master_privilege; ?></td>
                                 <td><?php echo $privilege->privilege; ?></td>
                                 <td><?php echo $privilege->priviledge_code_HF; ?></td>
+                                <td>
+                                    <?php if ($this->config->item('ADMIN') == $privilege->assign_for) { ?> 
+                                        <span class="label label-important">Admin</span>
+                                    <?php } else if ($this->config->item('COMPANY_OWNER') == $privilege->assign_for) { ?>
+                                        <span class="label label-important">Company Owner</span>
+                                    <?php } else if ($this->config->item('EMPLOYEE') == $privilege->assign_for) { ?>
+                                        <span class="label label-important">Employee</span>
+                                    <?php } else { ?>
+                                        <span class="label label-important">All</span>
+                                    <?php } ?>
+                                </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/privilege_controller/edit_privileges_view/<?php echo $privilege->privilege_code; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -123,12 +135,33 @@
                         </div>
                     </div>
 
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Assign For</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <select name="assign_for" id="assign_for" class="select2 form-control"  >
+                                    <option value="1">Admin</option>
+                                    <option value="2">Company Owner</option>
+                                    <option value="3">Employee</option>
+                                    <option value="4">All</option>
+
+                                </select>                              
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div id="add_privilege_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    
+
                 </div>
 
             </form>
