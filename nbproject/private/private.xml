@@ -2,6 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/company/company_controller.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/company/manage_company_view.php</file>
+        </group>
     </open-files>
 </project-private>
