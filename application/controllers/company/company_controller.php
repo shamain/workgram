@@ -16,20 +16,21 @@ class Company_controller extends CI_Controller {
           } */
         $this->load->model('employee/employee_model');
         $this->load->model('employee/employee_service');
+
         $this->load->model('company/company_model');
         $this->load->model('company/company_service');
         $this->load->library('email');
     }
-    
-    function manage_companies(){
-        
+
+    function manage_companies() {
+
         $company_service = new Company_service();
-        
-        $data['heading']="Manage Company";
-        $date['companies']=$company_service->add_new_company($this->session->usedata('COMPANY_CODE'));
-        
-        $parials=array('content'=>'employee/manage_company_view');
-        $this->template->load('template/main_template',$parials,$data);
+
+        $data['heading'] = "Manage Company";
+//        $date['companies'] = $company_service->add_new_company($this->session->usedata('COMPANY_CODE'));
+
+        $parials = array('content' => 'employee/manage_company_view');
+        $this->template->load('template/main_template', $parials, $data);
     }
 
     function company_registration() {

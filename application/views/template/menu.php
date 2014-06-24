@@ -2,6 +2,18 @@
 <li class=""> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
+        <span class="title">Companies</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies"> Manage Companies </a> </li>
+        
+    </ul>
+</li>
+
+<li class=""> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
         <span class="title">Projects</span> 
         <span class="arrow "></span> 
     </a>
