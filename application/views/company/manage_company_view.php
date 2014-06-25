@@ -13,7 +13,7 @@
                 <table class="table" id="company_table" >
                     <thead>
                         <tr>
-                            <th> Code</th>
+                            <th>Code</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>address</th>
@@ -28,13 +28,13 @@
                         foreach ($companies as $company) {
          
                             ?> 
-                            <tr  id="companies_<?php echo $company->company_code; ?>">
+                            <tr  id="company_<?php echo $company->company_code; ?>">
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $company->company_name; ?></td>
-                                <td><?php echo $companyany->company_email ; ?></td>
-                                <td><?php echo $companyany->company_address ; ?></td>
-                                <td><?php echo $companyany->company_contact ; ?></td>
-                                <td><?php echo $companyany->company_description ; ?></td>
+                                <td><?php echo $company->company_email ; ?></td>
+                                <td><?php echo $company->company_address ; ?></td>
+                                <td><?php echo $company->company_contact ; ?></td>
+                                <td><?php echo $company->company_description ; ?></td>
                                 
                                 <td>
                                     
