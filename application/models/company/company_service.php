@@ -12,4 +12,15 @@ class Company_service extends CI_Model {
          $this->db->insert('company', $company_model);
          return $this->db->insert_id();
     }
+    
+   public function get_all_companies() {
+
+
+        $this->db->select('*');
+        $this->db->from('company');
+        $this->db->order_by("company.company_code", "desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

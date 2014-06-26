@@ -27,7 +27,7 @@ class Company_controller extends CI_Controller {
         $company_service = new  company_service();
 
         $data['heading'] = "Manage Company";
-        //$data['companies'] = $company_service->add_new_company($this->session->usedata('COMPANY_CODE'));
+        $data['companies'] = $company_service->get_all_companies($this->session->userdata('COMPANY_CODE'));
 
         $parials = array('content' => 'company/manage_company_view');
         $this->template->load('template/main_template', $parials, $data);

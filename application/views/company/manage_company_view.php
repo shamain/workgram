@@ -34,7 +34,7 @@
                                 <td><?php echo $company->company_email ; ?></td>
                                 <td><?php echo $company->company_address ; ?></td>
                                 <td><?php echo $company->company_contact ; ?></td>
-                                <td><?php echo $company->company_description ; ?></td>
+                                <td><?php echo $company->company_desc ; ?></td>
                                 
                                 <td>
                                     
