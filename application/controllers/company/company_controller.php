@@ -153,6 +153,52 @@ class Company_controller extends CI_Controller {
 
         echo $company_service->add_new_company($company_model);
     }
+    
+    function edit_company_view($company_code) {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
+//        if ($perm) {
+
+        $company_service = new Company_service();
 
 
+        $data['heading'] = "Edit Company Deatils";
+        $data['company'] = $company_service->get_company_by_id($company_code);
+
+
+        $partials = array('content' => 'company/edit_company_view');
+        $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
+
+    function edit_company() {
+
+//        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
+//        if ($perm) {
+
+        $company_model = new company_model();
+        $company_service = new company_service();
+
+        $company_model->set_company_code($this->input->post('company_code', TRUE));
+        $company_model->set_company_name($this->input->post('company_name', TRUE));
+        $company_model->set_company_email($this->input->post('company_email', TRUE));
+        $company_model->set_company_address($this->input->post('company_address', TRUE));
+        $company_model->set_company_contact($this->input->post('company_contact', TRUE));
+        $company_model->set_company_desc($this->input->post('company_desc', TRUE));
+        
+        
+        
+
+
+
+        echo $company_service->update_company($company_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
 }
+
+
+
+
