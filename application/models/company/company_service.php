@@ -13,6 +13,8 @@ class Company_service extends CI_Model {
          return $this->db->insert_id();
     }
     
+    
+    
    public function get_all_companies() {
 
 
