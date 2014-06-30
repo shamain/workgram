@@ -34,33 +34,31 @@ $(document).ready(function() {
     $('#company_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#company_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
-     //add company Form
+
+    //add company Form
     $('#add_company_form').validate({
         focusInvalid: false,
         ignore: "",
         rules: {
-            
-           company_code: {
+            company_code: {
                 required: true
             },
             company_name: {
                 required: true
             },
             company_email: {
-               
+                required: true,
+                email: true
+
+            },
+            company_address: {
+                required: true
+
+            },
+            company_contact: {
                 required: true
             },
-            
-            company_address:{
-                required:true
-                
-            },
-           
-           company_contact: {
-                required: true
-            },
-           company_description: {
+            company_description: {
                 required: true
             }
 
@@ -90,11 +88,11 @@ $(document).ready(function() {
             $.post(site_url + '/company/company_controller/add_new_company', $('#add_company_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company</a>has been added.</div>');
+                    $("#add_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been added.</div>');
                     add_company_form.reset();
                     location.reload();
                 } else {
-                    $("#add_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company</a>has failed.</div>');
+                    $("#add_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
                 }
             });
 
@@ -103,33 +101,33 @@ $(document).ready(function() {
     });
 });
 
-   //edit company Form
-     $('#edit_company_form').validate({
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            
-            company_code: {
-                required: true
-            },
-            company_name: {
-                required: true
-            },
-           company_email: {
-                required: true
-            },
-            company_address: {
-                required: true
-            },
-           company_contact: {
-                required: true
-            },
-            company_description: {
-                required: true
-            }
-
-
+//edit company Form
+$('#edit_company_form').validate({
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+        company_code: {
+            required: true
         },
+        company_name: {
+            required: true
+        },
+        company_email: {
+            required: true,
+            email: true
+        },
+        company_address: {
+            required: true
+        },
+        company_contact: {
+            required: true
+        },
+        company_description: {
+            required: true
+        }
+
+
+    },
     invalidHandler: function(event, validator) {
         //display error alert on form submit    
     },
@@ -154,11 +152,11 @@ $(document).ready(function() {
         $.post(site_url + '/company/company_controller/edit_company', $('#edit_company_form').serialize(), function(msg)
         {
             if (msg == 1) {
-                $("#edit_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company</a>has been updated.</div>');
+                $("#edit_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been updated.</div>');
                 edit_company_form.reset();
                 location.reload();
             } else {
-                $("#edit_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company</a>has failed.</div>');
+                $("#edit_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
             }
         });
 
@@ -167,7 +165,7 @@ $(document).ready(function() {
 });
 
 
- 
+
 //delete company
 function delete_company(code) {
 
@@ -184,7 +182,7 @@ function delete_company(code) {
                     $('#company_' + code).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Tasks');
+                    alert('Cannot be deleted as it is already assigned to Employees');
                 }
             }
         });

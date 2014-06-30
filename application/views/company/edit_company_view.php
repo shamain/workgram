@@ -14,22 +14,8 @@
                     <div class="col-md-5 col-sm-5 col-xs-5">
                         <form id="edit_company_form" name="edit_company_form">
 
-
-
-
                             <div class="form-group">
-                                <label class="form-label">Company Code</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="company_code" class="form-control" type="text" name="company_code" value="<?php echo $company->company_code; ?>">                              
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="form-group">
-                                <label class="form-label"> Name</label>
+                                <label class="form-label">Company Name</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
@@ -37,17 +23,7 @@
                                     <input id="company_name" class="form-control" type="text" name="company_name" value="<?php echo $company->company_name; ?>">                              
                                 </div>
                             </div>
-                            
-                              <div class="form-group">
-                                <label class="form-label">Email</label>
-                                <span style="color: red">*</span>
 
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="company_email" class="form-control" type="text" name="company_email" value="<?php echo $company->company_email; ?>">                              
-                                </div>
-                            </div>
-                            
                             <div class="form-group">
                                 <label class="form-label">Address</label>
                                 <span style="color: red">*</span>
@@ -57,9 +33,21 @@
                                     <input id="company_address" class="form-control" type="text" name="company_address" value="<?php echo $company->company_address; ?>">                              
                                 </div>
                             </div>
-                            
-                           <div class="form-group">
-                                <label class="form-label">Contact</label>
+
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="company_email" class="form-control" type="text" name="company_email" value="<?php echo $company->company_email; ?>">                              
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="form-label">Contact Number</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
@@ -67,22 +55,19 @@
                                     <input id="company_contact" class="form-control" type="text" name="company_contact" value="<?php echo $company->company_contact; ?>">                              
                                 </div>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="company_description"  class="form-control" type="text" name="company_description" value="<?php echo $company->company_desc; ?>">                
-                                        
-                                        
-                                   </div>
+                                    <textarea id="company_description"  class="form-control" type="text" name="company_description"><?php echo $company->company_desc; ?></textarea>                
+                                </div>
                             </div>
-                            
-                             
 
-                        <div id="edit_company_msg" class="form-row"> </div>
+
+                            <div id="edit_company_msg" class="form-row"> </div>
 
                             <input type="hidden" id="company_code" name="company_code" value="<?php echo $company->company_code; ?>"/>
                             <div class="form-actions">

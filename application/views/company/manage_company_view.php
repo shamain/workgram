@@ -26,18 +26,17 @@
                         <?php
                         $i = 0;
                         foreach ($companies as $company) {
-         
                             ?> 
                             <tr  id="company_<?php echo $company->company_code; ?>">
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $company->company_name; ?></td>
-                                <td><?php echo $company->company_email ; ?></td>
-                                <td><?php echo $company->company_address ; ?></td>
-                                <td><?php echo $company->company_contact ; ?></td>
-                                <td><?php echo $company->company_desc ; ?></td>
-                                
+                                <td><?php echo $company->company_email; ?></td>
+                                <td><?php echo $company->company_address; ?></td>
+                                <td><?php echo $company->company_contact; ?></td>
+                                <td><?php echo $company->company_desc; ?></td>
+
                                 <td>
-                                    
+
                                     <a href="<?php echo site_url(); ?>/company/company_controller/edit_company_view/<?php echo $company->company_code; ?>">
                                         <i class="fa fa-pencil"></i>
                                     </a>
@@ -73,21 +72,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Code</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="company_code" class="form-control" type="text" name="company_code" >                              
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Company Name</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -98,21 +83,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Email</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="company_email" class="form-control" type="text" name="company_email">                              
-                            </div>
-                        </div>
-                    </div>
-                    
 
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -128,11 +98,27 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Contact</label>
+                                <label class="form-label">Email</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="company_email" class="form-control" type="text" name="company_email">                              
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Contact Number</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -144,7 +130,7 @@
                         </div>
                     </div>
 
-
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Description</label>
@@ -158,8 +144,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
+
+
                 <div id="add_company_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
