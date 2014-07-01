@@ -47,6 +47,7 @@ class Employee_privilege_controller extends CI_Controller {
         }
 
         $data['assigned_privileges'] = $privileges;
+        $data['employee_code'] = $id;
 
         $partials = array('content' => 'employee_privilege/manage_employee_privilege_view');
         $this->template->load('template/main_template', $partials, $data);

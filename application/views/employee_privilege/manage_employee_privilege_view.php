@@ -38,7 +38,7 @@
 
                                 <p>
                                     <?php
-                                    $privileges = $privilege_service->get_privileges_by_master_privilege($privilege_master->privilege_master_code);
+                                    $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for($privilege_master->privilege_master_code,$employee_detail->employee_type);
 
                                     foreach ($privileges as $privilege) {
                                         ?>
@@ -47,7 +47,7 @@
                                         if (in_array($privilege->privilege_code, $assigned_privileges)) {
                                             echo 'checked="checked"';
                                         }
-                                        ?>  type="checkbox" value="<?php echo $privilege->privilege_code; ?>" onclick="saveprivilegesfromuser(<?php echo $privilege->privilege_code; ?>,<?php echo $employee_id; ?>)" name="privileges[]" id="privilege<?php echo $privilege->privilege_code; ?>" class="chkbox<?php echo $system->system_code; ?>">
+                                        ?>  type="checkbox" value="<?php echo $privilege->privilege_code; ?>" onclick="saveprivilegesfromuser(<?php echo $privilege->privilege_code; ?>,<?php echo $employee_code; ?>)" name="privileges[]" id="privilege<?php echo $privilege->privilege_code; ?>" class="chkbox<?php echo $system->system_code; ?>">
                                         <label><?php echo $privilege->privilege; ?></label>
                                         <div id="msg<?php echo $privilege->privilege_code; ?>" class="msgdisplay"></div>
                                     </div>

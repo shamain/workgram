@@ -18,12 +18,14 @@ class Privilege_service extends CI_Model {
         return $query->result();
     }
 
-    function get_privileges_by_master_privilege($id) {
+    function get_privileges_by_master_privilege_assigned_for($id,$user) {
 
         $this->db->select('*');
         $this->db->from('privilege');
         $this->db->join('privilege_master', 'privilege_master.privilege_master_code = privilege.privilege_master_code');
         $this->db->where('privilege_master.privilege_master_code', $id);
+        $this->db->where('privilege.assign_for', $this->session->userdata('ALL'));
+        $this->db->or_where('privilege.assign_for', $user);
         $query = $this->db->get();
         return $query->result();
     }
