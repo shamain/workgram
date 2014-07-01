@@ -35,7 +35,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="privilege" class="form-control" type="text" name="privilege" value="<?php echo $privilege->privilege; ?>">                              
+                                    <input id="privilege" class="form-control" type="text" name="privilege" value="<?php echo $privilege->privilege; ?>" onkeyup="auto_write_human_friendly_code()">                              
                                 </div>
                             </div>
 
@@ -61,25 +61,22 @@
                             </div>
 
 
-                            <div class="row form-row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label class="form-label">Assign For</label>
-                                        <span style="color: red">*</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input-with-icon  right">                                       
-                                        <i class=""></i>
-                                        <select name="assign_for" id="assign_for" class="select2 form-control"  >
-                                            <option value="1" <?php if ($this->config->item('ADMIN') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Admin</option>
-                                            <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Company Owner</option>
-                                            <option value="3" <?php if ($this->config->item('EMPLOYEE') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Employee</option>
-                                            <option value="4" <?php if ($this->config->item('ALL') == $privilege->assign_for) { ?> selected="true" <?php } ?>>All</option>
+                            <div class="form-group">
 
-                                        </select>                              
-                                    </div>
+                                <label class="form-label">Assign For</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <select name="assign_for" id="assign_for" class="select2 form-control"  >
+                                        <option value="1" <?php if ($this->config->item('ADMIN') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Admin</option>
+                                        <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Company Owner</option>
+                                        <option value="3" <?php if ($this->config->item('EMPLOYEE') == $privilege->assign_for) { ?> selected="true" <?php } ?>>Employee</option>
+                                        <option value="4" <?php if ($this->config->item('ALL') == $privilege->assign_for) { ?> selected="true" <?php } ?>>All</option>
+
+                                    </select>                              
                                 </div>
+
                             </div>
 
                             <div id="edit_privilege_msg" class="form-row"> </div>

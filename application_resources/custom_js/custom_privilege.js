@@ -81,11 +81,11 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_controller/add_new_privilege', $('#add_privilege_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
+                    $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege </a>has been added.</div>');
                     add_privilege_form.reset();
                     location.reload();
                 } else {
-                    $("#add_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
+                    $("#add_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege </a>has failed.</div>');
                 }
             });
 
@@ -140,11 +140,11 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_controller/edit_privilege', $('#edit_privilege_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#edit_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been updated.</div>');
+                    $("#edit_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege </a>has been updated.</div>');
                     edit_privilege_form.reset();
                     location.reload();
                 } else {
-                    $("#edit_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
+                    $("#edit_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege </a>has failed.</div>');
                 }
             });
 
@@ -284,11 +284,11 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_master_controller/add_new_privilege_master', $('#add_privilege_master_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Master Privilege</a>has been added.</div>');
+                    $("#add_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Master Privilege </a>has been added.</div>');
                     add_privilege_master_form.reset();
                     location.reload();
                 } else {
-                    $("#add_privilege_master_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege</a>has failed.</div>');
+                    $("#add_privilege_master_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege </a>has failed.</div>');
                 }
             });
         }
@@ -334,11 +334,11 @@ $(document).ready(function() {
             $.post(site_url + '/settings/privilege_master_controller/edit_master_privilege', $('#edit_privilege_master_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#edit_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Master Privilege</a>has been updated.</div>');
+                    $("#edit_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Master Privilege </a>has been updated.</div>');
                     edit_privilege_master_form.reset();
                     location.reload();
                 } else {
-                    $("#edit_privilege_master_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege</a>has failed.</div>');
+                    $("#edit_privilege_master_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege </a>has failed.</div>');
                 }
             });
         }

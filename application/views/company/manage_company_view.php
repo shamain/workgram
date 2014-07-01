@@ -13,11 +13,11 @@
                 <table class="table" id="company_table" >
                     <thead>
                         <tr>
-                            <th>Code</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>address</th>
-                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Contact No</th>
                             <th>Description</th>
                             <th>Options</th>
                         </tr>

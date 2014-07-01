@@ -523,6 +523,7 @@
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_employee_profile.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_kaumadi.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_company.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_tasks.js" type="text/javascript"></script>
             <!-- END CUSTOM JS -->
 
 

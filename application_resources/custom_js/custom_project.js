@@ -88,11 +88,11 @@ $(document).ready(function() {
             $.post(site_url + '/project/project_controller/add_new_project', $('#add_project_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project</a>has been added.</div>');
+                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
                     add_project_form.reset();
                     location.reload();
                 } else {
-                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project</a>has failed.</div>');
+                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
                 }
             });
 
@@ -161,11 +161,11 @@ $('#edit_project_form').validate({
         $.post(site_url + '/project/project_controller/edit_project', $('#edit_project_form').serialize(), function(msg)
         {
             if (msg == 1) {
-                $("#edit_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project</a>has been updated.</div>');
+                $("#edit_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been updated.</div>');
                 edit_project_form.reset();
                 location.reload();
             } else {
-                $("#edit_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project</a>has failed.</div>');
+                $("#edit_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
             }
         });
 
