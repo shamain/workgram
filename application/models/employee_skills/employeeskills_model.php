@@ -8,7 +8,7 @@
 
 class Employeeskills_model extends CI_Model{
     
-    var $employee_skill_id;
+    var $skill_id;
     var $employee_id;
     var $skill_description;
     
@@ -18,16 +18,29 @@ class Employeeskills_model extends CI_Model{
     }
     
     public function get_employee_skill_id(){
-        return $this->employee_skill_id ;
+        return $this->skill_id ;
         
+    }
+    
+    public function set_employee_skill_id($skill_id){
+        $this->skill_id = $skill_id;  
     }
     
     public function get_employee_id(){
         return $this->employee_id;
     }
     
+    public function set_employee_id($employee_id){
+        $this->employee_id = $employee_id;  
+    }
+    
+    
     public function get_skill_description(){
         return $this->skill_description;
+    }
+    
+    public function set_skill_description($skill_description){
+        $this->skill_description=$skill_description;
     }
        
 }
