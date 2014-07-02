@@ -36,6 +36,13 @@ class Employee_service extends CI_Model {
         $this->db->where('employee_Code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
+    
+    //update online status
+    function update_online_status($employee_model) {
+        $data = array('is_online' => $employee_model->get_is_online());
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
+    }
   
     //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {

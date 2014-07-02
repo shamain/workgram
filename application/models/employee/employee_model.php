@@ -16,6 +16,7 @@ class Employee_model extends CI_Model {
     var $employee_avatar;
     var $account_activation_code;
     var $company_code;
+    var $is_online;
     var $del_ind;
     var $added_by;
     var $added_date;
@@ -80,6 +81,10 @@ class Employee_model extends CI_Model {
 
     public function get_company_code() {
         return $this->company_code;
+    }
+
+    public function get_is_online() {
+        return $this->is_online;
     }
 
     public function get_del_ind() {
@@ -156,6 +161,10 @@ class Employee_model extends CI_Model {
 
     public function set_company_code($company_code) {
         $this->company_code = $company_code;
+    }
+
+    public function set_is_online($is_online) {
+        $this->is_online = $is_online;
     }
 
     public function set_del_ind($del_ind) {

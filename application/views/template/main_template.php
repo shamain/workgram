@@ -219,9 +219,19 @@
                         <div class="user-info">
                             <div class="greeting">Welcome</div>
                             <div class="username"><?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> <span class="semi-bold"><?php echo ucfirst($this->session->userdata('EMPLOYEE_LNAME')); ?></span></div>
-                            <div class="status">Status<a href="#">
-                                    <div class="status-icon green"></div>
-                                    Online</a></div>
+                            <div class="status">Status
+                                <?php if ($this->session->userdata('EMPLOYEE_ONLINE') == 'Y') { ?>
+                                    <a href="#">
+                                        <div class="status-icon green"></div>
+                                        Online
+                                    </a>
+                                <?php } else { ?>
+                                    <a href="#">
+                                        <div class="status-icon red"></div>
+                                        Offline
+                                    </a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                     <!-- END MINI-PROFILE -->

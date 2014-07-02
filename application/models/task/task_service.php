@@ -4,7 +4,7 @@ class Task_service extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('project/project_model');
+        $this->load->model('task/task_model');
     }
 
     public function get_tasks_for_project($project_id) {

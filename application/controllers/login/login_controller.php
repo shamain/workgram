@@ -139,6 +139,10 @@ class Login_controller extends CI_Controller {
                 echo 0;
             } else {
 
+                $emp_login_status_model = new Employee_model();
+                $emp_login_status_model->set_is_online('Y');
+                $emp_login_status_model->set_employee_code($logged_user_details->employee_code);
+                $employee_service->update_online_status($emp_login_status_model);
                 //Setting sessions		
                 $this->session->set_userdata('EMPLOYEE_CODE', $logged_user_details->employee_code);
 //                $this->session->set_userdata('EMPLOYEE_WELCOME', $logged_user_details->preferred_welcome_sys);
@@ -151,6 +155,7 @@ class Login_controller extends CI_Controller {
                 $this->session->set_userdata('EMPLOYEE_COMPANY_CODE', $logged_user_details->company_code);
                 $this->session->set_userdata('EMPLOYEE_COMPANY_NAME', $logged_user_details->company_name);
                 $this->session->set_userdata('EMPLOYEE_TYPE', $logged_user_details->employee_type);
+                $this->session->set_userdata('EMPLOYEE_ONLINE', 'Y');
 
 
                 //checking gor teh DOB and saving  a note in a session , LCS_EMPLOYEE_BD
@@ -180,6 +185,14 @@ class Login_controller extends CI_Controller {
 
     function logout() {
 
+        $emp_login_status_model = new Employee_model();
+        $employee_service = new Employee_service();
+        
+        $emp_login_status_model->set_is_online('N');
+        $emp_login_status_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
+        
+        $employee_service->update_online_status($emp_login_status_model);
+        
         $this->session->sess_destroy();
         redirect(site_url() . '/login/login_controller');
     }
@@ -287,10 +300,11 @@ class Login_controller extends CI_Controller {
 
             if (count($logged_user_details) == 0) {
 
-                echo '0';die;
+                echo '0';
+                die;
             } else {
 
-                echo "success"."+".$logged_user_details->employee_code."+".$logged_user_details->employee_fname;
+                echo "success" . "+" . $logged_user_details->employee_code . "+" . $logged_user_details->employee_fname;
             }
         } else {
             echo '0';
