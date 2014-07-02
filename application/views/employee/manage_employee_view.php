@@ -61,7 +61,7 @@
                                     <a style="cursor: pointer;"   title="Delete this Employee" onclick="delete_employee(<?php echo $employee->employee_code; ?>)">
                                         <i class="fa fa-times"></i>
                                     </a>
-                                    <a href="<?php echo site_url(); ?>/employee_priviege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
+                                    <a href="<?php echo site_url(); ?>/employee_privilege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
                                         <i class="fa fa-unlock-alt"></i>
                                     </a>
 

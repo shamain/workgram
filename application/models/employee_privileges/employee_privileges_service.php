@@ -39,23 +39,56 @@ class Employee_privileges_service extends CI_Model {
 
         return $this->db->update('employee_privileges', $data);
     }
-    
-    function add_new_employee_privilege($employee_privilege_model){
+
+    function add_new_employee_privilege($employee_privilege_model) {
 
         $this->db->select('*');
-        $this->db->from('employee_privilege');
-        $this->db->where('employee_code',$employee_privilege_model->get_employee_code());
-        $this->db->where('privilege_code',$employee_privilege_model->get_privilege_code());
+        $this->db->from('employee_privileges');
+        $this->db->where('employee_code', $employee_privilege_model->get_employee_code());
+        $this->db->where('privilege_code', $employee_privilege_model->get_privilege_code());
         $query = $this->db->get();
         $a = 0;
-        foreach ($query->result() as $pri){
-            $a=1;
+        foreach ($query->result() as $pri) {
+            $a = 1;
             $employee_privilege_model->set_employee_privilege_code($pri->employee_privilege_code);
         }
-        if($a == 0){
+        if ($a == 0) {
             return $this->db->insert('employee_privileges', $employee_privilege_model);
-        }else{
-            return $this->db->delete('employee_privileges', array('Employeeuser_Priviledge_Code 	' => $employee_privilege_model-> getEmployeeuserPriviledgeCode()));
+        } else {
+            return $this->db->delete('employee_privileges', array('employee_privilege_code' => $employee_privilege_model->get_employee_privilege_code()));
+        }
+    }
+
+    function add_new_employee_privilege_system($employee_privilege_model) {
+
+        $this->db->select('*');
+        $this->db->from('employee_privileges');
+        $this->db->where('employee_code', $employee_privilege_model->get_employee_code());
+        $this->db->where('privilege_code', $employee_privilege_model->get_privilege_code());
+        $query = $this->db->get();
+        $a = 0;
+        foreach ($query->result() as $pri) {
+            $a = 1;
+        }
+        if ($a == 0) {
+            return $this->db->insert('employee_privileges', $employee_privilege_model);
+        }
+    }
+
+    function delete_new_employee_privilege_system($employee_privilege_model) {
+
+        $this->db->select('*');
+        $this->db->from('employee_privileges');
+        $this->db->where('employee_code', $employee_privilege_model->get_employee_code());
+        $this->db->where('privilege_code', $employee_privilege_model->get_privilege_code());
+        $query = $this->db->get();
+        $a = 0;
+        foreach ($query->result() as $pri) {
+            $a = 1;
+            $employee_privilege_model->set_employee_privilege_code($pri->employee_privilege_code);
+        }
+        if ($a == 1) {
+            return $this->db->delete('employee_privileges', array('employee_privilege_code' => $employee_privilege_model->get_employee_privilege_code()));
         }
     }
 

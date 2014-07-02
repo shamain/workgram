@@ -345,3 +345,73 @@ $(document).ready(function() {
     });
 
 });
+
+
+////////////////////////Employee Privileges//////////////////////////////////////////////
+
+function save_privileges_from_system(system_code, emp_id) {
+
+    var loadersh = document.getElementById("loader_ajax_check_all_hrm" + system_code);
+    loadersh.style.display = "inline";
+    $("#loader_ajax_check_all_hrm" + system_code).html('<img src="' + base_url + '/application_resources/images/ajaxloader.gif"  />  ');
+
+    $("#msgsystem" + system_code).html('');
+    var checkboxes = $('.chkbox' + system_code);
+    $checkbox = document.getElementById('privilegesystem' + system_code);
+    if ($($checkbox).is(':checked')) {
+        checkboxes.attr("checked", true);
+    } else {
+        checkboxes.attr("checked", false);
+    }
+
+    if ($($checkbox).is(':checked')) {
+        $.post(site_url + '/employee_privilege/employee_privilege_controller/employee_privileges_add_all', {system_code: system_code ,emp_id: emp_id}, function(msg)
+        {
+            if (msg == 1) {
+
+                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />  ');
+                $("#loader_ajax_check_all_hrm" + system_code).html('');
+
+            } else {
+                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+                $("#loader_ajax_check_all_hrm" + system_code).html('');
+
+            }
+        });
+    } else {
+        $.post(site_url + '/employee_privilege/employee_privilege_controller/employee_privileges_delete_all', {system_code: system_code, emp_id: emp_id}, function(msg)
+        {
+
+            if (msg == 1) {
+
+                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />');
+                $("#loader_ajax_check_all_hrm" + system_code).html('');
+
+            } else {
+                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+                $("#loader_ajax_check_all_hrm" + system_code).html('');
+
+            }
+        });
+    }
+}
+
+
+function save_privileges_from_user(privilige_code, emp_code) {
+    $("#msg" + privilige_code).html('');
+
+    $checkbox = document.getElementById('privilege' + privilige_code);
+
+    $.post(site_url + '/employee_privilege/employee_privilege_controller/add_employee_privileges', {pri_code: privilige_code, emp_code: emp_code}, function(msg)
+    {
+
+        if (msg == 1) {
+
+            $("#msg" + privilige_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />');
+
+        } else {
+            $("#msg" + privilige_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+        }
+    });
+
+}
