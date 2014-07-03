@@ -353,8 +353,8 @@ function save_privileges_from_system(system_code, emp_id) {
 
     var loadersh = document.getElementById("loader_ajax_check_all_hrm" + system_code);
     loadersh.style.display = "inline";
-    $("#loader_ajax_check_all_hrm" + system_code).html('<img src="' + base_url + '/application_resources/images/ajaxloader.gif"  />  ');
-
+    $("#loader_ajax_check_all_hrm" + system_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
+alert("s");
     $("#msgsystem" + system_code).html('');
     var checkboxes = $('.chkbox' + system_code);
     $checkbox = document.getElementById('privilegesystem' + system_code);
