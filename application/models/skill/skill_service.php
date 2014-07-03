@@ -1,12 +1,6 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-class Skillcategory_service extends CI_Model {
+class Skill_service extends CI_Model {
 
     function __construct() {
         parent::__construct();
@@ -16,7 +10,7 @@ class Skillcategory_service extends CI_Model {
     public function get_all_skills() {
         $this->db->select('*');
         $this->db->from('skill');
-        $this->db->join('skill_category', 'skill_category.del_ind = skill.del_ind');
+        $this->db->join('skill_category', 'skill_category.skill_cat_code = skill.skill_cat_code');
         $this->db->order_by("skill.skill_code", "desc");
         $query = $this->db->get();
         return $query->result();
@@ -42,9 +36,7 @@ class Skillcategory_service extends CI_Model {
 
         $data = array(
             'skill_name' => $skill_model->get_skill_name(),
-            'del_ind' => $skill_model->get_del_ind(),
-            'added_by' => $skill_model->get_added_by(),
-            'added_date' => $skill_model->get_added_date()
+            'skill_cat_code' => $skill_model->get_skill_cat_code()
         );
 
 
