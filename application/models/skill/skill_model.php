@@ -60,8 +60,6 @@ class Skill_model extends CI_Model{
     public function set_added_date($added_date) {
         $this->added_date = $added_date;
     }
-
-
-    
+  
 }
 
