@@ -21,6 +21,22 @@ class Skillcategory_service extends CI_Model {
         $this->db->where('skill_cat_code', $skill_cat_code);
         return $this->db->update('skill_category', $data);
     }
+    
+    function update_skillcategory($skillcategory_model) {
+
+        $data = array(
+            'skill_cat_name' => $skillcategory_model->get_skill_cat_name(),
+            'del_ind' => $skillcategory_model->get_del_ind(),
+            'added_by'=> $skillcategory_model->get_added_by(),
+            'added_date'=> $skillcategory_model->get_added_date()
+        );
+
+
+        $this->db->where('skill_cat_code', $skillcategory_model->get_skill_cat_code());
+
+        return $this->db->update('skill_category', $data);
+    }
+
 }
     
     
