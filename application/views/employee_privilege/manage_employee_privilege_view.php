@@ -36,11 +36,11 @@
                             <div class="divcls" >
                                 <div class="row-fluid">
                                     <div class="checkbox check-primary">
-                                           <div id="msgsystem<?php echo $system->system_code; ?>" class="msgsystem"></div>
+                                        <div id="msgsystem<?php echo $system->system_code; ?>" class="msgsystem"></div>
                                         <div id="loader_ajax_check_all_hrm<?php echo $system->system_code; ?>" class="loader_ajax_check_all_hrm"> </div>
                                         <input type="checkbox" value="<?php echo $system->system_code; ?>" onclick="save_privileges_from_system(<?php echo $system->system_code; ?>,<?php echo $employee_detail->employee_code; ?>)" name="privilegessystem[]" id="privilegesystem<?php echo $system->system_code; ?>" class="checkbox msgsystemchk<?php echo $system->system_code; ?>">
                                         <label for="privilegesystem<?php echo $system->system_code; ?>">Select All - <?php echo $system->system; ?> </label>
-                                     
+
                                     </div>
                                 </div>
                             </div>

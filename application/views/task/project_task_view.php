@@ -57,17 +57,21 @@
                 <div class="grid-title no-border descriptive clickable">
                     <h4 class="semi-bold"><?php echo $task->task_name; ?></h4>
                     <p ><span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
-                        <?php if ($task->task_status == '0') { ?>
-                            <span class="label label-important">0</span>
-                        <?php } else { ?>
-                            <span class="label label-success">1</span>
-                        <?php } ?>
+                    <div class="progress progress-danger">
+                        <div data-percentage="<?php echo $task->task_progress;?>%" class="bar animate-progress-bar"></div>
+                    </div>
+                    <?php if ($task->task_status == '0') { ?>
+                        <span class="label label-important">0</span>
+                    <?php } else { ?>
+                        <span class="label label-success">1</span>
+                    <?php } ?>
+  
                     </p>
                     <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a> <a class="remove" href="javascript:;"><i class="fa fa-times"></i></a> </div>
                 </div>
+                
                 <div class="grid-body  no-border" style="display:none">
                     <div class="post">
-
                         <div class="info-wrapper">
                             <div class="info"> 
                                 <?php echo $task->task_description; ?>
@@ -78,7 +82,7 @@
                         <div class="user-profile-pic-wrapper">
                             <?php foreach ($employees_for_task as $employee) { ?>
                                 <div class="user-profile-pic-normal"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar;?>" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar;?>" src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar;?>" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="">
                                 </div>
                             <?php } ?>
                         </div>
