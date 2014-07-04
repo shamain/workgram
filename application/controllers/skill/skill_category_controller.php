@@ -21,38 +21,37 @@ class Skill_category_controller extends CI_Controller {
         }
     }
 
-    function manage_skillcategory() {
+    function manage_skill_category() {
 
         $skill_category_service = new skill_category_service();
 
         $data['heading'] = "Manage skill category";
-        $data['skill categories'] = $skill_category_service->get_all_skillcategory($this->session->userdata('SKILL_CAT_CODE'));
+        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
 
-        $parials = array('content' => 'skill_category/manage_skillcategory.view');
+        $parials = array('content' => 'skill_category/manage_skill_category_view');
         $this->template->load('template/main_template', $parials, $data);
     }
 
-    function view_skillcategory($skill_cat_code) {
+    function edit_skill_category_view($skill_cat_code) {
 
-        $skillcategory_service = new Skillcategory_service();
-        $skill_service = new Skill_service();
+        $skill_category_service = new Skill_category_service();
 
-        $data['skill_category'] = $skillcategory_service->get_skillcategory_by_code($skill_cat_code);
-        $data['skill'] = $skill_service->get_skills_for_skillcategory($skill_cat_code);
+        $data['skill_category'] = $skill_category_service->get_skill_category_by_id($skill_cat_code);
+
     }
 
-    function add_new_skillcategory() {
+    function add_new_skill_category() {
 
-        $skillcategory_model = new Skillcategory_model();
-        $skillcategory_service = new Skillcategory_service();
+        $skill_category_service = new Skill_category_service();
+        $skill_category_model=new Skill_category_model();
 
-        $skillcategory_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
-        $skillcategory_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
-        $skillcategory_model->set_del_ind('1');
-        $skillcategory_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
-        $skillcategory_model->set_added_date(date("Y-m-d H:i:s"));
+        $skill_category_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
+        $skill_category_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
+        $skill_category_model->set_del_ind('1');
+        $skill_category_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+        $skill_category_model->set_added_date(date("Y-m-d H:i:s"));
 
-        echo $skillcategory_service->add_new_skillcategory($skillcategory_model);
+        echo $skill_category_service->add_new_skill_category($skill_category_model);
     }
 
 }

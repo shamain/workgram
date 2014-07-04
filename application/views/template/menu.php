@@ -37,6 +37,18 @@
 
 <li class=""> 
     <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Skills</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/skill/skill_category_controller/manage_skill_category"> Manage Skill Categories </a> </li>
+        
+    </ul>
+</li> 
+
+<li class=""> 
+    <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
         <span class="title">Settings</span> 
         <span class="arrow "></span> 

@@ -17,13 +17,11 @@ class Skill_category_service extends CI_Model {
         return $this->db->update('skill_category', $data);
     }
 
-    public function get_all_skillcategory() {
-
+    public function get_all_skill_categories() {
 
         $this->db->select('*');
         $this->db->from('skill_category');
-        $this->db->join('skill_category', 'skill_category.skill_cat_code = skill.skill_cat_code');
-        $this->db->order_by("skill.skill_cat_code", "desc");
+        $this->db->order_by("skill_cat_code", "desc");
         $query = $this->db->get();
         return $query->result();
     }
@@ -34,10 +32,14 @@ class Skill_category_service extends CI_Model {
             'skill_cat_name' => $skill_category_model->get_skill_cat_name()
         );
 
-
         $this->db->where('skill_cat_code', $skill_category_model->get_skill_cat_code());
 
         return $this->db->update('skill_category', $data);
+    }
+    
+    function get_skill_category_by_id($skill_cat_code) {
+        $query = $this->db->get_where('skill_category', array('skill_cat_code' => $skill_cat_code));
+        return $query->row();
     }
 
 }
