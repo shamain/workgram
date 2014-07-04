@@ -21,6 +21,17 @@ class Skill_category_controller extends CI_Controller {
         }
     }
 
+    function manage_skillcategory() {
+
+        $skill_category_service = new skill_category_service();
+
+        $data['heading'] = "Manage skill category";
+        $data['skill categories'] = $skill_category_service->get_all_skillcategory($this->session->userdata('SKILL_CAT_CODE'));
+
+        $parials = array('content' => 'skill_category/manage_skillcategory.view');
+        $this->template->load('template/main_template', $parials, $data);
+    }
+
     function view_skillcategory($skill_cat_code) {
 
         $skillcategory_service = new Skillcategory_service();
