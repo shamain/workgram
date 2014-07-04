@@ -114,7 +114,7 @@ $(document).ready(function() {
             assign_for: {
                 required: true
             }
-            
+
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    
@@ -354,7 +354,7 @@ function save_privileges_from_system(system_code, emp_id) {
     var loadersh = document.getElementById("loader_ajax_check_all_hrm" + system_code);
     loadersh.style.display = "inline";
     $("#loader_ajax_check_all_hrm" + system_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
-alert("s");
+
     $("#msgsystem" + system_code).html('');
     var checkboxes = $('.chkbox' + system_code);
     $checkbox = document.getElementById('privilegesystem' + system_code);
@@ -365,7 +365,7 @@ alert("s");
     }
 
     if ($($checkbox).is(':checked')) {
-        $.post(site_url + '/employee_privilege/employee_privilege_controller/employee_privileges_add_all', {system_code: system_code ,emp_id: emp_id}, function(msg)
+        $.post(site_url + '/employee_privilege/employee_privilege_controller/employee_privileges_add_all', {system_code: system_code, emp_id: emp_id}, function(msg)
         {
             if (msg == 1) {
 
@@ -398,7 +398,9 @@ alert("s");
 
 
 function save_privileges_from_user(privilige_code, emp_code) {
+    
     $("#msg" + privilige_code).html('');
+    $("#loader_ajax_check_all_hrm" + system_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
 
     $checkbox = document.getElementById('privilege' + privilige_code);
 

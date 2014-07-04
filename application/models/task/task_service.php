@@ -26,4 +26,20 @@ class Task_service extends CI_Model {
         return $this->db->update('task', $data);
     }
 
+    function update_task($task_model) {
+
+        $data = array(
+            'task_name' => $task_model->get_task_name(),
+            'task_descrption' => $task_model->get_task_description(),
+            'task_priority' => $task_model->get_task_priority(),
+            'task_progress' => $task_model->get_task_progress(),
+            'task_deadline' => $task_model->get_task_deadline(),
+            'project_id' => $task_model->get_project_id()
+        );
+
+        $this->db->where('task_id', $task_model->get_task_id());
+
+        return $this->db->update('task', $data);
+    }
+
 }
