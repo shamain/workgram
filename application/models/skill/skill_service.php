@@ -6,7 +6,7 @@ class Skill_service extends CI_Model {
         parent::__construct();
         $this->load->model('skill/skill_model');
     }
-    
+
     public function get_all_skills() {
         $this->db->select('*');
         $this->db->from('skill');
@@ -15,7 +15,7 @@ class Skill_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     function add_new_skill($skill_model) {
 
         return $this->db->insert('skill', $skill_model);
@@ -46,4 +46,3 @@ class Skill_service extends CI_Model {
     }
 
 }
-

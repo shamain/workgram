@@ -1,18 +1,18 @@
 <?php
 
+class Skill_model extends CI_Model {
 
-class Skill_model extends CI_Model{
     var $skill_code;
     var $skill_name;
     var $skill_cat_code;
     var $del_ind;
     var $added_by;
     var $added_date;
-    
-     function __construct() {
+
+    function __construct() {
         parent::__construct();
     }
-   
+
     public function get_skill_code() {
         return $this->skill_code;
     }
@@ -60,6 +60,5 @@ class Skill_model extends CI_Model{
     public function set_added_date($added_date) {
         $this->added_date = $added_date;
     }
-  
-}
 
+}

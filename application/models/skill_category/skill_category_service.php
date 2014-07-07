@@ -11,6 +11,13 @@ class Skill_category_service extends CI_Model {
         return $this->db->insert('skill_category', $skill_category_model);
     }
 
+    function add_skill_category($skill_category_model) {
+
+        $this->db->insert('skill_category', $skill_category_model);
+        $this->db->last_query();
+        return $this->db->insert_id();
+    }
+
     function delete_skill_category($skill_cat_code) {
         $data = array('del_ind' => '0');
         $this->db->where('skill_cat_code', $skill_cat_code);
@@ -36,7 +43,7 @@ class Skill_category_service extends CI_Model {
 
         return $this->db->update('skill_category', $data);
     }
-    
+
     function get_skill_category_by_id($skill_cat_code) {
         $query = $this->db->get_where('skill_category', array('skill_cat_code' => $skill_cat_code));
         return $query->row();
