@@ -369,11 +369,11 @@ function save_privileges_from_system(system_code, emp_id) {
         {
             if (msg == 1) {
 
-                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />  ');
+                $("#msgsystem" + system_code).html('<i  class="fa fa-thumbs-o-up fa-1x"></i> ');
                 $("#loader_ajax_check_all_hrm" + system_code).html('');
 
             } else {
-                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+                $("#msgsystem" + system_code).html('<i  class="fa fa-thumbs-o-down fa-1x"></i> ');
                 $("#loader_ajax_check_all_hrm" + system_code).html('');
 
             }
@@ -384,11 +384,11 @@ function save_privileges_from_system(system_code, emp_id) {
 
             if (msg == 1) {
 
-                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />');
+                $("#msgsystem" + system_code).html('<i  class="fa fa-thumbs-o-up fa-1x"></i> ');
                 $("#loader_ajax_check_all_hrm" + system_code).html('');
 
             } else {
-                $("#msgsystem" + system_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+                $("#msgsystem" + system_code).html('<i  class="fa fa-thumbs-o-down fa-1x"></i> ');
                 $("#loader_ajax_check_all_hrm" + system_code).html('');
 
             }
@@ -400,7 +400,7 @@ function save_privileges_from_system(system_code, emp_id) {
 function save_privileges_from_user(privilige_code, emp_code) {
     
     $("#msg" + privilige_code).html('');
-    $("#loader_ajax_check_all_hrm" + system_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
+    $("#loader_ajax_check_all_hrm" + privilige_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
 
     $checkbox = document.getElementById('privilege' + privilige_code);
 
@@ -409,10 +409,10 @@ function save_privileges_from_user(privilige_code, emp_code) {
 
         if (msg == 1) {
 
-            $("#msg" + privilige_code).html('<img src="' + base_url + '/application_resources/images/icons/color/accept.png"  />');
+            $("#msg" + privilige_code).html('<i  class="fa fa-thumbs-o-up fa-1x"></i> ');
 
         } else {
-            $("#msg" + privilige_code).html('<img src="' + base_url + '/application_resources/images/icons/color/error.png"  />');
+            $("#msg" + privilige_code).html('<i  class="fa fa-thumbs-o-down fa-1x"></i> ');
         }
     });
 

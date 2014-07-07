@@ -95,7 +95,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Employee No</label>
+                                <label class="form-label">Previous id ?</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
@@ -186,45 +186,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Birth Day</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_dpicker">                                       
-                                <i class=""></i>
-
-                                <input class="form-control" type="text" id="employee_bday" name="employee_bday" readonly="true">
-                                <span class="add-on">
-                                    <span class="arrow"></span>
-                                    <i class="fa fa-th"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Contact No</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_contact" class="form-control" type="text" name="employee_contact">                              
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Salary</label>
-                                <span style="color: red">*</span>
+                                
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -254,35 +222,6 @@
                         </div>
                     </div>
 
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Avatar</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="employee_avatar" class="form-control" type="text" name="employee_avatar">                              
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Company</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="company_code" class="form-control" type="text" name="company_code">                              
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <div id="add_employee_msg" class="form-row"> </div>

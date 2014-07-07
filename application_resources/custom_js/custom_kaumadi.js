@@ -55,12 +55,10 @@ $(document).ready(function() {
                 required: true
             },
             employee_email: {
-                required: true
+                required: true,
+                email:true
             },
             employee_type: {
-                required: true
-            },
-            employee_contact: {
                 required: true
             },
             employee_contract: {
@@ -93,11 +91,11 @@ $(document).ready(function() {
             $.post(site_url + '/employee/employee_controller/add_new_employee', $('#add_employee_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee</a>has been added.</div>');
+                    $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been added.</div>');
                     add_employee_form.reset();
                     location.reload();
                 } else {
-                    $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee</a>has failed.</div>');
+                    $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
                 }
             });
 
@@ -164,11 +162,11 @@ $(document).ready(function() {
         $.post(site_url + '/employee/employee_controller/edit_employee', $('#edit_employee_form').serialize(), function(msg)
         {
             if (msg == 1) {
-                $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee</a>has been updated.</div>');
+                $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been updated.</div>');
                 edit_pemployee_form.reset();
                 location.reload();
             } else {
-                $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee</a>has failed.</div>');
+                $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
             }
         });
 
