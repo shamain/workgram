@@ -215,6 +215,10 @@ class Login_controller extends CI_Controller {
 
         return $result;
     }
+    
+    /*
+     * Api Methods for User Login
+     */
 
     /*
      * Login details checking function for desktop client

@@ -106,5 +106,15 @@ class Project_controller extends CI_Controller {
 //        }
     }
 
+    
+    /*
+     * Api Methods for Project
+     */
+    public function get_projects_for_employee($employee_code){
+        
+        $project_service = new Project_service();
+        
+    }
+    
 
 }
