@@ -1,13 +1,4 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-var base_url = js_base_url;
-var site_url = js_site_url;
-
-
-////////////////////skill//////////////////////////////////////////////////////////////
+//////////////////Skill//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //skill table
     var skill_table = $('#skill_table').dataTable({
@@ -28,10 +19,8 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        }
+        },
     });
-
-
 
     $(".skill_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_skill_btn" data-toggle="modal" data-target="#add_skill_modal">Add New Skill</button></div>');
 
@@ -39,8 +28,8 @@ $(document).ready(function() {
     $('#skill_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
-    //add skill 
-    $('#add_company_form').validate({
+    //add Skill Form
+    $('#add_skill_form').validate({
         focusInvalid: false,
         ignore: "",
         rules: {
@@ -51,37 +40,23 @@ $(document).ready(function() {
                 required: true
             },
             skill_cat_code: {
-                required: true,
-                email: true
-
-            },
-            del_index: {
-                required: true
-
-            },
-            added_by: {
-                required: true
-            },
-            added_date: {
                 required: true
             }
-
-
         },
         invalidHandler: function(event, validator) {
-
+            //display error alert on form submit    
         },
-        errorPlacement: function(label, element) {
+        errorPlacement: function(label, element) { // render error placement for each input type   
             $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('success-control').addClass('error-control');
         },
-        highlight: function(element) {
+        highlight: function(element) { // hightlight error inputs
             var parent = $(element).parent();
             parent.removeClass('success-control').addClass('error-control');
 
         },
-        unhighlight: function(element) {
+        unhighlight: function(element) { // revert the change done by hightlight
 
         },
         success: function(label, element) {
@@ -92,42 +67,196 @@ $(document).ready(function() {
             $.post(site_url + '/skill/skill_controller/add_new_skill', $('#add_skill_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >skill </a>has been added.</div>');
-                    add_company_form.reset();
+                    $("#add_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been added.</div>');
+                    add_skill_form.reset();
                     location.reload();
                 } else {
-                    $("#add_skill_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">skill </a>has failed.</div>');
+                    $("#add_skill_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
                 }
             });
 
 
         }
     });
+
+});
+
+//edit Skill Form
+$('#edit_skill_form').validate({
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+        skill_code: {
+            required: true
+        },
+        skill_name: {
+            required: true
+        },
+        sill_cat_code: {
+            required: true
+        }
+
+
+    },
+    invalidHandler: function(event, validator) {
+        //display error alert on form submit    
+    },
+    errorPlacement: function(label, element) { // render error placement for each input type   
+        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('success-control').addClass('error-control');
+    },
+    highlight: function(element) { // hightlight error inputs
+        var parent = $(element).parent();
+        parent.removeClass('success-control').addClass('error-control');
+
+    },
+    unhighlight: function(element) { // revert the change done by hightlight
+
+    },
+    success: function(label, element) {
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('error-control').addClass('success-control');
+    }, submitHandler: function(form)
+    {
+        $.post(site_url + '/skill/skill_controller/edit_skill', $('#edit_skill_form').serialize(), function(msg)
+        {
+            if (msg == 1) {
+                $("#edit_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
+                edit_skill_form.reset();
+                location.reload();
+            } else {
+                $("#edit_skill_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
+            }
+        });
+
+
+    }
 });
 
 
-
-//delete skill
+//delete skills
 function delete_skill(skill_code) {
 
-    if (confirm('Are you sure want to delete this Skill?')) {
+    if (confirm('Are you sure want to delete this Skill ?')) {
 
         $.ajax({
             type: "POST",
             url: site_url + '/skill/skill_controller/delete_skill',
-            data: "code=" + code,
+            data: "id=" + id,
             success: function(msg) {
-
+                //alert(msg);
                 if (msg == 1) {
-                    $('#skill_' + code).hide();
+                    //document.getElementById(trid).style.display='none';
+                    $('#skills_' + id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employees');
+                    alert('Cannot be deleted as it is already assigned to skills');
                 }
             }
         });
     }
 }
 
+////////////////Skill Category/////////////////////////////////////////////////////////
 
+//delete skill category
+function delete_skill_category(skill_cat_code) {
 
+    if (confirm('Are you sure want to delete this Skill Category ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/skill/skill_category_controller/delete_skill_category',
+            data: "id=" + id,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+
+                    $('#skill_category_' + id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Skill category');
+                }
+            }
+        });
+    }
+}
+
+$(document).ready(function() {
+    //skill category table
+    var skill_category_table = $('#skill_category_table').dataTable({
+        "sDom": "<'row'<'col-md-6'l <'toolbar skill_category_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "oTableTools": {
+            "aButtons": [
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                    "aButtons": ["csv", "xls", "pdf", "copy"]
+                }
+            ]
+        },
+        "aoColumnDefs": [
+            {"bSortable": false, "aTargets": [0]}
+        ],
+        "aaSorting": [[3, "desc"]],
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ ",
+            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+        },
+    });
+
+    $(".skill_category_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_skill_category_btn" data-toggle="modal" data-target="#add_skill_category_modal">Add New Skill Category</button></div>');
+
+    $('#skill_category_table_wrapper .dataTables_filter input').addClass("input-medium ");
+    $('#skill_category_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
+    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+
+    //add Skill Category Form
+    $('#add_skill_category_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            skill_cat_code: {
+                required: true
+            },
+            skill_cat_name: {
+                required: true
+            }
+
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/skill/skill_category_controller/add_new_skill_category', $('#add_skll_category_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#add_skill_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill Category </a>has been added.</div>');
+                    add_skill_category_form.reset();
+                    location.reload();
+                } else {
+                    $("#add_skill_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill Category </a>has failed.</div>');
+                }
+            });
+        }
+    });
+
+});

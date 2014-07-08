@@ -9,11 +9,12 @@
                 <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
             <div class="grid-body ">
-                <table class="table" id="skillcategory_table" >
+                <table class="table" id="skill_category_table" >
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Skill Category Name</th>                       
+                            <th>Skill Category Name</th>  
+                            <th>Skill Category code</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -28,7 +29,7 @@
 
                                 <td>
 
-                                    <a href="<?php echo site_url(); ?>/skill/skill_category_controller/edit_sillcategory_view/<?php echo $skill_category->skill_cat_code; ?>">
+                                    <a href="<?php echo site_url(); ?>/skill/skill_category_controller/edit_skill_category_view/<?php echo $skill_category->skill_cat_code; ?>">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this skill category" onclick="delete_skill_category(<?php echo $skill_category->skill_cat_code; ?>)">

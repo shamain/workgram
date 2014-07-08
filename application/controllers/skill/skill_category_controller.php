@@ -53,6 +53,20 @@ class Skill_category_controller extends CI_Controller {
         echo $skill_category_service->add_new_skill_category($skill_category_model);
     }
 
+    function edit_skill_category() {
+
+        $skill_category_model = new Skill_category_model();
+        $skill_category_service = new Skill_category_service();
+
+        $skill_category_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
+        $skill_category_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
+        $skill_category_model->set_del_ind($this->input->post('del_ind', TRUE));
+        $skill_category_model->set_added_by($this->input->post('added_by', TRUE));
+        $skill_category_model->set_added_date($this->input->post('added_date', TRUE));
+
+        echo $skill_category_service->update_skill_category($skill_category_model);
+    }
+
     function delete_skill_category() {
 
 
