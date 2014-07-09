@@ -308,7 +308,7 @@ class Login_controller extends CI_Controller {
                 die;
             } else {
 
-                echo json_decode($logged_user_details);
+                echo json_encode($logged_user_details);
             }
         } else {
             echo '0';
