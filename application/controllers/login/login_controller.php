@@ -251,7 +251,7 @@ class Login_controller extends CI_Controller {
         //parameters = setting_id,employee_code,company_id
 
         $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
-
+$login_option=1;
 
         // 1 = Username & Password
         if ($login_option == 1) {
@@ -264,35 +264,6 @@ class Login_controller extends CI_Controller {
                 $logged_user_result = false;
             } else {
                 $logged_user_result = true;
-            }
-        }
-
-        // 2 = Active Directory Authentication
-        if ($login_option == 2) {
-
-            $logged_user_result = true;
-            $employee_model->set_employee_email($email);
-            //$employeemodel->setPassword(md5($this->input->post('login_password', TRUE))); // password md 5 change 
-        }
-
-        // 3 = Corporate Email authentication
-        if ($login_option == 3) {
-
-
-            $employee_model->set_employee_email($email);
-            $employee_model->set_employee_password($this->input->post('login_password', TRUE)); // password md 5 change
-
-            $mailServer = $employee_service->get_server_by_email($employee_model);
-
-            //$logged_user_result = $this->authenticateUserEmail($employeemodel,$this->config->item('MAILBOX'));// chamge
-            //echo $logged_user_details->server;die;
-
-            if ($mailServer == 1) {
-                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX'));
-            } else if ($mailServer == 2) {
-                $logged_user_result = $this->authenticate_user_email($employee_model, $this->config->item('MAILBOX2'));
-            } else {
-                $logged_user_result = FALSE;
             }
         }
 
