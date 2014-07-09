@@ -187,12 +187,12 @@ class Login_controller extends CI_Controller {
 
         $emp_login_status_model = new Employee_model();
         $employee_service = new Employee_service();
-        
+
         $emp_login_status_model->set_is_online('N');
         $emp_login_status_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
-        
+
         $employee_service->update_online_status($emp_login_status_model);
-        
+
         $this->session->sess_destroy();
         redirect(site_url() . '/login/login_controller');
     }
@@ -215,7 +215,7 @@ class Login_controller extends CI_Controller {
 
         return $result;
     }
-    
+
     /*
      * Api Methods for User Login
      */
@@ -251,7 +251,7 @@ class Login_controller extends CI_Controller {
         //parameters = setting_id,employee_code,company_id
 
         $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
-$login_option=1;
+        $login_option = 1;
 
         // 1 = Username & Password
         if ($login_option == 1) {
@@ -282,8 +282,8 @@ $login_option=1;
                 echo json_encode($logged_user_details);
             }
         } else {
-            echo '0';
-        }// if($logged_user_result){
+            echo '0';die;
+        }
     }
 
 }
