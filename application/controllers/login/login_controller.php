@@ -308,7 +308,7 @@ class Login_controller extends CI_Controller {
                 die;
             } else {
 
-                echo "success" . "+" . $logged_user_details->employee_code . "+" . $logged_user_details->employee_fname;
+                echo json_decode($logged_user_details);
             }
         } else {
             echo '0';
