@@ -43,6 +43,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/skill/skill_category_controller/manage_skill_category"> Manage Skill Categories </a> </li>
+        <li > <a href="<?php echo site_url(); ?>/skill/skill_controller/manage_skill"> Manage Skills </a> </li>
         
     </ul>
 </li> 

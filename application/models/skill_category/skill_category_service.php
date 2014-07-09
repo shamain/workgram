@@ -28,7 +28,10 @@ class Skill_category_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('skill_category');
-        $this->db->order_by("skill_cat_code", "desc");
+        $this->db->join('employee', 'employee.employee_code = skill_category.added_by');
+        $this->db->where('skill_category.del_ind', '1');
+        $this->db->order_by("skill_category.skill_cat_code", "desc");
+        
         $query = $this->db->get();
         return $query->result();
     }

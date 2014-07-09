@@ -168,12 +168,12 @@ function delete_skill_category(skill_cat_code) {
         $.ajax({
             type: "POST",
             url: site_url + '/skill/skill_category_controller/delete_skill_category',
-            data: "id=" + id,
+            data: "id=" + skill_cat_code,
             success: function(msg) {
                 //alert(msg);
                 if (msg == 1) {
 
-                    $('#skill_category_' + id).hide();
+                    $('#skill_category_' + skill_cat_code).hide();
                 }
                 else if (msg == 2) {
                     alert('Cannot be deleted as it is already assigned to Skill category');
@@ -217,9 +217,6 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            skill_cat_code: {
-                required: true
-            },
             skill_cat_name: {
                 required: true
             }
@@ -246,7 +243,7 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }, submitHandler: function(form)
         {
-            $.post(site_url + '/skill/skill_category_controller/add_new_skill_category', $('#add_skll_category_form').serialize(), function(msg)
+            $.post(site_url + '/skill/skill_category_controller/add_new_skill_category', $('#add_skill_category_form').serialize(), function(msg)
             {
                 if (msg == 1) {
                     $("#add_skill_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill Category </a>has been added.</div>');

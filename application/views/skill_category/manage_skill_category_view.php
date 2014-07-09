@@ -14,7 +14,7 @@
                         <tr>
                             <th>#</th>
                             <th>Skill Category Name</th>  
-                            <th>Skill Category code</th>
+                            <th>Added By</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -24,8 +24,9 @@
                         foreach ($skill_categories as $skill_category) {
                             ?> 
                             <tr  id="skill_category_<?php echo $skill_category->skill_cat_code; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
+                                <td><?php echo $skill_category->employee_fname.' '.$skill_category->employee_lname; ?></td>
 
                                 <td>
 
@@ -61,20 +62,6 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Skill category code</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="skill_cat_code" class="form-control" type="text" name="skill_cat_code">                              
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -91,34 +78,17 @@
                         </div>
                     </div>
 
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Added by</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="added_by" class="form-control" type="text" name="added_by">                              
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <div id="add_skill_category_msg" class="form-row"> </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-                    <div id="add_skill_category_msg" class="form-row"> </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                    </div>
-
+                </div>
             </form>
         </div>
 
     </div>
-
-</div>
 
 
 
