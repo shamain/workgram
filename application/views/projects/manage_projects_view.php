@@ -25,10 +25,9 @@
                         <?php
                         $i = 0;
                         foreach ($projects as $project) {
-         
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
                                 <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
                                 <td>
@@ -141,7 +140,8 @@
                                 </span>
                             </div>
                         </div>
-                    </div><div class="row form-row">
+                    </div>
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Description</label>
@@ -152,6 +152,72 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <textarea id="project_description" class="form-control" type="text" name="project_description">    </textarea>                          
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <script>
+
+                                    $(function() {
+                                        var btnUpload = $('#upload');
+                                        var status = $('#status');
+                                        new AjaxUpload(btnUpload, {
+                                            action: '<?PHP echo site_url(); ?>/settings/upload_file',
+                                            name: 'uploadfile',
+                                            onSubmit: function(file, ext) {
+                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                    // extension is not allowed 
+                                                    status.text('Only JPG, PNG or GIF files are allowed');
+                                                    return false;
+                                                }
+                                                //status.text('Uploading...Please wait');
+                                                $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/images/loader2.gif' />");
+
+                                            },
+                                            onComplete: function(file, response) {
+                                                //On completion clear the status
+                                                //status.text('');
+                                                $("#sta").html("");
+                                                //Add uploaded file to list
+                                                if (response != "error") {
+
+                                                    $('#files').html("");
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" alt="" /><br />');
+                                                    picFileName = response;
+                                                    document.getElementById('image').value = file;
+                                                    document.getElementById('vacancies_image').value = response;
+                                                } else {
+                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                }
+                                            }
+                                        });
+
+                                    });
+
+
+
+
+                    </script>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <div id="sta"><span id="status" ></span></div>
+                                <div id="files" ></div>
+                                <div id="upload">
+                                    <input type="text" id="image" name="image"/><input type="button"  value="Browse" id="browse" class="da-button gray "/>
+                                    <input type="text" id="vacancies_image" name="vacancies_image" style="visibility: hidden" />
+
+                                </div>
+
+                                <label class="form-label">upload project logo</label>
                             </div>
                         </div>
                     </div>
