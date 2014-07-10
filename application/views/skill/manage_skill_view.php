@@ -58,26 +58,21 @@
                     <p class="no-margin text-white">Choose a Skill category and make this a child of it.</p>
                     <br>
                 </div>
-                <div class="modal-body">
+                <div>
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Skill category code</label>
+                                <label class="form-label">Skill Category code</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
-                                    <?php foreach ($skill_categories as $skill_category) {
-                                        ?> 
-                                        <option value="<?php echo $skill_category->skill_cat_code; ?>"><?php echo $skill_category->skill_category; ?></option>
-                                    <?php } ?>
-                                </select>                               
+                                <input id="skill_cat_code" class="form-control" type="text" name="skill_cat_code">                              
                             </div>
                         </div>
-                    </div>
+                    </div>   
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -92,21 +87,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Skill code</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="skill_code" class="form-control" type="text" name="skill_code">                              
-                            </div>
-                        </div>
-                    </div>
-                   
                 </div>
                 <div id="add_skill_msg" class="form-row"> </div>
                 <div class="modal-footer">
@@ -117,7 +97,7 @@
 
             </form>
         </div>
-     
+
     </div>
-   
+
 </div>
