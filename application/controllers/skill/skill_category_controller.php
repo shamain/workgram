@@ -35,8 +35,11 @@ class Skill_category_controller extends CI_Controller {
     function edit_skill_category_view($skill_cat_code) {
 
         $skill_category_service = new Skill_category_service();
-
+        $data['heading'] = "Edit Skill Category";
         $data['skill_category'] = $skill_category_service->get_skill_category_by_id($skill_cat_code);
+
+        $partials = array('content' => 'skill_category/edit_skill_category_view');
+        $this->template->load('template/main_template', $partials, $data);
     }
 
     function add_new_skill_category() {

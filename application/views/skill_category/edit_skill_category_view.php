@@ -24,7 +24,7 @@
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input id="skill_category_name" class="form-control" type="text" name="skill_category_name" value="<?php echo $skill_category->skill_category; ?>" >                              
+                                        <input id="skill_category_name" class="form-control" type="text" name="skill_category_name" value="<?php echo $skill_category->skill_cat_name; ?>" >                              
                                     </div>
                                 </div>
                             </div>
