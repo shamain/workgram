@@ -63,9 +63,6 @@ class Skill_category_controller extends CI_Controller {
 
         $skill_category_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
         $skill_category_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
-        $skill_category_model->set_del_ind($this->input->post('del_ind', TRUE));
-        $skill_category_model->set_added_by($this->input->post('added_by', TRUE));
-        $skill_category_model->set_added_date($this->input->post('added_date', TRUE));
 
         echo $skill_category_service->update_skill_category($skill_category_model);
     }

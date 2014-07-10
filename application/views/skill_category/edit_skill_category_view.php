@@ -25,6 +25,7 @@
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
                                         <input id="skill_category_name" class="form-control" type="text" name="skill_category_name" value="<?php echo $skill_category->skill_cat_name; ?>" >                              
+                                        <input id="skill_cat_code" class="form-control" type="hidden" name="skill_cat_code" value="<?php echo $skill_category->skill_cat_code; ?>" >                              
                                     </div>
                                 </div>
                             </div>
