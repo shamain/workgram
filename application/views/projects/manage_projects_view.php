@@ -16,6 +16,7 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
+                            <th>Logo</th>
                             <th>Founder</th>
                             <th>Deadline</th>
                             <th>Options</th>
@@ -29,6 +30,7 @@
                             <tr  id="projects_<?php echo $project->project_id; ?>">
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
+                                <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo;?>" alt="" width="50px" height="50px" /></td>
                                 <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
                                 <td>
                                     <?php
@@ -155,15 +157,15 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <script>
+                    <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                    <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                    <script type="text/javascript">
 
                                     $(function() {
                                         var btnUpload = $('#upload');
                                         var status = $('#status');
                                         new AjaxUpload(btnUpload, {
-                                            action: '<?PHP echo site_url(); ?>/settings/upload_file',
+                                            action: '<?PHP echo site_url(); ?>/project/project_controller/upload_project_logo',
                                             name: 'uploadfile',
                                             onSubmit: function(file, ext) {
                                                 if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
@@ -172,21 +174,22 @@
                                                     return false;
                                                 }
                                                 //status.text('Uploading...Please wait');
-                                                $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/images/loader2.gif' />");
+                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
 
                                             },
                                             onComplete: function(file, response) {
                                                 //On completion clear the status
                                                 //status.text('');
+                                                $("#files").html("");
                                                 $("#sta").html("");
                                                 //Add uploaded file to list
                                                 if (response != "error") {
 
                                                     $('#files').html("");
-                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" alt="" /><br />');
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" width="100px" height="100px" /><br />');
                                                     picFileName = response;
                                                     document.getElementById('image').value = file;
-                                                    document.getElementById('vacancies_image').value = response;
+                                                    document.getElementById('project_logo').value = response;
                                                 } else {
                                                     $('<div></div>').appendTo('#files').text(file).addClass('error');
                                                 }
@@ -203,21 +206,26 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-
+                                <div id="files" ></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
+                            <div class=" right">                                       
                                 <i class=""></i>
-                                <div id="sta"><span id="status" ></span></div>
-                                <div id="files" ></div>
+
                                 <div id="upload">
-                                    <input type="text" id="image" name="image"/><input type="button"  value="Browse" id="browse" class="da-button gray "/>
-                                    <input type="text" id="vacancies_image" name="vacancies_image" style="visibility: hidden" />
 
+                                    <input type="text" id="image" name="image"/>
+                                    <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
+                                        <i class="fa fa-camera"></i>
+                                    </button>
+                                    <label class="form-label">upload project logo</label>
+                                    <input type="text" id="project_logo" name="project_logo" style="visibility: hidden" />
                                 </div>
+                                <div id="sta"><span id="status" ></span></div>
 
-                                <label class="form-label">upload project logo</label>
+
+
                             </div>
                         </div>
                     </div>

@@ -525,6 +525,7 @@
             <script src="<?php echo base_url(); ?>application_resources/js/datatables.js" type="text/javascript"></script>
 
 
+
             <!-- BEGIN CUSTOM JS -->
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_privilege.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_project.js" type="text/javascript"></script>
@@ -552,7 +553,7 @@
             <script src="<?php echo base_url(); ?>application_resources/js/dashboard_v2.js" type="text/javascript"></script>
 
 
-
+            <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
 
             <script type="text/javascript">
                 $(document).ready(function() {

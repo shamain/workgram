@@ -39,6 +39,7 @@ class Project_controller extends CI_Controller {
         $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
         $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
+        $project_model->set_project_logo($this->input->post('project_logo', TRUE));
         $project_model->set_company_code($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $project_model->set_del_ind('1');
         $project_model->set_added_date(date("Y-m-d H:i:s"));
@@ -107,14 +108,28 @@ class Project_controller extends CI_Controller {
     }
 
     
+    function upload_project_logo() {
+
+        $uploaddir = './uploads/project_logo/';
+        $unique_tag = 'prj_logo';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
+    }
+
     /*
      * Api Methods for Project
      */
-    public function get_projects_for_employee($employee_code){
-        
+
+    public function get_projects_for_employee($employee_code) {
+
         $project_service = new Project_service();
-        
     }
-    
 
 }
