@@ -33,9 +33,6 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            skill_code: {
-                required: true
-            },
             skill_name: {
                 required: true
             },
@@ -86,9 +83,6 @@ $('#edit_skill_form').validate({
     focusInvalid: false,
     ignore: "",
     rules: {
-        skill_code: {
-            required: true
-        },
         skill_name: {
             required: true
         },
@@ -156,6 +150,17 @@ function delete_skill(skill_code) {
             }
         });
     }
+}
+
+//this is to autofill the Skill Category Code
+function auto_write_skill_cat_code() {
+
+    var skill_category_text = $("#skill_name").val();
+
+    //replace spaces with _
+    var replaced_text = skill_category_text.replace(/ /g, "_");
+    //convert to upper case
+    document.getElementById('skill_cat_code').value = replaced_text.toUpperCase();
 }
 
 ////////////////Skill Category/////////////////////////////////////////////////////////
@@ -255,5 +260,52 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('#edit_skill_category_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            skill_cat_name: {
+                required: true
+            },
+            skill_cat_code: {
+                required: true
+            }
+
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/skill_category/skill_category_controller/edit_skill_category', $('#edit_skill_category_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_skill_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Skill Category </a>has been updated.</div>');
+                    edit_skill_category_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_skill_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill Category </a>has failed.</div>');
+                }
+            });
+        }
+    });
+
 
 });

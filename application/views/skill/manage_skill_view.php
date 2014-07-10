@@ -26,7 +26,7 @@
                             <tr  id="skills_<?php echo $skill->skill_code; ?>">
                                 <td><?php echo $skill->skill_code; ?></td>
                                 <td><?php echo $skill->skill_name; ?></td>
-                                <td><?php echo $privilege->skill_cat_code; ?></td>   
+                                <td><?php echo $skill->skill_cat_code; ?></td>   
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
                                         <i class="fa fa-pencil"></i>
@@ -79,13 +79,14 @@
                                 <label class="form-label">Skill Name</label>
                                 <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="skill_name" class="form-control" type="text" name="skill_name">                              
+                            <div class="col-md-6">
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="skill_name" class="form-control" type="text" name="skill_name" onkeyup="auto_write_skill_cat_code()">                              
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div id="add_skill_msg" class="form-row"> </div>
