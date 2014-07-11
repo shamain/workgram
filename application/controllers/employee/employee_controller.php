@@ -122,8 +122,8 @@ class Employee_controller extends CI_Controller {
     
       function upload_image() {
 
-        $uploaddir = './uploads/employee_image/';
-        $unique_tag = 'emp_image';
+        $uploaddir = './uploads/employee_avatar/';
+        $unique_tag = 'emp_avatar';
 
         $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
         $file = $uploaddir . $filename; // this is the full path of the uploaded file

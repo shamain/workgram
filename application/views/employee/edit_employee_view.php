@@ -137,16 +137,10 @@
                             </div>
 
 
-                            
-                            <div class="form-group">
-                                <label class="form-label">Avatar</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="employee_avatar" class="form-control" type="text" name="employee_avatar" value="<?php echo $employee->employee_avatar; ?>">                              
-                                </div>
-                            </div>
+      
+                                
+                
+          
                             
                             <div class="form-group">
                                 <label class="form-label">Company</label>
@@ -158,8 +152,88 @@
                                 </div>
                             </div>
                             
-                              
-                               
+                                                  
+                            <div class="form-group">
+                                <label class="form-label">Avatar</label>
+                                <span style="color: red">*</span>
+
+                                
+                            
+                                   <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                                   <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                                   <script type="text/javascript">
+
+                                    $(function() {
+                                        var btnUpload = $('#upload');
+                                        var status = $('#status');
+                                        new AjaxUpload(btnUpload, {
+                                            action: '<?PHP echo site_url(); ?>/employee/employee_controller/upload_image',
+                                            name: 'uploadfile',
+                                            onSubmit: function(file, ext) {
+                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                    // extension is not allowed 
+                                                    status.text('Only JPG, PNG or GIF files are allowed');
+                                                    return false;
+                                                }
+                                                //status.text('Uploading...Please wait');
+                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                                            },
+                                            onComplete: function(file, response) {
+                                                //On completion clear the status
+                                                //status.text('');
+                                                $("#files").html("");
+                                                $("#sta").html("");
+                                                //Add uploaded file to list
+                                                if (response != "error") {
+
+                                                    $('#files').html("");
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px" /><br />');
+                                                    picFileName = response;
+                                                    document.getElementById('image').value = file;
+                                                    document.getElementById('employee_avatar').value = response;
+                                                } else {
+                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                }
+                                            }
+                                        });
+
+                                    });
+
+
+
+
+                    </script>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <div id="files" ></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class=" right">                                       
+                                <i class=""></i>
+
+                                <div id="upload">
+
+                                    <input type="text" id="image" name="image"/>
+                                    <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
+                                        <i class="fa fa-camera"></i>
+                                    </button>
+                                    <label class="form-label">upload Image Here</label>
+                                    <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" />
+                                </div>
+                                <div id="sta"><span id="status" ></span></div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+                     
                             <div id="edit_employee_msg" class="form-row"> </div>
 
                             <input type="hidden" id="employee_code" name="employee_code" value="<?php echo $employee->employee_code; ?>"/>
