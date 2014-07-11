@@ -188,7 +188,7 @@
                                                 if (response != "error") {
 
                                                     $('#files').html("");
-                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px" /><br />');
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="200px" height="200px" /><br />');
                                                     picFileName = response;
                                                     document.getElementById('image').value = file;
                                                     document.getElementById('employee_avatar').value = response;
@@ -211,12 +211,12 @@
                                 <div id="files" ></div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class=" right">                                       
                                 <i class=""></i>
 
                                 <div id="upload">
-
+                                  
                                     <input type="text" id="image" name="image"/>
                                     <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
                                         <i class="fa fa-camera"></i>
