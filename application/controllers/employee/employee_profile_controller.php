@@ -31,10 +31,10 @@ class Employee_profile_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
     
-    function upload_employee_avatar() {
+    function upload_employee_cover_pic() {
 
-        $uploaddir = './uploads/employee_avatar/';
-        $unique_tag = 'emp_avatar';
+        $uploaddir = './uploads/employee_cover_pics/';
+        $unique_tag = 'cover_pic';
 
         $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
         $file = $uploaddir . $filename; // this is the full path of the uploaded file
