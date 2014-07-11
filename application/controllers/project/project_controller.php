@@ -13,6 +13,9 @@ class Project_controller extends CI_Controller {
         } else {
             $this->load->model('project/project_model');
             $this->load->model('project/project_service');
+            
+            $this->load->model('employee_task/employee_task_model');
+            $this->load->model('employee_task/employee_task_service');
         }
     }
 
@@ -126,10 +129,10 @@ class Project_controller extends CI_Controller {
     /*
      * Api Methods for Project
      */
-
     public function get_projects_for_employee($employee_code) {
 
         $project_service = new Project_service();
+        $project_service->get_all_projects_for_company($company_code);
     }
 
 }
