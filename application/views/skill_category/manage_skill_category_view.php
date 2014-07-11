@@ -66,7 +66,7 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Skill category name</label>
+                                <label class="form-label">Skill Category Name</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>

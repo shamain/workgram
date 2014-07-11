@@ -224,6 +224,9 @@ $(document).ready(function() {
         rules: {
             skill_cat_name: {
                 required: true
+            },
+            skill_cat_code: {
+                required: true
             }
 
         },
