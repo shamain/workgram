@@ -53,11 +53,11 @@
 
                                 <td>  <?php if ($employee->employee_contract == $this->config->item('FULL_TIME')) {
                                         ?>
-                                        <span class="label label-success"><?php echo 'FULL_TIME'; ?></span>
+                                        <span class="label label-success"><?php echo 'FULL TIME'; ?></span>
                                       
-                                 <?php } else {
+                                 <?php } else if ($employee->employee_contract == $this->config->item('PART_TIME')) {
                                      ?>   
-                                        <span class="label label-warning"><?php echo 'PART_TIME'; ?></span>
+                                        <span class="label label-warning"><?php echo 'PART TIME'; ?></span>
                                     <?php } ?>
                                 </td>
 
