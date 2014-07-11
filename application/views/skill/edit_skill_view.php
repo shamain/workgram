@@ -14,19 +14,22 @@
                     <div class="col-md-8 col-sm-8 col-xs-8">
                         <form id="edit_skill_form" name="edit_skill_form">
 
-                            <div class="row form-row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label class="form-label">Skill Category Code</label>
-                                        <span style="color: red">*</span>
-                                    </div>
+                            <div class="form-group">
+
+                                <label class="form-label">Skill Category</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <select name="skill_category" id="skill_category" class="select2 form-control"  >
+                                        <option value="1" <?php if ($this->config->item('DEVELOPMENT') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Development</option>
+                                        <option value="2" <?php if ($this->config->item('DESIGN') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Design</option>
+                                        <option value="3" <?php if ($this->config->item('MAINTANCE') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Maintance</option>
+                                        <option value="4" <?php if ($this->config->item('ALL') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>All</option>
+
+                                    </select>                              
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="input-with-icon  right">                                       
-                                        <i class=""></i>
-                                        <input id="skill_cat_code" class="form-control" type="text" name="skill_cat_code" value="<?php echo $skill->skill_cat_code; ?>" >                              
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Skill Name</label>

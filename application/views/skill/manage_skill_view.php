@@ -62,17 +62,24 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Skill Category code</label>
+                                <label class="form-label">Skill Category</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="skill_cat_code" class="form-control" type="text" name="skill_cat_code">                              
+                                <select name="skill_category" id="skill_category" class="select2 form-control"  >
+                                    <option value="1">Development</option>
+                                    <option value="2">Design</option>
+                                    <option value="3">Maintance</option>
+                                    <option value="4">All</option>
+
+                                </select>                              
                             </div>
                         </div>
-                    </div>   
+                    </div>
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">

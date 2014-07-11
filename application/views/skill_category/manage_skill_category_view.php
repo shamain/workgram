@@ -24,9 +24,9 @@
                         foreach ($skill_categories as $skill_category) {
                             ?> 
                             <tr  id="skill_category_<?php echo $skill_category->skill_cat_code; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
-                                <td><?php echo $skill_category->employee_fname.' '.$skill_category->employee_lname; ?></td>
+                                <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
 
                                 <td>
 

@@ -36,7 +36,7 @@ $(document).ready(function() {
             skill_name: {
                 required: true
             },
-            skill_cat_code: {
+            skill_category: {
                 required: true
             }
         },
@@ -86,7 +86,7 @@ $('#edit_skill_form').validate({
         skill_name: {
             required: true
         },
-        sill_cat_code: {
+        sill_category: {
             required: true
         }
 
@@ -139,9 +139,9 @@ function delete_skill(skill_code) {
             url: site_url + '/skill/skill_controller/delete_skill',
             data: "id=" + id,
             success: function(msg) {
-                //alert(msg);
+
                 if (msg == 1) {
-                    //document.getElementById(trid).style.display='none';
+
                     $('#skills_' + id).hide();
                 }
                 else if (msg == 2) {
@@ -158,7 +158,7 @@ function auto_write_skill_cat_code() {
     var skill_category_text = $("#skill_name").val();
 
     //replace spaces with _
-    var replaced_text = skill_category_text.replace(/ /g, "_");
+    var replaced_text = skill_category_text.replace(" ", "_");
     //convert to upper case
     document.getElementById('skill_cat_code').value = replaced_text.toUpperCase();
 }
