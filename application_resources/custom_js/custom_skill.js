@@ -36,7 +36,7 @@ $(document).ready(function() {
             skill_name: {
                 required: true
             },
-            skill_category: {
+            skill_cat_code: {
                 required: true
             }
         },
@@ -86,7 +86,7 @@ $('#edit_skill_form').validate({
         skill_name: {
             required: true
         },
-        sill_category: {
+        sill_cat_code: {
             required: true
         }
 
@@ -152,16 +152,7 @@ function delete_skill(skill_code) {
     }
 }
 
-//this is to autofill the Skill Category Code
-function auto_write_skill_cat_code() {
 
-    var skill_category_text = $("#skill_name").val();
-
-    //replace spaces with _
-    var replaced_text = skill_category_text.replace(" ", "_");
-    //convert to upper case
-    document.getElementById('skill_cat_code').value = replaced_text.toUpperCase();
-}
 
 ////////////////Skill Category/////////////////////////////////////////////////////////
 
