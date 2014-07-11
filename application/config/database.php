@@ -52,7 +52,11 @@ $db['default']['hostname'] = 'localhost';
 $db['default']['port'] = '3306';
 $db['default']['username'] = 'root';
 <<<<<<< HEAD
+<<<<<<< HEAD
 $db['default']['password'] = 'abc123';
+=======
+$db['default']['password'] = '1234';
+>>>>>>> origin/master
 =======
 $db['default']['password'] = '1234';
 >>>>>>> origin/master
