@@ -74,6 +74,63 @@
                         <div class="user-profile-pic">	
                             <img width="69" height="69" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                         </div>
+                        
+                            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                            <script type="text/javascript">
+
+                                $(function() {
+                                    var btnUpload = $('#upload');
+                                    var status = $('#status');
+                                    new AjaxUpload(btnUpload, {
+                                        action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
+                                        name: 'uploadfile',
+                                        onSubmit: function(file, ext) {
+                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                // extension is not allowed 
+                                                status.text('Only JPG, PNG or GIF files are allowed');
+                                                return false;
+                                            }
+                                            //status.text('Uploading...Please wait');
+//                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                                        },
+                                        onComplete: function(file, response) {
+                                            //On completion clear the status
+                                            //status.text('');
+                                            $("#files").html("");
+                                            $("#sta").html("");
+                                            //Add uploaded file to list
+                                            if (response != "error") {
+
+                                                $('#files').html("");
+                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
+                                                picFileName = response;
+                                                document.getElementById('image').value = file;
+                                                document.getElementById('employee_image').value = response;
+                                            } else {
+                                                $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                            }
+                                        }
+                                    });
+
+                                });
+
+
+
+
+                            </script>
+                        
+                        
+                                <div id="upload">
+                                <button type="button" class="btn btn-primary btn-small" id="browse"><i class="fa fa-camera"></i></button>
+
+                                </div>
+                            
+                            <div id="sta"><span id="status" ></span></div>
+                            
+                            
+                        
                         <div class="user-mini-description">
                             <h3 class="text-success semi-bold">
                                 2548
