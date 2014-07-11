@@ -119,6 +119,21 @@ class Employee_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
+      function upload_image() {
+
+        $uploaddir = './uploads/employee_image/';
+        $unique_tag = 'emp_photo';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
+    }
 }
 
 ?>

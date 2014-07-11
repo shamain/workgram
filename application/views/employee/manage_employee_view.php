@@ -49,9 +49,17 @@
                                 </td>
 
 
-                                <td><?php echo $employee->employee_contact; ?></td>
+                                <td><?php echo $employee->employee_contact; ?>  </td>
 
-                                <td><?php echo $employee->employee_contract; ?></td>
+                                <td>  <?php if ($employee->employee_contract == $this->config->item('FULL_TIME')) {
+                                        ?>
+                                        <span class="label label-success"><?php echo 'FULL_TIME'; ?></span>
+                                      
+                                 <?php } else {
+                                     ?>   
+                                        <span class="label label-warning"><?php echo 'PART_TIME'; ?></span>
+                                    <?php } ?>
+                                </td>
 
 
                                 <td>
@@ -221,9 +229,85 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                
+                
+                <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                    <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                    <script type="text/javascript">
 
+                                    $(function() {
+                                        var btnUpload = $('#upload');
+                                        var status = $('#status');
+                                        new AjaxUpload(btnUpload, {
+                                            action: '<?PHP echo site_url(); ?>/employee/employee_controller/upload_image',
+                                            name: 'uploadfile',
+                                            onSubmit: function(file, ext) {
+                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                    // extension is not allowed 
+                                                    status.text('Only JPG, PNG or GIF files are allowed');
+                                                    return false;
+                                                }
+                                                //status.text('Uploading...Please wait');
+                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                                            },
+                                            onComplete: function(file, response) {
+                                                //On completion clear the status
+                                                //status.text('');
+                                                $("#files").html("");
+                                                $("#sta").html("");
+                                                //Add uploaded file to list
+                                                if (response != "error") {
+
+                                                    $('#files').html("");
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_image/' + response + '" width="100px" height="100px" /><br />');
+                                                    picFileName = response;
+                                                    document.getElementById('image').value = file;
+                                                    document.getElementById('employee_image').value = response;
+                                                } else {
+                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                }
+                                            }
+                                        });
+
+                                    });
+
+
+
+
+                    </script>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <div id="files" ></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class=" right">                                       
+                                <i class=""></i>
+
+                                <div id="upload">
+
+                                    <input type="text" id="image" name="image"/>
+                                    <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
+                                        <i class="fa fa-camera"></i>
+                                    </button>
+                                    <label class="form-label">upload Image Here</label>
+                                    <input type="text" id="employee_image" name="employee_image" style="visibility: hidden" />
+                                </div>
+                                <div id="sta"><span id="status" ></span></div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+                
+                
                 <div id="add_employee_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
