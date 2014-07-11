@@ -72,7 +72,7 @@
                                 <select name="skill_category" id="skill_category" class="select2 form-control"  >
                                     <option value="1">Development</option>
                                     <option value="2">Design</option>
-                                    <option value="3">Maintance</option>
+                                    <option value="3">Maintenance</option>
                                     <option value="4">All</option>
 
                                 </select>                              
@@ -86,14 +86,13 @@
                                 <label class="form-label">Skill Name</label>
                                 <span style="color: red">*</span>
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="skill_name" class="form-control" type="text" name="skill_name" onkeyup="auto_write_skill_cat_code()">                              
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="skill_name" class="form-control" type="text" name="skill_name">                              
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div id="add_skill_msg" class="form-row"> </div>

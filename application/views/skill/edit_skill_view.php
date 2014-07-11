@@ -24,7 +24,7 @@
                                     <select name="skill_category" id="skill_category" class="select2 form-control"  >
                                         <option value="1" <?php if ($this->config->item('DEVELOPMENT') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Development</option>
                                         <option value="2" <?php if ($this->config->item('DESIGN') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Design</option>
-                                        <option value="3" <?php if ($this->config->item('MAINTANCE') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Maintance</option>
+                                        <option value="3" <?php if ($this->config->item('MAINTENANCE') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Maintenance</option>
                                         <option value="4" <?php if ($this->config->item('ALL') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>All</option>
 
                                     </select>                              
