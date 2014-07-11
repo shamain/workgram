@@ -30,6 +30,23 @@ class Employee_profile_controller extends CI_Controller {
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
+    function upload_employee_avatar() {
+
+        $uploaddir = './uploads/employee_avatar/';
+        $unique_tag = 'emp_avatar';
+
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
+    }
+    
+    
 
 }
 

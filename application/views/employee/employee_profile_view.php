@@ -4,8 +4,56 @@
             <div class="tiles green cover-pic-wrapper">						
                 <div class="overlayer bottom-right">
                     <div class="overlayer-wrapper">
-                        <div class="padding-10 hidden-xs">									
-                            <button type="button" class="btn btn-primary btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</button> <button type="button" class="btn btn-primary btn-small">Add</button>
+                        <div class="padding-10 hidden-xs">
+                    <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                    <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+
+                                    $(function() {
+                                        var btnUpload = $('#upload');
+                                        var status = $('#status');
+                                        new AjaxUpload(btnUpload, {
+                                            action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
+                                            name: 'uploadfile',
+                                            onSubmit: function(file, ext) {
+                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                    // extension is not allowed 
+                                                    status.text('Only JPG, PNG or GIF files are allowed');
+                                                    return false;
+                                                }
+                                                //status.text('Uploading...Please wait');
+                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                                            },
+                                            onComplete: function(file, response) {
+                                                //On completion clear the status
+                                                //status.text('');
+                                                $("#files").html("");
+                                                $("#sta").html("");
+                                                //Add uploaded file to list
+                                                if (response != "error") {
+
+                                                    $('#files').html("");
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px" /><br />');
+                                                    picFileName = response;
+                                                    document.getElementById('image').value = file;
+                                                    document.getElementById('employee_avatar').value = response;
+                                                } else {
+                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                }
+                                            }
+                                        });
+
+                                    });
+
+
+
+
+                    </script>
+                            
+                            
+                            
+                    <button type="button" class="btn btn-primary btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</button> <button type="button" class="btn btn-primary btn-small"><i class="fa fa-camera"></i></button>
                         </div>
                     </div>
                 </div>
@@ -45,9 +93,12 @@
                         <h6 class="no-margin"><?php echo ($employee_detail->added_date) ?></h6>
                         <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
                         <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>
-                                
-                         
-                    </div>
+                        
+                        
+                     </div>
+                    
+                    
+                    
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
                         <ul class="my-friends">

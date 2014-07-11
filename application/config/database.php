@@ -49,9 +49,13 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-//$db['default']['port'] = '3306';
+$db['default']['port'] = '3306';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'Work123@';
+<<<<<<< HEAD
+$db['default']['password'] = 'abc123';
+=======
+$db['default']['password'] = '1234';
+>>>>>>> origin/master
 $db['default']['database'] = 'workgram';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
