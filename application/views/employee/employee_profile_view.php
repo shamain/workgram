@@ -107,7 +107,7 @@
                                                 $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
                                                 picFileName = response;
                                                 document.getElementById('image').value = file;
-                                                document.getElementById('employee_image').value = response;
+                                                document.getElementById('emp_image').value = response;
                                             } else {
                                                 $('<div></div>').appendTo('#files').text(file).addClass('error');
                                             }
