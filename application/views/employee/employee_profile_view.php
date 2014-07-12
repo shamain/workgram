@@ -80,11 +80,11 @@
                             <script type="text/javascript">
 
                                 $(function() {
-                                    var btnUpload = $('#upload');
-                                    var status = $('#status');
+                                    var btnUpload = $('#upload2');
+                                    var status = $('#status2');
                                     new AjaxUpload(btnUpload, {
                                         action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
-                                        name: 'uploadfile',
+                                        name: 'uploadfile2',
                                         onSubmit: function(file, ext) {
                                             if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
                                                 // extension is not allowed 
@@ -98,18 +98,18 @@
                                         onComplete: function(file, response) {
                                             //On completion clear the status
                                             //status.text('');
-                                            $("#files").html("");
-                                            $("#sta").html("");
+                                            $("#files2").html("");
+                                            $("#sta2").html("");
                                             //Add uploaded file to list
                                             if (response != "error") {
 
-                                                $('#files').html("");
-                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
+                                                $('#files2').html("");
+                                                $('<div></div>').appendTo('#files2').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
                                                 picFileName = response;
-                                                document.getElementById('image').value = file;
+                                                document.getElementById('image2').value = file;
                                                 document.getElementById('emp_image').value = response;
                                             } else {
-                                                $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                $('<div></div>').appendTo('#files2').text(file).addClass('error');
                                             }
                                         }
                                     });
@@ -122,12 +122,12 @@
                             </script>
                         
                         
-                                <div id="upload">
-                                <button type="button" class="btn btn-primary btn-small" id="browse"><i class="fa fa-camera"></i></button>
+                                <div id="upload2">
+                                    <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="fa fa-camera"></i></button>
 
                                 </div>
                             
-                            <div id="sta"><span id="status" ></span></div>
+                            <div id="sta2"><span id="status2" ></span></div>
                             
                             
                         
