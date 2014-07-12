@@ -132,7 +132,9 @@ class Project_controller extends CI_Controller {
     public function get_projects_for_employee($employee_code) {
 
         $project_service = new Project_service();
-        $project_service->get_all_projects_for_company($company_code);
+        $result = $project_service->get_projects_for_employee($employee_code);
+        
+        echo json_encode($result);
     }
 
 }

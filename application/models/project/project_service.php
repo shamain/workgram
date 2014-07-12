@@ -54,7 +54,7 @@ class Project_service extends CI_Model {
         return $this->db->update('project', $data);
     }
 
-    function get_projects_for_employee() {
+    function get_projects_for_employee($emp_code) {
 
         $this->db->select('project.*,employee.employee_fname,employee.employee_lname');
         $this->db->from('project');
