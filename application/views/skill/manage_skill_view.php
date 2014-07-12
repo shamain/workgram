@@ -24,9 +24,18 @@
                         foreach ($skills as $skill) {
                             ?> 
                             <tr  id="skills_<?php echo $skill->skill_code; ?>">
-                                <td><?php echo $skill->skill_code; ?></td>
                                 <td><?php echo $skill->skill_name; ?></td>
-                                <td><?php echo $skill->skill_cat_code; ?></td>   
+                                <td>
+                                    <?php if ($this->config->item('DEVELOPMENT') == $skill->skill_cat_code) { ?> 
+                                        <span class="label label-important">Development</span>
+                                    <?php } else if ($this->config->item('MAINTENANCE') == $skill->skill_cat_code) { ?>
+                                        <span class="label label-important">Maintenance</span>
+                                    <?php } else if ($this->config->item('DESIGN') == $skill->skill_cat_code) { ?>
+                                        <span class="label label-important">Design</span>
+                                    <?php } else { ?>
+                                        <span class="label label-important">All</span>
+                                    <?php } ?>
+                                </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
                                         <i class="fa fa-pencil"></i>
