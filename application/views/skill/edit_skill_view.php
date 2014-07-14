@@ -21,12 +21,11 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="skill_category" id="skill_category" class="select2 form-control"  >
-                                        <option value="1" <?php if ($this->config->item('DEVELOPMENT') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Development</option>
-                                        <option value="2" <?php if ($this->config->item('DESIGN') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Design</option>
-                                        <option value="3" <?php if ($this->config->item('MAINTENANCE') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>Maintenance</option>
-                                        <option value="4" <?php if ($this->config->item('ALL') == $skill_category->skill_category) { ?> selected="true" <?php } ?>>All</option>
-
+                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
+                                        <?php foreach ($skill_categories as $skill_category) {
+                                            ?> 
+                                        <option value="<?php echo $skill_category->skill_cat_code; ?>"  <?php if($skill_category->skill_cat_code == $skill->skill_cat_code ){?> selected="true" <?php } ?>><?php echo $skill_category->skill_cat_name; ?></option>
+                                        <?php } ?>
                                     </select>                              
                                 </div>
 
@@ -37,10 +36,11 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $skill->skill_name; ?>" onkeyup="auto_write_skill_cat_code()">                              
+                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $skill->skill_name; ?>" >                              
                                 </div>
                             </div>
 
+                            <input id="skill_code" class="form-control" type="hidden" name="skill_code" value="<?php echo $skill->skill_code; ?>" > 
 
                             <div class="form-actions">
                                 <div class="pull-right">

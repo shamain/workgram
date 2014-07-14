@@ -13,28 +13,23 @@
                 <table class="table" id="skill_table" >
                     <thead>
                         <tr>
-                            <th>Skill Code</th>
+                            <th>#</th>
                             <th>Skill Name</th>
-                            <th>Skill Category code</th>                  
+                            <th>Skill Category</th>                  
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $i = 0;
                         foreach ($skills as $skill) {
                             ?> 
                             <tr  id="skills_<?php echo $skill->skill_code; ?>">
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $skill->skill_name; ?></td>
                                 <td>
-                                    <?php if ($this->config->item('DEVELOPMENT') == $skill->skill_cat_code) { ?> 
-                                        <span class="label label-important">Development</span>
-                                    <?php } else if ($this->config->item('MAINTENANCE') == $skill->skill_cat_code) { ?>
-                                        <span class="label label-important">Maintenance</span>
-                                    <?php } else if ($this->config->item('DESIGN') == $skill->skill_cat_code) { ?>
-                                        <span class="label label-important">Design</span>
-                                    <?php } else { ?>
-                                        <span class="label label-important">All</span>
-                                    <?php } ?>
+                                    <?php echo $skill->skill_cat_name; ?> 
+
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
@@ -78,12 +73,11 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select name="skill_category" id="skill_category" class="select2 form-control"  >
-                                    <option value="1">Development</option>
-                                    <option value="2">Design</option>
-                                    <option value="3">Maintenance</option>
-                                    <option value="4">All</option>
-
+                                <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
+                                    <?php foreach ($skill_categories as $skill_category) {
+                                        ?> 
+                                        <option value="<?php echo $skill_category->skill_cat_code; ?>"><?php echo $skill_category->skill_cat_name; ?></option>
+                                    <?php } ?>
                                 </select>                              
                             </div>
                         </div>

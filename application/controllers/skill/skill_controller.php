@@ -39,59 +39,58 @@ class Skill_controller extends CI_Controller {
     }
 
     function edit_skill_view($skill_code) {
-        if ($perm) {
 
-            $skill_service = new Skill_service();
-            $skill_category_service = new Skill_category_service();
 
-            $data['heading'] = "Edit Skill";
-            $data['skills'] = $skill_service->get_skill_by_code($skill_code);
-            $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        $skill_service = new Skill_service();
+        $skill_category_service = new Skill_category_service();
 
-            $partials = array('content' => 'skills/edit_skill_view');
-            $this->template->load('template/main_template', $partials, $data);
-        }
+        $data['heading'] = "Edit Skill";
+        $data['skill'] = $skill_service->get_skill_by_code($skill_code);
+        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+
+        $partials = array('content' => 'skill/edit_skill_view');
+        $this->template->load('template/main_template', $partials, $data);
     }
 
-        function edit_skill() {
+    function edit_skill() {
 
-            $skill_model = new Skill_model();
-            $skill_service = new Skill_service();
+        $skill_model = new Skill_model();
+        $skill_service = new Skill_service();
 
-            $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
-            $skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-            $skill_model->set_skill_name($this->input->post('skill_name', TRUE));
-            $skill_model->set_del_ind($this->input->post('del_ind', TRUE));
-            $skill_model->set_added_by($this->input->post('added_by', TRUE));
+        $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
+        $skill_model->set_skill_code($this->input->post('skill_code', TRUE));
+        $skill_model->set_skill_name($this->input->post('skill_name', TRUE));
+        $skill_model->set_del_ind($this->input->post('del_ind', TRUE));
+        $skill_model->set_added_by($this->input->post('added_by', TRUE));
 
-            $skill_model->set_added_date($this->input->post('added_date', TRUE));
-
-
-            echo $skill_service->update_skill($skill_model);
-        }
-
-        function delete_skill() {
+        $skill_model->set_added_date($this->input->post('added_date', TRUE));
 
 
-            $skill_service = new skill_service();
-
-            echo $skill_service->delete_skill(trim($this->input->post('skill_code', TRUE)));
-        }
-
-        function add_new_skill() {
-
-            $skill_service = new Skill_service();
-            $skill_model = new Skill_model();
-
-            $skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-            $skill_model->set_skill_name($this->input->post('skill_name', TRUE));
-            $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
-            $skill_model->set_del_ind('1');
-            $skill_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
-            $skill_model->set_added_date(date("Y-m-d H:i:s"));
-
-            echo $skill_service->add_new_skill($skill_model);
-        }
-
+        echo $skill_service->update_skill($skill_model);
     }
-    
+
+    function delete_skill() {
+
+
+        $skill_service = new skill_service();
+
+        echo $skill_service->delete_skill(trim($this->input->post('skill_code', TRUE)));
+    }
+
+    function add_new_skill() {
+
+        $skill_service = new Skill_service();
+        $skill_model = new Skill_model();
+
+        $skill_model->set_skill_code($this->input->post('skill_code', TRUE));
+        $skill_model->set_skill_name($this->input->post('skill_name', TRUE));
+        $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
+        $skill_model->set_del_ind('1');
+        $skill_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+        $skill_model->set_added_date(date("Y-m-d H:i:s"));
+
+        echo $skill_service->add_new_skill($skill_model);
+    }
+
+}
+
