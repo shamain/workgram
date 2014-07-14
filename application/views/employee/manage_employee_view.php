@@ -104,7 +104,6 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Previous id ?</label>
-                                <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">

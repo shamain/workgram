@@ -19,8 +19,7 @@
 
 
                             <div class="form-group">
-                                <label class="form-label">Employee No</label>
-                                <span style="color: red">*</span>
+                                <label class="form-label">Previous id ?</label>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
@@ -133,22 +132,6 @@
                                             <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
                                             
                                     </select>                               
-                                </div>
-                            </div>
-
-
-      
-                                
-                
-          
-                            
-                            <div class="form-group">
-                                <label class="form-label">Company</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="company_code" class="form-control" type="text" name="company_code" value="<?php echo $employee->company_code; ?>">                              
                                 </div>
                             </div>
                             

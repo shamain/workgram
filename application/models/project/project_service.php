@@ -46,7 +46,8 @@ class Project_service extends CI_Model {
             'project_vendor' => $project_model->get_project_vendor(),
             'project_start_date' => $project_model->get_project_start_date(),
             'project_end_date' => $project_model->get_project_end_date(),
-            'project_description' => $project_model->get_project_description()
+            'project_description' => $project_model->get_project_description(),
+            'project_logo' => $project_model->get_project_logo()
         );
 
         $this->db->where('project_id', $project_model->get_project_id());
