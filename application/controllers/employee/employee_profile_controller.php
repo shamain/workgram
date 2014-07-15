@@ -16,7 +16,6 @@ class Employee_profile_controller extends CI_Controller {
             $this->load->model('employee/employee_service');
         }
     }
-    
 
     function view_profile() {
 
@@ -30,7 +29,7 @@ class Employee_profile_controller extends CI_Controller {
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-    
+
     function upload_employee_cover_pic() {
 
         $uploaddir = './uploads/employee_cover_pics/';
@@ -45,7 +44,7 @@ class Employee_profile_controller extends CI_Controller {
             echo "error";
         }
     }
-    
+
     function upload_employee_avatar() {
 
         $uploaddir = './uploads/employee_avatar/';
@@ -60,8 +59,15 @@ class Employee_profile_controller extends CI_Controller {
             echo "error";
         }
     }
-    
-    
+
+    function update_employee_avatar() {
+        $employee_service = new Employee_service();
+        $employee_model = new Employee_model();
+
+        $employee_model->set_employee_avatar($this->input->post('employee_avatar', TRUE));
+
+        echo $employee_service->update_employee_avatar($employee_model);
+    }
 
 }
 

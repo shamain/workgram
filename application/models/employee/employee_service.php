@@ -20,11 +20,7 @@ class Employee_service extends CI_Model {
                       'employee_salary' =>  $employee_model->get_employee_salary(),
                       'employee_contract' =>  $employee_model->get_employee_contract(),
                       'employee_avatar' =>  $employee_model->get_employee_avatar(),
-                      'account_activation_code' =>  $employee_model->get_account_activation_code(),
                       'company_code' =>  $employee_model->get_company_code(),
-                      'del_ind' =>  $employee_model->get_del_ind(),
-                      'added_by' =>  $employee_model->get_added_by(),
-                      'added_date' =>  $employee_model->get_added_date(),
                       'updated_by' =>  $employee_model->get_updated_by(),
                       'updated_date' =>  $employee_model->get_updated_date(),
                       
@@ -40,6 +36,13 @@ class Employee_service extends CI_Model {
     //update online status
     function update_online_status($employee_model) {
         $data = array('is_online' => $employee_model->get_is_online());
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
+    }
+    
+    //update employee avatar
+    function update_employee_avatar($employee_model) {
+        $data = array('employee_avatar' => $employee_model->get_employee_avatar());
         $this->db->where('employee_code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }

@@ -53,7 +53,7 @@
 
                             <div class="form-group">
                                 <label class="form-label">Dead Line</label>
-                               <br>
+                                <br>
 
                                 <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
                                     <i class=""></i>
@@ -72,6 +72,81 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <textarea id="project_description" class="form-control" type="text" name="project_description"><?php echo $project->project_description; ?> </textarea>                                       
+                                </div>
+                            </div>
+
+                            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                            <script type="text/javascript">
+
+                                $(function() {
+                                    var btnUpload = $('#upload');
+                                    var status = $('#status');
+                                    new AjaxUpload(btnUpload, {
+                                        action: '<?PHP echo site_url(); ?>/project/project_controller/upload_project_logo',
+                                        name: 'uploadfile',
+                                        onSubmit: function(file, ext) {
+                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                // extension is not allowed 
+                                                status.text('Only JPG, PNG or GIF files are allowed');
+                                                return false;
+                                            }
+                                            //status.text('Uploading...Please wait');
+                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                                        },
+                                        onComplete: function(file, response) {
+                                            //On completion clear the status
+                                            //status.text('');
+                                            $("#files").html("");
+                                            $("#sta").html("");
+                                            //Add uploaded file to list
+                                            if (response != "error") {
+
+                                                $('#files').html("");
+                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" width="100px" height="100px" /><br />');
+                                                picFileName = response;
+                                                document.getElementById('image').value = file;
+                                                document.getElementById('project_logo').value = response;
+                                            } else {
+                                                $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                            }
+                                        }
+                                    });
+
+                                });
+
+
+
+
+                            </script>
+
+                            <div class="row form-row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <div id="files" >
+                                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="100px" height="100px" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class=" right">                                       
+                                        <i class=""></i>
+
+                                        <div id="upload">
+
+                                            <input type="text" id="image" name="image"/>
+                                            <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
+                                                <i class="fa fa-camera"></i>
+                                            </button>
+                                            <label class="form-label">upload project logo</label>
+                                            <input type="text" id="project_logo" name="project_logo" style="visibility: hidden" />
+                                        </div>
+                                        <div id="sta"><span id="status" ></span></div>
+
+
+
+                                    </div>
                                 </div>
                             </div>
 

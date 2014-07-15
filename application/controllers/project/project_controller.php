@@ -16,6 +16,9 @@ class Project_controller extends CI_Controller {
             
             $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
+            
+            $this->load->model('task/task_model');
+            $this->load->model('task/task_service');
         }
     }
 
@@ -99,6 +102,7 @@ class Project_controller extends CI_Controller {
         $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
         $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
         $project_model->set_project_description($this->input->post('project_description', TRUE));
+        $project_model->set_project_logo($this->input->post('project_logo', TRUE));
 
         $project_model->set_project_id($this->input->post('project_id', TRUE));
 
@@ -129,10 +133,30 @@ class Project_controller extends CI_Controller {
     /*
      * Api Methods for Project
      */
+    
+    /*
+     * @parameters employee code
+     * Give all projects for particular emploee
+     * return all project details as json object
+     */
     public function get_projects_for_employee($employee_code) {
 
         $project_service = new Project_service();
         $result = $project_service->get_projects_for_employee($employee_code);
+        
+        echo json_encode($result);
+    }
+    
+    
+    /*
+     * @parameters project id ,employee code 
+     * Give all task for particular emploee and particular project
+     * return all task details as json object
+     */
+    public function get_task_for_employee_project($project_id,$employee_code) {
+
+        $task_service = new Task_service();
+        $result = $task_service->get_employee_task_by_project($project_id,$employee_code);
         
         echo json_encode($result);
     }

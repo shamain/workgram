@@ -8,9 +8,11 @@ class Skill_service extends CI_Model {
     }
 
     public function get_all_skills() {
-        $this->db->select('*');
+        $this->db->select('skill.*,skill_category.skill_cat_name');
         $this->db->from('skill');
         $this->db->join('skill_category', 'skill_category.skill_cat_code = skill.skill_cat_code');
+        $this->db->where('skill_category.del_ind', '1');
+        $this->db->where('skill.del_ind', '1');
         $this->db->order_by("skill.skill_code", "desc");
         $query = $this->db->get();
         return $query->result();
