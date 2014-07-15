@@ -2,13 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/models/employee_privileges/employee_privileges_model.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/config/database.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/models/employee_privileges/employee_privileges_service.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/privileges/manage_privileges_view.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/employee_privilege/employee_privilege_controller.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/skill/skill_controller.php</file>
             <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/employee/employee_profile_view.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/skill/skill_category_controller.php</file>
         </group>
+=======
+        <group/>
+>>>>>>> origin/master
     </open-files>
 </project-private>
