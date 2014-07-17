@@ -154,19 +154,26 @@
                     <div class="col-md-5 user-description-box  col-sm-5">
 
 
-                        <h4 class="semi-bold no-margin"><?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname); ?></span>;</h4>
-                        <h6 class="no-margin"><?php echo ($employee_detail->employee_no) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_email) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_type) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee_detail->employee_bday) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee_detail->employee_contact) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->employee_contract) ?></h6>
-                        <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
+                        <h4 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span>;</h4>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h6>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h6>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-suitcase"></i>   <?php echo ucfirst($employee_detail->employee_type) ?></h6>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h6>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h6>
+                        <br>
+                        <h6 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h6>
+                        
+<!--                    <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
                         <h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
                         <h6 class="no-margin"><?php echo ucfirst($employee_detail->added_by) ?></h6>
                         <h6 class="no-margin"><?php echo ($employee_detail->added_date) ?></h6>
                         <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
-                        <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>
+                        <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
 
 
                     </div>
