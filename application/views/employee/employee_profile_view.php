@@ -310,6 +310,34 @@
             </div>
         </div>	
     </div>
+    
+    <div id="placeholder-bar-chart" style="height: 250px; padding: 0px; position: relative;">
+        <canvas class="base" width="386" height="250"></canvas>
+        <canvas class="overlay" width="386" height="250" style="position: absolute; left: 0px; top: 0px;"></canvas>
+        <div class="tickLabels" style="font-size:smaller">
+            <div class="xAxis x1Axis" style="color:#545454">
+                <div class="tickLabel" style="position:absolute;text-align:center;left:39px;top:234px;width:55px">Jan</div>
+                <div class="tickLabel" style="position:absolute;text-align:center;left:110px;top:234px;width:55px">Feb</div>
+                <div class="tickLabel" style="position:absolute;text-align:center;left:176px;top:234px;width:55px">Mar</div>
+                <div class="tickLabel" style="position:absolute;text-align:center;left:247px;top:234px;width:55px">Apr</div>
+                <div class="tickLabel" style="position:absolute;text-align:center;left:316px;top:234px;width:55px">May</div></div>
+                 <div class="yAxis y1Axis" style="color:#545454">
+                <div class="tickLabel" style="position:absolute;text-align:right;top:217px;right:368px;width:18px">0</div>
+                <div class="tickLabel" style="position:absolute;text-align:right;top:173px;right:368px;width:18px">25</div>
+                <div class="tickLabel" style="position:absolute;text-align:right;top:129px;right:368px;width:18px">50</div>
+                <div class="tickLabel" style="position:absolute;text-align:right;top:84px;right:368px;width:18px">75</div>
+                <div class="tickLabel" style="position:absolute;text-align:right;top:40px;right:368px;width:18px">100</div>
+                <div class="tickLabel" style="position:absolute;text-align:right;top:-4px;right:368px;width:18px">125</div></div></div>
+        <div class="legend">
+            <div style="position: absolute; width: 58px; height: 80px; top: 9px; right: 9px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div>
+            <table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox">
+                            <div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(243, 89, 88, 0.7);overflow:hidden"></div></div></td>
+                        <td class="legendLabel"></td></tr><tr><td class="legendColorBox">
+                            <div style="border:1px solid #ccc;padding:1px">
+                                <div style="width:4px;height:0;border:5px solid rgba(251, 176, 94, 0.7);overflow:hidden"></div></div></td>
+                                <td class="legendLabel"></td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(10, 166, 153, 0.7);overflow:hidden"></div></div></td>
+                        <td class="legendLabel"></td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(0, 144, 217, 0.7);overflow:hidden"></div></div></td>
+                        <td class="legendLabel"></td></tr></tbody></table></div></div>
 
 
     <div class="col-md-6">
