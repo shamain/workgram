@@ -311,34 +311,26 @@
         </div>	
     </div>
     
-    <div id="placeholder-bar-chart" style="height: 250px; padding: 0px; position: relative;">
-        <canvas class="base" width="386" height="250"></canvas>
-        <canvas class="overlay" width="386" height="250" style="position: absolute; left: 0px; top: 0px;"></canvas>
-        <div class="tickLabels" style="font-size:smaller">
-            <div class="xAxis x1Axis" style="color:#545454">
-                <div class="tickLabel" style="position:absolute;text-align:center;left:39px;top:234px;width:55px">Jan</div>
-                <div class="tickLabel" style="position:absolute;text-align:center;left:110px;top:234px;width:55px">Feb</div>
-                <div class="tickLabel" style="position:absolute;text-align:center;left:176px;top:234px;width:55px">Mar</div>
-                <div class="tickLabel" style="position:absolute;text-align:center;left:247px;top:234px;width:55px">Apr</div>
-                <div class="tickLabel" style="position:absolute;text-align:center;left:316px;top:234px;width:55px">May</div></div>
-                 <div class="yAxis y1Axis" style="color:#545454">
-                <div class="tickLabel" style="position:absolute;text-align:right;top:217px;right:368px;width:18px">0</div>
-                <div class="tickLabel" style="position:absolute;text-align:right;top:173px;right:368px;width:18px">25</div>
-                <div class="tickLabel" style="position:absolute;text-align:right;top:129px;right:368px;width:18px">50</div>
-                <div class="tickLabel" style="position:absolute;text-align:right;top:84px;right:368px;width:18px">75</div>
-                <div class="tickLabel" style="position:absolute;text-align:right;top:40px;right:368px;width:18px">100</div>
-                <div class="tickLabel" style="position:absolute;text-align:right;top:-4px;right:368px;width:18px">125</div></div></div>
-        <div class="legend">
-            <div style="position: absolute; width: 58px; height: 80px; top: 9px; right: 9px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div>
-            <table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox">
-                            <div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(243, 89, 88, 0.7);overflow:hidden"></div></div></td>
-                        <td class="legendLabel"></td></tr><tr><td class="legendColorBox">
-                            <div style="border:1px solid #ccc;padding:1px">
-                                <div style="width:4px;height:0;border:5px solid rgba(251, 176, 94, 0.7);overflow:hidden"></div></div></td>
-                                <td class="legendLabel"></td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(10, 166, 153, 0.7);overflow:hidden"></div></div></td>
-                        <td class="legendLabel"></td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgba(0, 144, 217, 0.7);overflow:hidden"></div></div></td>
-                        <td class="legendLabel"></td></tr></tbody></table></div></div>
-
+    
+<div id="donut-example" style="height:200px;">
+    <svg height="200" version="1.1" width="230" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+    <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></desc>
+    <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+    <path fill="none" stroke="#60bfb6" d="M115,160A60,60,0,0,0,171.95770043472734,118.86320124442962" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path>
+    <path fill="#60bfb6" stroke="#ffffff" d="M115,163A63,63,0,0,0,174.8055854564637,119.8063613066511L200.436550652091,128.29480186664443A90,90,0,0,1,115,190Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+    <path fill="none" stroke="#91cdec" d="M171.95770043472734,118.86320124442962A60,60,0,0,0,61.20860892026032,73.42019101448432" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+    <path fill="#91cdec" stroke="#ffffff" d="M174.8055854564637,119.8063613066511A63,63,0,0,0,58.51903936627333,72.09120056520852L38.79552930370211,62.345270603852775A85,85,0,0,1,195.69007561586372,126.72286842960862Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+    <path fill="none" stroke="#eceff1" d="M61.20860892026032,73.42019101448432A60,60,0,0,0,114.98115044438853,159.99999703911863" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+    <path fill="#eceff1" stroke="#ffffff" d="M58.51903936627333,72.09120056520852A63,63,0,0,0,114.98020796660795,162.99999689107455L114.97329646288375,184.99999580541805A85,85,0,0,1,38.79552930370211,62.345270603852775Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+    <text x="115" y="90" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="15px" font-weight="800" transform="matrix(0.9558,0,0,0.9558,5.0885,4.3805)" stroke-width="1.0462962962962963" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-size: 15px; line-height: normal; font-family: Arial;">
+    <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">UI Design</tspan></text>
+    <text x="115" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="14px" transform="matrix(1.25,0,0,1.25,-28.75,-25.5)" stroke-width="0.8" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-family: Arial;">
+    <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></tspan></text>
+    <text x="115" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="14px" transform="matrix(1.25,0,0,1.25,-28.75,-25.5)" stroke-width="0.8" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-family: Arial;">
+    <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></tspan></text>
+    
+    </svg></div>
+    
 
     <div class="col-md-6">
         <div class="row">
