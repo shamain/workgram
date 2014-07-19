@@ -1,4 +1,3 @@
-<?php
 
 <div class="superbox">
         <div class="superbox-list"> <img src="" data-img="" alt="" class="superbox-img"> </div>

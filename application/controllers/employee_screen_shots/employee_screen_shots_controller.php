@@ -4,7 +4,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Employee_screen_shot_controller extends CI_Controller {
+class Employee_screen_shots_controller extends CI_Controller {
 
     function __construct() {
         parent::__construct();
