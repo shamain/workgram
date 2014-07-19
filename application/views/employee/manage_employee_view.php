@@ -144,7 +144,7 @@
                         </div>
                     </div>
 
-<!--                    <div class="row form-row">
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Password</label>
@@ -158,70 +158,8 @@
                             </div>
                         </div>
                     </div>
- -->
-                                <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <span style="color: red">*</span>
-
-                                
-                            
-                                   <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-                                   <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
-                                   <script type="text/javascript">
-
-                                    $(function() {
-                                        var btnUpload = $('#upload');
-                                        var status = $('#status');
-                                        new AjaxUpload(btnUpload, {
-                                            action: '<?PHP echo site_url(); ?>/employee/employee_controller/upload_image',
-                                            name: 'uploadfile',
-                                            onSubmit: function(file, ext) {
-                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                    // extension is not allowed 
-                                                    status.text('Only JPG, PNG or GIF files are allowed');
-                                                    return false;
-                                                }
-                                                //status.text('Uploading...Please wait');
-                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
-
-                                            },
-                                            onComplete: function(file, response) {
-                                                //On completion clear the status
-                                                //status.text('');
-                                                $("#files").html("");
-                                                $("#sta").html("");
-                                                //Add uploaded file to list
-                                                if (response != "error") {
-
-                                                    $('#files').html("");
-                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="200px" height="200px" /><br />');
-                                                    picFileName = response;
-                                                    document.getElementById('image').value = file;
-                                                    document.getElementById('employee_avatar').value = response;
-                                                } else {
-                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
-                                                }
-                                            }
-                                        });
-
-                                    });
-
-
-
-
-                    </script>
-
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <div id="files" ></div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class=" right">                                       
-                                <i class=""></i>
-
-                                <div id="upload">
+ 
+                   
 
                     <div class="row form-row">
                         <div class="col-md-5">
