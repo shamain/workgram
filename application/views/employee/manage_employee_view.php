@@ -149,6 +149,8 @@
                             <div class="form-group">
                                 <label class="form-label">Password</label>
                                 <span style="color: red">*</span>
+                                   
+                                   <button type="button" class="btn btn-primary btn-xs btn-mini">Password</button>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -158,7 +160,8 @@
                             </div>
                         </div>
                     </div>
- 
+        
+
                    
 
                     <div class="row form-row">
