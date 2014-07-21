@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/privileges/manage_privileges_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/employee/edit_employee_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/skill_category/edit_skill_category_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/employee_screen_shots/screenshot_view.php</file>
-            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/views/employee/employee_profile_view.php</file>
+            <file>file:/C:/xampp/htdocs/workgram-sliit/workgram/application/controllers/skill_matrix/skill_matrix_controller.php</file>
         </group>
     </open-files>
 </project-private>
