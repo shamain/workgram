@@ -171,3 +171,7 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<script type="text/javascript">
+                                        $('#settings_parent_menu').addClass('active open');
+</script>

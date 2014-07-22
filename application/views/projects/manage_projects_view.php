@@ -246,3 +246,6 @@
 </div>
 <!-- /.modal -->
 
+<script type="text/javascript">
+                                        $('#project_parent_menu').addClass('active open');
+</script>

@@ -1,5 +1,5 @@
 
-<li class=""> 
+<li class="" id="company_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
         <span class="title">Companies</span> 
@@ -11,7 +11,7 @@
     </ul>
 </li>
 
-<li class=""> 
+<li class="" id="project_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
         <span class="title">Projects</span> 
@@ -23,7 +23,7 @@
     </ul>
 </li> 
 
-<li class=""> 
+<li class="" id="employee_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
         <span class="title">Employees</span> 
@@ -35,7 +35,7 @@
     </ul>
 </li> 
 
-<li class=""> 
+<li class="" id="skill_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
         <span class="title">Skills</span> 
@@ -48,7 +48,7 @@
     </ul>
 </li> 
 
-<li class=""> 
+<li class="" id="settings_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
         <span class="title">Settings</span> 

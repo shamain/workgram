@@ -30,8 +30,8 @@
                                 <td><?php echo $privilege_master->master_privilege; ?></td>
                                 <td><?php echo $privilege_master->master_privilege_description; ?></td>
                                 <td>
-                                    <?php echo  $privilege_master->system;?> 
-                                       
+                                    <?php echo $privilege_master->system; ?> 
+
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/edit_master_privileges_view/<?php echo $privilege_master->privilege_master_code; ?>">
@@ -108,7 +108,7 @@
                                 <i class=""></i>
                                 <select name="system_code" id="system_code" class="select2 form-control"  >
                                     <?php foreach ($systems as $system) { ?>
-                                        <option value="<?php echo $system->system_code;?>" ><?php echo $system->system;?></option>
+                                        <option value="<?php echo $system->system_code; ?>" ><?php echo $system->system; ?></option>
                                     <?php } ?>
                                 </select>                              
                             </div>
@@ -131,3 +131,6 @@
 </div>
 <!-- /.modal -->
 
+<script type="text/javascript">
+                                        $('#settings_parent_menu').addClass('active open');
+</script>
