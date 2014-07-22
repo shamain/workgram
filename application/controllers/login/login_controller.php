@@ -250,7 +250,7 @@ class Login_controller extends CI_Controller {
         //calling settings_option_handler library's getOption(x,y,z) function to get the set option
         //parameters = setting_id,employee_code,company_id
 
-        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
+//        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
         $login_option = 1;
 
         // 1 = Username & Password

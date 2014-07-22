@@ -53,7 +53,7 @@
         <div class="container">
             <div class="row login-container column-seperation">  
                 <div class="col-md-5 col-md-offset-1">
-                    <img src="http://localhost/workgram-sliit/workgram/application_resources/img/logow.png" style="width:100%"/>
+                    <img src="<?php echo base_url(); ?>application_resources/img/logow.png" style="width:100%"/>
                     <h2>Sign in to workgram</h2>
                     <p>Use Facebook, Twitter or your email to sign in.<br>
                         <a href="#">Sign up Now!</a> for a workgram account,It's free and always will be..</p>
