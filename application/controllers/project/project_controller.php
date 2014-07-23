@@ -8,9 +8,9 @@ class Project_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-            redirect(site_url() . '/login/login_controller');
-        } else {
+//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
+//            redirect(site_url() . '/login/login_controller');
+//        } else {
             $this->load->model('project/project_model');
             $this->load->model('project/project_service');
             
@@ -19,7 +19,7 @@ class Project_controller extends CI_Controller {
             
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
-        }
+//        }
     }
 
     function manage_projects() {
@@ -139,10 +139,10 @@ class Project_controller extends CI_Controller {
      * Give all projects for particular emploee
      * return all project details as json object
      */
-    public function get_projects_for_employee($employee_code) {
+    public function get_projects_for_employee() {
 
         $project_service = new Project_service();
-        $result = $project_service->get_projects_for_employee($employee_code);
+        $result = $project_service->get_projects_for_employee($this->input->post('employee_code'));
         
         echo json_encode($result);
     }

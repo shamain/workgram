@@ -57,11 +57,11 @@ class Project_service extends CI_Model {
 
     function get_projects_for_employee($emp_code) {
 
-        $this->db->select('project.*,employee.employee_fname,employee.employee_lname');
+        $this->db->select('project.*');
         $this->db->from('project');
         $this->db->join('task', 'task.project_id = project.project_id');
         $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
-        $this->db->where('employee_tasks.employee_code', $emp_code);
+        $this->db->where('employee_tasks.employee_id', $emp_code);
         $this->db->order_by("project.project_id", "desc");
         $query = $this->db->get();
         return $query->result();
