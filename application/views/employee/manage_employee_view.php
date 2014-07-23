@@ -146,27 +146,27 @@
 
                     <div class="row form-row">
                         <div class="col-md-5">
-                            <div class="form-group">
-                               
+                            <div class="form-group">                               
                                 <label class="form-label">Password</label>
-                                
-                                <span style="color: red">*</span>
-                                   
-                                   
+                                <span style="color: red">*</span>                             
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""><button type="button" class="btn btn-primary btn-xs btn-mini">Password</button></i>
-                                <input id="employee_password" class="form-control" type="text" name="employee_password">   
-                                
+                            <div class="input-with-icon  right" id="generatePassword">                                       
+                                <i class="">
+                                </i>
+                                <input id="employee_password" class="form-control" type="text" name="employee_password"  >
+                                <input type="button" value="password" onclick="generatePassword">
+
+                               
                             </div>
-                          
+                            
                         </div>
                            
                     </div>
         
 
+                      
                    
 
                     <div class="row form-row">

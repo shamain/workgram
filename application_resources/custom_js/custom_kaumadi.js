@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
  //add password generatot
-   function generatePassword() {
+function generatePassword() {
     var length = 8,
         charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
         retVal = "";
