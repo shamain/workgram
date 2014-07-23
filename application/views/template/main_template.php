@@ -20,6 +20,7 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
@@ -42,13 +43,15 @@
         <link href="<?php echo base_url(); ?>application_resources/css/magic_space.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/tiles_responsive.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
+        
+        <link href="<?php echo base_url(); ?>application_resources/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
 
         <!-- JS -->
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 
         <!-- JS -->
-        
+
         <!-- favicon icon -->
         <link rel="icon" type="image/ico" href="<?php echo base_url(); ?>application_resources/img/favicon.ico" />
 
@@ -528,6 +531,11 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/datatables.responsive.js"></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/lodash.min.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-tag/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
             <!-- END PAGE LEVEL PLUGINS -->
             <script src="<?php echo base_url(); ?>application_resources/js/datatables.js" type="text/javascript"></script>
 

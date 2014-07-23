@@ -1,3 +1,5 @@
+var base_url = js_base_url;
+var site_url = js_site_url;
 !function($, wysi) {
     "use strict";
 
@@ -423,7 +425,7 @@
                 "div": 1
             }
         },
-        stylesheets: ["./assets/plugins/bootstrap-wysihtml5/wysiwyg-color.css"], // (path_to_project/lib/css/wysiwyg-color.css)
+        stylesheets: [base_url+"application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"], // (path_to_project/lib/css/wysiwyg-color.css)
         locale: "en"
     };
 
