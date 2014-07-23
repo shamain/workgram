@@ -5,6 +5,9 @@
                 <div class="overlayer bottom-right">
                     <div class="overlayer-wrapper">
                         <div class="padding-10 hidden-xs">
+                            
+                            <!-- js for cover_pic-->
+                            
                             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
                             <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
                             <script type="text/javascript">
@@ -84,6 +87,8 @@
                             
                         </div>
                         
+                        <!-- js for pro_pic-->
+                        
                             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
                             <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
                             <script type="text/javascript">
@@ -152,6 +157,9 @@
                             <h5>Following</h5>
                         </div>
                     </div>
+                    
+                    <!-- loading employee's details-->
+                    
                     <div class="col-md-5 user-description-box  col-sm-5">
 
 
@@ -312,8 +320,10 @@
         </div>	
     </div>
     
+    <!-- generate graph-->
     
-<div class="row tiles-container spacing-bottom tiles grey">
+    
+<!--<div class="row tiles-container spacing-bottom tiles grey">
 <div class="tiles white col-md-8 col-sm-8 no-padding">
 <div class="tiles-body">
 <div class="row">
@@ -356,7 +366,7 @@
 <div id="legend" class="rickshaw_legend" style="height: 125px;"><ul class="ui-sortable"><li class="line"><a class="action">✔</a><div class="swatch" style="background-color: rgb(236, 239, 241);"></div><span class="label">All</span></li><li class="line"><a class="action">✔</a><div class="swatch" style="background-color: rgb(248, 164, 163);"></div><span class="label">Uploads</span></li><li class="line"><a class="action">✔</a><div class="swatch" style="background-color: rgb(115, 96, 134);"></div><span class="label">Downloads</span></li></ul></div>
 </div>
 </div>
-</div>
+</div>-->
 
     <div class="col-md-6">
         <div class="row">
