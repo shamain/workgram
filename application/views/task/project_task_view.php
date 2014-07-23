@@ -50,7 +50,7 @@
     $employee_task_service = new Employee_task_service();
 
     foreach ($tasks as $task) {
-        $employees_for_task = $employee_task_service->get_employees_for_task($task_id);
+        $employees_for_task = $employee_task_service->get_employees_for_task($task->task_id);
         ?>
         <div class="col-md-12">
             <div class="grid simple no-border">
