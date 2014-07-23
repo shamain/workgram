@@ -28,7 +28,7 @@
                         foreach ($companies as $company) {
                             ?> 
                             <tr  id="company_<?php echo $company->company_code; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $company->company_name; ?></td>
                                 <td><?php echo $company->company_email; ?></td>
                                 <td><?php echo $company->company_address; ?></td>
@@ -162,4 +162,6 @@
 </div>
 <!-- /.modal -->
 
-
+<script type="text/javascript">
+                                        $('#company_parent_menu').addClass('active open');
+</script>

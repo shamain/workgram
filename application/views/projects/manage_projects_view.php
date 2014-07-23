@@ -188,7 +188,6 @@
                                                     $('#files').html("");
                                                     $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" width="100px" height="100px" /><br />');
                                                     picFileName = response;
-                                                    document.getElementById('image').value = file;
                                                     document.getElementById('project_logo').value = response;
                                                 } else {
                                                     $('<div></div>').appendTo('#files').text(file).addClass('error');
@@ -214,8 +213,6 @@
                                 <i class=""></i>
 
                                 <div id="upload">
-
-                                    <input type="text" id="image" name="image"/>
                                     <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
                                         <i class="fa fa-camera"></i>
                                     </button>
@@ -246,3 +243,6 @@
 </div>
 <!-- /.modal -->
 
+<script type="text/javascript">
+                                        $('#project_parent_menu').addClass('active open');
+</script>

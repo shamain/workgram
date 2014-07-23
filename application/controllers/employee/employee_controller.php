@@ -134,8 +134,10 @@ class Employee_controller extends CI_Controller {
             echo "error";
         }
     }
- function auto_password() {
+ 
 }
-}
+
+
+
 
 ?>

@@ -99,3 +99,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+                                        $('#settings_parent_menu').addClass('active open');
+</script>

@@ -111,3 +111,6 @@
     </div>
 
 </div>
+<script type="text/javascript">
+                                        $('#skill_parent_menu').addClass('active open');
+</script>

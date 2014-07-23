@@ -33,7 +33,16 @@ $(document).ready(function() {
     $('#employee_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
+ //add password generatot
+function generatePassword() {
+    var length = 8,
+        charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
 //add employee bday datepicker
     $('#employee_bday_dpicker').datepicker({
         format: "yyyy-mm-dd",
