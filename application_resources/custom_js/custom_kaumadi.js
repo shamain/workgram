@@ -1,7 +1,15 @@
 var base_url = js_base_url;
 var site_url = js_site_url;
 
-
+   function generatePassword() {
+        var length = 8,
+                charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        $('#employee_password').val(retVal);
+    }
 //////////////////employee//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //employee table
@@ -35,15 +43,7 @@ $(document).ready(function() {
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
     //add password generatot
-    function generatePassword() {
-        var length = 8,
-                charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-                retVal = "";
-        for (var i = 0, n = charset.length; i < length; ++i) {
-            retVal += charset.charAt(Math.floor(Math.random() * n));
-        }
-        $('#employee_password').val(retVal);
-    }
+ 
 //add employee bday datepicker
     $('#employee_bday_dpicker').datepicker({
         format: "yyyy-mm-dd",
