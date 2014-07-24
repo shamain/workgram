@@ -33,16 +33,17 @@ $(document).ready(function() {
     $('#employee_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
- //add password generatot
-function generatePassword() {
-    var length = 8,
-        charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        retVal = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
+
+    //add password generatot
+    function generatePassword() {
+        var length = 8,
+                charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+            retVal += charset.charAt(Math.floor(Math.random() * n));
+        }
+        $('#employee_password').val(retVal);
     }
-    return retVal;
-}
 //add employee bday datepicker
     $('#employee_bday_dpicker').datepicker({
         format: "yyyy-mm-dd",
@@ -56,7 +57,6 @@ function generatePassword() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            
             employee_fname: {
                 required: true
             },
@@ -65,7 +65,7 @@ function generatePassword() {
             },
             employee_email: {
                 required: true,
-                email:true
+                email: true
             },
             employee_type: {
                 required: true
@@ -114,39 +114,38 @@ function generatePassword() {
 });
 
 //add employee bday datepicker
-    $('#employee_bday_edit_dpicker').datepicker({
-        format: "yyyy-mm-dd",
-        autoclose: true,
-        todayHighlight: true
-    });
+$('#employee_bday_edit_dpicker').datepicker({
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayHighlight: true
+});
 
 //edit employee Form
-     $('#edit_employee_form').validate({
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            
-            employee_fname: {
-                required: true
-            },
-            employee_lname: {
-                required: true
-            },
-            employee_email: {
-                required: true
-            },
-            employee_type: {
-                required: true
-            },
-            employee_contact: {
-                required: true
-            },
-            employee_contract: {
-                required: true
-            }
-
-
+$('#edit_employee_form').validate({
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+        employee_fname: {
+            required: true
         },
+        employee_lname: {
+            required: true
+        },
+        employee_email: {
+            required: true
+        },
+        employee_type: {
+            required: true
+        },
+        employee_contact: {
+            required: true
+        },
+        employee_contract: {
+            required: true
+        }
+
+
+    },
     invalidHandler: function(event, validator) {
         //display error alert on form submit    
     },
@@ -184,7 +183,7 @@ function generatePassword() {
 });
 
 
- 
+
 //delete projects
 function delete_employee(code) {
 
