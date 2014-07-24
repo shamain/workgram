@@ -19,6 +19,9 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
+            
+             $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
 
