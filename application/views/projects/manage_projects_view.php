@@ -19,6 +19,7 @@
                             <th>Logo</th>
                             <th>Founder</th>
                             <th>Deadline</th>
+                            <th>Progress</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -29,6 +30,8 @@
                         foreach ($projects as $project) {
                             $complete_count = $task_service->get_complete_task_count_for_project($project->project_id);
                             $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
+
+                            $progress = ( $complete_count / ($complete_count + $not_complete_count) ) * 100;
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
                                 <td><?php echo ++$i; ?></td>
@@ -44,6 +47,29 @@
                                     }
                                     ?>
                                 </td>
+
+                                <td valign="middle">
+                                    <?php
+                                    if ($progress == 100) {
+                                        ?>
+                                        <div class="progress progress-success">
+                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        </div>
+                                        <?php
+                                    } else if ($progress == 0) {
+                                        ?>
+                                        <div class="progress progress-danger">
+                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="progress progress-warning">
+                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        </div>
+                                    <?php } ?>
+                                </td>
+
                                 <td>
                                     <a href="<?php echo site_url(); ?>/task/task_controller/view_task_for_projects/<?php echo $project->project_id; ?>" style="cursor: pointer;"   title="Assign Tasks">
                                         <i class="fa fa-bolt"></i>
