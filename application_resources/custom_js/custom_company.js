@@ -20,7 +20,6 @@ $(document).ready(function() {
         "aoColumnDefs": [
             {"bSortable": false, "aTargets": [0]}
         ],
-        "aaSorting": [[3, "desc"]],
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"

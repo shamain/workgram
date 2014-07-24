@@ -22,8 +22,7 @@ class Task_service extends CI_Model {
         $this->db->from('task');
         $this->db->where('project_id', $project_id);
         $this->db->where('task_status', '1');
-        $query = $this->db->get();
-        return $query->count_all_results();
+        return $this->db->count_all_results();
     }
     
     public function get_not_complete_task_count_for_project($project_id) {
@@ -32,8 +31,7 @@ class Task_service extends CI_Model {
         $this->db->from('task');
         $this->db->where('project_id', $project_id);
         $this->db->where('task_status', '0');
-        $query = $this->db->get();
-        return $query->count_all_results();
+        return $this->db->count_all_results();
     }
 
     function add_new_task($task_model) {

@@ -31,10 +31,14 @@
                             $complete_count = $task_service->get_complete_task_count_for_project($project->project_id);
                             $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
 
-                            $progress = ( $complete_count / ($complete_count + $not_complete_count) ) * 100;
+                            $total = $complete_count + $not_complete_count;
+                            $progress = 0;
+                            if ($total != 0) {
+                                $progress = ( $complete_count / ($total) ) * 100;
+                            }
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
                                 <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="50px" height="50px" /></td>
                                 <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
@@ -93,5 +97,5 @@
 
 
 <script type="text/javascript">
-    $('#project_parent_menu').addClass('active open');
+                                    $('#project_parent_menu').addClass('active open');
 </script>
