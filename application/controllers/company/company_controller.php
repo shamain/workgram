@@ -47,7 +47,7 @@ class Company_controller extends CI_Controller {
 
 
 
-        $company_code = $company_service->add_new_company($company_model);
+        $company_code = $company_service->add_new_company_registration($company_model);
 
         $employee_model = new Employee_model();
         $employee_service = new Employee_service();
