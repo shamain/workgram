@@ -26,8 +26,8 @@
                                     <input id="employee_no" class="form-control" type="text" name="employee_no" value="<?php echo $employee->employee_no; ?>">                              
                                 </div>
                             </div>
-                            
-                            
+
+
                             <div class="form-group">
                                 <label class="form-label">First Name</label>
                                 <span style="color: red">*</span>
@@ -37,8 +37,8 @@
                                     <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee->employee_fname; ?>">                              
                                 </div>
                             </div>
-                            
-                              <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Last Name</label>
                                 <span style="color: red">*</span>
 
@@ -47,7 +47,7 @@
                                     <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee->employee_lname; ?>">                              
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label">Password</label>
                                 <span style="color: red">*</span>
@@ -57,8 +57,8 @@
                                     <input id="employee_password" class="form-control" type="text" name="employee_password" value="<?php echo $employee->employee_password; ?>">                              
                                 </div>
                             </div>
-                            
-                           <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <span style="color: red">*</span>
 
@@ -67,25 +67,25 @@
                                     <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee->employee_email; ?>">                              
                                 </div>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Type</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="employee_type" id="employee_type" class="select2 form-control"  >
-                                        
-                                        
-                                            <option value="1" <?php if ($this->config->item('ADMIN') == $employee->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
-                                            <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $employee->employee_type) { ?> selected="true" <?php } ?>>Company Owner</option>
-                                            <option value="3" <?php if ($this->config->item('EMPLOYEE') == $employee->employee_type) { ?> selected="true" <?php } ?>>Employee</option>
-                                            
+
+
+                                        <option value="1" <?php if ($this->config->item('ADMIN') == $employee->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
+                                        <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $employee->employee_type) { ?> selected="true" <?php } ?>>Company Owner</option>
+                                        <option value="3" <?php if ($this->config->item('EMPLOYEE') == $employee->employee_type) { ?> selected="true" <?php } ?>>Employee</option>
+
                                     </select>                               
                                 </div>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Birth Day</label>
                                 <span style="color: red">*</span><br>
 
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
 
-                           <div class="form-group">
+                            <div class="form-group">
                                 <label class="form-label">Contact No</label>
                                 <span style="color: red">*</span>
 
@@ -109,8 +109,8 @@
                                     <input id="employee_contact" class="form-control" type="text" name="employee_contact" value="<?php echo $employee->employee_contact; ?>">                              
                                 </div>
                             </div>
-                            
-                           <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Salary</label>
                                 <span style="color: red">*</span>
 
@@ -119,32 +119,32 @@
                                     <input id="employee_salary" class="form-control" type="text" name="employee_salary" value="<?php echo $employee->employee_salary; ?>">                              
                                 </div>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">Contract</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                        
-                                           <option value="FULL_TIME" <?php if ($this->config->item('FULL_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Full Time</option>
-                                            <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
-                                            
+
+                                        <option value="FULL_TIME" <?php if ($this->config->item('FULL_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Full Time</option>
+                                        <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
+
                                     </select>                               
                                 </div>
                             </div>
-                            
-                                                  
+
+
                             <div class="form-group">
                                 <label class="form-label">Avatar</label>
                                 <span style="color: red">*</span>
 
-                                
-                            
-                                   <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-                                   <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
-                                   <script type="text/javascript">
+
+
+                                <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                                <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                                <script type="text/javascript">
 
                                     $(function() {
                                         var btnUpload = $('#upload');
@@ -186,37 +186,37 @@
 
 
 
-                    </script>
+                                </script>
 
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <div id="files" ></div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class=" right">                                       
-                                <i class=""></i>
+                                <div class="row form-row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <div id="files" ></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class=" right">                                       
+                                            <i class=""></i>
 
-                                <div id="upload">
-                                  
-                                    <input type="text" id="image" name="image"/>
-                                    <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
-                                        <i class="fa fa-camera"></i>
-                                    </button>
-                                    <label class="form-label">upload Image Here</label>
-                                    <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" />
+                                            <div id="upload">
+
+                                                <input type="text" id="image" name="image"/>
+                                                <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
+                                                    <i class="fa fa-camera"></i>
+                                                </button>
+                                                <label class="form-label">upload Image Here</label>
+                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" />
+                                            </div>
+                                            <div id="sta"><span id="status" ></span></div>
+
+
+
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="sta"><span id="status" ></span></div>
 
+                            </div> 
 
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div> 
-                     
                             <div id="edit_employee_msg" class="form-row"> </div>
 
                             <input type="hidden" id="employee_code" name="employee_code" value="<?php echo $employee->employee_code; ?>"/>
@@ -237,6 +237,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('#employee_parent_menu').addClass('active open');
+</script>
 
 
 

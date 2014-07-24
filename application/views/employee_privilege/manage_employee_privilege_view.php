@@ -86,6 +86,9 @@
         <?php } ?>
     </div>
 </div>
+<script type="text/javascript">
+                                        $('#employee_parent_menu').addClass('active open');
+</script>
 
 
 

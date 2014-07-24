@@ -16,7 +16,7 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
-            
+
             $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
         }
@@ -26,8 +26,12 @@ class Task_controller extends CI_Controller {
 
         $project_service = new Project_service();
         $task_service = new Task_service();
+        $employee_service = new employee_service();
 
-        $data['project'] = $project_service->get_project_by_id($project_id);
+        $project = $project_service->get_project_by_id($project_id);
+
+        $data['project'] = $project;
+        $data['project_admin'] = $employee_service->get_employee_by_id($project->added_by);
         $data['tasks'] = $task_service->get_tasks_for_project($project_id);
 
         $partials = array('content' => 'task/project_task_view');
@@ -58,7 +62,7 @@ class Task_controller extends CI_Controller {
 
         echo $task_service->delete_task(trim($this->input->post('id', TRUE)));
     }
-    
+
     function edit_task() {
 
         $task_model = new Task_model();
@@ -75,7 +79,6 @@ class Task_controller extends CI_Controller {
         $task_model->set_task_id($this->input->post('task_id', TRUE));
 
         echo $task_service->update_task($task_model);
-
     }
 
 }

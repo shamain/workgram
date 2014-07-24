@@ -16,6 +16,26 @@ class Task_service extends CI_Model {
         return $query->result();
     }
 
+    public function get_complete_task_count_for_project($project_id) {
+
+        $this->db->select('*');
+        $this->db->from('task');
+        $this->db->where('project_id', $project_id);
+        $this->db->where('task_status', '1');
+        $query = $this->db->get();
+        return $query->count_all_results();
+    }
+    
+    public function get_not_complete_task_count_for_project($project_id) {
+
+        $this->db->select('*');
+        $this->db->from('task');
+        $this->db->where('project_id', $project_id);
+        $this->db->where('task_status', '0');
+        $query = $this->db->get();
+        return $query->count_all_results();
+    }
+
     function add_new_task($task_model) {
         return $this->db->insert('task', $task_model);
     }
@@ -41,8 +61,8 @@ class Task_service extends CI_Model {
 
         return $this->db->update('task', $data);
     }
-    
-    function get_employee_task_by_project($project_id,$employee_code){
+
+    function get_employee_task_by_project($project_id, $employee_code) {
         $this->db->select('task.*');
         $this->db->from('task');
         $this->db->join('employee_task', 'employee_task.task_id = task.task_id');

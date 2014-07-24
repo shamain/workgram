@@ -156,7 +156,7 @@
                                 <i class="">
                                 </i>
                                 <input id="employee_password" class="form-control" type="text" name="employee_password"  >
-                                <input type="button" value="password" onclick="generatePassword">
+                                <input type="button" value="password" onclick="generatePassword()">
 
                                
                             </div>
@@ -256,4 +256,7 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+<script type="text/javascript">
+    $('#employee_parent_menu').addClass('active open');
+</script>
 
