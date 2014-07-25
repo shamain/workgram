@@ -42,8 +42,11 @@ class Task_controller extends CI_Controller {
     }
 
     function view_task_detail_view($task_id) {
+        
+        $task_service = new Task_service();
 
         $data['task_id']=$task_id;
+        $data['task']=$task_service->get_task_by_id($task_id);
 
         $partials = array('content' => 'task/task_detail_view');
         $this->template->load('template/main_template', $partials, $data);

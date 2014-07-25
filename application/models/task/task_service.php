@@ -70,5 +70,10 @@ class Task_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    
+    function get_task_by_id($task_id) {
+        $query = $this->db->get_where('task', array('task_id' => $task_id));
+        return $query->row();
+    }
 
 }

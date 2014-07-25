@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="grid solid red">
             <div class="grid-title">
-                <h4>Grid Two</h4>
+                <h4><?php echo $task->task_name;?></h4>
                 
             </div>
             <div class="grid-body">
