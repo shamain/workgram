@@ -19,8 +19,8 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
-            
-             $this->load->model('employee/employee_model');
+
+            $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
         }
     }
@@ -38,6 +38,14 @@ class Task_controller extends CI_Controller {
         $data['tasks'] = $task_service->get_tasks_for_project($project_id);
 
         $partials = array('content' => 'task/project_task_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+
+    function view_task_detail_view($task_id) {
+
+        $data['task_id']=$task_id;
+
+        $partials = array('content' => 'task/task_detail_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 

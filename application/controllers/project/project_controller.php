@@ -32,6 +32,20 @@ class Project_controller extends CI_Controller {
         $partials = array('content' => 'projects/manage_projects_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
+     function add_project_view() {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
+//        if ($perm) {
+
+
+        $data['heading'] = "Edit Project";
+
+        $partials = array('content' => 'projects/add_project_view');
+        $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
 
     function add_new_project() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');

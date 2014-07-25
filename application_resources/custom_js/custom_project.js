@@ -23,7 +23,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".project_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_project_btn" data-toggle="modal" data-target="#add_project_modal">Add New Project</button></div>');
+    $(".project_table_tbar").html('<div class="table-tools-actions"><a class="btn btn-primary" style="margin-left:12px" href="'+site_url+'/project/project_controller/add_project_view"   id="add_project_btn" >Add New Project</a></div>');
 
     $('#project_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#project_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
