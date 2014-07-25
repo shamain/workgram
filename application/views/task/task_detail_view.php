@@ -1,4 +1,19 @@
 <div class="row">
+    <div class="col-md-12">
+        <div class="grid solid red">
+            <div class="grid-title">
+                <h4>Grid Two</h4>
+                
+            </div>
+            <div class="grid-body">
+                <h3>Colored<span class="semi-bold">grid</span></h3>
+                <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-md-10 col-vlg-7">
         <ul class="cbp_tmtimeline">
             <li>
