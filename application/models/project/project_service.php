@@ -62,6 +62,7 @@ class Project_service extends CI_Model {
         $this->db->join('task', 'task.project_id = project.project_id');
         $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
         $this->db->where('employee_tasks.employee_id', $emp_code);
+        $this->db->group_by("task.project_id");
         $this->db->order_by("project.project_id", "desc");
         $query = $this->db->get();
         return $query->result();
