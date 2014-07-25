@@ -15,10 +15,10 @@
             <div class="profile-pic">
                 <?php if ($project->project_logo == '') { ?>
 
-                    <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="35" height="35" />
+                    <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="69" height="69" />
 
                 <?php } else { ?>
-                    <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="uploads/project_logo/<?php echo $project->project_logo; ?>" width="35" height="35" />
+                    <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="69" height="69" />
 
                 <?php } ?> 
             </div>
@@ -70,14 +70,12 @@
                 <div class="grid-title no-border descriptive clickable">
                     <h4 class="semi-bold"><?php echo $task->task_name; ?></h4>
                     <p ><span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
-                    <div class="progress progress-danger">
-                        <div data-percentage="<?php echo $task->task_progress; ?>%" class="bar animate-progress-bar"></div>
-                    </div>
-                    <?php if ($task->task_status == '0') { ?>
-                        <span class="label label-important">0</span>
-                    <?php } else { ?>
-                        <span class="label label-success">1</span>
-                    <?php } ?>
+
+                        <?php if ($task->task_status == '0') { ?>
+                            <span class="label label-important">0</span>
+                        <?php } else { ?>
+                            <span class="label label-success">1</span>
+                        <?php } ?>
 
                     </p>
                     <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a> <a class="remove" href="javascript:;"><i class="fa fa-times"></i></a> </div>
@@ -140,49 +138,71 @@
 </div>
 
 <div class="row">
-    <h4>
-        <span class="semi-bold">
-            Project Administrator
-        </span>
-    </h4>
-    <div class="profile-pic">
+    <div class="col-md-12">
+        <div class="grid simple vertical green">
+            <div class="grid-body no-border">
+                <h4>
+                    <span class="semi-bold">
+                        Project Administrator
+                    </span>
+                </h4>
+                <div class="profile-pic">
 
-        <?php if ($project_admin == '') { ?>
+                    <?php if ($project_admin == '') { ?>
 
-            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
-        <?php } else { ?>
-            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" width="35" height="35" />
+                    <?php } else { ?>
+                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" width="35" height="35" />
 
-        <?php } ?> 
+                    <?php } ?> 
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
 
 <div class="row">
-    <h4>
-        <span class="semi-bold">
-            Project Members
-        </span>
-    </h4>
-    <div class="profile-pic">
+    <div class="col-md-12">
+        <div class="grid simple vertical green">
+            <div class="grid-body no-border">
+                <h4>
+                    <span class="semi-bold">
+                        Project Members
+                    </span>
+                </h4>
+                <div class="col-md-6">
+                    <ul class="my-friends no-margin ">
+                        <?php
+                        foreach ($project_member_ids as $project_member_id) {
+                            $member = $employee_service->get_employee_by_id($project_member_id);
+                            if (!empty($member)) {
+                                ?>
 
-        <?php
-        foreach ($project_member_ids as $project_member_id) {
-            $member = $employee_service->get_employee_by_id($project_member_id);
-            if (!empty($member)) {
-                if ($member->employee_avatar == '') {
-                    ?>
-                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
-                <?php } else { ?>
-                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
-                    <?php
-                }
-            }
-        }
-        ?> 
+                                <li>
+                                    <div class="profile-pic">
+                                        <?php if ($member->employee_avatar == '') {
+                                            ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                        <?php } else { ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </li>
+                                <?php
+                            }
+                        }
+                        ?> 
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
-
 </div>
 
 <script type="text/javascript">

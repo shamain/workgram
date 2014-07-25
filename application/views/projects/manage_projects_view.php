@@ -32,13 +32,15 @@
                             $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
 
                             $total = $complete_count + $not_complete_count;
+                           
                             $progress = 0;
                             if ($total != 0) {
-                                $progress = ( $complete_count / ($total) ) * 100;
+                                $progress = ( $complete_count  * 100) / $total ;
                             }
+                 
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
                                 <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="50px" height="50px" /></td>
                                 <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
@@ -56,20 +58,21 @@
                                     <?php
                                     if ($progress == 100) {
                                         ?>
-                                        <div class="progress progress-success">
-                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="<?php echo $progress; ?>%" style="width: 79%;"></div>
+                                            
                                         </div>
                                         <?php
                                     } else if ($progress == 0) {
                                         ?>
-                                        <div class="progress progress-danger">
-                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        <div class="progress">
+                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="progress-bar progress-bar-danger animate-progress-bar"></div>
                                         </div>
                                         <?php
                                     } else {
                                         ?>
-                                        <div class="progress progress-warning">
-                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="bar animate-progress-bar"></div>
+                                        <div class="progress">
+                                            <div data-percentage="<?php echo $progress; ?>%" id="" class="progress-bar progress-bar-warning animate-progress-bar"></div>
                                         </div>
                                     <?php } ?>
                                 </td>
