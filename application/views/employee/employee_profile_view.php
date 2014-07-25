@@ -538,3 +538,48 @@
     $('#employee_parent_menu').addClass('active open');
 </script>
 
+<div class="row tiles-container spacing-bottom tiles grey">
+              <div class="tiles white col-md-8 col-sm-8 no-padding">
+                <div class="tiles-body">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <div class="mini-chart-wrapper">
+                        <div class="chart-details-wrapper">
+                          <div class="chartname"> New Orders </div>
+                          <div class="chart-value"> 17,555 </div>
+                        </div>
+                        <div class="mini-chart">
+                          <div id="mini-chart-orders"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="mini-chart-wrapper">
+                        <div class="chart-details-wrapper">
+                          <div class="chartname"> My Balance </div>
+                          <div class="chart-value"> $17,555 </div>
+                        </div>
+                        <div class="mini-chart">
+                          <div id="mini-chart-other" ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div id="ricksaw" ></div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="col-md-4 col-sm-4 no-padding">
+                <div class="tiles grey ">
+                  <div class="tiles white no-margin">
+                    <div class="tiles-body">
+                      <div class="tiles-title blend"> OVERALL VIEWS </div>
+                      <div class="heading"> <span data-animation-duration="1000" data-value="432852" class="animate-number">0</span> </div>
+                      44% higher <span class="blend">than last month</span> </div>
+                  </div>
+                  <div id="legend"></div>
+                </div>
+              </div>
+            </div>
+
