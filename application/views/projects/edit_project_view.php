@@ -123,7 +123,7 @@
                             <div class="row form-row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <div id="files" >
+                                        <div id="files" class="project-logo">
                                             <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="100px" height="100px" />
                                         </div>
                                     </div>
