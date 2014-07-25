@@ -1,30 +1,29 @@
-<!--<ul class="breadcrumb">
-    <li>
-        <p>YOU ARE HERE</p>
-    </li>
-    <li><a href="#" class="active">Simple Grids</a> </li>
-</ul>
-<div class="page-title"> <i class="icon-custom-left"></i>
-    <h3>Simple Grids - <span class="semi-bold">Portlets</span></h3 >
-</div>
--->
+
 <div class="row">
 
     <div class="col-md-12">
         <div class="grid simple vertical green">
-            <div class="profile-pic">
-                <?php if ($project->project_logo == '') { ?>
 
-                    <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="69" height="69" />
-
-                <?php } else { ?>
-                    <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="69" height="69" />
-
-                <?php } ?> 
-            </div>
             <div class="grid-title no-border">
-                <h4><span class="semi-bold"><?php echo $project->project_vendor; ?></span></h4>
+                <h4>
+                    <div class="project-logo">
+                        <?php if ($project->project_logo == '') { ?>
+
+                            <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="69" height="69" />
+
+                        <?php } else { ?>
+                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="69" height="69" />
+
+                        <?php } ?> 
+                    </div>
+                    <span class="semi-bold">
+                        <?php echo $project->project_vendor; ?>
+                    </span>
+                </h4>
                 <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a>  </div>
+                <span class="semi-bold">
+                    Deadline 
+                </span>
                 <span class="label label-important">
                     <?php
                     if ($project->project_end_date == "0000-00-00") {
@@ -69,12 +68,13 @@
             <div class="grid simple no-border">
                 <div class="grid-title no-border descriptive clickable">
                     <h4 class="semi-bold"><?php echo $task->task_name; ?></h4>
-                    <p ><span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
+                    <p >
+                        <span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
 
                         <?php if ($task->task_status == '0') { ?>
-                            <span class="label label-important">0</span>
+                            <span class="label label-important">Not Complete</span>
                         <?php } else { ?>
-                            <span class="label label-success">1</span>
+                            <span class="label label-success">Complete</span>
                         <?php } ?>
 
                     </p>
@@ -85,50 +85,48 @@
                     <div class="post">
                         <div class="info-wrapper">
                             <div class="info"> 
-                                <?php echo $task->task_description; ?>
+                                <?php echo $task->task_descrption; ?>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="user-profile-pic-wrapper">
-                            <?php
-                            foreach ($employees_for_task as $employee) {
-                                if (!in_array($employee->employee_code, $project_member_ids)) {
-                                    $project_member_ids[] = $employee->employee_code;
-                                }
-                                ?>
-                                <div class="user-profile-pic-normal"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="">
-                                </div>
-                            <?php } ?>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <h7>
+                                    <span class="semi-bold">
+                                        Task Members
+                                    </span>
+                                </h7>
+                                <div class="clearfix"></div>
+                                <ul class="my-friends no-margin ">
+
+                                    <?php
+                                    foreach ($employees_for_task as $employee) {
+                                        if (!in_array($employee->employee_code, $project_member_ids)) {
+                                            $project_member_ids[] = $employee->employee_code;
+                                        }
+                                        ?>
+                                        <li>
+                                            <div class="profile-pic">
+                                                <?php if ($employee->employee_avatar == '') {
+                                                    ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                                <?php } else { ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" width="35" height="35" />
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <br>
-                    <div class="form-actions">
-                        <div class="post col-md-12">
-                            <div class="user-profile-pic-wrapper">
-                                <div class="user-profile-pic-normal"> <img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt=""> </div>
-                            </div>
-                            <div class="info-wrapper">
-                                <div class="info"> Hi,<br>
-                                    <br>
-                                    Thank you for reaching us, We are looking into this issue and will update you.<br>
-                                    <br>
-                                    Alex<br>
-                                    <hr>
-                                    <p class="small-text">Posted on 10/29/13 at 07:21</p>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label"><i class="fa fa-reply"></i>&nbsp;Post a reply</label>
-                                    <div class="controls">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -139,25 +137,73 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="grid simple vertical green">
-            <div class="grid-body no-border">
-                <h4>
+        <div class="tiles white col-md-12  no-padding">
+            <div class="tiles-body">
+                <h5>
                     <span class="semi-bold">
                         Project Administrator
                     </span>
-                </h4>
-                <div class="profile-pic">
+                </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="friend-list">
+                            <div class="friend-profile-pic">
+                                <div class="user-profile-pic-normal">
+                                    <?php if ($project_admin == '') { ?>
 
-                    <?php if ($project_admin == '') { ?>
+                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
-                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                    <?php } else { ?>
+                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" width="35" height="35" />
 
-                    <?php } else { ?>
-                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" width="35" height="35" />
-
-                    <?php } ?> 
+                                    <?php } ?> 
+                                </div>
+                            </div>
+                            <div class="friend-details-wrapper">
+                                <div class="friend-name"> <?php echo $project_admin->employee_fname . " " . $project_admin->employee_lname; ?> </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
                 </div>
+
+                <h5>
+                    <span class="semi-bold">
+                        Project Members
+                    </span>
+                </h5>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="my-friends no-margin ">
+                            <?php
+                            foreach ($project_member_ids as $project_member_id) {
+                                $member = $employee_service->get_employee_by_id($project_member_id);
+                                if (!empty($member)) {
+                                    ?>
+
+                                    <li>
+                                        <div class="profile-pic">
+                                            <?php if ($member->employee_avatar == '') {
+                                                ?>
+                                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                            <?php } else { ?>
+                                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?> 
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 
@@ -166,41 +212,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="grid simple vertical green">
-            <div class="grid-body no-border">
-                <h4>
-                    <span class="semi-bold">
-                        Project Members
-                    </span>
-                </h4>
-                <div class="col-md-6">
-                    <ul class="my-friends no-margin ">
-                        <?php
-                        foreach ($project_member_ids as $project_member_id) {
-                            $member = $employee_service->get_employee_by_id($project_member_id);
-                            if (!empty($member)) {
-                                ?>
 
-                                <li>
-                                    <div class="profile-pic">
-                                        <?php if ($member->employee_avatar == '') {
-                                            ?>
-                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
-                                        <?php } else { ?>
-                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </li>
-                                <?php
-                            }
-                        }
-                        ?> 
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-
-            </div>
         </div>
     </div>
 </div>

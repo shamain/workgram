@@ -137,7 +137,7 @@
                                                 <i class="fa fa-camera"></i>
                                             </button>
                                             <label class="form-label">upload project logo</label>
-                                            <input type="text" id="project_logo" name="project_logo" style="visibility: hidden" />
+                                            <input type="text" id="project_logo" name="project_logo" style="visibility: hidden" value="<?php echo $project->project_logo; ?>"/>
                                         </div>
                                         <div id="sta"><span id="status" ></span></div>
 
