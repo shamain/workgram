@@ -76,7 +76,7 @@
                             <span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
 
                             <?php if ($task->task_status == '0') { ?>
-                                <span class="label label-important">Not Complete</span>
+                                <span class="label label-important">Pending</span>
                             <?php } else { ?>
                                 <span class="label label-success">Complete</span>
                             <?php } ?>

@@ -11,7 +11,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="add_project_form" name="add_project_form">
 
 
@@ -21,7 +21,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="project_name" class="form-control" type="text" name="project_name" >    
+                                    <input id="project_name" class="form-control" type="text" name="project_name" style="width: 50%">    
                                 </div>
                             </div>
 
@@ -32,7 +32,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="project_vendor" class="form-control" type="text" name="project_vendor">                              
+                                    <input id="project_vendor" class="form-control" type="text" name="project_vendor" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -69,9 +69,9 @@
                                 <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
 
-                                <div class="input-with-icon  right">                                       
+                                <div class="right">                                       
                                     <i class=""></i>
-                                    <textarea id="project_description" class="form-control" type="text" name="project_description">    </textarea>                          
+                                    <textarea id="project_description" class="form-control" type="text" name="project_description" rows="20">    </textarea>                          
                                 </div>
                             </div>
 
@@ -118,7 +118,7 @@
                             </script>
 
                             <div class="row form-row">
-                                <div class="col-md-5">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <div id="files" ></div>
                                     </div>

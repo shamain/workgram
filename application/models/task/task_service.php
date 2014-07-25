@@ -12,6 +12,7 @@ class Task_service extends CI_Model {
         $this->db->select('*');
         $this->db->from('task');
         $this->db->where('project_id', $project_id);
+        $this->db->order_by("task_priority", "desc");
         $query = $this->db->get();
         return $query->result();
     }
