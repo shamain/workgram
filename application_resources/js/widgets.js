@@ -381,7 +381,7 @@ var seriesData_5 = [ [], [],[]];
 
 function loadSampleChartDemo2(){
 
-
+alert("hgh");
 var seriesData_5 = [ [], [],[]];
 
 	var random = new Rickshaw.Fixtures.RandomData(50);

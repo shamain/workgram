@@ -43,12 +43,13 @@
         <link href="<?php echo base_url(); ?>application_resources/css/magic_space.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/tiles_responsive.css" rel="stylesheet" type="text/css"/>
         <!-- END CSS TEMPLATE -->
-        
+
         <link href="<?php echo base_url(); ?>application_resources/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
 
         <!-- JS -->
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/js/widgets.js" type="text/javascript"></script>
 
         <!-- JS -->
 
@@ -521,6 +522,11 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.min.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/skycons/skycons.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-polymaps/polymaps.min.js" type="text/javascript"></script>
@@ -557,15 +563,14 @@
             <!-- BEGIN CORE TEMPLATE JS -->
 
 
-            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript" ></script>
+
             <!-- END PAGE LEVEL PLUGINS -->
             <!-- BEGIN CORE TEMPLATE JS -->
             <script src="<?php echo base_url(); ?>application_resources/js/core.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/chat.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/demo.js" type="text/javascript"></script>
-            <script src="<?php echo base_url(); ?>application_resources/js/dashboard_v2.js" type="text/javascript"></script>
+    
+
 
 
             <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>

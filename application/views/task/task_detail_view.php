@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="grid solid red">
+        <div class="grid solid yellow">
             <div class="grid-title">
-                <h4><?php echo $task->task_name;?></h4>
+                <h4><span class="semi-bold"><?php echo $task->task_name;?></span></h4>
                 
             </div>
             <div class="grid-body">

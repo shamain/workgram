@@ -167,10 +167,10 @@ class Project_controller extends CI_Controller {
      * Give all task for particular emploee and particular project
      * return all task details as json object
      */
-    public function get_task_for_employee_project($project_id,$employee_code) {
+    public function get_task_for_employee($employee_code) {
 
         $task_service = new Task_service();
-        $result = $task_service->get_employee_task_by_project($project_id,$employee_code);
+        $result = $task_service->get_employee_task_by_project($employee_code);
         
         echo json_encode($result);
     }
