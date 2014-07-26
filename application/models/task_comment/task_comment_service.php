@@ -1,40 +1,26 @@
 <?php
 
-class Task_service extends CI_Model {
+class Task_comment_service extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('task/task_model');
+        $this->load->model('task_comment/task_comment_model');
     }
 
-    public function get_tasks_for_project($project_id) {
+   
 
-        $this->db->select('task.*,employee.employee_fname,employee.employee_lname');
-        $this->db->from('task');
-        $this->db->join('employee', 'employee.employee_code = task.added_by');
-        $this->db->where('project_id', $project_id);
-        $this->db->order_by("task_priority", "desc");
+    public function get_task_comments($task_id) {
+
+        $this->db->select('task_comment.*,employee.employee_fname,employee.employee_lname');
+        $this->db->from('task_comment');
+        $this->db->join('employee', 'employee.employee_code = task_comment.added_by');
+        $this->db->where('task_comment.task_id', $task_id);
+        $this->db->where('task_comment.del_ind', '1');
         $query = $this->db->get();
         return $query->result();
     }
 
-    public function get_complete_task_count_for_project($project_id) {
-
-        $this->db->select('*');
-        $this->db->from('task');
-        $this->db->where('project_id', $project_id);
-        $this->db->where('task_status', '1');
-        return $this->db->count_all_results();
-    }
-
-    public function get_not_complete_task_count_for_project($project_id) {
-
-        $this->db->select('*');
-        $this->db->from('task');
-        $this->db->where('project_id', $project_id);
-        $this->db->where('task_status', '0');
-        return $this->db->count_all_results();
-    }
+    
 
     function add_new_task($task_model) {
         return $this->db->insert('task', $task_model);

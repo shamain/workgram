@@ -301,7 +301,7 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                     $("#edit_skill_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Skill Category </a>has been updated.</div>');
-                    edit_skill_category_form.reset();
+//                    edit_skill_category_form.reset();
                     location.reload();
                 } else {
                     $("#edit_skill_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill Category </a>has failed.</div>');

@@ -71,9 +71,9 @@
             <div class="col-md-12">
                 <div class="grid simple no-border">
                     <div class="grid-title no-border descriptive clickable">
-                        <h4 class="semi-bold"><?php echo $task->task_name; ?></h4>
+                        <h4 class="semi-bold"><?php echo ucfirst($task->task_name); ?></h4>
                         <p >
-                            <span class="text-success bold">Ticket #456</span> - Created on 10/29/13 at 06:33 - Last reply About 1 Month ago by alex&nbsp;&nbsp;
+                            Created on <?php echo date('Y-m-d', strtotime($task->added_date)) . ' at ' . date('H:i:s', strtotime($task->added_date)) ?> - Created by <?php echo $task->employee_fname . ' ' . $task->employee_lname; ?>&nbsp;&nbsp;
 
                             <?php if ($task->task_status == '0') { ?>
                                 <span class="label label-important">Pending</span>
@@ -97,7 +97,7 @@
                             <p class="text-black semi-bold no-margin">
                                 <a href="<?php echo site_url(); ?>/task/task_controller/view_task_detail_view/<?php echo $task->task_id; ?>">
                                     <i class="icon-custom-up "></i>
-                                Detail View
+                                    Detail View
                                 </a>
                             </p>
                             <br>
@@ -112,26 +112,44 @@
                                     </h7>
                                     <div class="clearfix"></div>
                                     <ul class="my-friends no-margin ">
-
                                         <?php
-                                        foreach ($employees_for_task as $employee) {
-                                            if (!in_array($employee->employee_code, $project_member_ids)) {
-                                                $project_member_ids[] = $employee->employee_code;
-                                            }
+                                        if (count($project_member_ids) != 0) {
                                             ?>
-                                            <li>
-                                                <div class="profile-pic">
-                                                    <?php if ($employee->employee_avatar == '') {
+                                            <?php
+                                            foreach ($employees_for_task as $employee) {
+                                                if (!in_array($employee->employee_code, $project_member_ids)) {
+                                                    $project_member_ids[] = $employee->employee_code;
+                                                }
+                                                ?>
+                                                <li>
+                                                    <div class="profile-pic">
+                                                        <?php if ($employee->employee_avatar == '') {
+                                                            ?>
+                                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                                        <?php } else { ?>
+                                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" width="35" height="35" />
+                                                            <?php
+                                                        }
                                                         ?>
-                                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
-                                                    <?php } else { ?>
-                                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" width="35" height="35" />
-                                                        <?php
-                                                    }
-                                                    ?>
+
+                                                    </div>
+                                                </li>
+                                                <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <div class="grid simple no-border">
+                                                <div class="row">
+
+                                                    <div class="tiles white col-md-12 no-padding">
+                                                        <div class="tiles-body">
+                                                            <span>No members assigned yet</span>
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
-                                            </li>
+                                            </div>
                                         <?php } ?>
                                     </ul>
                                 </div>
@@ -206,30 +224,48 @@
                 </h5>
                 <div class="row">
                     <div class="col-md-12">
-                        <ul class="my-friends no-margin ">
-                            <?php
-                            foreach ($project_member_ids as $project_member_id) {
-                                $member = $employee_service->get_employee_by_id($project_member_id);
-                                if (!empty($member)) {
-                                    ?>
+                        <?php
+                        if (count($project_member_ids) != 0) {
+                            ?>
+                            <ul class="my-friends no-margin ">
+                                <?php
+                                foreach ($project_member_ids as $project_member_id) {
+                                    $member = $employee_service->get_employee_by_id($project_member_id);
+                                    if (!empty($member)) {
+                                        ?>
 
-                                    <li>
-                                        <div class="profile-pic">
-                                            <?php if ($member->employee_avatar == '') {
+                                        <li>
+                                            <div class="profile-pic">
+                                                <?php if ($member->employee_avatar == '') {
+                                                    ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                                <?php } else { ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
+                                                    <?php
+                                                }
                                                 ?>
-                                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
-                                            <?php } else { ?>
-                                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $member->employee_avatar; ?>" width="35" height="35" />
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
-                                    </li>
-                                    <?php
+                                            </div>
+                                        </li>
+                                        <?php
+                                    }
                                 }
-                            }
-                            ?> 
-                        </ul>
+                                ?> 
+                            </ul>
+                        <?php } else { ?>
+                            <div class="grid simple no-border">
+                                <div class="row">
+
+                                    <div class="tiles white col-md-12 no-padding">
+                                        <div class="tiles-body">
+                                            <span>No members assigned yet</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        <?php }
+                        ?>
                         <div class="clearfix"></div>
                     </div>
                 </div>

@@ -16,6 +16,9 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
+            
+            $this->load->model('task_comment/task_comment_model');
+            $this->load->model('task_comment/task_comment_service');
 
             $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
@@ -44,9 +47,11 @@ class Task_controller extends CI_Controller {
     function view_task_detail_view($task_id) {
         
         $task_service = new Task_service();
+        $task_comment_service =new Task_comment_service();
 
         $data['task_id']=$task_id;
         $data['task']=$task_service->get_task_by_id($task_id);
+        $data['task_comments']=$task_comment_service->get_task_comments($task_id);
 
         $partials = array('content' => 'task/task_detail_view');
         $this->template->load('template/main_template', $partials, $data);

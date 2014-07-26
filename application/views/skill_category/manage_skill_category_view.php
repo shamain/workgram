@@ -13,7 +13,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Skill Category Name</th>  
+                            <th>Skill Category Name</th> 
+                            <th>Colour</th>
                             <th>Added By</th>
                             <th>Options</th>
                         </tr>
@@ -26,12 +27,13 @@
                             <tr  id="skill_category_<?php echo $skill_category->skill_cat_code; ?>">
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
-                                <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
-                                <td>
-                                    <div style="border:1px solid #ccc;padding:1px;position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454">
-                                        <div style="width:4px;height:0;border:5px solid rgba(243, 89, 88, 0.7);overflow:hidden"></div>
+                                <td class="v-align-middle">
+                                    <div style="padding:1px;top:9px;right:9px;;font-size:smaller;color:#545454;width: 21px;">
+                                        <div style="width:9px;height:0;border:10px solid <?php echo $skill_category->colour; ?>;overflow:hidden"></div>
                                     </div>
                                 </td>
+                                <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
+                                
 
                                 <td>
 

@@ -20,6 +20,7 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
+             <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
@@ -49,7 +50,7 @@
         <!-- JS -->
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url(); ?>application_resources/js/widgets.js" type="text/javascript"></script>
+
 
         <!-- JS -->
 
@@ -514,6 +515,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/webarchScroll.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
