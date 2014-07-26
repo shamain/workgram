@@ -62,11 +62,13 @@ class Task_service extends CI_Model {
     }
 
     function get_employee_task_by_project( $employee_code) {
-        $this->db->select('task.*,project.project_name');
+        $this->db->select('task.task_id,task.task_name,project.project_name,project.project_id');
         $this->db->from('task');
-        $this->db->join('employee_task', 'employee_task.task_id = task.task_id');
-        $this->db->join('task', 'task.project_id = project.project_id');
-        $this->db->where('employee_task.employee_id', $employee_code);
+        $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
+        $this->db->join('project', 'task.project_id = project.project_id');
+        $this->db->where('employee_tasks.employee_id', $employee_code);
+        $this->db->where('task.task_status', '0');
+         $this->db->where('project.del_ind', '1');
         $query = $this->db->get();
         return $query->result();
     }

@@ -10,7 +10,7 @@ class Employee_screen_shots_controller extends CI_Controller {
         parent::__construct();
 
         if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-            redirect(site_url() . 'login/login_controller');
+            redirect(site_url() . '/login/login_controller');
         } else {
 //
 //            $this->load->model('employee_screen_shot/employee_screen_shot_model');

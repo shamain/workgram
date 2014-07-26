@@ -7,7 +7,7 @@
             </div>
             <div class="grid-body">
                 <h3>Colored<span class="semi-bold">grid</span></h3>
-                <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
+                <p> <?php echo $task->task_descrption;?></p>
             </div>
         </div>
     </div>

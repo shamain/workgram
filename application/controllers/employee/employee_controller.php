@@ -9,7 +9,7 @@ class Employee_controller extends CI_Controller {
         parent::__construct();
 
         if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-            redirect(site_url() . 'login/login_controller');
+            redirect(site_url() . '/login/login_controller');
         } else {
 
             $this->load->model('employee/employee_model');
