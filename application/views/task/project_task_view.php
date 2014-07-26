@@ -113,7 +113,7 @@
                                     <div class="clearfix"></div>
                                     <ul class="my-friends no-margin ">
                                         <?php
-                                        if (count($project_member_ids) != 0) {
+                                        if (!empty($employees_for_task)) {
                                             ?>
                                             <?php
                                             foreach ($employees_for_task as $employee) {

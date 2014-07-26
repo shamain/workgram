@@ -18,6 +18,32 @@
                         <p> <?php echo $task->task_descrption; ?></p>
                     </div>
 
+                    <div class="clearfix"></div>
+                    <ul class="my-friends no-margin ">
+                        <?php
+                        if (!empty($employees_for_task)) {
+                            ?>
+                            <?php
+                            foreach ($employees_for_task as $employee) {
+                                ?>
+                                <li>
+                                    <div class="profile-pic">
+                                        <?php if ($employee->employee_avatar == '') {
+                                            ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                        <?php } else { ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" width="35" height="35" />
+                                            <?php
+                                        }
+                                        ?>
+
+                                    </div>
+                                </li>
+                                <?php
+                            }
+                        } ?>
+                    </ul>
+                    <br>
                     <div class="pull-right">
                         <span class="semi-bold">
                             Hey Guys ! we have  
@@ -73,7 +99,7 @@
             <li>
                 <time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i:s"); ?>">
                     <span class="date">today</span>
-                    <span class="time"><span class="animate-number" data-value="39" data-animation-duration="600"></span>:<span class="animate-number" data-value="45" data-animation-duration="600"></span> <span class="semi-bold"><?php echo date("a"); ?></span></span>
+                    <span class="time"><span class="animate-number" data-value="<?php echo date("h"); ?>" data-animation-duration="600"></span>:<span class="animate-number" data-value="<?php echo date("i"); ?>" data-animation-duration="600"></span> <span class="semi-bold"><?php echo date("a"); ?></span></span>
                 </time>
                 <div class="cbp_tmicon animated bounceIn">
                     <div class="user-profile">

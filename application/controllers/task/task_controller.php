@@ -48,10 +48,12 @@ class Task_controller extends CI_Controller {
         
         $task_service = new Task_service();
         $task_comment_service =new Task_comment_service();
+            $employee_task_service = new Employee_task_service();
 
         $data['task_id']=$task_id;
         $data['task']=$task_service->get_task_by_id($task_id);
         $data['task_comments']=$task_comment_service->get_task_comments($task_id);
+        $data['employees_for_task'] = $employee_task_service->get_employees_for_task($task_id);
 
         $partials = array('content' => 'task/task_detail_view');
         $this->template->load('template/main_template', $partials, $data);
