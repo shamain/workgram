@@ -1,4 +1,5 @@
 $(document).ready(function() {	
+ 
 /************************************** THIS FILE IS ONLY FOR DEMO PURPOSES **************************************/
 //One with the Map
 loadServerChart();
@@ -7,6 +8,7 @@ loadSalesGraph();
 loadSalesSparkline();
 loadShareMarketGraph();
 loadSampleChart();
+
 loadSampleChartDemo2();
 //loadAnimatedWeatherIcons();
 //Big white weather icons
