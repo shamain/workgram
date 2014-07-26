@@ -7518,3 +7518,7 @@ input[type="checkbox"] {
     content: '';
 
 }
+
+.colorpicker{
+    z-index: 1300 !important;
+}

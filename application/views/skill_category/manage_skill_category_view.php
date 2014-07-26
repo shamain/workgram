@@ -24,9 +24,14 @@
                         foreach ($skill_categories as $skill_category) {
                             ?> 
                             <tr  id="skill_category_<?php echo $skill_category->skill_cat_code; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
                                 <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
+                                <td>
+                                    <div style="border:1px solid #ccc;padding:1px;position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454">
+                                        <div style="width:4px;height:0;border:5px solid rgba(243, 89, 88, 0.7);overflow:hidden"></div>
+                                    </div>
+                                </td>
 
                                 <td>
 
@@ -78,6 +83,21 @@
                         </div>
                     </div>
 
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Color</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input data-color="rgb(255, 255, 255)" data-color-format="hex" id="colour" class="form-control skill_cat_colour_picker" type="text" name="colour">                              
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div id="add_skill_category_msg" class="form-row"> </div>
                 <div class="modal-footer">
@@ -89,8 +109,9 @@
         </div>
 
     </div>
-<script type="text/javascript">
-                                        $('#skill_parent_menu').addClass('active open');
-</script>
+    <script type="text/javascript">
+                                            $('#skill_parent_menu').addClass('active open');
+
+    </script>
 
 

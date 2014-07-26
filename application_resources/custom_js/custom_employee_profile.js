@@ -1,8 +1,4 @@
 
-$(document).ready(function() {
-
-      loadSampleChartDemo2();
-});
 
 
 function loadSampleChartDemo2(){

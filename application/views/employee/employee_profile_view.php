@@ -376,6 +376,11 @@
 </div>
 <script type="text/javascript">
     $('#employee_parent_menu').addClass('active open');
+    $(document).ready(function() {
+
+      loadSampleChartDemo2();
+});
+
 </script>
 
 

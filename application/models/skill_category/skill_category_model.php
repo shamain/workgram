@@ -4,6 +4,7 @@ class Skill_category_model extends CI_Model {
 
     var $skill_cat_code;
     var $skill_cat_name;
+    var $colour;
     var $del_ind;
     var $added_by;
     var $added_date;
@@ -26,6 +27,14 @@ class Skill_category_model extends CI_Model {
 
     public function set_skill_cat_name($skill_cat_name) {
         $this->skill_cat_name = $skill_cat_name;
+    }
+
+    public function get_colour() {
+        return $this->colour;
+    }
+
+    public function set_colour($colour) {
+        $this->colour = $colour;
     }
 
     public function get_del_ind() {

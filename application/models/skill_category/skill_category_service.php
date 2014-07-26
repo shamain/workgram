@@ -39,7 +39,8 @@ class Skill_category_service extends CI_Model {
     function update_skill_category($skill_category_model) {
 
         $data = array(
-            'skill_cat_name' => $skill_category_model->get_skill_cat_name()
+            'skill_cat_name' => $skill_category_model->get_skill_cat_name(),
+            'colour' => $skill_category_model->get_colour()
         );
 
         $this->db->where('skill_cat_code', $skill_category_model->get_skill_cat_code());

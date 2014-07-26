@@ -6,51 +6,60 @@ class Employee_service extends CI_Model {
 
         parent::__construct();
     }
-   //update employee
-      function update_employee($employee_model) {
-        
-        $data = array('employee_no' => $employee_model->get_employee_no(), 
-                      'employee_fname' =>  $employee_model->get_employee_fname(),
-                      'employee_lname' =>  $employee_model->get_employee_lname(),
-                      'employee_password' =>  $employee_model->get_employee_password(),
-                      'employee_email' =>  $employee_model->get_employee_email(),
-                      'employee_type' => $employee_model->get_employee_type(), 
-                      'employee_bday' =>  $employee_model->get_employee_bday(),
-                      'employee_contact' =>  $employee_model->get_employee_contact(),
-                      'employee_salary' =>  $employee_model->get_employee_salary(),
-                      'employee_contract' =>  $employee_model->get_employee_contract(),
-                      'employee_avatar' =>  $employee_model->get_employee_avatar(),
-                      'company_code' =>  $employee_model->get_company_code(),
-                      'updated_by' =>  $employee_model->get_updated_by(),
-                      'updated_date' =>  $employee_model->get_updated_date(),
-                      
-            
 
-       
-           );
-           
+    //update employee
+    function update_employee($employee_model) {
+
+        $data = array('employee_no' => $employee_model->get_employee_no(),
+            'employee_fname' => $employee_model->get_employee_fname(),
+            'employee_lname' => $employee_model->get_employee_lname(),
+            'employee_password' => $employee_model->get_employee_password(),
+            'employee_email' => $employee_model->get_employee_email(),
+            'employee_type' => $employee_model->get_employee_type(),
+            'employee_bday' => $employee_model->get_employee_bday(),
+            'employee_contact' => $employee_model->get_employee_contact(),
+            'employee_salary' => $employee_model->get_employee_salary(),
+            'employee_contract' => $employee_model->get_employee_contract(),
+            'employee_avatar' => $employee_model->get_employee_avatar(),
+            'company_code' => $employee_model->get_company_code(),
+            'updated_by' => $employee_model->get_updated_by(),
+            'updated_date' => $employee_model->get_updated_date(),
+        );
+
         $this->db->where('employee_Code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
-    
+
     //update online status
     function update_online_status($employee_model) {
         $data = array('is_online' => $employee_model->get_is_online());
         $this->db->where('employee_code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
-    
+
     //update employee avatar
     function update_employee_avatar($employee_model) {
         $data = array('employee_avatar' => $employee_model->get_employee_avatar());
         $this->db->where('employee_code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
-  
+
     //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {
 
         $query = $this->db->get_where('employee', array('company_code' => $company_code, 'del_ind' => '1'));
+        return $query->result();
+    }
+
+    //get active employees in a company by company code
+    function get_employees_by_company_id_manage($company_code) {
+
+        $this->db->select('*');
+        $this->db->from('employee');
+        $this->db->where('company_code', $company_code);
+        $this->db->where('del_ind', '1');
+        $this->db->order_by("employee_code",'desc');
+        $query = $this->db->get();
         return $query->result();
     }
 
@@ -108,7 +117,7 @@ class Employee_service extends CI_Model {
         $res = $this->db->get('employee');
         return $res->num_rows();
     }
-    
+
     //check token match for the actual one
     function activate_employee_account($employee_model) {
         $data = array('del_ind' => $employee_model->get_del_ind());
@@ -175,7 +184,6 @@ class Employee_service extends CI_Model {
     function add_new_employee($employee_model) {
 
         return $this->db->insert('employee', $employee_model);
-
     }
 
     function add_employee($employee_model) {

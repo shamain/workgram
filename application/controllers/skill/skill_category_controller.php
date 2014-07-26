@@ -48,6 +48,7 @@ class Skill_category_controller extends CI_Controller {
         $skill_category_model = new Skill_category_model();
 
         $skill_category_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
+        $skill_category_model->set_colour($this->input->post('colour', TRUE));
         $skill_category_model->set_del_ind('1');
         $skill_category_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
         $skill_category_model->set_added_date(date("Y-m-d H:i:s"));
@@ -63,6 +64,7 @@ class Skill_category_controller extends CI_Controller {
 
         $skill_category_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
         $skill_category_model->set_skill_cat_name($this->input->post('skill_cat_name', TRUE));
+        $skill_category_model->set_colour($this->input->post('colour', TRUE));
 
         echo $skill_category_service->update_skill_category($skill_category_model);
     }

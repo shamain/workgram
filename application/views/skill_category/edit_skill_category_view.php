@@ -24,11 +24,26 @@
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input id="skill_category_name" class="form-control" type="text" name="skill_category_name" value="<?php echo $skill_category->skill_cat_name; ?>" >                              
+                                        <input id="skill_cat_name" class="form-control" type="text" name="skill_cat_name" value="<?php echo $skill_category->skill_cat_name; ?>" >                              
                                         <input id="skill_cat_code" class="form-control" type="hidden" name="skill_cat_code" value="<?php echo $skill_category->skill_cat_code; ?>" >                              
                                     </div>
                                 </div>
                             </div>
+                            
+                             <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Color</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input data-color="rgb(255, 255, 255)" data-color-format="hex" id="colour" class="form-control skill_cat_colour_picker" type="text" name="colour" value="<?php echo $skill_category->colour; ?>">                              
+                            </div>
+                        </div>
+                    </div>
 
                             <div class="form-actions">
                                 <div class="pull-right">

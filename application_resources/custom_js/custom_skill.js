@@ -208,6 +208,9 @@ $(document).ready(function() {
     $('#skill_category_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
+    //colour picker
+    $('.skill_cat_colour_picker').colorpicker()
+
     //add Skill Category Form
     $('#add_skill_category_form').validate({
         focusInvalid: false,
@@ -217,6 +220,9 @@ $(document).ready(function() {
                 required: true
             },
             skill_cat_code: {
+                required: true
+            },
+            colour: {
                 required: true
             }
 
@@ -264,6 +270,9 @@ $(document).ready(function() {
             },
             skill_cat_code: {
                 required: true
+            },
+            colour: {
+                required: true
             }
 
         },
@@ -288,7 +297,7 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }, submitHandler: function(form)
         {
-            $.post(site_url + '/skill_category/skill_category_controller/edit_skill_category', $('#edit_skill_category_form').serialize(), function(msg)
+            $.post(site_url + '/skill/skill_category_controller/edit_skill_category', $('#edit_skill_category_form').serialize(), function(msg)
             {
                 if (msg == 1) {
                     $("#edit_skill_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Skill Category </a>has been updated.</div>');
