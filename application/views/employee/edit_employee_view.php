@@ -51,10 +51,15 @@
                             <div class="form-group">
                                 <label class="form-label">Password</label>
                                 <span style="color: red">*</span>
+                            
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <input id="employee_password" class="form-control" type="text" name="employee_password" value="<?php echo $employee->employee_password; ?>">                              
+                                </div>
+                                <div class="input-with-icon  left">                                       
+                                    <i class=""></i>
+                                      <input  type="button" value="Password" onclick="generatePassword()">                         
                                 </div>
                             </div>
 
