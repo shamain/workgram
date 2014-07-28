@@ -121,7 +121,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_salary" class="form-control" type="text" name="employee_salary" value="<?php echo $employee->employee_salary; ?>">                              
+                                    <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this, event)" value="<?php echo $employee->employee_salary; ?>">                              
                                 </div>
                             </div>
 
