@@ -20,10 +20,11 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
-             <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
+        <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/css/morris.css" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
 
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -177,6 +178,7 @@
                                 </a>
                                 <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
                                     <li><a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile"> My Account</a> </li>
+                                    <li><a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix"> My Skill Matrix</a> </li>
                                     <li><a href="calender.html">My Calendar</a> </li>
                                     <li><a href="email.html"> My Inbox&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a> </li>
                                     <li class="divider"></li>
@@ -528,6 +530,10 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.orderBars.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/js/morris.min.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-easy-pie-chart/js/jquery.easypiechart.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/skycons/skycons.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
@@ -571,7 +577,7 @@
             <script src="<?php echo base_url(); ?>application_resources/js/core.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/chat.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/js/demo.js" type="text/javascript"></script>
-    
+
 
 
 
