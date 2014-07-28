@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="grid simple">
             <div class="grid-body no-border">
-                <h4>Ordered Bar <span class="semi-bold"> Charts</span></h4>
+                <h4>Find out the skills of other <span class="semi-bold"> employees</span></h4>
                 <p>Bar charts are powered by flot plugin, here is ordered stack bar chart with a legend in it. Everything in this chart is customizable</p>
                 <br>
                 <div id="my_skill_matrix_chart" style="height:250px"></div>

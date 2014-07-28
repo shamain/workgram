@@ -13,7 +13,7 @@ class Task_service extends CI_Model {
         $this->db->from('task');
         $this->db->join('employee', 'employee.employee_code = task.added_by');
         $this->db->where('project_id', $project_id);
-        $this->db->where("del_ind", "1");
+        $this->db->where("task.del_ind", "1");
         $this->db->order_by("task_priority", "desc");
 
         $query = $this->db->get();

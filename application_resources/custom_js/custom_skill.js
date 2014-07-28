@@ -429,7 +429,7 @@ $.plot($("#my_skill_matrix_chart"), data1, {
     },
     grid: {
         hoverable: true,
-        clickable: false,
+        clickable: true,
         borderWidth: 1,
         borderColor: '#f0f0f0',
         labelMargin: 8,
@@ -438,3 +438,6 @@ $.plot($("#my_skill_matrix_chart"), data1, {
         shadowSize: 1
     }
 });
+ function d(){
+     alert();
+ }

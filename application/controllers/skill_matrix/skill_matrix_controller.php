@@ -23,7 +23,7 @@ class Skill_matrix_controller extends CI_Controller {
 
         $skill_category_service = new Skill_category_service();
         $skill_service=new Skill_service();
-        $data['heading'] = "My Skill Matrix";
+        $data['heading'] = "Skill Matrix";
 
         $data['skills'] = $skill_service->get_all_skills();
 
