@@ -98,43 +98,43 @@
 
                         <script type="text/javascript">
 
-                            $(function() {
-                                var btnUpload = $('#upload2');
-                                var status = $('#status2');
-                                new AjaxUpload(btnUpload, {
-                                    action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
-                                    name: 'uploadfile2',
-                                    onSubmit: function(file, ext) {
-                                        if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                            // extension is not allowed 
-                                            status.text('Only JPG, PNG or GIF files are allowed');
-                                            return false;
-                                        }
-                                        //status.text('Uploading...Please wait');
+                                $(function() {
+                                    var btnUpload = $('#upload2');
+                                    var status = $('#status2');
+                                    new AjaxUpload(btnUpload, {
+                                        action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
+                                        name: 'uploadfile2',
+                                        onSubmit: function(file, ext) {
+                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                // extension is not allowed 
+                                                status.text('Only JPG, PNG or GIF files are allowed');
+                                                return false;
+                                            }
+                                            //status.text('Uploading...Please wait');
 //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
 
-                                    },
-                                    onComplete: function(file, response) {
+                                        },
+                                        onComplete: function(file, response) {
 
-                                        //On completion clear the status
-                                        //status.text('');
-                                        $("#files2").html("");
-                                        $("#sta2").html("");
-                                        //Add uploaded file to list
-                                        if (response != "error") {
+                                            //On completion clear the status
+                                            //status.text('');
+                                            $("#files2").html("");
+                                            $("#sta2").html("");
+                                            //Add uploaded file to list
+                                            if (response != "error") {
 
-                                            $('#pro_pic').html("");
-                                            $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
-                                            picFileName = response;
-                                            document.getElementById('image2').value = file;
-                                            document.getElementById('employee_avatar').value = response;
-                                        } else {
-                                            $('<div></div>').appendTo('#files2').text(file).addClass('error');
+                                                $('#pro_pic').html("");
+                                                $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
+                                                picFileName = response;
+                                                document.getElementById('image2').value = file;
+                                                document.getElementById('employee_avatar').value = response;
+                                            } else {
+                                                $('<div></div>').appendTo('#files2').text(file).addClass('error');
+                                            }
                                         }
-                                    }
-                                });
+                                    });
 
-                            });
+                                });
 
 
 
@@ -181,14 +181,14 @@
                         <h6 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h6>
                         <br>
                         <h6 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h6>
-                        
-                        
-                                    
-                  <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>                  
-                                    
-                        
+
+
+
+                        <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
+                            <i class="fa fa-pencil"></i>
+                        </a>                  
+
+
 
 <!--                    <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
@@ -197,10 +197,24 @@
 <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
 
-                        
+
                     </div>
-
-
+<!-- skill graph-->
+                    <div id="donut-example" style="height:200px;">
+                        <svg height="200" version="1.1" width="230" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
+                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc>
+                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                            
+                        </defs>
+                        <path fill="none" stroke="#60bfb6" d="M115,160A60,60,0,0,0,171.95770043472734,118.86320124442962" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+                        <path fill="#60bfb6" stroke="#ffffff" d="M115,163A63,63,0,0,0,174.8055854564637,119.8063613066511L195.69007561586372,126.72286842960862A85,85,0,0,1,115,185Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <path fill="none" stroke="#91cdec" d="M171.95770043472734,118.86320124442962A60,60,0,0,0,61.20860892026032,73.42019101448432" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
+                        <path fill="#91cdec" stroke="#ffffff" d="M174.8055854564637,119.8063613066511A63,63,0,0,0,58.51903936627333,72.09120056520852L38.79552930370211,62.345270603852775A85,85,0,0,1,195.69007561586372,126.72286842960862Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <path fill="none" stroke="#eceff1" d="M61.20860892026032,73.42019101448432A60,60,0,0,0,114.98115044438853,159.99999703911863" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path>
+                        <path fill="#eceff1" stroke="#ffffff" d="M58.51903936627333,72.09120056520852A63,63,0,0,0,114.98020796660795,162.99999689107455L114.9717256665828,189.99999555867794A90,90,0,0,1,34.31291338039047,60.13028652172647Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                        <text x="115" y="90" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-size: 15px; line-height: normal; font-family: Arial;" font-size="15px" font-weight="800" transform="matrix(0.9076,0,0,0.9076,10.6303,9.1513)" stroke-width="1.1018518518518519">
+                        <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Design</tspan></text><text x="115" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-family: Arial;" font-size="14px" transform="matrix(1.25,0,0,1.25,-28.75,-25.5)" stroke-width="0.8">
+                        <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">40%</tspan></text></svg></div>
 
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
@@ -241,128 +255,130 @@
                         <div class="clearfix"></div>
                     </div>				
                 </div>
-                   
-                
-<div class="grid-body no-border">
-<h3>My<span class="semi-bold">Tasks</span></h3>
-<table class="table no-more-tables">
-<thead>
-<tr>
-<th style="width:1%">
-<div class="checkbox check-default">
-<input id="checkbox10" type="checkbox" value="1" class="checkall">
-<label for="checkbox10"></label>
-</div>
-</th>
-<th style="width:9%">Task ID</th>
-<th style="width:22%">Task Name</th>
-<th style="width:6%">Project ID</th>
-<th style="width:10%">Progress</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="v-align-middle">
-<div class="checkbox check-default">
-<input id="checkbox11" type="checkbox" value="1">
-<label for="checkbox11"></label>
-</div>
-</td>
-<td class="v-align-middle"></td>
-<td class="v-align-middle"><span class="muted"></span>
-</td>
-<td><span class="muted"></span>
-</td>
-<td class="v-align-middle">
-<div class="progress">
-<div data-percentage="" class="progress-bar progress-bar-success animate-progress-bar" style="width: 79%;"></div>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<div class="checkbox check-default">
-<input id="checkbox12" type="checkbox" value="1">
-<label for="checkbox12"></label>
-</div>
-</td>
-<td><span class="label label-important"></span>
-</td>
-<td><span class="muted"></span>
-</td>
-<td><span class="muted"></span>
-</td>
-<td>
-<div class="progress">
-<div data-percentage="" class="progress-bar progress-bar-danger animate-progress-bar" style="width: 10%;"></div>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<div class="checkbox check-default">
-<input id="checkbox13" type="checkbox" value="1">
-<label for="checkbox13"></label>
-</div>
-</td>
-<td></td>
-<td class="v-align-middle"><span class="muted"></span>
-</td>
-<td><span class="muted"></span>
-</td>
-<td>
-<div class="progress">
-<div data-percentage="" class="progress-bar progress-bar-info animate-progress-bar" style="width: 65%;"></div>
-</div>
-</td>
-</tr>
-<tr>
-<td>
-<div class="checkbox check-default">
-<input id="checkbox14" type="checkbox" value="1">
-<label for="checkbox14"></label>
-</div>
-</td>
-<td></td>
-<td class="v-align-middle"><span class="muted"></span>
-</td>
-<td><span class="muted"></span>
-</td>
-<td>
-<div class="progress ">
-<div data-percentage="" class="progress-bar progress-bar-warning animate-progress-bar" style="width: 42%;"></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-                
-              //<?php
+
+                <!-- show employee tasks-->  
+
+                <div class="grid-body no-border">
+                    <h3>My<span class="semi-bold"> Tasks</span></h3>
+                    <table class="table no-more-tables">
+                        <thead>
+                            <tr>
+                                <th style="width:1%">
+                        <div class="checkbox check-default">
+                            <input id="checkbox10" type="checkbox" value="1" class="checkall">
+                            <label for="checkbox10"></label>
+                        </div>
+                        </th>
+                        <th style="width:9%">Task ID</th>
+                        <th style="width:22%">Task Name</th>
+                        <th style="width:6%">Project ID</th>
+                        <th style="width:10%">Progress</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="v-align-middle">
+                                    <div class="checkbox check-default">
+                                        <input id="checkbox11" type="checkbox" value="1">
+                                        <label for="checkbox11"></label>
+                                    </div>
+                                </td>
+                                <td class="v-align-middle"></td>
+                                <td class="v-align-middle"><span class="muted"></span>
+                                </td>
+                                <td><span class="muted"></span>
+                                </td>
+                                <td class="v-align-middle">
+                                    <div class="progress">
+                                        <div data-percentage="" class="progress-bar progress-bar-success animate-progress-bar" style="width: 79%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox check-default">
+                                        <input id="checkbox12" type="checkbox" value="1">
+                                        <label for="checkbox12"></label>
+                                    </div>
+                                </td>
+                                <td><span class="label label-important"></span>
+                                </td>
+                                <td><span class="muted"></span>
+                                </td>
+                                <td><span class="muted"></span>
+                                </td>
+                                <td>
+                                    <div class="progress">
+                                        <div data-percentage="" class="progress-bar progress-bar-danger animate-progress-bar" style="width: 10%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox check-default">
+                                        <input id="checkbox13" type="checkbox" value="1">
+                                        <label for="checkbox13"></label>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td class="v-align-middle"><span class="muted"></span>
+                                </td>
+                                <td><span class="muted"></span>
+                                </td>
+                                <td>
+                                    <div class="progress">
+                                        <div data-percentage="" class="progress-bar progress-bar-info animate-progress-bar" style="width: 65%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="checkbox check-default">
+                                        <input id="checkbox14" type="checkbox" value="1">
+                                        <label for="checkbox14"></label>
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td class="v-align-middle"><span class="muted"></span>
+                                </td>
+                                <td><span class="muted"></span>
+                                </td>
+                                <td>
+                                    <div class="progress ">
+                                        <div data-percentage="" class="progress-bar progress-bar-warning animate-progress-bar" style="width: 42%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                //<?php
 //                        foreach ($tasks as $task) {
-//                        } ?> 
-<!--                            <tr  id="task_//<?php echo $task->task_id; ?>">-->
+//                        } 
+                ?> 
+  <!--                            <tr  id="task_//<?php echo $task->task_id; ?>">-->
 
 
-                                
+
 <!--                                <td>//<?php echo $task->task_id; ?></td>
-                                <td>//<?php echo $task->task_name; ?></td>
-                                <td>//<?php echo $task->project_id; ?></td>
-                                <td>//<?php echo $task->task_progress; ?></td>-->
-                                
-                
-                                
-                                 
-                               
-                               
-                               
-                            
-                                
-                                
-                
-                
-                
-                
+<td>//<?php echo $task->task_name; ?></td>
+<td>//<?php echo $task->project_id; ?></td>
+<td>//<?php echo $task->task_progress; ?></td>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="tiles-body">
                     <div class="row">
                         <div class="post col-md-12">
@@ -510,9 +526,9 @@
 
         loadSampleChartDemo2();
     });
-    
-  </script>
-  
+
+</script>
+
 
 
 
