@@ -87,6 +87,15 @@ class Employee_profile_controller extends CI_Controller {
 //        }
     }
     
+    public function get_task_for_employee() {
+
+        $task_service = new Task_service();
+        $result = $task_service->get_employee_task_by_project($this->input->post('employee_code'));
+        
+        echo json_encode($result);
+    }
+    
+    
     
 
 

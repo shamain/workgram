@@ -188,7 +188,7 @@
                                         <i class="fa fa-pencil"></i>
                                     </a>                  
                                     
-
+                        
 
 <!--                    <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
@@ -241,7 +241,128 @@
                         <div class="clearfix"></div>
                     </div>				
                 </div>
+                   
+                
+<div class="grid-body no-border">
+<h3>My<span class="semi-bold">Tasks</span></h3>
+<table class="table no-more-tables">
+<thead>
+<tr>
+<th style="width:1%">
+<div class="checkbox check-default">
+<input id="checkbox10" type="checkbox" value="1" class="checkall">
+<label for="checkbox10"></label>
+</div>
+</th>
+<th style="width:9%">Task ID</th>
+<th style="width:22%">Task Name</th>
+<th style="width:6%">Project ID</th>
+<th style="width:10%">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="v-align-middle">
+<div class="checkbox check-default">
+<input id="checkbox11" type="checkbox" value="1">
+<label for="checkbox11"></label>
+</div>
+</td>
+<td class="v-align-middle"></td>
+<td class="v-align-middle"><span class="muted"></span>
+</td>
+<td><span class="muted"></span>
+</td>
+<td class="v-align-middle">
+<div class="progress">
+<div data-percentage="" class="progress-bar progress-bar-success animate-progress-bar" style="width: 79%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="checkbox check-default">
+<input id="checkbox12" type="checkbox" value="1">
+<label for="checkbox12"></label>
+</div>
+</td>
+<td><span class="label label-important"></span>
+</td>
+<td><span class="muted"></span>
+</td>
+<td><span class="muted"></span>
+</td>
+<td>
+<div class="progress">
+<div data-percentage="" class="progress-bar progress-bar-danger animate-progress-bar" style="width: 10%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="checkbox check-default">
+<input id="checkbox13" type="checkbox" value="1">
+<label for="checkbox13"></label>
+</div>
+</td>
+<td></td>
+<td class="v-align-middle"><span class="muted"></span>
+</td>
+<td><span class="muted"></span>
+</td>
+<td>
+<div class="progress">
+<div data-percentage="" class="progress-bar progress-bar-info animate-progress-bar" style="width: 65%;"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class="checkbox check-default">
+<input id="checkbox14" type="checkbox" value="1">
+<label for="checkbox14"></label>
+</div>
+</td>
+<td></td>
+<td class="v-align-middle"><span class="muted"></span>
+</td>
+<td><span class="muted"></span>
+</td>
+<td>
+<div class="progress ">
+<div data-percentage="" class="progress-bar progress-bar-warning animate-progress-bar" style="width: 42%;"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+                
+              //<?php
+//                        foreach ($tasks as $task) {
+//                        } ?> 
+<!--                            <tr  id="task_//<?php echo $task->task_id; ?>">-->
 
+
+                                
+<!--                                <td>//<?php echo $task->task_id; ?></td>
+                                <td>//<?php echo $task->task_name; ?></td>
+                                <td>//<?php echo $task->project_id; ?></td>
+                                <td>//<?php echo $task->task_progress; ?></td>-->
+                                
+                
+                                
+                                 
+                               
+                               
+                               
+                            
+                                
+                                
+                
+                
+                
+                
                 <div class="tiles-body">
                     <div class="row">
                         <div class="post col-md-12">
@@ -382,6 +503,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     $('#employee_parent_menu').addClass('active open');
     $(document).ready(function() {
@@ -389,9 +511,9 @@
         loadSampleChartDemo2();
     });
     
-    
+  </script>
+  
 
-</script>
 
 
 
