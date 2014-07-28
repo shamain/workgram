@@ -156,8 +156,9 @@
                                 <i class="">
                                 </i>
                                 <input id="employee_password" class="form-control" type="text" name="employee_password"  >
-                                <input type="button" value="password" onclick="generatePassword()">
-
+<!--                                <input type="button" value="password" onclick="generatePassword()">-->
+                                 <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>
+                            
                                
                             </div>
                             

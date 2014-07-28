@@ -57,11 +57,10 @@
                                     <i class=""></i>
                                     <input id="employee_password" class="form-control" type="text" name="employee_password" value="<?php echo $employee->employee_password; ?>">                              
                                 </div>
-                                                                    
-                                    <i class=""> <input  type="button" value="Password" onclick="generatePassword()"value="<?php echo $employee->employee_password; ?>">        </i>
-                                                      
-                               
-                            </div>
+                                                  
+                              <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()"value="<?php echo $employee->employee_password; ?>">Password</button>
+                            
+                                </div>
 
                             <div class="form-group">
                                 <label class="form-label">Email</label>
