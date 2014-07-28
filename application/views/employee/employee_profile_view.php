@@ -181,6 +181,14 @@
                         <h6 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h6>
                         <br>
                         <h6 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h6>
+                        
+                        
+                                    
+                  <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>                  
+                                    
+
 
 <!--                    <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
@@ -189,7 +197,7 @@
 <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
 
-
+                        
                     </div>
 
 
@@ -380,8 +388,12 @@
 
         loadSampleChartDemo2();
     });
+    
+    
 
 </script>
+
+
 
 
 

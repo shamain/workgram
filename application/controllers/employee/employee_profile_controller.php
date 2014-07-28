@@ -68,6 +68,27 @@ class Employee_profile_controller extends CI_Controller {
 
         echo $employee_service->update_employee_avatar($employee_model);
     }
+    
+    function edit_employee_profile($employee_code) {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
+//        if ($perm) {
+
+        $employee_service = new employee_service();
+
+
+        $data['heading'] = "Edit Employee Details";
+        $data['employee_detail'] = $employee_service->get_employee_by_id($employee_code);
+
+
+        $partials = array('content' => 'employee/edit_employee_profile');
+        $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
+    
+    
+
 
 }
 
