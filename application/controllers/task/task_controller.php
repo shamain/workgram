@@ -16,7 +16,7 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
-            
+
             $this->load->model('task_comment/task_comment_model');
             $this->load->model('task_comment/task_comment_service');
 
@@ -25,6 +25,8 @@ class Task_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+
+            $this->load->helper('date');
         }
     }
 
@@ -45,15 +47,28 @@ class Task_controller extends CI_Controller {
     }
 
     function view_task_detail_view($task_id) {
-        
-        $task_service = new Task_service();
-        $task_comment_service =new Task_comment_service();
-            $employee_task_service = new Employee_task_service();
 
-        $data['task_id']=$task_id;
-        $data['task']=$task_service->get_task_by_id($task_id);
-        $data['task_comments']=$task_comment_service->get_task_comments($task_id);
+        $task_service = new Task_service();
+        $task_comment_service = new Task_comment_service();
+        $employee_task_service = new Employee_task_service();
+
+
+        $data['task_id'] = $task_id;
+        $task = $task_service->get_task_by_id($task_id);
+        $data['task'] = $task;
+        $data['task_comments'] = $task_comment_service->get_task_comments($task_id);
         $data['employees_for_task'] = $employee_task_service->get_employees_for_task($task_id);
+
+        $remain_dates = '';
+
+        if (!empty($task)) {
+            $task_dead_line = strtotime($task->task_deadline);
+            $now = time();
+            $remain_dates = timespan($now, $task_dead_line);
+        }
+
+        $data['remain_dates'] = $remain_dates;
+
 
         $partials = array('content' => 'task/task_detail_view');
         $this->template->load('template/main_template', $partials, $data);

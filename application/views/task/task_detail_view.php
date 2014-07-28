@@ -50,11 +50,9 @@
                         </span>
                         <span class="label label-important">
                             <?php
-                            if ($task->task_deadline == "0000-00-00") {
-                                echo 'Not Set';
-                            } else {
-                                echo date('d M Y', strtotime($task->task_deadline));
-                            }
+                            if ($remain_dates != '') {
+                                echo $remain_dates;
+                            } 
                             ?>
                         </span>
 
