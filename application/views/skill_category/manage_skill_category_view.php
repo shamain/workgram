@@ -14,7 +14,7 @@
                         <tr>
                             <th>#</th>
                             <th>Skill Category Name</th> 
-                            <th>Colour</th>
+                            <th>Color</th>
                             <th>Added By</th>
                             <th>Options</th>
                         </tr>
@@ -25,15 +25,15 @@
                         foreach ($skill_categories as $skill_category) {
                             ?> 
                             <tr  id="skill_category_<?php echo $skill_category->skill_cat_code; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
                                 <td class="v-align-middle">
                                     <div style="padding:1px;top:9px;right:9px;;font-size:smaller;color:#545454;width: 21px;">
-                                        <div style="width:9px;height:0;border:10px solid <?php echo $skill_category->colour; ?>;overflow:hidden"></div>
+                                        <div style="width:9px;height:0;border:10px solid <?php echo $skill_category->color; ?>;overflow:hidden"></div>
                                     </div>
                                 </td>
                                 <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
-                                
+
 
                                 <td>
 
@@ -112,7 +112,7 @@
 
     </div>
     <script type="text/javascript">
-                                            $('#skill_parent_menu').addClass('active open');
+        $('#skill_parent_menu').addClass('active open');
 
     </script>
 
