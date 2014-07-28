@@ -29,7 +29,7 @@
                                 <td><?php echo $skill_category->skill_cat_name; ?></td>
                                 <td class="v-align-middle">
                                     <div style="padding:1px;top:9px;right:9px;;font-size:smaller;color:#545454;width: 21px;">
-                                        <div style="width:9px;height:0;border:10px solid <?php echo $skill_category->color; ?>;overflow:hidden"></div>
+                                        <div style="width:9px;height:0;border:10px solid <?php echo $skill_category->colour; ?>;overflow:hidden"></div>
                                     </div>
                                 </td>
                                 <td><?php echo $skill_category->employee_fname . ' ' . $skill_category->employee_lname; ?></td>
