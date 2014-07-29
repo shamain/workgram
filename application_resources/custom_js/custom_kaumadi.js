@@ -163,8 +163,8 @@ $('#edit_employee_form').validate({
             required: true
         },
         employee_email: {
-            required: true,
-            email: true
+            required: true
+            
         },
         employee_type: {
             required: true
