@@ -74,7 +74,8 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
                         <form id="add_employee_skill_form" name="add_employee_skill_form">
-
+                            
+                            
                             <div class="form-group">
                                 <label class="form-label">Skill Category</label>
                                 <span style="color: red">*</span>
