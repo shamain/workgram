@@ -42,6 +42,7 @@
         <span class="arrow "></span> 
     </a>
     <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix"> Skills Matrix </a> </li>
         <li > <a href="<?php echo site_url(); ?>/skill/skill_category_controller/manage_skill_category"> Manage Skill Categories </a> </li>
         <li > <a href="<?php echo site_url(); ?>/skill/skill_controller/manage_skill"> Manage Skills </a> </li>
         
