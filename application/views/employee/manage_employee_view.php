@@ -213,7 +213,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this, event)">                              
+                                <input id="employee_salary" class="form-control" type="text" name="employee_salary" >                              
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                              <select name="employee_contract" id="employee_Contract" class="select2 form-control"  >
+                              <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
                                     <option value="FULL_TIME">FULL TIME</option>
                                     <option value="PART_TIME">PART TIME</option>
                                      
