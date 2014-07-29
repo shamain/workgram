@@ -74,12 +74,12 @@
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
                         <form id="add_employee_skill_form" name="add_employee_skill_form">
-                            
-                            
+
+
                             <div class="form-group">
                                 <label class="form-label">Skill Category</label>
-                                <span style="color: red">*</span>
-
+                                <span style="color: red">*</span>                       
+                              
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
@@ -90,8 +90,10 @@
                                     </select>                            
                                 </div>
                             </div>
+                            <!--                            </div>-->
 
                             <div class="form-group">
+
                                 <label class="form-label">Skill</label>
                                 <span style="color: red">*</span>
 
@@ -105,22 +107,25 @@
                                     </select>   
                                 </div>
                             </div>
+                          
 
                             <div class="form-group">
+
                                 <label class="form-label">Expert Level</label>
                                 <span style="color: red">*</span>
 
+                     
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <div class="slider primary col-md-8">
                                         <div class="slider slider-horizontal" style="width: 210px;">
                                             <div class="slider-track">
-                                                <div class="slider-selection" style="left: 85.5072463768116%; width: 14.492753623188406%;"></div>
-                                                <div class="slider-handle round" style="left: 85.5072463768116%;"></div>
-                                                <div class="slider-handle round hide" style="left: 100%;"></div>
+                                                <div class="slider-selection" style="left: 0%; width: 100%;"></div>
+                                                <div class="slider-handle round" style="left: 0%;"></div>
+                                                <div class="slider-handle round hide" style="left: 0%;"></div>
 
                                             </div>
-                                            <div class="tooltip top hide" style="top: -36px; left: 163.56521739130437px;">
+                                            <div class="tooltip top hide" style="top: 12px; left: 210px;">
                                                 <div class="tooltip-arrow"></div>
                                                 <div class="tooltip-inner">60</div>
 
@@ -128,22 +133,22 @@
                                             <input type="text" id="expert_level" name="expert_level" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
-
+                      
+                            <br><br>
 
                             <div class="form-group">
                                 <label class="form-label">References</label>
-                                <span style="color: red">*</span>
-                                <div class="controls">
-                                    <input type="text" class="form-control" id="link" name="link">
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="link" class="form-control" type="text" name="link" >                              
                                 </div>
                             </div>
 
-
                             <div id="add_emp_skill_msg" class="form-row"> </div>
-
-
                             <div class="form-actions">
                                 <div class="pull-right">
                                     <button class="btn btn-primary btn-cons" type="submit">
@@ -161,3 +166,10 @@
         </div>
     </div>
 </div>
+
+<script>
+	$(document).ready(function() {		
+		$('.slider-element').slider();
+	});
+</script>
+

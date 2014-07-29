@@ -24,8 +24,9 @@ class Skill_service extends CI_Model {
     }
 
     function delete_skill($skill_code) {
-
-        return $this->db->delete('skill', array('skill_code' => $skill_code));
+        $data = array('del_ind' => '0');
+        $this->db->where('skill_code', $skill_code);
+        return $this->db->update('skill', $data);
     }
 
     function get_skill_by_code($skill_code) {

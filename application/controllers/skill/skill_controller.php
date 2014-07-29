@@ -57,14 +57,10 @@ class Skill_controller extends CI_Controller {
         $skill_model = new Skill_model();
         $skill_service = new Skill_service();
 
-        $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
         $skill_model->set_skill_code($this->input->post('skill_code', TRUE));
         $skill_model->set_skill_name($this->input->post('skill_name', TRUE));
-        $skill_model->set_del_ind($this->input->post('del_ind', TRUE));
-        $skill_model->set_added_by($this->input->post('added_by', TRUE));
-
-        $skill_model->set_added_date($this->input->post('added_date', TRUE));
-
+        $skill_model->set_skill_cat_code($this->input->post('skill_cat_code', TRUE));
+//        $skill_category_model->set_colour($this->input->post('colour', TRUE));
 
         echo $skill_service->update_skill($skill_model);
     }
@@ -74,7 +70,7 @@ class Skill_controller extends CI_Controller {
 
         $skill_service = new skill_service();
 
-        echo $skill_service->delete_skill(trim($this->input->post('skill_code', TRUE)));
+        echo $skill_service->delete_skill(trim($this->input->post('id', TRUE)));
     }
 
     function add_new_skill() {
@@ -93,4 +89,3 @@ class Skill_controller extends CI_Controller {
     }
 
 }
-

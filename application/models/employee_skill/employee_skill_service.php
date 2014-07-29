@@ -20,9 +20,10 @@ class Employee_skill_service extends CI_Model {
         return $query->result();
     }
 
-    function delete_employee_skill($employee_skill_id) {
-
-        return $this->db->delete('employee_skill', array('employee_skill_id' => $employee_skill_id));
+    function delete_employee_skill($skill_code) {
+        $data = array('del_ind' => '0');
+        $this->db->where('skill_code', $skill_code);
+        return $this->db->update('skill', $data);
     }
 
     function update_employee_skill($employee_skill_model) {

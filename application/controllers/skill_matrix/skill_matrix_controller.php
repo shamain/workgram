@@ -50,5 +50,32 @@ class Skill_matrix_controller extends CI_Controller {
 
         echo $employee_skill_service->add_new_employee_skill($employee_skill_model);
     }
+    
+     function edit_employee_skill_matrix() {
+
+        $employee_skill_model = new Employee_skill_model();
+        $employee_skill_service = new Employee_skill_service();
+
+        $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
+//        $employee_skill_model->set_employee_code($this->input->post('employee_code', TRUE));
+//        $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
+//        $employee_skill_model->set_del_ind($this->input->post('del_ind', TRUE));
+//        $employee_skill_model->set_added_date($this->input->post('added_by', TRUE));
+
+        $employee_skill_model->set_added_date($this->input->post('added_date', TRUE));
+
+
+        echo $employee_skill_service->update_employee_skill($employee_skill_model);
+    }
+
+    function delete_employee_skill() {
+
+
+        $employee_skill_service = new Employee_skill_service();
+
+        echo $employee_skill_service->delete_employee_skill(trim($this->input->post('id', TRUE)));
+    }
+    
+    
 
 }
