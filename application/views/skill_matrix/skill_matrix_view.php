@@ -125,7 +125,7 @@
                                                 <div class="tooltip-inner">60</div>
 
                                             </div>
-                                            <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                                            <input type="text" id="expert_level" name="expert_level" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                                 <label class="form-label">References</label>
                                 <span style="color: red">*</span>
                                 <div class="controls">
-                                    <input type="text" class="form-control" id="link">
+                                    <input type="text" class="form-control" id="link" name="link">
                                 </div>
                             </div>
 

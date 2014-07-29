@@ -277,11 +277,81 @@
 
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="grid simple vertical green">
+<!-- Add New Modal -->
+<div class="modal fade" id="add_task_modal" tabindex="-1" role="dialog" aria-labelledby="add_task_modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="add_task_form" name="add_task_form">
+                <div class="modal-header tiles green">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <br>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="add_task_modalLabel" class="semi-bold text-white">It's a new task </h4>
+                    <p class="no-margin text-white">Include task details here.</p>
+                    <br>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Task</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_name" class="form-control" type="text" name="task_name">                              
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Task</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_name" class="form-control" type="text" name="task_name">                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Deadline</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="task_deadline_dpicker">                                       
+                                <i class=""></i>
+
+                                <input class="form-control" type="text" id="task_deadline" name="task_deadline" readonly="true" value="<?php echo date("Y-m-d"); ?>">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="add_task_msg" class="form-row"> </div>
+                <input id="project_id" class="form-control" type="hidden" name="project_id" value="<?php echo $project->project_id; ?>">                              
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+            </form>
         </div>
+
     </div>
 </div>
 
