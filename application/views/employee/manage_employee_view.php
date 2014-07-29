@@ -229,9 +229,9 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                              <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                    <option value="full time">Full Time</option>
-                                    <option value="part time">Part Time</option>
+                              <select name="employee_contract" id="employee_Contract" class="select2 form-control"  >
+                                    <option value="FULL_TIME">FULL TIME</option>
+                                    <option value="PART_TIME">PART TIME</option>
                                      
                                 </select>                             
                             </div>
