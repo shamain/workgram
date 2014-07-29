@@ -453,5 +453,12 @@ class Employee_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    
+      function add_new_employee_registration($employee_model) {
+
+        $this->db->insert('employee', $employee_model);
+        return $this->db->insert_id();
+    }
+
 
 }
