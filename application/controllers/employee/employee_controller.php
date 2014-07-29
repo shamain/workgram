@@ -35,7 +35,10 @@ class Employee_controller extends CI_Controller {
         $employee_model = new employee_model();
         $employee_service = new employee_service();
 
-//        $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
+        $name = ucfirst($this->input->post('employee_fname', TRUE)) . ' ' . ucfirst($this->input->post('employee_lname', TRUE));
+        $email = $this->input->post('employee_email', TRUE);
+        $token = $this->generate_random_string(); //generate account activation token
+
         $employee_model->set_employee_no($this->input->post('employee_no', TRUE));
         $employee_model->set_employee_fname($this->input->post('employee_fname', TRUE));
         $employee_model->set_employee_lname($this->input->post('employee_lname', TRUE));
@@ -51,7 +54,37 @@ class Employee_controller extends CI_Controller {
         $employee_model->set_added_date(date("Y-m-d H:i:s"));
 
 
-        echo $employee_service->add_new_employee($employee_model);
+        $emp_id = $employee_service->add_employee($employee_model);
+
+
+        $link = base_url() . "index.php/employee/employee_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
+
+
+        if ($emp_id) {
+
+            $data['name'] = $name;
+            $data['link'] = $link;
+
+
+
+            $email_subject = "Workgram :Activate Your New Account ";
+
+
+            $msg = $this->load->view('template/mail_template/body', $data, TRUE);
+
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: Workgram <workgram@gmail.com>' . "\r\n";
+            $headers .= 'Cc:kaumadi2014@gmail.com' . "\r\n";
+
+            if (mail($email, $email_subject, $msg, $headers)) {
+                echo "1";
+            } else {
+                echo "0";
+            }
+        } else {
+            echo "0";
+        }
     }
 
     function delete_employee() {
@@ -134,78 +167,8 @@ class Employee_controller extends CI_Controller {
             echo "error";
         }
     }
- 
-    
-    
-    
-    function employee_registration() {
 
-        $employee_model = new employee_model();
-        $employee_service = new employee_service();
-
-        $employee_model->set_employee_fname($this->input->post('txtFirstName', TRUE));
-        $employee_model->set_employee_lname($this->input->post('txtLastName', TRUE));
-        $employee_model->set_employee_password(md5($this->input->post('txtPassword', TRUE)));
-        $employee_model->set_employee_email($this->input->post('txtEmail', TRUE));
-        $employee_model->set_employee_salary($this->input->post('txtSalary', TRUE));
-        $employee_model->set_employee_contract($this->input->post('txtContract', TRUE));
-        $employee_model->set_employee_contact($this->input->post('txtContact', TRUE));
-        $employee_code = $employee_service->add_new_employee_registration($employee_model);
-
-        $employee_model = new employee_model();
-        $employee_service = new employee_service();
-
-        $name = ucfirst($this->input->post('txtFirstName', TRUE)) . ' ' . ucfirst($this->input->post('txtLastName', TRUE));
-        $email = $this->input->post('txtEmail', TRUE);
-        $token = $this->generate_random_string(); //generate account activation token
-
-        $employee_model->set_employee_fname($this->input->post('txtFirstName', TRUE));
-        $employee_model->set_employee_lname($this->input->post('txtLastName', TRUE));
-        $employee_model->set_employee_password(md5($this->input->post('txtPassword', TRUE)));
-        $employee_model->set_employee_email($this->input->post('txtEmail', TRUE));
-        $employee_model->set_employee_contact($this->input->post('txtContact', TRUE));
-        $employee_model->set_company_code($company_code);
-        $employee_model->set_employee_type($this->config->item('COMPANY_OWNER'));
-        $employee_model->set_employee_contract($this->config->item('FULL_TIME'));
-        $employee_model->set_employee_bday($this->input->post('birthdy', TRUE));
-        $employee_model->set_account_activation_code(md5($token));
-        $employee_model->set_del_ind('2'); //account not activated
-        $employee_model->set_added_date(date("Y-m-d H:i:s"));
-
-        $emp_id = $employee_service->add_employee($employee_model);
-
-
-
-        $link = base_url() . "index.php/employee/employee_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
-
-
-        if ($emp_id) {
-
-            $data['name'] = $name;
-            $data['link'] = $link;
-
-
-
-            $email_subject = "Workgram :Activate Your New Account ";
-
-
-            $msg = $this->load->view('template/mail_template/body', $data, TRUE);
-
-            $headers = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headers .= 'From: Workgram <workgram@gmail.com>' . "\r\n";
-            $headers .= 'Cc:kaumadi2014@gmail.com' . "\r\n";
-
-            if (mail($email, $email_subject, $msg, $headers)) {
-                echo "1";
-            } else {
-                echo "0";
-            }
-        } else {
-            echo "0";
-        }
-    }
-   //generate token
+    //generate token
     public function generate_random_string($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $random_string = '';
@@ -237,9 +200,7 @@ class Employee_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
+
 }
-
-
-
 
 ?>
