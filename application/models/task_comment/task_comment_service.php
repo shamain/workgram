@@ -7,8 +7,6 @@ class Task_comment_service extends CI_Model {
         $this->load->model('task_comment/task_comment_model');
     }
 
-   
-
     public function get_task_comments($task_id) {
 
         $this->db->select('task_comment.*,employee.employee_fname,employee.employee_lname');
@@ -18,18 +16,16 @@ class Task_comment_service extends CI_Model {
         $this->db->where('task_comment.del_ind', '1');
         $query = $this->db->get();
         return $query->result();
+    }    
+
+    function add_new_task_comment($task_comment_model) {
+        return $this->db->insert('task_comment', $task_comment_model);
     }
 
-    
-
-    function add_new_task($task_model) {
-        return $this->db->insert('task', $task_model);
-    }
-
-    function delete_task($task_id) {
+    function delete_task_comment($comment_id) {
         $data = array('del_ind' => '0');
-        $this->db->where('task_id', $task_id);
-        return $this->db->update('task', $data);
+        $this->db->where('comment_id', $comment_id);
+        return $this->db->update('task_comment', $data);
     }
 
     function update_task($task_model) {

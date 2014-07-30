@@ -309,14 +309,14 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Task</label>
+                                <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="task_name" class="form-control" type="text" name="task_name">                              
+                                <input id="task_description" class="form-control" type="text" name="task_description">                              
                             </div>
                         </div>
                     </div>
@@ -337,6 +337,36 @@
                                     <span class="arrow"></span>
                                     <i class="fa fa-th"></i>
                                 </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Priority</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_priority" class="form-control" type="text" name="task_priority">                              
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Progress</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_progress" class="form-control" type="text" name="task_progress">                              
                             </div>
                         </div>
                     </div>

@@ -65,7 +65,7 @@
 
 <div class="row">
     <div class="col-md-10 col-vlg-7">
-        <ul class="cbp_tmtimeline">
+        <ul class="cbp_tmtimeline" id="task_comments">
             <?php
             foreach ($task_comments as $task_comment) {
                 ?>
@@ -92,8 +92,10 @@
                 <?php
             }
             ?>
-
-
+         
+        </ul>
+        
+        <ul>
             <li>
                 <time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i:s"); ?>">
                     <span class="date">today</span>
@@ -117,7 +119,9 @@
                         <div class="clearfix"></div><br>
                         <div class="inline" style="width:100%">
                             <div class="input-group transparent ">
-                                <input class="form-control" type="text" placeholder="Write a comment">
+                                <input class="form-control" type="text" placeholder="Write a comment" id="employe_task_comment">
+                                <input type="hidden" name="task_id" id="task_id" value="<?php echo $task->task_id ;?>"/>
+                                <input type="hidden" name="employee_code" id="employee_code" value="<?php echo $task->employee_code ;?>"/>
                                 <span class="input-group-addon">
                                     <i class="fa fa-camera"></i>
                                 </span>

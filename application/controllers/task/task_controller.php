@@ -116,5 +116,20 @@ class Task_controller extends CI_Controller {
 
         echo $task_service->update_task($task_model);
     }
+    
+    
+    function add_task_comment() {
+
+        $task_comment_model = new Task_comment_model();
+        $task_comment_service = new Task_comment_service();
+
+        $task_comment_model->set_comment($this->input->post('msg', TRUE));
+        $task_comment_model->set_task_id($this->input->post('task_id', TRUE));
+        $task_comment_model->set_del_ind('1');
+        $task_comment_model->set_added_date(date("Y-m-d H:i:s"));
+        $task_comment_model->set_added_by($this->input->post('employee_code', TRUE));
+
+        echo $task_comment_service->add_new_task($task_comment_model);
+    }
 
 }
