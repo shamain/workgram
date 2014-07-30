@@ -24,7 +24,7 @@ class Company_controller extends CI_Controller {
 
     function manage_companies() {
 
-        $company_service = new  company_service();
+        $company_service = new company_service();
 
         $data['heading'] = "Manage Company";
         $data['companies'] = $company_service->get_all_companies($this->session->userdata('COMPANY_CODE'));
@@ -37,6 +37,10 @@ class Company_controller extends CI_Controller {
 
         $company_model = new Company_model();
         $company_service = new Company_service();
+        $privilege_master_service = new Privilege_master_service();
+        $privilege_service = new Privilege_service();
+        $employee_privilege_model = new Employee_privileges_model();
+        $employee_privilege_service = new Employee_privileges_service();
 
         $company_model->set_company_name($this->input->post('txtCompanyName', TRUE));
         $company_model->set_company_address($this->input->post('txtCompanyAddress', TRUE));
@@ -71,6 +75,18 @@ class Company_controller extends CI_Controller {
 
         $emp_id = $employee_service->add_employee($employee_model);
 
+        //assign default privileges in the beginning 
+        $privilege_masters = $privilege_master_service->get_available_master_privileges();
+
+        foreach ($privilege_masters as $privilege_master) {
+            $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for($privilege_master->privilege_master_code, $this->config->item('COMPANY_OWNER'));
+            foreach ($privileges as $privilege) {
+
+                $employee_privilege_model->set_employee_code($emp_id);
+                $employee_privilege_model->set_privilege_code($privilege->privilege_code);
+                $employee_privilege_service->add_new_employee_privilege_system($employee_privilege_model);
+            }
+        }
 
 
         $link = base_url() . "index.php/company/company_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
@@ -135,8 +151,8 @@ class Company_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
-    
-     function add_new_company() {
+
+    function add_new_company() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
 //        if ($perm) {
 
@@ -149,11 +165,11 @@ class Company_controller extends CI_Controller {
         $company_model->set_company_address($this->input->post('company_address', TRUE));
         $company_model->set_company_contact(($this->input->post('company_contact', TRUE)));
         $company_model->set_company_desc($this->input->post('company_description', TRUE));
-       
+
 
         echo $company_service->add_new_company($company_model);
     }
-    
+
     function edit_company_view($company_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
 //        if ($perm) {
@@ -186,9 +202,9 @@ class Company_controller extends CI_Controller {
         $company_model->set_company_address($this->input->post('company_address', TRUE));
         $company_model->set_company_contact($this->input->post('company_contact', TRUE));
         $company_model->set_company_desc($this->input->post('company_description', TRUE));
-        
-        
-        
+
+
+
 
 
 
@@ -197,8 +213,5 @@ class Company_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+
 }
-
-
-
-
