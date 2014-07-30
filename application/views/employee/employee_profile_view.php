@@ -85,7 +85,7 @@
 
                             <?php } ?> 
                             <span class="hover_edit fa fa-camera">
-                            <!--<i class="fa fa-camera"></i>-->
+<!--                            <i class="fa fa-camera"></i>-->
                             </span>
                         </div>
 
@@ -141,10 +141,11 @@
 
                         </script>
 
-
+                        
+                        
                         <div id="upload2">
                             <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="fa fa-camera"></i></button>
-
+                            
                         </div>
 
                         <div id="sta2"><span id="status2" ></span></div>
@@ -196,25 +197,11 @@
 <h6 class="no-margin"><?php echo ($employee_detail->added_date) ?></h6>
 <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
-
-
                     </div>
+                    
             <!-- skill graph-->
-                    <div id="donut-example" style="height:200px;">
-                        <svg height="200" version="1.1" width="230" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
-                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc>
-                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                            
-                        </defs>
-                        <path fill="none" stroke="#60bfb6" d="M115,160A60,60,0,0,0,171.95770043472734,118.86320124442962" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
-                        <path fill="#60bfb6" stroke="#ffffff" d="M115,163A63,63,0,0,0,174.8055854564637,119.8063613066511L195.69007561586372,126.72286842960862A85,85,0,0,1,115,185Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-                        <path fill="none" stroke="#91cdec" d="M171.95770043472734,118.86320124442962A60,60,0,0,0,61.20860892026032,73.42019101448432" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path>
-                        <path fill="#91cdec" stroke="#ffffff" d="M174.8055854564637,119.8063613066511A63,63,0,0,0,58.51903936627333,72.09120056520852L38.79552930370211,62.345270603852775A85,85,0,0,1,195.69007561586372,126.72286842960862Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-                        <path fill="none" stroke="#eceff1" d="M61.20860892026032,73.42019101448432A60,60,0,0,0,114.98115044438853,159.99999703911863" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path>
-                        <path fill="#eceff1" stroke="#ffffff" d="M58.51903936627333,72.09120056520852A63,63,0,0,0,114.98020796660795,162.99999689107455L114.9717256665828,189.99999555867794A90,90,0,0,1,34.31291338039047,60.13028652172647Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
-                        <text x="115" y="90" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-size: 15px; line-height: normal; font-family: Arial;" font-size="15px" font-weight="800" transform="matrix(0.9076,0,0,0.9076,10.6303,9.1513)" stroke-width="1.1018518518518519">
-                        <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Design</tspan></text><text x="115" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-family: Arial;" font-size="14px" transform="matrix(1.25,0,0,1.25,-28.75,-25.5)" stroke-width="0.8">
-                        <tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">40%</tspan></text></svg></div>
+            <div id="donut-example" style="height:200px;">
+                </div>
 
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>

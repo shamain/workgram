@@ -69,6 +69,16 @@ $('#edit_employee_form').validate({
     }
 });
 
+Morris.Donut({
+   element: 'donut-example',
+   data: [
+  {label: "Design", value: 40},
+  {label: "Programming", value: 30},
+  {label: "Developing", value: 30}
+   ],
+   colors:['#60bfb6','#91cdec','#eceff1']
+ });
+
 function loadSampleChartDemo2(){
 
 var seriesData_5 = [ [], [],[]];
@@ -165,6 +175,8 @@ var seriesData_5 = [ [], [],[]];
 		negBarColor: '#0aa699'
 	});	
         
+        
+   
         
         
  
