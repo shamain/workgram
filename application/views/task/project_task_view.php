@@ -55,7 +55,7 @@
     Task
     <span class="semi-bold">List</span>
     <div class="pull-right actions">
-        <button id="btn-new-ticket" class="btn btn-warning btn-cons" type="button">New Task</button>
+        <button id="add_task_button" data-toggle="modal" data-target="#add_task_modal" class="btn btn-warning btn-cons" type="button">New Task</button>
     </div>
 </h4>
 <div class="row">
