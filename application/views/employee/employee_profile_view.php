@@ -199,7 +199,7 @@
 
 
                     </div>
-<!-- skill graph-->
+            <!-- skill graph-->
                     <div id="donut-example" style="height:200px;">
                         <svg height="200" version="1.1" width="230" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;">
                         <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc>
@@ -470,7 +470,7 @@
         </div>	
     </div>
 </div>
-
+<!-- chart-->
 <div class="row ">
     <div class="col-md-12">
         <div class="row tiles-container spacing-bottom tiles grey">
