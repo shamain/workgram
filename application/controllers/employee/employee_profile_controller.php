@@ -20,10 +20,11 @@ class Employee_profile_controller extends CI_Controller {
     function view_profile() {
 
         $employee_service = new Employee_service();
-
+       
+        
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
-
+        
 
 
         $partials = array('content' => 'employee/employee_profile_view');
