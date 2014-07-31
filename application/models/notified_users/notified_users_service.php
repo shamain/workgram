@@ -18,7 +18,7 @@ class Notified_users_service extends CI_Model {
     
     function add_new_notified_user($notified_users_model) {
 
-        return $this->db->insert('notified_users', notified_users_model);
+        return $this->db->insert('notified_users', $notified_users_model);
     }
     
     function delete_notified_user($notified_users_id) {
@@ -36,7 +36,9 @@ class Notified_users_service extends CI_Model {
 
         $data = array(
             'employee_code' => $notified_users_model->get_employee_code(),
-            'notification_id' => $notified_users_model->get_notification_id()
+            'notification_id' => $notified_users_model->get_notification_id(),
+            'notified_user_is_seen' => $notified_users_model->get_notified_user_is_seen()
+                
         );
 
 
