@@ -49,18 +49,19 @@
                 <div class="meta task">
                 Task
             </div>
-                    
-                      </div>
-            <div class="meta project">
+                  <div class="meta project">
                 Project
             </div>
+                  <div class="meta date">
+                Date
+            </div>
+                    
+                      </div>
+            
 
         </div>
        
-        <div class="meta date">
-                Date
-            </div>
-
+        
         </div>
     
 
