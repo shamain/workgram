@@ -49,6 +49,18 @@
     </ul>
 </li> 
 
+<li class="" id="skill_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Work snaps</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/employee_screenshots/employee_screenshots_controller/manage_employee_screenshot"> Our Work snaps </a> </li>
+   
+    </ul>
+</li> 
+
 <li class="" id="settings_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
