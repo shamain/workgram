@@ -93,9 +93,7 @@
             }
             ?>
          
-        </ul>
         
-        <ul>
             <li>
                 <time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i:s"); ?>">
                     <span class="date">today</span>
@@ -121,7 +119,7 @@
                             <div class="input-group transparent ">
                                 <input class="form-control" type="text" placeholder="Write a comment" id="employe_task_comment">
                                 <input type="hidden" name="task_id" id="task_id" value="<?php echo $task->task_id ;?>"/>
-                                <input type="hidden" name="employee_code" id="employee_code" value="<?php echo $task->employee_code ;?>"/>
+                                <input type="hidden" name="employee_code" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE');?>"/>
                                 <span class="input-group-addon">
                                     <i class="fa fa-camera"></i>
                                 </span>
