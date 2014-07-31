@@ -13,8 +13,8 @@ class Employee_screen_shots_controller extends CI_Controller {
             redirect(site_url() . '/login/login_controller');
         } else {
 //
-//            $this->load->model('employee_screen_shot/employee_screen_shot_model');
-//            $this->load->model('employee_screen_shot/employee_screen_shot_service');
+  //         $this->load->model('employee_screen_shot/employee_screen_shot_model');
+//          $this->load->model('employee_screen_shot/employee_screen_shot_service');
         }
     }
     function manage_employee_screen_shot() {
