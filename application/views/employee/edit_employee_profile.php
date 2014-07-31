@@ -13,7 +13,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-5 col-sm-5 col-xs-5">
-                        <form id="edit_employee_form" name="edit_employee_form">
+                        <form id="edit_employee_profile_form" name="edit_employee_profile_form">
 
                             <div class="form-group">
                                 <label class="form-label">First Name</label><label class="form-label">Last Name</label>
