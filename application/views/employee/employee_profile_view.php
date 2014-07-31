@@ -84,9 +84,10 @@
                                 <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
 
                             <?php } ?> 
-                            <span class="hover_edit fa fa-camera">
-<!--                            <i class="fa fa-camera"></i>-->
-                            </span>
+                                
+                            <!--<span class="hover_edit fa fa-camera">-->
+                            <!--<i class="fa fa-camera"></i>-->
+                            <!--</span>-->
                         </div>
 
 
@@ -141,14 +142,15 @@
 
                         </script>
 
-                        
+                         
                         
                         <div id="upload2">
-                            <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="fa fa-camera"></i></button>
+                            <button type="button" id="browse2"><span class="btn-primary btn-small hover_edit fa fa-camera"></span></button>
                             
                         </div>
 
                         <div id="sta2"><span id="status2" ></span></div>
+
 
 
 
