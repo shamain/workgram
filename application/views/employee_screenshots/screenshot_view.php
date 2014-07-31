@@ -45,6 +45,10 @@
                 Employee
                 <span class="sort anim150 asc" data-order="desc" data-sort="data-name"></span>
                 <span class="sort anim150 desc active" data-order="asc" data-sort="data-name"></span>
+                
+                <div class="meta task">
+                Task
+            </div>
                     
                       </div>
             <div class="meta project">
@@ -52,9 +56,7 @@
             </div>
 
         </div>
-        <div class="meta task">
-                Task
-            </div>
+       
         <div class="meta date">
                 Date
             </div>
