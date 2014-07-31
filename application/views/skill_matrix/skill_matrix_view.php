@@ -167,9 +167,12 @@
     </div>
 </div>
 
-<script>
+<!--<script>
 	$(document).ready(function() {		
 		$('.slider-element').slider();
 	});
-</script>
+</script>-->
 
+<!--<script type="text/javascript">
+    $('#skill_matrix_parent_menu').addClass('active open');
+</script>-->

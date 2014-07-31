@@ -77,15 +77,15 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->delete_employee_skill(trim($this->input->post('id', TRUE)));
     }
     
-    function edit_skill_matrix_view() {
-
-        $employee_skill_service = new Skill_matrix_service();
-        $data['heading'] = "Edit Skill";
-        $data['skill_matrix'] = $employee_skill_service->get_all_employee_skills();
-
-        $partials = array('content' => 'skill_matrix/edit_skill_matrix_view');
-        $this->template->load('template/main_template', $partials, $data);
-    }
+//    function edit_skill_matrix_view() {
+//
+//        $employee_skill_service = new Skill_matrix_service();
+//        $data['heading'] = "Edit Skill";
+//        $data['skill_matrix'] = $employee_skill_service->get_all_employee_skills();
+//
+//        $partials = array('content' => 'skill_matrix/skill_matrix_view');
+//        $this->template->load('template/main_template', $partials, $data);
+//    }
 
 
 }
