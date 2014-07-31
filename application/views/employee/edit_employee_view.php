@@ -63,7 +63,7 @@
                                <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>
                             </div>
 
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <span style="color: red">*</span>
 
@@ -71,7 +71,7 @@
                                     <i class=""></i>
                                     <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee->employee_email; ?>">                              
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="form-group">
                                 <label class="form-label">Type</label>
