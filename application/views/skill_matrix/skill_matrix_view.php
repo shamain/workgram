@@ -43,7 +43,7 @@
 
                                     </td>
                                     <td>
-                                        <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
+                                        <a href="<?php echo site_url(); ?>/skill/skill_matrix_controller/edit_skill_matrix_view/<?php echo $skill->skill_code; ?>">
                                             <i class="fa fa-pencil"></i>
                                         </a>
                                         <a style="cursor: pointer;"   title="Delete this Skill" onclick="delete_skill(<?php echo $skill->skill_code; ?>)">
