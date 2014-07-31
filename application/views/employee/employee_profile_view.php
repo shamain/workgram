@@ -141,17 +141,13 @@
 
 
                         </script>
-
-                         
                         
                         <div id="upload2">
-                            <button type="button" id="browse2"><span class="btn-primary btn-small hover_edit fa fa-camera"></span></button>
-                            
+                            <button type=""  id="browse"><span class=" btn-primary btn-small hover_edit fa fa-camera"></span></button>
                         </div>
-
+                        
                         <div id="sta2"><span id="status2" ></span></div>
-
-
+                        
 
 
                         <div class="user-mini-description">
@@ -201,10 +197,8 @@
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
                     
-            <!-- skill graph-->
-            <div id="donut-example" style="height:200px;">
-                </div>
-
+                   
+            
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
                         <ul class="my-friends">
@@ -244,6 +238,10 @@
                         <div class="clearfix"></div>
                     </div>				
                 </div>
+                
+                <!-- skill graph-->
+                <div id="donut-example" style="height:200px;">
+                    </div>
 
                 <!-- show employee tasks-->  
 
