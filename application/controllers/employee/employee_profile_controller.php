@@ -14,18 +14,21 @@ class Employee_profile_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+            
+            $this->load->model('task/task_model');
+            $this->load->model('task/task_service');
         }
     }
 
     function view_profile() {
 
         $employee_service = new Employee_service();
-       
+        $task_service = new Task_service();
         
+        $data['employee_tasks'] = $task_service->get_employee_task_by_project($this->session->userdata('EMPLOYEE_CODE'));
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
         
-
 
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -88,13 +91,7 @@ class Employee_profile_controller extends CI_Controller {
 //        }
     }
     
-    public function get_task_for_employee() {
-
-        $task_service = new Task_service();
-        $result = $task_service->get_employee_task_by_project($this->input->post('employee_code'));
-        
-        echo json_encode($result);
-    }
+    
     
     
     

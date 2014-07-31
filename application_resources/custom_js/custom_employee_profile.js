@@ -2,34 +2,8 @@ var base_url = js_base_url;
 var site_url = js_site_url;
 
 
-//////////////////employee//////////////////////////////////////////////////////////////
-$(document).ready(function() {
-    //employee table
-    var employee_table = $('#employee_table').dataTable({
-        "sDom": "<'row'<'col-md-6'l <'toolbar employee_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
-        "oTableTools": {
-            "aButtons": [
-                {
-                    "sExtends": "collection",
-                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
-                    "aButtons": ["csv", "xls", "pdf", "copy"]
-                }
-            ]
-        },
-        "aoColumnDefs": [
-            {"bSortable": false, "aTargets": [0]}
-        ],
-        "oLanguage": {
-            "sLengthMenu": "_MENU_ ",
-            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        }
-    });
-    
-    
-     
-    
-    
-//edit employee bday datepicker
+
+   //edit employee bday datepicker
 $('#employee_bday_edit_dpicker').datepicker({
     format: "yyyy-mm-dd",
     autoclose: true,
@@ -52,7 +26,7 @@ $('#edit_employee_profile_form').validate({
             required: true
         },
         employee_email: {
-            required: true,
+            required: true
         },
         employee_type: {
             required: true
@@ -92,7 +66,7 @@ $('#edit_employee_profile_form').validate({
     {
         $.post(site_url + '/employee/employee_profile_controller/edit_employee_profile', $('#edit_employee_profile_form').serialize(), function(msg)
         {
-            if (msg == 1) {
+            if (msg === 1) {
                 $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
                 edit_employee_profile_form.reset();
                 location.reload();
@@ -104,7 +78,7 @@ $('#edit_employee_profile_form').validate({
 
     }
 });
-});
+
 
 Morris.Donut({
    element: 'donut-example',

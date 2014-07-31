@@ -85,9 +85,9 @@
 
                             <?php } ?> 
                                 
-                            <!--<span class="hover_edit fa fa-camera">-->
+                            <span class="hover_edit fa fa-camera">
                             <!--<i class="fa fa-camera"></i>-->
-                            <!--</span>-->
+                            </span>
                         </div>
 
 
@@ -143,7 +143,7 @@
                         </script>
                         
                         <div id="upload2">
-                            <button type=""  id="browse"><span class=" btn-primary btn-small hover_edit fa fa-camera"></span></button>
+                            <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="  fa fa-camera"></i></button>
                         </div>
                         
                         <div id="sta2"><span id="status2" ></span></div>
@@ -197,7 +197,7 @@
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
                     
-                   
+              
             
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
@@ -236,11 +236,43 @@
                             </li>							
                         </ul>	
                         <div class="clearfix"></div>
+                        
                             <!-- skill graph-->
                 <div id="donut-example" style="height:200px;">
                     </div>
                     </div>				
                 </div>
+                
+                <!-- load tasks-->     
+              
+              
+              <div class="grid-body ">
+                <table class="table" id="employee_Profile_table" >
+                    <thead>
+                        <tr>                          
+                            <th>Project ID</th>
+                            <th>Task ID</th>
+                            <th>Task Name</th>
+                            <th>Deadline</th>
+                            <th>Progress</th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($employee_tasks as $task) {
+                            ?> 
+                                <td><?php echo $employee_tasks->project_id; ?></td>
+                                <td><?php echo $employee_tasks->task_id; ?>  </td>
+                                <td><?php echo $employee_tasks->task_name; ?></td>
+                                <td><?php echo $employee_tasks->task_deadline; ?>  </td>
+                                <td><?php echo $employee_tasks->task_progress; ?>  </td>
+
+                       <?php } ?>    
+                    </tbody>
+                </table>
+            </div>
                 
             
 
