@@ -15,12 +15,6 @@
                     <div class="col-md-5 col-sm-5 col-xs-5">
                         <form id="edit_employee_form" name="edit_employee_form">
 
-
-
-
-                            
-
-
                             <div class="form-group">
                                 <label class="form-label">First Name</label><label class="form-label">Last Name</label>
                                 <span style="color: red">*</span>
@@ -34,8 +28,9 @@
                             
 
                          <div class="form-group">
-                                <label class="form-label">Previous id ?</label>
+                                <label class="form-label">Previous no</label>
                                 <span style="color: red">*</span>
+                                
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <input id="employee_no" class="form-control" type="text" name="employee_no" value="<?php echo $employee_detail->employee_no; ?>">                              
@@ -52,11 +47,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Previous code ?</label>
+                                <label class="form-label">Type</label>
                                 <span style="color: red">*</span>
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_code" class="form-control" type="text" name="employee_code" value="<?php echo $employee_detail->employee_code; ?>">                              
+                                    <input id="employee_type" class="form-control" type="text" name="employee_type" value="<?php echo $employee_detail->employee_type; ?>">                              
                                 </div>
                             </div>
                             

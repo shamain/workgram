@@ -1,24 +1,60 @@
 var base_url = js_base_url;
 var site_url = js_site_url;
 
+
+//////////////////employee//////////////////////////////////////////////////////////////
+$(document).ready(function() {
+    //employee table
+    var employee_table = $('#employee_table').dataTable({
+        "sDom": "<'row'<'col-md-6'l <'toolbar employee_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "oTableTools": {
+            "aButtons": [
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                    "aButtons": ["csv", "xls", "pdf", "copy"]
+                }
+            ]
+        },
+        "aoColumnDefs": [
+            {"bSortable": false, "aTargets": [0]}
+        ],
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ ",
+            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+        }
+    });
+    
+    
+     
+    
+    
+//edit employee bday datepicker
+$('#employee_bday_edit_dpicker').datepicker({
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayHighlight: true
+});
+
    //edit employee Form
 $('#edit_employee_form').validate({
     focusInvalid: false,
     ignore: "",
     rules: {
-        employee_fname: {
+        employee_fname:{
             required: true
-        },
-        employee_lname: {
+           
+         },
+        employee_lname:{
             required: true
-        },
-        employee_id: {
+         },
+        employee_no: {
             required: true
         },
         employee_email: {
-            required: true
+            required: true,
         },
-        employee_code: {
+        employee_type: {
             required: true
         },
         employee_bday: {
@@ -58,7 +94,7 @@ $('#edit_employee_form').validate({
         {
             if (msg == 1) {
                 $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
-                edit_pemployee_form.reset();
+                edit_employee_form.reset();
                 location.reload();
             } else {
                 $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">details </a>has failed.</div>');
@@ -67,6 +103,7 @@ $('#edit_employee_form').validate({
 
 
     }
+});
 });
 
 Morris.Donut({
@@ -180,4 +217,6 @@ var seriesData_5 = [ [], [],[]];
         
         
  
-}
+ }
+ 
+ 
