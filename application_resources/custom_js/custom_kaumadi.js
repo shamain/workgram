@@ -12,36 +12,7 @@ var site_url = js_site_url;
     }
     
     
-    //numbers check
-// function numbersonly(myfield, e, dec) {
-//    var key;
-//    var keychar;
-//
-//    if (window.event)
-//        key = window.event.keyCode;
-//    else if (e)
-//        key = e.which;
-//    else
-//        return true;
-//    keychar = String.fromCharCode(key);
-//
-//// control keys
-//    if ((key == null) || (key == 0) || (key == 8) ||
-//        (key == 9) || (key == 13) || (key == 27))
-//        return true;
-//
-//// numbers
-//    else if ((("0123456789").indexOf(keychar) > -1))
-//        return true;
-//
-//// decimal point jump
-//    else if (dec && (keychar == ".")) {
-//        myfield.form.elements[dec].focus();
-//        return false;
-//    }
-//    else
-//        return false;
-//}
+
 //////////////////employee//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //employee table
@@ -73,7 +44,7 @@ $(document).ready(function() {
     $('#employee_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
-    //add password generatot
+    
  
 //add employee bday datepicker
     $('#employee_bday_dpicker').datepicker({
@@ -144,7 +115,7 @@ $(document).ready(function() {
     });
 });
 
-//add employee bday datepicker
+//edit employee bday datepicker
 $('#employee_bday_edit_dpicker').datepicker({
     format: "yyyy-mm-dd",
     autoclose: true,
@@ -203,7 +174,7 @@ $('#edit_employee_form').validate({
         {
             if (msg == 1) {
                 $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been updated.</div>');
-                edit_pemployee_form.reset();
+                edit_employee_form.reset();
                 location.reload();
             } else {
                 $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
