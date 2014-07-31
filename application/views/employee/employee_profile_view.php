@@ -236,12 +236,13 @@
                             </li>							
                         </ul>	
                         <div class="clearfix"></div>
+                            <!-- skill graph-->
+                <div id="donut-example" style="height:200px;">
+                    </div>
                     </div>				
                 </div>
                 
-                <!-- skill graph-->
-                <div id="donut-example" style="height:200px;">
-                    </div>
+            
 
                 <!-- show employee tasks-->  
 
