@@ -23,10 +23,14 @@ class Notified_users_controller extends CI_Controller {
     function manage_notified_users() {
 
         $notified_users_service = new notified_users_service();
+        $notification_service = new Notification_service();
+        $employee_service = new Employee_service();
         
         $data['heading'] = "Manage Notified Users";
 
         $data['notified_users'] = $notified_users_service->get_all_notified_users();
+        $data['notifications'] = $notification_service->get_all_notifications();
+        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $partials = array('content' => 'notified_users/manage_notified_users_view');
         $this->template->load('template/main_template',$partials, $data);
