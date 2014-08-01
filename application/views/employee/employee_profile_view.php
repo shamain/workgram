@@ -244,9 +244,51 @@
                 </div>
                 
                 <!-- load tasks-->     
+                
+<div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 204px;">
+<div class="live-tile slide ha  carousel" data-speed="750" data-delay="4000" data-mode="carousel">
+<div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
+<div class="p-t-20 p-l-20 p-r-20 p-b-20">
+<h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
+campaign”</h4>
+</div>
+<div class="overlayer bottom-left fullwidth">
+<div class="overlayer-wrapper">
+<div class="user-comment-wrapper">
+<div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
+<div class="comment">
+<div class="user-name text-white "><span class="bold"> David</span> Cooper </div>
+<p class="text-white-opacity">@ Revox</p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
+<div class="user-comment-wrapper m-t-20">
+<div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
+<div class="comment">
+<div class="user-name text-white "><span class="bold"> Jane</span> Smith </div>
+<p class="text-white-opacity">@ Revox</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="overlayer bottom-left fullwidth">
+<div class="overlayer-wrapper">
+<div class="p-t-20 p-l-20 p-r-20 p-b-20">
+<h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> adverting
+campaign”</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
               
               
-              <div class="grid-body ">
+                
+<!--              <div class="grid-body ">
                 <table class="table" id="employee_Profile_table" >
                     <thead>
                         <tr>                          
@@ -272,7 +314,7 @@
                        <?php } ?>    
                     </tbody>
                 </table>
-            </div>
+            </div>-->
                 
             
 
