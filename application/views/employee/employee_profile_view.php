@@ -273,6 +273,17 @@ campaign”</h4>
 <p class="text-white-opacity">@ Revox</p>
 </div>
 <div class="clearfix"></div>
+
+<?php
+                        foreach ($employee_tasks as $task) {
+                            ?> 
+                                <td><?php echo $employee_tasks->project_id; ?></td>
+                                <td><?php echo $employee_tasks->task_id; ?>  </td>
+                                <td><?php echo $employee_tasks->task_name; ?></td>
+                                <td><?php echo $employee_tasks->task_deadline; ?>  </td>
+                                <td><?php echo $employee_tasks->task_progress; ?>  </td>
+
+                       <?php } ?>
 </div>
 <div class="overlayer bottom-left fullwidth">
 <div class="overlayer-wrapper">
