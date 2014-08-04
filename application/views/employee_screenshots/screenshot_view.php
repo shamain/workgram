@@ -27,6 +27,26 @@
             </ul>
         </div>
     </div>
+     <div id="Filters" class="pull-left">
+        
+        <div class="btn-group">
+            <a class="btn dropdown-toggle btn-demo-space" data-toggle="dropdown" href="#">
+                <span class="anim150">
+                    Project
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="active" data-dimension="" data-filter="all">
+                    <a href="#">
+                        All
+                    </a>
+                </li>
+                <li data-dimension="" data-filter="">
+                    <a href="#"
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="pull-right">
         <div class="btn-group" data-toggle="buttons-radio">
             <button id="ToList" class="btn btn-primary active" type="button">
