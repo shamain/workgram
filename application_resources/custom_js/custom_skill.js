@@ -1,3 +1,7 @@
+var base_url = js_base_url;
+var site_url = js_site_url;
+
+
 //////////////////Skill//////////////////////////////////////////////////////////////
 $(document).ready(function() {
     //skill table
@@ -445,32 +449,32 @@ function d() {
 //skill matrix table
 //$(document).ready(function() {
     
-     var skill_matrix_table = $('#my_skill_table').dataTable({
-        "sDom": "<'row'<'col-md-6'l <'toolbar my_skill_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
-        "oTableTools": {
-            "aButtons": [
-                {
-                    "sExtends": "collection",
-                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
-                    "aButtons": ["csv", "xls", "pdf", "copy"]
-                }
-            ]
-        },
-        "aoColumnDefs": [
-            {"bSortable": false, "aTargets": [0]}
-        ],
-        "aaSorting": [[3, "desc"]],
-        "oLanguage": {
-            "sLengthMenu": "_MENU_ ",
-            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
-    });
+//     var skill_matrix_table = $('#my_skill_table').dataTable({
+//        "sDom": "<'row'<'col-md-6'l <'toolbar my_skill_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+//        "oTableTools": {
+//            "aButtons": [
+//                {
+//                    "sExtends": "collection",
+//                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+//                    "aButtons": ["csv", "xls", "pdf", "copy"]
+//                }
+//            ]
+//        },
+//        "aoColumnDefs": [
+//            {"bSortable": false, "aTargets": [0]}
+//        ],
+//        "aaSorting": [[3, "desc"]],
+//        "oLanguage": {
+//            "sLengthMenu": "_MENU_ ",
+//            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+//        },
+//    });
 
 //    $(".skill_my_skill_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_skill_category_btn" data-toggle="modal" data-target="#add_skill_category_modal">Add New Skill Category</button></div>');
 
-    $('#my_skill_table_wrapper .dataTables_filter input').addClass("input-medium ");
-    $('#my_skill_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
-    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+//    $('#my_skill_table_wrapper .dataTables_filter input').addClass("input-medium ");
+//    $('#my_skill_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
+//    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
 $('#add_employee_skill_form').validate({
         focusInvalid: false,
@@ -508,7 +512,7 @@ $('#add_employee_skill_form').validate({
             parent.removeClass('error-control').addClass('success-control');
         }, submitHandler: function(form)
         {
-            $.post(site_url + '/skill_matrix/skill_matrix_controller/add_employee_skill_matrix', $('#add_employee_skill_form').serialize(), function(msg)
+            $.post(site_url + '/skill_matrix/skill_matrix_controller/add_new_skill_matrix', $('#add_employee_skill_form').serialize(), function(msg)
             {
                 if (msg == 1) {
                     $("#add_emp_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been added.</div>');
@@ -521,7 +525,7 @@ $('#add_employee_skill_form').validate({
         }
     });
 
-
+//});
 //    edit employee skill matrix
 
 $('#edit_skill_matrix_form').validate({
@@ -558,11 +562,11 @@ $('#edit_skill_matrix_form').validate({
         parent.removeClass('error-control').addClass('success-control');
     }, submitHandler: function(form)
     {
-        $.post(site_url + '/skill/skill__controller/edit_skill', $('#edit_skill_matrix_form').serialize(), function(msg)
+        $.post(site_url + '/skill_matrix/skill_matrix_controller/edit_employee_skill_matrix', $('#edit_skill_matrix_form').serialize(), function(msg)
         {
             if (msg == 1) {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
-                edit_skill_matrix_form.reset();
+                edit_employee_skill_form.reset();
                 location.reload();
             } else {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');

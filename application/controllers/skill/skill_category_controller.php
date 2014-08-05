@@ -72,7 +72,7 @@ class Skill_category_controller extends CI_Controller {
     function delete_skill_category() {
 
 
-        $skill_category_service = new skill_category_service();
+        $skill_category_service = new Skill_category_service();
 
         echo $skill_category_service->delete_skill_category(trim($this->input->post('id', TRUE)));
     }
