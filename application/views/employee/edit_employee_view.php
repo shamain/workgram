@@ -197,6 +197,7 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <div id="files" ></div>
+                                            <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="200px" height="250px" />
                                         </div>
                                     </div>
                                     <div class="col-md-8">
