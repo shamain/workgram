@@ -13,6 +13,12 @@ class Employee_screenshots_controller extends CI_Controller {
         } else {
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+            
+            $this->load->model('project/project_model');
+            $this->load->model('project/project_service');
+            
+            $this->load->model('task/task_model');
+            $this->load->model('task/task_service');
         }
     }
 
