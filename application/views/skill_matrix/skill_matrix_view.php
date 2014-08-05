@@ -36,7 +36,7 @@
                             foreach ($skills as $skill) {
                                 ?> 
                                 <tr  id="skills_<?php echo $skill->skill_code; ?>">
-                                    <td><?php echo ++$i; ?></td>
+                                    <td><?php echo++$i; ?></td>
                                     <td><?php echo $skill->skill_name; ?></td>
                                     <td>
                                         <?php echo $skill->skill_cat_name; ?> 
@@ -79,7 +79,7 @@
                             <div class="form-group">
                                 <label class="form-label">Skill Category</label>
                                 <span style="color: red">*</span>                       
-                              
+
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
@@ -90,7 +90,6 @@
                                     </select>                            
                                 </div>
                             </div>
-                            <!--                            </div>-->
 
                             <div class="form-group">
 
@@ -107,36 +106,24 @@
                                     </select>   
                                 </div>
                             </div>
-                          
+
 
                             <div class="form-group">
 
                                 <label class="form-label">Expert Level</label>
                                 <span style="color: red">*</span>
 
-                     
+
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <div class="slider primary col-md-8">
-                                        <div class="slider slider-horizontal" style="width: 210px;">
-                                            <div class="slider-track">
-                                                <div class="slider-selection" style="left: 0%; width: 100%;"></div>
-                                                <div class="slider-handle round" style="left: 0%;"></div>
-                                                <div class="slider-handle round hide" style="left: 0%;"></div>
-
-                                            </div>
-                                            <div class="tooltip top hide" style="top: 12px; left: 210px;">
-                                                <div class="tooltip-arrow"></div>
-                                                <div class="tooltip-inner">60</div>
-
-                                            </div>
-                                            <input type="text" id="expert_level" name="expert_level" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
-                                        </div>
+                                        <input type="text" class="slider-element form-control" id="expert_level" name="expert_level" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                                     </div>
-                                    
+
+
                                 </div>
                             </div>
-                      
+
                             <br><br>
 
                             <div class="form-group">
@@ -167,12 +154,8 @@
     </div>
 </div>
 
-<!--<script>
+<script>
 	$(document).ready(function() {		
 		$('.slider-element').slider();
 	});
-</script>-->
-
-<!--<script type="text/javascript">
-    $('#skill_matrix_parent_menu').addClass('active open');
-</script>-->
+</script>

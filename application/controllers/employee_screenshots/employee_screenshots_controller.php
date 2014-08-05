@@ -1,6 +1,5 @@
 <?php
 
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -12,30 +11,21 @@ class Employee_screenshots_controller extends CI_Controller {
         if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
             redirect(site_url() . '/login/login_controller');
         } else {
-//
-  //         $this->load->model('employee_screenshot/employee_screenshot_model');
-//          $this->load->model('employee_screenshot/employee_screenshot_service');
+            $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
+
     function manage_employee_screenshot() {
 
-//        $employee_screenshot_service = new employee_screenshot_service();
+        $employee_service = new employee_service();
 
-        $data['heading'] = "Manage Employee_screenshot_service";
-//        $data['employee_screenshot'] = $employee_screenshot_service->get_employee_screenshot_by_screenshot_id($this->session->userdata(''));
+        $data['heading'] = "Work Snaps";
+        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $partials = array('content' => 'employee_screenshots/screenshot_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    
-    
-    
-    
-
-    
-    
-    
-    
 }
 

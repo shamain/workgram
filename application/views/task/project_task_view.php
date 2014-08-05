@@ -307,16 +307,16 @@
                     </div>
 
                     <div class="row form-row">
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label class="form-label">Description</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
+                        <div class="col-md-12">
+                            <div class="right">                                       
                                 <i class=""></i>
-                                <input id="task_description" class="form-control" type="text" name="task_description">                              
+                                <textarea id="task_description" class="form-control" type="text" name="task_description" rows="10">    </textarea>                        
                             </div>
                         </div>
                     </div>
