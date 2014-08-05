@@ -33,9 +33,9 @@
             <ul class="dropdown-menu">
                 <li class="active" data-filter="all" data-dimension="region"><a href="#">All</a></li>
                 <?php
-                foreach ($employees as $employee) {
+                foreach ($tasks as $task) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
+                    <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($task->task_id . ' ' . $task->task_name); ?></a></li>
                 <?php }
                 ?>
             </ul>
