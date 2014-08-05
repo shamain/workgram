@@ -18,7 +18,14 @@
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Project</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu">
                 <li class="active" data-filter="all" data-dimension="recreation"><a href="#">All</a></li>
-                <li data-filter="camping" data-dimension="recreation"><a href="#">Camping</a></li>
+                
+                <?php
+                foreach ($projects as $project) {
+                    ?>
+                <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($project->project_id . ' ' . $project->project_name); ?></a></li>
+                <?php }
+                ?>
+                
 
             </ul>
         </div>
