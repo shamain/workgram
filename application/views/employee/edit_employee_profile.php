@@ -44,6 +44,7 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee_detail->employee_email; ?>">                              
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -51,7 +52,14 @@
                                 <span style="color: red">*</span>
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_type" class="form-control" type="text" name="employee_type" value="<?php echo $employee_detail->employee_type; ?>">                              
+                                        <select name="employee_type" id="employee_type" class="select form-control"  >
+
+
+                                        <option value="1" <?php if ($this->config->item('ADMIN') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
+                                        <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Company Owner</option>
+                                        <option value="3" <?php if ($this->config->item('EMPLOYEE') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Employee</option>
+
+                                    </select>                        
                                 </div>
                             </div>
                             
@@ -101,7 +109,7 @@
                             
                              
 
-                            <div id="edit_employee_msg" class="form-row"> </div>
+                            <div id="edit_employee_profile_msg" class="form-row"> </div>
 
                             <input type="hidden" id="employee_code" name="employee_code" value="<?php echo $employee_detail->employee_code; ?>"/>
                             <div class="form-actions">

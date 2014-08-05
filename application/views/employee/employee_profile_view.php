@@ -91,7 +91,7 @@
                         </div>
 
 
-                        <!-- js for pro_pic-->
+<!--                         js for pro_pic-->
 
                         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
                         <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
@@ -141,9 +141,10 @@
 
 
                         </script>
-                        
+
+                                       
                         <div id="upload2">
-                            <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="  fa fa-camera"></i></button>
+                            <button type="button" class="btn btn-primary btn-small" id="browse2"><i class="fa fa-camera"></i></button>
                         </div>
                         
                         <div id="sta2"><span id="status2" ></span></div>
@@ -298,38 +299,7 @@ campaign”</h4>
 </div>
               
               
-                
-<!--              <div class="grid-body ">
-                <table class="table" id="employee_Profile_table" >
-                    <thead>
-                        <tr>                          
-                            <th>Project ID</th>
-                            <th>Task ID</th>
-                            <th>Task Name</th>
-                            <th>Deadline</th>
-                            <th>Progress</th>
-                            
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($employee_tasks as $task) {
-                            ?> 
-                                <td><?php echo $employee_tasks->project_id; ?></td>
-                                <td><?php echo $employee_tasks->task_id; ?>  </td>
-                                <td><?php echo $employee_tasks->task_name; ?></td>
-                                <td><?php echo $employee_tasks->task_deadline; ?>  </td>
-                                <td><?php echo $employee_tasks->task_progress; ?>  </td>
-
-                       <?php } ?>    
-                    </tbody>
-                </table>
-            </div>-->
-                
-            
-
-               <div class="tiles-body">
+            <div class="tiles-body">
                     <div class="row">
                         <div class="post col-md-12">
                             <div class="user-profile-pic-wrapper">
@@ -474,8 +444,11 @@ campaign”</h4>
     $('#employee_parent_menu').addClass('active open');
     $(document).ready(function() {
 
+        checkEmail();
+        phonenumber(employee_contact); 
         loadSampleChartDemo2();
     });
+    
 
 </script>
 

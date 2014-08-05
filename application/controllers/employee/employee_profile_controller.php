@@ -34,6 +34,52 @@ class Employee_profile_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
+    
+    
+    function edit_employee_profile($employee_code) {
+//        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
+//        if ($perm) {
+
+        $employee_service = new employee_service();
+
+
+        $data['heading'] = "Edit Employee Details";
+        $data['employee_detail'] = $employee_service->get_employee_by_id($employee_code);
+
+
+        $partials = array('content' => 'employee/edit_employee_profile');
+        $this->template->load('template/main_template', $partials, $data);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
+    
+    function edit_employee() {
+
+//        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
+//        if ($perm) {
+
+        $employee_model = new employee_model();
+        $employee_service = new employee_service();
+        $employee_model->set_employee_fname($this->input->post('employee_fname', TRUE));
+        $employee_model->set_employee_lname($this->input->post('employee_lname', TRUE));
+        $employee_model->set_employee_no($this->input->post('employee_no', TRUE));
+        $employee_model->set_employee_email($this->input->post('employee_email', TRUE));
+        $employee_model->set_employee_type($this->input->post('employee_type', TRUE));
+        $employee_model->set_employee_bday($this->input->post('employee_bday', TRUE));
+        $employee_model->set_employee_contact($this->input->post('employee_contact', TRUE));
+        $employee_model->set_employee_contract($this->input->post('employee_contract', TRUE));
+        ;
+
+        $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
+
+        
+        echo $employee_service->update_employee($employee_model);
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
+    
     function upload_employee_cover_pic() {
 
         $uploaddir = './uploads/employee_cover_pics/';
@@ -71,24 +117,6 @@ class Employee_profile_controller extends CI_Controller {
         $employee_model->set_employee_avatar($this->input->post('employee_avatar', TRUE));
 
         echo $employee_service->update_employee_avatar($employee_model);
-    }
-    
-    function edit_employee_profile($employee_code) {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
-//        if ($perm) {
-
-        $employee_service = new employee_service();
-
-
-        $data['heading'] = "Edit Employee Details";
-        $data['employee_detail'] = $employee_service->get_employee_by_id($employee_code);
-
-
-        $partials = array('content' => 'employee/edit_employee_profile');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
     }
     
     

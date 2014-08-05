@@ -1,24 +1,45 @@
-var base_url = js_base_url;
-var site_url = js_site_url;
 
+function checkEmail() {
 
+    var employee_email = document.getElementById('employee_email');
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-   //edit employee bday datepicker
+    if (!filter.test(employee_email.value)) {
+    alert('Please provide a valid email address');
+    employee_email.focus;
+    return false;
+ }
+}
+
+function phonenumber(employee_contact)  
+{  
+  var phoneno = /^\d{10}$/;  
+  if((employee_contact.value.match(phoneno)))  
+        {  
+      return true;  
+        }  
+      else  
+        {  
+        alert("message");  
+        return false;  
+        }  
+} 
+
+//edit employee bday datepicker
 $('#employee_bday_edit_dpicker').datepicker({
     format: "yyyy-mm-dd",
     autoclose: true,
     todayHighlight: true
 });
 
-   //edit employee Form
+   //edit employee profile Form
 $('#edit_employee_profile_form').validate({
     focusInvalid: false,
     ignore: "",
     rules: {
         employee_fname:{
             required: true
-           
-         },
+           },
         employee_lname:{
             required: true
          },
@@ -67,11 +88,11 @@ $('#edit_employee_profile_form').validate({
         $.post(site_url + '/employee/employee_profile_controller/edit_employee_profile', $('#edit_employee_profile_form').serialize(), function(msg)
         {
             if (msg === 1) {
-                $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
+                $("#edit_employee_profile_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
                 edit_employee_profile_form.reset();
                 location.reload();
             } else {
-                $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">details </a>has failed.</div>');
+                $("#edit_employee_profile_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">details </a>has failed.</div>');
             }
         });
 
@@ -80,6 +101,10 @@ $('#edit_employee_profile_form').validate({
 });
 
 
+
+   
+
+//skill graph js
 Morris.Donut({
    element: 'donut-example',
    data: [
