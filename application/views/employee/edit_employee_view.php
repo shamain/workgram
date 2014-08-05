@@ -174,8 +174,8 @@
                                                 $("#sta").html("");
                                                 //Add uploaded file to list
                                                 if (response != "error") {
-
                                                     $('#files').html("");
+                                                  
                                                     $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="200px" height="200px" /><br />');
                                                     picFileName = response;
                                                     document.getElementById('image').value = file;
@@ -196,8 +196,8 @@
                                 <div class="row form-row">
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <div id="files" ></div>
-                                            <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="200px" height="250px" />
+                                            <div id="files" >  <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="200px" height="250px" /></div>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-md-8">

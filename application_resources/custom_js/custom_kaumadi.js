@@ -33,7 +33,7 @@ var site_url = js_site_url;
         return true;
 
 // decimal point jump
-    else if (dec && (keychar == ".")) {
+    else if (dec && (keychar == '.')) {
         myfield.form.elements[dec].focus();
         return false;
     }
