@@ -17,6 +17,12 @@ class Notified_users_controller extends CI_Controller {
 
             $this->load->model('notified_users/notified_users_model');
             $this->load->model('notified_users/notified_users_service');
+            
+            $this->load->model('notification/notification_model');
+            $this->load->model('notification/notification_service');
+            
+            $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
     
