@@ -246,7 +246,7 @@
                 <!-- load tasks-->     
                 
 <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 204px;">
-<div class="live-tile slide ha  carousel" data-speed="750" data-delay="4000" data-mode="carousel">
+<div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="4000" data-mode="carousel">
 <div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
 <div class="p-t-20 p-l-20 p-r-20 p-b-20">
 <h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
