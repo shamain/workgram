@@ -40,11 +40,14 @@ class Notification_controller extends CI_Controller {
     
     function edit_notification_view($notification_id) {
 
-
         $notification_service = new Notification_service();
+        $system_service = new System_service();
         
         $data['heading'] = "Edit Notifications";
-        $data['notifications'] = $notification_service->get_notification_by_id($notification_id);
+        
+        $data['notification'] = $notification_service->get_notification_by_id($notification_id);
+        
+        $data['systems'] = $system_service->get_all_systems();
         
         $partials = array('content' => 'notification/edit_notification_view');
         $this->template->load('template/main_template', $partials, $data);

@@ -28,12 +28,9 @@
                             <tr  id="notification_<?php echo $notification->notification_id; ?>">
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $notification->notification_msg; ?></td>
-                                <td class="v-align-middle">
-                                    <div style="padding:1px;top:9px;right:9px;;font-size:smaller;color:#545454;width: 21px;">
-                                        <div style="width:9px;height:0;border:10px solid <?php echo $notification->notification_area_url; ?>;overflow:hidden"></div>
-                                    </div>
-                                </td>
-                                <td><?php echo $notification->system_id; ?></td>
+                                <td><?php echo $notification->notification_area_url; ?></td>
+
+                                <td><?php echo $notification->system; ?></td>
 								
                                 <td><?php echo $notification->notification_added_date; ?></td>
 

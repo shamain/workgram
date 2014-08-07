@@ -11,8 +11,8 @@ class Notified_users_service extends CI_Model {
     public function get_all_notified_users() {
         $this->db->select('notified_users.*,employee.employee_fname,employee.employee_lname,notification.notification_msg');
         $this->db->from('notified_users');
-        $this->db->join('notified_users', 'notified_users.employee_code = employee.employee_code','left');
-        $this->db->join('notified_users', 'notified_users.notification_id = notification.notification_id','left');
+        $this->db->join('employee', 'employee.employee_code = notified_users.employee_code','left');
+        $this->db->join('notification', 'notification.notification_id = notified_users.notification_id','left');
         $this->db->order_by("notified_users.notified_users_id", "desc");
         $query = $this->db->get();
         return $query->result();
