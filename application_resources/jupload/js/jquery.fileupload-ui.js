@@ -351,7 +351,7 @@ var image_array = [];
                 $.ajax(
                         {
                             type: "POST",
-                            url: site_url + '/album/album_controller/addAlbumImages/',
+                            url: site_url + '/project/project_controller/addAlbumImages/',
                             data: "caption=" + caption + "&album_cat_id=" + album_cat_id + "&file_name=" + image_array + "&status=" + status+'&cover_pic='+cover_pic,
                             async: false,
                             success: function(msg)
