@@ -54,9 +54,7 @@
 
                             </script>
 
-
-
-                            <!--<button type="button" class="btn btn-primary btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</button>-->
+<!--<button type="button" class="btn btn-primary btn-small"><i class="fa fa-check"></i>&nbsp;&nbsp;Following</button>-->
 
                             <div id="upload">
                                 <button type="button" class="btn btn-primary btn-small" id="browse"><i class="fa fa-camera"></i></button>
@@ -66,6 +64,8 @@
                         </div>
                     </div>
                 </div>
+                
+                
                 <div id="files">
                     <img src="<?php echo base_url(); ?>application_resources/img/cover_pic.png" alt="">
                 </div>
@@ -385,6 +385,7 @@
         </div>	
     </div>
 </div>
+
 <!-- chart-->
 <div class="row ">
     <div class="col-md-12">
