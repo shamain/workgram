@@ -84,21 +84,21 @@
                                 <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
 
                             <?php } ?> 
-                                <button type="button">                
-                            <span class="hover_edit fa fa-camera">
-                            <!--<i class="fa fa-camera"></i>-->
-                            </span>
-                                </button>
-<!--                        </div>-->
+                            <button type="button">                
+                                <span class="hover_edit fa fa-camera">
+                                <!--<i class="fa fa-camera"></i>-->
+                                </span>
+                            </button>
+                            <!--                        </div>-->
 
 
-<!--                         js for pro_pic-->
+                            <!--                         js for pro_pic-->
 
-                        <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-                        <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
 
 
-                        <script type="text/javascript">
+                            <script type="text/javascript">
 
                                 $(function() {
                                     var btnUpload = $('#upload2');
@@ -113,7 +113,7 @@
                                                 return false;
                                             }
                                             //status.text('Uploading...Please wait');
-//                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+                                            //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
 
                                         },
                                         onComplete: function(file, response) {
@@ -141,15 +141,15 @@
 
 
 
-                        </script>
+                            </script>
 
-                                       
-                        <div id="upload2">
-                            <button type="button" id="browse2"><span class="hover_edit fa fa-camera"></span></button>
-                        </div>
-                        
-                        <div id="sta2"><span id="status2" ></span></div>
-                        
+
+                            <div id="upload2">
+                                <button type="button" id="browse2"><span class="hover_edit fa fa-camera"></span></button>
+                            </div>
+
+                            <div id="sta2"><span id="status2" ></span></div>
+
                         </div>
 
                         <div class="user-mini-description">
@@ -198,9 +198,9 @@
 <h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
-                    
-              
-            
+
+
+
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
                         <ul class="my-friends">
@@ -238,69 +238,63 @@
                             </li>							
                         </ul>	
                         <div class="clearfix"></div>
-                        
-                            <!-- skill graph-->
-                <div id="donut-example" style="height:200px;">
-                    </div>
+
+                        <!-- skill graph-->
+                        <div id="donut-example" style="height:200px;">
+                        </div>
                     </div>				
                 </div>
-                
+
                 <!-- load tasks-->     
-                
-<div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 204px;">
-<div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="4000" data-mode="carousel">
-<div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
-<div class="p-t-20 p-l-20 p-r-20 p-b-20">
-<h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
-campaign”</h4>
-</div>
-<div class="overlayer bottom-left fullwidth">
-<div class="overlayer-wrapper">
-<div class="user-comment-wrapper">
-<div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
-<div class="comment">
-<div class="user-name text-white "><span class="bold"> David</span> Cooper </div>
-<p class="text-white-opacity">@ Revox</p>
-</div>
-<div class="clearfix"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
-<div class="user-comment-wrapper m-t-20">
-<div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
-<div class="comment">
-<div class="user-name text-white "><span class="bold"> Jane</span> Smith </div>
-<p class="text-white-opacity">@ Revox</p>
-</div>
-<div class="clearfix"></div>
 
-<?php
-                        foreach ($employee_tasks as $task) {
-                            ?> 
-                                <td><?php echo $employee_tasks->project_id; ?></td>
-                                <td><?php echo $employee_tasks->task_id; ?>  </td>
-                                <td><?php echo $employee_tasks->task_name; ?></td>
-                                <td><?php echo $employee_tasks->task_deadline; ?>  </td>
-                                <td><?php echo $employee_tasks->task_progress; ?>  </td>
+                <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 204px;">
+                    <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="4000" data-mode="carousel">
+                        <div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
+                            <div class="p-t-20 p-l-20 p-r-20 p-b-20">
+                                <h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
+                                    campaign”</h4>
+                            </div>
+                            <div class="overlayer bottom-left fullwidth">
+                                <div class="overlayer-wrapper">
+                                    <div class="user-comment-wrapper">
+                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
+                                        <div class="comment">
+                                            <div class="user-name text-white "><span class="bold"> David</span> Cooper </div>
+                                            <p class="text-white-opacity">@ Revox</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
+                            <?php
+                            foreach ($employee_tasks as $task) {
+                                ?> 
+                                <div class="user-comment-wrapper m-t-20">
+                                    <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
+                                    <div class="comment">
+                                        <div class="user-name text-white "><span class="bold"> Jane</span> Smith </div>
+                                        <p class="text-white-opacity">@ Revox</p>
+                                    </div>
+                                    <div class="clearfix"></div>
 
-                       <?php } ?>
-</div>
-<div class="overlayer bottom-left fullwidth">
-<div class="overlayer-wrapper">
-<div class="p-t-20 p-l-20 p-r-20 p-b-20">
-<h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> adverting
-campaign”</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-              
-              
-            <div class="tiles-body">
+                                </div>
+                                <div class="overlayer bottom-left fullwidth">
+                                    <div class="overlayer-wrapper">
+                                        <div class="p-t-20 p-l-20 p-r-20 p-b-20">
+                                            <h4 class="text-white no-margin custom-line-height"><span class="semi-bold"><?php echo $task->task_name; ?></span> 
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tiles-body">
                     <div class="row">
                         <div class="post col-md-12">
                             <div class="user-profile-pic-wrapper">
@@ -446,10 +440,10 @@ campaign”</h4>
     $(document).ready(function() {
 
         checkEmail();
-        phonenumber(employee_contact); 
+        phonenumber(employee_contact);
         loadSampleChartDemo2();
     });
-    
+
 
 </script>
 
