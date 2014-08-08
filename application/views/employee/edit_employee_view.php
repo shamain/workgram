@@ -177,7 +177,7 @@
                                                 if (response != "error") {
                                                     $('#files').html("");
                                                   
-                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="200px" height="200px" /><br />');
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px"  /><br />');
                                                     picFileName = response;
                                                     document.getElementById('image').value = file;
                                                     document.getElementById('employee_avatar').value = response;
@@ -197,7 +197,9 @@
                                 <div class="row form-row">
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <div id="files" >  <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="200px" height="250px" /></div>
+                                            <div id="files" class="project-logo">
+                                             <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="100px" height="100px"  />
+                                            </div>
                                             
                                         </div>
                                     </div>
@@ -212,7 +214,7 @@
                                                     <i class="fa fa-camera"></i>
                                                 </button>
                                                 <label class="form-label">upload Image Here</label>
-                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php echo $employee->employee_avatar; ?>"/>
+                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>"/>
                                             </div>
                                             <div id="sta"><span id="status" ></span></div>
 

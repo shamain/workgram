@@ -55,14 +55,14 @@
                                 <td>  <?php if ($employee->employee_contract == $this->config->item('FULL_TIME')) {
                                         ?>
                                         <span class="label label-success"><?php echo 'FULL TIME'; ?></span>
-                                      
-                                 <?php } else if ($employee->employee_contract == $this->config->item('PART_TIME')) {
-                                     ?>   
+
+                                    <?php } else if ($employee->employee_contract == $this->config->item('PART_TIME')) {
+                                        ?>   
                                         <span class="label label-warning"><?php echo 'PART TIME'; ?></span>
                                     <?php } ?>
                                 </td>
-                                  <td>
-                                      <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="50px" height="50px" /></td>
+                                <td>
+                                    <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="50px" height="50px" /></td>
 
                                 <td>
                                     <a href="<?php echo site_url(); ?>/employee/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
@@ -149,20 +149,20 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <i class="">
-                            <div class="form-group">                               
-                                <label class="form-label">Password</label>
-                                <span style="color: red">*</span>                             
-                            </div>
+                                <div class="form-group">                               
+                                    <label class="form-label">Password</label>
+                                    <span style="color: red">*</span>                             
+                                </div>
                         </div>
                         <div class="col-md-6">
                             <div class="inner-addon left-addon" id="generatePassword">                                         
-                                 <i class=""></i>
+                                <i class=""></i>
                                 <input id="employee_password" class="text" type="text" name="employee_password"  >  
-                                   <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button> 
+                                <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button> 
 
-                                </div>
-                    </div>
- 
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="row form-row">
@@ -193,25 +193,25 @@
                                 <select name="employee_type" id="employee_type" class="select2 form-control"  >
                                     <option value="1">Admin</option>
                                     <option value="2">Company Owner</option>
-                                     <option value="3">Employee</option>
+                                    <option value="3">Employee</option>
                                 </select>  
 
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label class="form-label">Salary</label>
-                                
+
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this,event,'.')">                              
+                                <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this, event, '.')">                              
                             </div>
                         </div>
                     </div>
@@ -227,27 +227,23 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                              <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
+                                <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
                                     <option value="FULL_TIME">Full Time</option>
                                     <option value="PART_TIME">Part Time</option>
-                                     
+
                                 </select>                             
                             </div>
                         </div>
                     </div>
                 </div>
-            
 
-                
+
+
                 <div id="add_employee_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
-                                   <script language="javascript">
-function restore() 
-{
-location.reload();}
-</script> 
-                    <button type="button" class="btn btn-default" data-dismiss="modal" onClick="restore()">Close</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
                 </div>
 
@@ -259,6 +255,6 @@ location.reload();}
 </div>
 <!-- /.modal -->
 <script type="text/javascript">
-    $('#employee_parent_menu').addClass('active open');
+                                    $('#employee_parent_menu').addClass('active open');
 </script>
 
