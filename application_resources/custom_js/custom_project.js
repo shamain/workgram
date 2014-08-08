@@ -93,7 +93,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
                     add_project_form.reset();
-                    location.reload();
+                    window.location = site_url + '/project/project_controller/manage_projects';
                 } else {
                     $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
                 }
@@ -166,7 +166,7 @@ $('#edit_project_form').validate({
             if (msg == 1) {
                 $("#edit_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been updated.</div>');
                 edit_project_form.reset();
-                location.reload();
+                window.location = site_url + '/project/project_controller/manage_projects';
             } else {
                 $("#edit_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
             }
