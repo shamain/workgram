@@ -112,6 +112,7 @@ var image_array = [];
                     if ((that._trigger('added', e, data) !== false) &&
                             (options.autoUpload || data.autoUpload) &&
                             data.autoUpload !== false) {
+
                         data.submit();
                     }
                 }).fail(function() {
@@ -309,6 +310,7 @@ var image_array = [];
             },
             // Callback for uploads start, equivalent to the global ajaxStart event:
             start: function(e) {
+
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
@@ -320,6 +322,7 @@ var image_array = [];
                             that._trigger('started', e);
                         }
                 );
+
             },
             // Callback for uploads stop, equivalent to the global ajaxStop event:
             stop: function(e) {
@@ -331,8 +334,8 @@ var image_array = [];
                         deferred = that._addFinishedDeferreds();
                 $.when.apply($, that._getFinishedDeferreds())
                         .done(function() {
-                            that._trigger('stopped', e);
-                        });
+                    that._trigger('stopped', e);
+                });
                 that._transition($(this).find('.fileupload-progress')).done(
                         function() {
                             $(this).find('.progress')
@@ -342,25 +345,25 @@ var image_array = [];
                             deferred.resolve();
                         }
                 );
-                var caption = $("#caption").val();
-                var album_cat_id = $("#album_cat_id").val();
-                var cover_pic = $("#cover_pic").val();
-                var status = $("#status").val();
-                var files = image_array;
-alert('ad');
-                $.ajax(
-                        {
-                            type: "POST",
-                            url: site_url + '/project/project_controller/addAlbumImages/',
-                            data: "caption=" + caption + "&album_cat_id=" + album_cat_id + "&file_name=" + image_array + "&status=" + status+'&cover_pic='+cover_pic,
-                            async: false,
-                            success: function(msg)
 
+                if ($('#fileupload').valid()) {
+                    var files = image_array;
+
+
+                    $.ajax(
                             {
-                                $.unblockUI;
-                                setTimeout("location.href = '" + site_url + '/album/album_controller/viewAlbumImages/' +album_cat_id+ "';", 3000);
-                            }
-                        });
+                                type: "POST",
+                                url: site_url + '/project/project_controller/add_new_project/',
+                                data: {file_name:image_array ,add_project_form:$('#fileupload').serialize()},
+                                async: false,
+                                success: function(msg)
+
+                                {
+                                    $.unblockUI;
+                                    setTimeout("location.href = '" + site_url + '/project/project_controller/manage_projects' + + "';", 3000);
+                                }
+                            });
+                }
 
 
             },
@@ -384,13 +387,13 @@ alert('ad');
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                         removeNode = function() {
-                            that._transition(data.context).done(
-                                    function() {
-                                        $(this).remove();
-                                        that._trigger('destroyed', e, data);
-                                    }
-                            );
-                        };
+                    that._transition(data.context).done(
+                            function() {
+                                $(this).remove();
+                                that._trigger('destroyed', e, data);
+                            }
+                    );
+                };
                 if (data.url) {
                     data.dataType = data.dataType || that.options.dataType;
                     $.ajax(data).done(removeNode).fail(function() {
@@ -473,11 +476,11 @@ alert('ad');
         _renderExtendedProgress: function(data) {
             return this._formatBitrate(data.bitrate) + ' | ' +
                     this._formatTime(
-                            (data.total - data.loaded) * 8 / data.bitrate
-                            ) + ' | ' +
+                    (data.total - data.loaded) * 8 / data.bitrate
+                    ) + ' | ' +
                     this._formatPercentage(
-                            data.loaded / data.total
-                            ) + ' | ' +
+                    data.loaded / data.total
+                    ) + ' | ' +
                     this._formatFileSize(data.loaded) + ' / ' +
                     this._formatFileSize(data.total);
         },

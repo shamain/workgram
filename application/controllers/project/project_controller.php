@@ -19,6 +19,9 @@ class Project_controller extends CI_Controller {
             
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
+            
+            $this->load->model('project_stuff/project_stuff_model');
+            $this->load->model('project_stuff/project_stuff_service');
 //        }
     }
 
@@ -53,6 +56,9 @@ class Project_controller extends CI_Controller {
 
         $project_model = new Project_model();
         $project_service = new Project_service();
+        
+        $project_stuff_model = new Project_stuff_model();
+        $project_stuff_service = new Project_stuff_service();
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
@@ -68,6 +74,8 @@ class Project_controller extends CI_Controller {
 
 
         echo $project_service->add_new_project($project_model);
+        
+    
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
