@@ -157,13 +157,15 @@
                         <div class="col-md-6">
                             <div class="inner-addon left-addon" id="generatePassword">                                         
                                  <i class=""></i>
-                                <input id="employee_password" class="form-control" type="text" name="employee_password"  >  
-                               <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>              
-                                
-                           
+<!--                                <input id="employee_password" class="text" type="text" name="employee_password"  >  
+                               <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>              -->
+                                <p>
+                                    <input id="employee_password" type="text" class="text"  name="employee_password"><input  type="button" class="btn btn-primary btn-sm btn-small"  onclick="generatePassword()" value="Password">
+                                </p>
+                        
                                 </div>
                     </div>
-        
+ 
                     </div>
 
                     <div class="row form-row">
