@@ -50,7 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['port'] = '3306';
-$db['default']['username'] = 'root';
+$db['default']['username'] = 'dahami';
 $db['default']['password'] = 'abc123@#';
 $db['default']['database'] = 'workgram';
 $db['default']['dbdriver'] = 'mysqli';
