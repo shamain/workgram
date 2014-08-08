@@ -18,6 +18,7 @@
                             <th>Type</th>
                             <th>Contact No</th>
                             <th>Contract</th>
+                            <th>Image</th>
                             <th>Options</th>
 
                         </tr>
@@ -60,7 +61,8 @@
                                         <span class="label label-warning"><?php echo 'PART TIME'; ?></span>
                                     <?php } ?>
                                 </td>
-
+                                  <td>
+                                      <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" alt="" width="50px" height="50px" /></td>
 
                                 <td>
                                     <a href="<?php echo site_url(); ?>/employee/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
