@@ -89,7 +89,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#add_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been added.</div>');
                     add_company_form.reset();
-                    location.reload();
+                    window.location = site_url + '/company/company_controller/manage_companies';
                 } else {
                     $("#add_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
                 }
@@ -153,7 +153,7 @@ $('#edit_company_form').validate({
             if (msg == 1) {
                 $("#edit_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been updated.</div>');
                 edit_company_form.reset();
-                location.reload();
+                window.location = site_url + '/company/company_controller/manage_companies';
             } else {
                 $("#edit_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
             }
@@ -165,28 +165,28 @@ $('#edit_company_form').validate({
 
 
 
-//delete company
-function delete_company(code) {
-
-    if (confirm('Are you sure want to delete this Company ?')) {
-
-        $.ajax({
-            type: "POST",
-            url: site_url + '/company/company_controller/delete_company',
-            data: "code=" + code,
-            success: function(msg) {
-                //alert(msg);
-                if (msg == 1) {
-                    //document.getElementById(trid).style.display='none';
-                    $('#company_' + code).hide();
-                }
-                else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employees');
-                }
-            }
-        });
-    }
-}
+////delete company
+//function delete_company(code) {
+//
+//    if (confirm('Are you sure want to delete this Company ?')) {
+//
+//        $.ajax({
+//            type: "POST",
+//            url: site_url + '/company/company_controller/delete_company',
+//            data: "code=" + code,
+//            success: function(msg) {
+//                //alert(msg);
+//                if (msg == 1) {
+//                    //document.getElementById(trid).style.display='none';
+//                    $('#company_' + code).hide();
+//                }
+//                else if (msg == 2) {
+//                    alert('Cannot be deleted as it is already assigned to Employees');
+//                }
+//            }
+//        });
+//    }
+//}
 
 
 

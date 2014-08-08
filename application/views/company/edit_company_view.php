@@ -76,7 +76,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                    <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies" class="btn btn-white btn-cons" type="button">Cancel</a>
                                 </div>
                             </div>
 
