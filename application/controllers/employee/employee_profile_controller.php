@@ -14,7 +14,7 @@ class Employee_profile_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
-            
+
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
         }
@@ -24,18 +24,16 @@ class Employee_profile_controller extends CI_Controller {
 
         $employee_service = new Employee_service();
         $task_service = new Task_service();
-        
+
         $data['employee_tasks'] = $task_service->get_employee_task_by_project($this->session->userdata('EMPLOYEE_CODE'));
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
-        
+
 
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    
-    
     function edit_employee_profile($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
 //        if ($perm) {
@@ -53,7 +51,7 @@ class Employee_profile_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-    
+
     function edit_employee() {
 
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
@@ -73,13 +71,13 @@ class Employee_profile_controller extends CI_Controller {
 
         $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
 
-        
+
         echo $employee_service->update_employee($employee_model);
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-    
+
     function upload_employee_cover_pic() {
 
         $uploaddir = './uploads/employee_cover_pics/';
@@ -115,15 +113,15 @@ class Employee_profile_controller extends CI_Controller {
         $employee_model = new Employee_model();
 
         $employee_model->set_employee_avatar($this->input->post('employee_avatar', TRUE));
+        $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
 
-        echo $employee_service->update_employee_avatar($employee_model);
+        $result = $employee_service->update_employee_avatar($employee_model);
+        
+        //update session profile pic into new pic
+        $this->session->set_userdata('EMPLOYEE_PROPIC', $this->input->post('employee_avatar', TRUE));
+        
+        echo $result;
     }
-    
-    
-    
-    
-    
-
 
 }
 

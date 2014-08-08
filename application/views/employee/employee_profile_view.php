@@ -35,11 +35,8 @@
                                             $("#sta").html("");
                                             //Add uploaded file to list
                                             if (response != "error") {
-                                                
-                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar:,employee_code}, function(msg)
-            {
 
-});
+
 
                                                 $('#files').html("");
                                                 $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_cover_pics/' + response + '"  /><br />');
@@ -69,8 +66,8 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div id="files">
                     <img src="<?php echo base_url(); ?>application_resources/img/cover_pic.png" alt="">
                 </div>
@@ -80,7 +77,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3" >
                         <div class="user-profile-pic profile-upload-pic" id="pro_pic">	
-                          
+
 <!--                            <img width="69" height="69" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">-->
                             <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
@@ -90,11 +87,11 @@
                                 <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
 
                             <?php } ?> 
-                                            
-                                <span class="hover_edit fa fa-camera">
-                                <!--<i class="fa fa-camera"></i>-->
-                                </span>
-                            
+
+                            <span class="hover_edit fa fa-camera">
+                            <!--<i class="fa fa-camera"></i>-->
+                            </span>
+
                             <!--                        </div>-->
 
 
@@ -130,7 +127,13 @@
                                             $("#sta2").html("");
                                             //Add uploaded file to list
                                             if (response != "error") {
+                                                
+                                              //save new pic in database and session
+                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
+                                                {
 
+                                                });
+                                                
                                                 $('#pro_pic').html("");
                                                 $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
                                                 picFileName = response;
@@ -155,6 +158,7 @@
                             </div>
 
                             <div id="sta2"><span id="status2" ></span></div>
+                            <input type="hidden" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
 
                         </div>
 
@@ -252,8 +256,8 @@
                 </div>
 
                 <!-- load tasks-->   
-                
-                
+
+
 
                 <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 120px;">
                     <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="1000" data-mode="carousel">
@@ -277,7 +281,7 @@
                         </div>
                         <div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
                             <?php
-                           foreach ($employee_tasks as $task) {
+                            foreach ($employee_tasks as $task) {
                                 ?> 
                                 <div class="user-comment-wrapper m-t-20">
                                     <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
@@ -402,7 +406,7 @@
 
         checkEmail();
         phonenumber(employee_contact);
-      
+
     });
 
 
