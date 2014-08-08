@@ -259,12 +259,12 @@
 
 
 
-                <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 120px;">
+                <div class="col-md-4 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 120px;">
                     <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="1000" data-mode="carousel">
                         <div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
                             <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                <h4 class="text-white no-margin normal-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
-                                    campaign”</h4>
+                                <h4 class="text-white no-margin normal-line-height">Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertising
+                                    campaign</h4>
                             </div>
                             <div class="overlayer bottom-left normalwidth">
                                 <div class="overlayer-wrapper">
