@@ -148,26 +148,23 @@
 
                     <div class="row form-row">
                         <div class="col-md-5">
+                            <i class="">
                             <div class="form-group">                               
                                 <label class="form-label">Password</label>
                                 <span style="color: red">*</span>                             
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="inner-addon left-addon" id="generatePassword">                                       
-                                <i class="">
-                                </i>
- 
-<                                 <input id="employee_password" class="form-control" type="text" name="employee_password"  >  
-                                    <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>  
-                                    
-                            </div>
- 
-                        </div>
+                            <div class="inner-addon left-addon" id="generatePassword">                                         
+                                 <i class=""></i>
+                                <input id="employee_password" class="form-control" type="text" name="employee_password"  >  
+                               <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>              
+                                
                            
+                                </div>
                     </div>
         
-                   
+                    </div>
 
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -232,8 +229,8 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                               <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                    <option value="FULL_TIME">FULL TIME</option>
-                                    <option value="PART_TIME">PART TIME</option>
+                                    <option value="FULL_TIME">Full Time</option>
+                                    <option value="PART_TIME">Part Time</option>
                                      
                                 </select>                             
                             </div>
