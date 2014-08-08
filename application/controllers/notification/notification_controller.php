@@ -81,7 +81,7 @@ class Notification_controller extends CI_Controller {
         $notification_model = new Notification_model();
 
         $notification_model->set_notification_id($this->input->post('notification_id', TRUE));
-        $notification_model->set_system_id($this->input->post('system_id', TRUE));
+        $notification_model->set_system_id($this->input->post('system_code', TRUE));
         $notification_model->set_notification_msg($this->input->post('notification_msg', TRUE));
         $notification_model->set_notification_area_url($this->input->post('notification_area_url',TRUE));
         $notification_model->set_notification_added_date($this->input->post('notification_added_date',TRUE));

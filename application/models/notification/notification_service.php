@@ -9,11 +9,11 @@ class Notification_service extends CI_Model {
     }
 
     public function get_all_notifications() {
-        $this->db->select('notification.*,notified_users.*,system.system');
+        $this->db->select('notification.*,system.system');
         $this->db->from('notification');
-        $this->db->join('notified_users', 'notified_users.notification_id = notification.notification_id');
         $this->db->join('system', 'system.system_code = notification.system_id');
         $this->db->order_by("notification.notification_id", "asc");
+        
         $query = $this->db->get();
         return $query->result();
     }

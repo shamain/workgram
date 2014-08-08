@@ -53,6 +53,8 @@
     </div>
 </div>
 
+<button class="btn btn-primary" style="margin-left:12px" data-toggle="modal" onclick="parent.location='<?php echo site_url(); ?>/notification/notified_users_controller/manage_notified_users/'">View Notified Users</button>
+
 <!-- Modal -->
 <div class="modal fade" id="add_notification_modal" tabindex="-1" role="dialog" aria-labelledby="add_notification_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -94,7 +96,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-    							<select name="system_code" id="system_code" class="select2 form-control"  >
+    				<select name="system_code" id="system_code" class="select2 form-control"  >
                                     <?php foreach ($systems as $system) { ?>
                                         <option value="<?php echo $system->system_code; ?>" ><?php echo $system->system; ?></option>
                                     <?php } ?>
