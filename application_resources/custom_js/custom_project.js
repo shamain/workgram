@@ -44,7 +44,8 @@ $(document).ready(function() {
     $('#project_end_date_dpicker').datepicker({
         format: "yyyy-mm-dd",
         autoclose: true,
-        todayHighlight: true
+        todayHighlight: true,
+        minDate: new Date()
     });
 
     //add project Form
