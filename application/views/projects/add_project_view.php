@@ -157,9 +157,9 @@
                                         <div class="span7">
                                             <!-- The fileinput-button span is used to style the file input field as button -->
                                             <span class="btn btn-success fileinput-button">
-                                                <i class="icon-plus icon-white"></i>
+                                                <i class="glyphicon glyphicon-plus"></i>
                                                 <span>Add files...</span>
-                                                <input type="file" name="files[]" multiple>
+                                                <input id="fileupload" type="file" multiple="" name="files[]">
                                             </span>
                                             <button type="submit" class="btn btn-primary start" id="start_upload" >
                                                 <i class="icon-upload icon-white"></i>
