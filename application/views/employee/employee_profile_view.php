@@ -35,6 +35,11 @@
                                             $("#sta").html("");
                                             //Add uploaded file to list
                                             if (response != "error") {
+                                                
+                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar:,employee_code}, function(msg)
+            {
+
+});
 
                                                 $('#files').html("");
                                                 $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_cover_pics/' + response + '"  /><br />');
@@ -75,6 +80,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3" >
                         <div class="user-profile-pic profile-upload-pic" id="pro_pic">	
+                          
 <!--                            <img width="69" height="69" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">-->
                             <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
@@ -84,11 +90,11 @@
                                 <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
 
                             <?php } ?> 
-                            <button type="button">                
+                                            
                                 <span class="hover_edit fa fa-camera">
                                 <!--<i class="fa fa-camera"></i>-->
                                 </span>
-                            </button>
+                            
                             <!--                        </div>-->
 
 
@@ -145,7 +151,7 @@
 
 
                             <div id="upload2">
-                                <button type="button" id="browse2"><span class="hover_edit fa fa-camera"></span></button>
+                                <button type="button" class=" btn btn-primary btn-small "id="browse2"><i class=" fa fa-camera"></i></button>
                             </div>
 
                             <div id="sta2"><span id="status2" ></span></div>
@@ -169,19 +175,19 @@
                     <div class="col-md-5 user-description-box  col-sm-5">
 
 
-                        <h4 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span>;</h4>
+                        <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span>;</h3>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h4>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h4>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-suitcase"></i>   <?php echo ucfirst($employee_detail->employee_type) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-suitcase"></i>   <?php echo ucfirst($employee_detail->employee_type) ?></h4>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h4>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h4>
                         <br>
-                        <h6 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h6>
+                        <h4 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h4>
 
 
 
@@ -245,16 +251,18 @@
                     </div>				
                 </div>
 
-                <!-- load tasks-->     
+                <!-- load tasks-->   
+                
+                
 
-                <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 204px;">
-                    <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="4000" data-mode="carousel">
+                <div class="col-md-6 col-sm-6 m-b-20" data-aspect-ratio="true" style="height: 120px;">
+                    <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="1000" data-mode="carousel">
                         <div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
                             <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                <h4 class="text-white no-margin custom-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
+                                <h4 class="text-white no-margin normal-line-height">“Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertiing
                                     campaign”</h4>
                             </div>
-                            <div class="overlayer bottom-left fullwidth">
+                            <div class="overlayer bottom-left normalwidth">
                                 <div class="overlayer-wrapper">
                                     <div class="user-comment-wrapper">
                                         <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
@@ -269,7 +277,7 @@
                         </div>
                         <div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
                             <?php
-                            foreach ($employee_tasks as $task) {
+                           foreach ($employee_tasks as $task) {
                                 ?> 
                                 <div class="user-comment-wrapper m-t-20">
                                     <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
@@ -280,10 +288,10 @@
                                     <div class="clearfix"></div>
 
                                 </div>
-                                <div class="overlayer bottom-left fullwidth">
+                                <div class="overlayer bottom-left normalwidth">
                                     <div class="overlayer-wrapper">
                                         <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                            <h4 class="text-white no-margin custom-line-height"><span class="semi-bold"><?php echo $task->task_name; ?></span> 
+                                            <h4 class="text-white no-margin normal-line-height"><span class="semi-bold"><?php echo $task->task_name; ?></span> 
                                             </h4>
                                         </div>
                                     </div>
@@ -386,55 +394,7 @@
     </div>
 </div>
 
-<!-- chart-->
-<div class="row ">
-    <div class="col-md-12">
-        <div class="row tiles-container spacing-bottom tiles grey">
-            <div class="tiles white col-md-8 col-sm-8 no-padding">
-                <div class="tiles-body">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="mini-chart-wrapper">
-                                <div class="chart-details-wrapper">
-                                    <div class="chartname"> New Orders </div>
-                                    <div class="chart-value"> 17,555 </div>
-                                </div>
-                                <div class="mini-chart">
-                                    <div id="mini-chart-orders_2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="mini-chart-wrapper">
-                                <div class="chart-details-wrapper">
-                                    <div class="chartname"> My Balance </div>
-                                    <div class="chart-value"> $17,555 </div>
-                                </div>
-                                <div class="mini-chart">
-                                    <div id="mini-chart-other_2" ></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div id="profile_skill_chart" class="ricksaw" ></div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 col-sm-4 no-padding">
-                <div class="tiles grey ">
-                    <div class="tiles white no-margin">
-                        <div class="tiles-body">
-                            <div class="tiles-title blend"> OVERALL VIEWS </div>
-                            <div class="heading"> <span data-animation-duration="1000" data-value="432852" class="animate-number">0</span> </div>
-                            44% higher <span class="blend">than last month</span> </div>
-                    </div>
-                    <div id="legend_2"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script type="text/javascript">
     $('#employee_parent_menu').addClass('active open');
@@ -442,7 +402,7 @@
 
         checkEmail();
         phonenumber(employee_contact);
-        loadSampleChartDemo2();
+      
     });
 
 

@@ -47,21 +47,7 @@
                                     
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label">Type</label>
-                                <span style="color: red">*</span>
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                        <select name="employee_type" id="employee_type" class="select form-control"  >
-
-
-                                        <option value="1" <?php if ($this->config->item('ADMIN') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
-                                        <option value="2" <?php if ($this->config->item('COMPANY_OWNER') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Company Owner</option>
-                                        <option value="3" <?php if ($this->config->item('EMPLOYEE') == $employee_detail->employee_type) { ?> selected="true" <?php } ?>>Employee</option>
-
-                                    </select>                        
-                                </div>
-                            </div>
+                            
                             
 
                             <div class="form-group">
@@ -118,7 +104,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                    <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile" class="btn btn-white btn-cons" type="button">Cancel</a>
                                 </div>
                             </div>
 
