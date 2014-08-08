@@ -161,15 +161,16 @@
                                 </div>
                             </div>
                             <div class="profile-pic">
-                                <!--<img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35" />-->
-                                <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+                                <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile">
+                                    <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
-                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
-                                <?php } else { ?>
-                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="35" height="35" />
+                                    <?php } else { ?>
+                                        <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="35" height="35" />
 
-                                <?php } ?> 
+                                    <?php } ?> 
+                                </a>
                             </div>
                         </div>
                         <ul class="nav quick-section ">
@@ -317,7 +318,7 @@
             <!-- BEGIN CHAT -->
             <div id="sidr" class="chat-window-wrapper">
                 <div id="main-chat-wrapper" >
-                     <?php echo $this->load->view('template/chat'); ?>
+                    <?php echo $this->load->view('template/chat'); ?>
                 </div>
             </div>
             <!-- END CHAT -->
