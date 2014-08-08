@@ -347,7 +347,7 @@ var image_array = [];
                 var cover_pic = $("#cover_pic").val();
                 var status = $("#status").val();
                 var files = image_array;
-
+alert('ad');
                 $.ajax(
                         {
                             type: "POST",

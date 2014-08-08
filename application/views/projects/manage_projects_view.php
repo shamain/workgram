@@ -42,7 +42,7 @@
 
                             $project_dead_line = strtotime($project->project_end_date);
                             $now = time();
-                            $remain_dates = timespan($now, $project_dead_line);
+                            //$remain_dates = timespan($now, $project_dead_line);
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
                                 <td><?php echo ++$i; ?></td>

@@ -48,7 +48,7 @@ $(document).ready(function() {
     });
 
     //add project Form
-    $('#add_project_form').validate({
+    $('#fileupload').validate({
         focusInvalid: false,
         ignore: "",
         rules: {
@@ -88,16 +88,16 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }, submitHandler: function(form)
         {
-            $.post(site_url + '/project/project_controller/add_new_project', $('#add_project_form').serialize(), function(msg)
-            {
-                if (msg == 1) {
-                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
-                    add_project_form.reset();
-                    window.location = site_url + '/project/project_controller/manage_projects';
-                } else {
-                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
-                }
-            });
+//            $.post(site_url + '/project/project_controller/add_new_project', $('#add_project_form').serialize(), function(msg)
+//            {
+//                if (msg == 1) {
+//                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
+//                    add_project_form.reset();
+//                    window.location = site_url + '/project/project_controller/manage_projects';
+//                } else {
+//                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
+//                }
+//            });
 
 
         }
