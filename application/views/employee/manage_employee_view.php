@@ -154,15 +154,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-with-icon  right" id="generatePassword">                                       
+                            <div class="inner-addon left-addon" id="generatePassword">                                       
                                 <i class="">
                                 </i>
-                                <input id="employee_password" class="form-control" type="text" name="employee_password"  >
-                                
-                                 <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>
-                               
+ 
+<                                 <input id="employee_password" class="form-control" type="text" name="employee_password"  >  
+                                    <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>  
+                                    
                             </div>
-                            
+ 
                         </div>
                            
                     </div>

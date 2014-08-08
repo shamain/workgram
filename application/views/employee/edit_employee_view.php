@@ -211,7 +211,7 @@
                                                     <i class="fa fa-camera"></i>
                                                 </button>
                                                 <label class="form-label">upload Image Here</label>
-                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" />
+                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php echo $employee->employee_avatar; ?>"/>
                                             </div>
                                             <div id="sta"><span id="status" ></span></div>
 
