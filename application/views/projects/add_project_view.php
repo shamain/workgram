@@ -221,8 +221,11 @@
 
                             <div id="add_project_msg" class="form-row"> </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    Save
+                                </button>
+                                
+                                <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects" class="btn btn-white btn-cons" type="button">Cancel</a>
 
                             </div>
 

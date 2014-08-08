@@ -157,7 +157,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                    <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects" class="btn btn-white btn-cons" type="button">Cancel</a>
                                 </div>
                             </div>
 
@@ -169,7 +169,7 @@
     </div>
 </div>
 <script type="text/javascript">
-                                        $('#project_parent_menu').addClass('active open');
+    $('#project_parent_menu').addClass('active open');
 </script>
 
 

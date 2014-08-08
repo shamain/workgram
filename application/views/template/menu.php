@@ -61,6 +61,18 @@
     </ul>
 </li> 
 
+<li class="" id="notification_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Notification</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/notification/notification_controller/manage_notification"> Manage Notification </a> </li>
+   
+    </ul>
+</li> 
+
 <li class="" id="settings_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
