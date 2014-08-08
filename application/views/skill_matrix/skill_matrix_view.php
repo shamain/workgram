@@ -100,10 +100,10 @@
                                     <i class=""></i>
                                     <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
                                     <select name="skill_code" id="skill_code" class="select2 form-control"  >
-                                        <?php foreach ($skills as $skills) {
+                                        <?php foreach ($skills as $skill) {
                                             ?> 
         <!--                                                   <input id="skill_code" class="form-control" type="text" name="skill_code" >  -->
-                                            <option value="<?php echo $skills->skill_code; ?>"><?php echo $skills->skill_name; ?></option>
+                                            <option value="<?php echo $skill->skill_code; ?>"><?php echo $skill->skill_name; ?></option>
                                         <?php } ?>
                                                <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
                                     </select>   

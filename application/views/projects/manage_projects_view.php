@@ -31,13 +31,18 @@
                             $complete_count = $task_service->get_complete_task_count_for_project($project->project_id);
                             $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
 
+                            //calculate progress
                             $total = $complete_count + $not_complete_count;
-                           
+
                             $progress = 0;
                             if ($total != 0) {
-                                $progress = ( $complete_count  * 100) / $total ;
+                                $progress = ( $complete_count * 100) / $total;
                             }
-                 
+
+
+                            $project_dead_line = strtotime($project->project_end_date);
+                            $now = time();
+                            $remain_dates = timespan($now, $project_dead_line);
                             ?> 
                             <tr  id="projects_<?php echo $project->project_id; ?>">
                                 <td><?php echo ++$i; ?></td>
@@ -60,7 +65,7 @@
                                         ?>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="<?php echo $progress; ?>%" style="width: 79%;"></div>
-                                            
+
                                         </div>
                                         <?php
                                     } else if ($progress == 0) {
@@ -100,5 +105,5 @@
 
 
 <script type="text/javascript">
-                                    $('#project_parent_menu').addClass('active open');
+    $('#project_parent_menu').addClass('active open');
 </script>
