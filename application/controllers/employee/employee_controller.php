@@ -14,6 +14,8 @@ class Employee_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+            
+            $this->load->library('email');
         }
     }
 

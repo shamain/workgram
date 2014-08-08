@@ -85,9 +85,10 @@ $('#edit_employee_profile_form').validate({
         parent.removeClass('error-control').addClass('success-control');
     }, submitHandler: function(form)
     {
-        $.post(site_url + '/employee/employee_profile_controller/edit_employee_profile', $('#edit_employee_profile_form').serialize(), function(msg)
+        $.post(site_url + '/employee/employee_profile_controller/edit_employee', $('#edit_employee_profile_form').serialize(), function(msg)
         {
-            if (msg === 1) {
+            
+            if (msg == 1) {
                 $("#edit_employee_profile_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
                 edit_employee_profile_form.reset();
                 window.location = site_url + '/employee/employee_profile_controller/view_profile';

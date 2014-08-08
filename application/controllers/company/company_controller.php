@@ -19,6 +19,17 @@ class Company_controller extends CI_Controller {
 
         $this->load->model('company/company_model');
         $this->load->model('company/company_service');
+
+        $this->load->model('privilege_master/privilege_master_model');
+        $this->load->model('privilege_master/privilege_master_service');
+
+        $this->load->model('privilege/privilege_model');
+        $this->load->model('privilege/privilege_service');
+        
+        $this->load->model('employee_privileges/employee_privileges_model');
+            $this->load->model('employee_privileges/employee_privileges_service');
+
+
         $this->load->library('email');
     }
 
