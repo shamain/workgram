@@ -93,7 +93,7 @@
         <div class="modal-content">
             <form id="add_employee_form" name="add_employee_form">
                 <div class="modal-header tiles green">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
                     <h4 id="add_employee_modalLabel" class="semi-bold text-white">It's a new employee</h4>
@@ -157,12 +157,9 @@
                         <div class="col-md-6">
                             <div class="inner-addon left-addon" id="generatePassword">                                         
                                  <i class=""></i>
-<!--                                <input id="employee_password" class="text" type="text" name="employee_password"  >  
-                               <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>              -->
-                                <p>
-                                    <input id="employee_password" type="text" class="text"  name="employee_password"><input  type="button" class="btn btn-primary btn-sm btn-small"  onclick="generatePassword()" value="Password">
-                                </p>
-                        
+                                <input id="employee_password" class="text" type="text" name="employee_password"  >  
+                                   <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button> 
+
                                 </div>
                     </div>
  
@@ -240,12 +237,17 @@
                     </div>
                 </div>
             
-                
+
                 
                 <div id="add_employee_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                   <script language="javascript">
+function restore() 
+{
+location.reload();}
+</script> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onClick="restore()">Close</button>
 
                 </div>
 

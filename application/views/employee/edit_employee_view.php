@@ -55,12 +55,13 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_password" class="form-control" type="text" name="employee_password" value="">                              
+                                    <input id="employee_password" class="text" type="text" name="employee_password" value=""> 
+                                    <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button>
                                 </div>
       
                                                       
                                
-                               <button type="button" class="btn btn-primary btn-cons"onclick="generatePassword()">Password</button>
+                               
                             </div>
 
                            <div class="form-group">
@@ -232,7 +233,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                   
+                                
                                     <a href="<?php echo site_url(); ?>/employee/employee_controller/manage_employees" class="btn btn-white btn-cons" type="button">Cancel</a>
                                 </div>
                             </div>
