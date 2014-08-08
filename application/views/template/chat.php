@@ -1,4 +1,13 @@
 <div id="main-chat-wrapper" >
+      <script>
+      $(function() {     
+        var pusher = new Pusher("29b132e580a92598d61d")
+        var chatWidget = new PusherChatWidget(pusher, {
+          appendTo: "#pusher_chat_widget"
+        });
+      });
+    </script>
+      
     <div class="chat-window-wrapper fadeIn" id="chat-users" >
         <div class="chat-header">
             <div class="pull-left">
@@ -124,7 +133,9 @@
                 </a> </div>
         </div>
         <div class="clearfix"></div>
-        <div class="chat-messages-header">
+         <div class="chat-messages" id="pusher_chat_widget">
+          </div>
+<!--        <div class="chat-messages-header">
             <div class="status online"></div>
             <span class="semi-bold">Jane Smith(Typing..)</span> <a href="#" class="chat-back"><i class="icon-custom-cross"></i></a> </div>
         <div class="chat-messages">
@@ -162,7 +173,7 @@
                 <div class="sent_time off">Sent On Tue, 2:45pm</div>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="chat-input-wrapper" style="display:none">
         <textarea id="chat-message-input" rows="1" placeholder="Type your message"></textarea>
     </div>

@@ -52,7 +52,14 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 
-
+ <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
+    <script src="<?php echo base_url(); ?>application_resources/custom_js/PusherChatWidget.js"></script> 
+    <link href="<?php echo base_url(); ?>application_resources/css/pusher-chat-widget.css" rel="stylesheet" type="text/css"/>
+    <script>
+        setPath("<?php echo base_url(); ?>","<?php echo site_url(); ?>");
+        setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> ");
+        
+    </script>
         <!-- JS -->
 
         <!-- favicon icon -->

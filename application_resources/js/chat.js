@@ -21,15 +21,15 @@ $(document).ready(function() {
 	$('.bubble').click(function(){
 		$(this).parent().parent('.user-details-wrapper').children('.sent_time').slideToggle();
 	})
-	 $('#chat-message-input').keypress(function(e){
-		if(e.keyCode == 13)
-		{		
-			send_message($(this).val());
-			$(this).val("");
-			$(this).blur()
-		}
-        $('#main-chat-wrapper').slimScroll({resize: true});
-	 })
+//	 $('#chat-message-input').keypress(function(e){
+//		if(e.keyCode == 13)
+//		{		
+//			send_message($(this).val());
+//			$(this).val("");
+//			$(this).blur()
+//		}
+//        $('#main-chat-wrapper').slimScroll({resize: true});
+//	 })
 	$(window).setBreakpoints({
 		distinct: true, 
 		breakpoints: [
@@ -106,12 +106,12 @@ $(document).ready(function() {
 		}
 	}
 	function send_message(msg){
-		$('.chat-messages').append('<div class="user-details-wrapper pull-right animated fadeIn">'+
-			'<div class="user-details">'+
-			  '<div class="bubble old sender">'+	
-					msg+
-			   '</div>'+
-			'</div>'+				
-			'<div class="clearfix"></div>'+
-		'</div>')
+//		$('.chat-messages').append('<div class="user-details-wrapper pull-right animated fadeIn">'+
+//			'<div class="user-details">'+
+//			  '<div class="bubble old sender">'+	
+//					msg+
+//			   '</div>'+
+//			'</div>'+				
+//			'<div class="clearfix"></div>'+
+//		'</div>')
 	}	
