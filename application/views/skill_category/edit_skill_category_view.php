@@ -11,7 +11,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_skill_category_form" name="edit_skill_category_form">
 
                             <div class="row form-row">
@@ -24,35 +24,33 @@
                                 <div class="col-md-6">
                                     <div class="input-with-icon  right">                                       
                                         <i class=""></i>
-                                        <input id="skill_cat_name" class="form-control" type="text" name="skill_cat_name" value="<?php echo $skill_category->skill_cat_name; ?>" >                              
+                                        <input id="skill_cat_name" class="form-control" type="text" name="skill_cat_name" value="<?php echo $skill_category->skill_cat_name; ?>" style="width: 50%">                              
                                         <input id="skill_cat_code" class="form-control" type="hidden" name="skill_cat_code" value="<?php echo $skill_category->skill_cat_code; ?>" >                              
                                     </div>
                                 </div>
                             </div>
-                            
-                             <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Color</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input data-color="rgb(255, 255, 255)" data-color-format="hex" id="colour" class="form-control skill_cat_colour_picker" type="text" name="colour" value="<?php echo $skill_category->colour; ?>">                              
-                            </div>
-                        </div>
-                    </div>
 
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button class="btn btn-primary btn-cons" type="submit">
-                                        <i class="icon-ok"></i>
-                                        Save
-                                    </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                            <div class="row form-row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label">Color</label>
+                                        <span style="color: red">*</span>
+                                    </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="input-with-icon  right">                                       
+                                        <i class=""></i>
+                                        <input autocomplete="false" data-color="rgb(255, 255, 255)" data-color-format="hex" id="colour" class="form-control skill_cat_colour_picker" type="text" name="colour" value="<?php echo $skill_category->colour; ?>" style="width: 50%">                              
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    <i class="icon-ok"></i>
+                                    Save
+                                </button>
+                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
                             </div>
 
                         </form>
@@ -63,7 +61,7 @@
     </div>
 </div>
 <script type="text/javascript">
-                                        $('#skill_parent_menu').addClass('active open');
+    $('#skill_parent_menu').addClass('active open');
 </script>
 
 

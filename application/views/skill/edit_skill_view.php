@@ -11,7 +11,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_skill_form" name="edit_skill_form">
 
                             <div class="form-group">
@@ -21,10 +21,10 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
+                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control" style="width: 50%" >
                                         <?php foreach ($skill_categories as $skill_category) {
                                             ?> 
-                                        <option value="<?php echo $skill_category->skill_cat_code; ?>"  <?php if($skill_category->skill_cat_code == $skill->skill_cat_code ){?> selected="true" <?php } ?>><?php echo $skill_category->skill_cat_name; ?></option>
+                                            <option value="<?php echo $skill_category->skill_cat_code; ?>"  <?php if ($skill_category->skill_cat_code == $skill->skill_cat_code) { ?> selected="true" <?php } ?>><?php echo $skill_category->skill_cat_name; ?></option>
                                         <?php } ?>
                                     </select>                              
                                 </div>
@@ -36,21 +36,20 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $skill->skill_name; ?>" >                              
+                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $skill->skill_name; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
-                            <input id="skill_code" class="form-control" type="hidden" name="skill_code" value="<?php echo $skill->skill_code; ?>" > 
+                            <input id="skill_code" class="form-control" type="hidden" name="skill_code" value="<?php echo $skill->skill_code; ?>" style="width: 50%"> 
 
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button class="btn btn-primary btn-cons" type="submit">
-                                        <i class="icon-ok"></i>
-                                        Save
-                                    </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
-                                </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    <i class="icon-ok"></i>
+                                    Save
+                                </button>
+                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
                             </div>
+
 
                         </form>
                     </div>
@@ -60,7 +59,7 @@
     </div>
 </div>
 <script type="text/javascript">
-                                        $('#skill_parent_menu').addClass('active open');
+    $('#skill_parent_menu').addClass('active open');
 </script>
 
 
