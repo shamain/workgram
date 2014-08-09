@@ -80,13 +80,21 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_skill_service = new Employee_skill_service();
         $skill_category_service = new Skill_category_service();
         $data['heading'] = "Edit Skill";
-        
+
         $data['skill'] = $employee_skill_service->get_all_employee_skills();
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-        
-        
+
+
         $partials = array('content' => 'skill/edit_skill_view');
         $this->template->load('template/main_template', $partials, $data);
+    }
+
+    public function get_skills_for_employee() {
+
+        $employee_skill_service = new Employee_skill_service();
+        $result = $employee_skill_service->get_skills_for_employee($this->input->post('employee_code'));
+
+        echo json_encode($result);
     }
 
 }

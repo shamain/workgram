@@ -19,6 +19,19 @@ class Employee_skill_service extends CI_Model {
         $query = $this->db->get_where('employee_skill', array('employee_code' => $employee_code));
         return $query->result();
     }
+    
+     function get_skills_for_employee($emp_code) {
+
+        $this->db->select('employee_skill.*');
+        $this->db->from('employee_skill');
+        $this->db->join('skill', 'skill.skill_cat_code = skill_category.skill_cat_code');
+        $this->db->join('employee_skill', 'employee_skill.skill_code = skill.skill_code');
+        $this->db->where('employee_skill.employee_code', $emp_code);
+        $this->db->group_by("skill.skill_code");
+        $this->db->order_by("skill_category.skill_cat_code", "desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     function delete_employee_skill($skill_code) {
         $data = array('del_ind' => '0');
