@@ -62,7 +62,9 @@
                     <p class="no-margin text-white">Choose a Skill category and make this a child of it.</p>
                     <br>
                 </div>
-                <div>
+                
+                <div class="modal-body">
+                    
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -82,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-
+                
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -98,6 +100,7 @@
                         </div>
                     </div>
                 </div>
+        
                 <div id="add_skill_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>

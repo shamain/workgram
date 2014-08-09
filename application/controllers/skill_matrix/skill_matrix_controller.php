@@ -28,9 +28,8 @@ class Skill_matrix_controller extends CI_Controller {
         $skill_service = new Skill_service();
         $data['heading'] = "Skill Matrix";
 
-        $data['skills'] = $skill_service->get_all_skills();
-
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        $data['skills'] = $skill_service->get_all_skills();
 
         $partials = array('content' => 'skill_matrix/skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -84,6 +83,7 @@ class Skill_matrix_controller extends CI_Controller {
         
         $data['skill'] = $employee_skill_service->get_all_employee_skills();
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        
         
         $partials = array('content' => 'skill/edit_skill_view');
         $this->template->load('template/main_template', $partials, $data);

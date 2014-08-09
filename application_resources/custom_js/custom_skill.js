@@ -603,6 +603,6 @@ function delete_employee_skill(skill_code) {
 
 //});
 
-// function slider(){
-//     
-// }
+ function slider(){
+     
+ }

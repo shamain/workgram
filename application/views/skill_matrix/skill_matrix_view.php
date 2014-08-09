@@ -25,9 +25,11 @@
                     <table class="table" id="my_skill_table" >
                         <thead>
                             <tr>  
-                                <th>Design</th>      
-                                <th>Development</th>                  
-                                <th>Marketing</th>
+                                <th>ID</th>      
+                                <th>Skill Category</th>                  
+                                <th>Skill</th>
+                                <th>Expert Level</th> 
+                                <th></th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +38,13 @@
                             foreach ($skills as $skill) {
                                 ?> 
                                 <tr  id="skills_<?php echo $skill->skill_code; ?>">
-                                    <td><?php echo ++$i; ?></td>
-                                    <td><?php echo $skill->skill_name; ?></td>
+                                    <td><?php echo++$i; ?></td>
+                                    <td><?php echo $skill->skill_cat_name; ?></td>
                                     <td>
-                                        <?php echo $skill->skill_cat_name; ?> 
+                                        <?php echo $skill->skill_name; ?> 
 
                                     </td>
+                                    <td></td>
                                     <td>
                                         <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
                                             <i class="fa fa-pencil"></i>
@@ -72,7 +75,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                         <form id="add_employee_skill_form" name="add_employee_skill_form">
 
 
@@ -102,10 +105,10 @@
                                     <select name="skill_code" id="skill_code" class="select2 form-control"  >
                                         <?php foreach ($skills as $skill) {
                                             ?> 
-        <!--                                                   <input id="skill_code" class="form-control" type="text" name="skill_code" >  -->
+            <!--                                                   <input id="skill_code" class="form-control" type="text" name="skill_code" >  -->
                                             <option value="<?php echo $skill->skill_code; ?>"><?php echo $skill->skill_name; ?></option>
                                         <?php } ?>
-                                               <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
+                                           <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
                                     </select>   
                                 </div>
                             </div>
@@ -120,7 +123,7 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <div class="slider primary col-md-8">
-                                        <input type="text" class="slider-element form-control" id="expert_level" name="expert_level" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                                        <div class="slider slider-horizontal" style="width: 210px;"><div class="slider-track"><div class="slider-selection" style="left: 85.71428571428571%; width: 14.285714285714292%;"></div><div class="slider-handle round" style="left: 85.71428571428571%;"></div><div class="slider-handle round hide" style="left: 100%;"></div></div><div class="tooltip top hide" style="top: -36px; left: 164px;"><div class="tooltip-arrow"></div><div class="tooltip-inner">60</div></div><input type="text" class="slider-element form-control" value="" data-slider-value="60" data-slider-step="1" data-slider-max="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></div>
                                     </div>
 
 
@@ -145,7 +148,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                    <button class="btn btn-white btn-cons" type="button">Clear</button>
                                 </div>
                             </div>
 
