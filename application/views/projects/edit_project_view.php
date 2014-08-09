@@ -104,7 +104,7 @@
                                             if (response != "error") {
 
                                                 $('#files').html("");
-                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" width="100px" height="100px" /><br />');
+                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/project_logo/' + response + '" width="100px" height="68px" /><br />');
                                                 picFileName = response;
                                                 document.getElementById('project_logo').value = response;
                                             } else {
@@ -124,7 +124,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <div id="files" class="project-logo">
-                                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="100px" height="100px" />
+                                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="100px" height="68px" />
                                         </div>
                                     </div>
                                 </div>

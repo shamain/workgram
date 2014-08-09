@@ -12,7 +12,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_employee_form" name="edit_employee_form">
 
 
@@ -23,7 +23,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_no" class="form-control" type="text" name="employee_no" value="<?php echo $employee->employee_no; ?>">                              
+                                    <input id="employee_no" class="form-control" type="text" name="employee_no" value="<?php echo $employee->employee_no; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee->employee_fname; ?>">                              
+                                    <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee->employee_fname; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -44,33 +44,33 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee->employee_lname; ?>">                              
+                                    <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee->employee_lname; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Password</label>
                                 <span style="color: red">*</span>
-                            
+
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_password" class="text" type="text" name="employee_password" value=""> 
+                                    <input id="employee_password" class="text" type="text" name="employee_password" value="" style="width: 50%"> 
                                     <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button>
                                 </div>
-      
-                                                      
-                               
-                               
+
+
+
+
                             </div>
 
-                           <div class="form-group">
+                            <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee->employee_email; ?>">                              
+                                    <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee->employee_email; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -80,7 +80,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="employee_type" id="employee_type" class="select2 form-control"  >
+                                    <select name="employee_type" id="employee_type" class="select2 form-control" style="width: 50%" >
 
 
                                         <option value="1" <?php if ($this->config->item('ADMIN') == $employee->employee_type) { ?> selected="true" <?php } ?>>Admin</option>
@@ -112,7 +112,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_contact" class="form-control" type="text" name="employee_contact" value="<?php echo $employee->employee_contact; ?>">                              
+                                    <input id="employee_contact" class="form-control" type="text" name="employee_contact" value="<?php echo $employee->employee_contact; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -122,7 +122,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this,event,'.')" value="<?php echo $employee->employee_salary; ?>">                              
+                                    <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this, event, '.')" value="<?php echo $employee->employee_salary; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -132,7 +132,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
+                                    <select name="employee_contract" id="employee_contract" class="select2 form-control"  style="width: 50%">
 
                                         <option value="FULL_TIME" <?php if ($this->config->item('FULL_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Full Time</option>
                                         <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
@@ -152,42 +152,42 @@
                                 <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
                                 <script type="text/javascript">
 
-                                    $(function() {
-                                        var btnUpload = $('#upload');
-                                        var status = $('#status');
-                                        new AjaxUpload(btnUpload, {
-                                            action: '<?PHP echo site_url(); ?>/employee/employee_controller/upload_image',
-                                            name: 'uploadfile',
-                                            onSubmit: function(file, ext) {
-                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                    // extension is not allowed 
-                                                    status.text('Only JPG, PNG or GIF files are allowed');
-                                                    return false;
-                                                }
-                                                //status.text('Uploading...Please wait');
-                                                $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+                                        $(function() {
+                                            var btnUpload = $('#upload');
+                                            var status = $('#status');
+                                            new AjaxUpload(btnUpload, {
+                                                action: '<?PHP echo site_url(); ?>/employee/employee_controller/upload_image',
+                                                name: 'uploadfile',
+                                                onSubmit: function(file, ext) {
+                                                    if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                        // extension is not allowed 
+                                                        status.text('Only JPG, PNG or GIF files are allowed');
+                                                        return false;
+                                                    }
+                                                    //status.text('Uploading...Please wait');
+                                                    $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
 
-                                            },
-                                            onComplete: function(file, response) {
-                                                //On completion clear the status
-                                                //status.text('');
-                                                $("#files").html("");
-                                                $("#sta").html("");
-                                                //Add uploaded file to list
-                                                if (response != "error") {
-                                                    $('#files').html("");
-                                                  
-                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px"  /><br />');
-                                                    picFileName = response;
-                                                    document.getElementById('image').value = file;
-                                                    document.getElementById('employee_avatar').value = response;
-                                                } else {
-                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                },
+                                                onComplete: function(file, response) {
+                                                    //On completion clear the status
+                                                    //status.text('');
+                                                    $("#files").html("");
+                                                    $("#sta").html("");
+                                                    //Add uploaded file to list
+                                                    if (response != "error") {
+                                                        $('#files').html("");
+
+                                                        $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '" width="100px" height="100px"  /><br />');
+                                                        picFileName = response;
+                                                        document.getElementById('image').value = file;
+                                                        document.getElementById('employee_avatar').value = response;
+                                                    } else {
+                                                        $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                    }
                                                 }
-                                            }
+                                            });
+
                                         });
-
-                                    });
 
 
 
@@ -198,9 +198,15 @@
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <div id="files" class="project-logo">
-                                             <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="100px" height="100px"  />
+                                                <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php
+                                                if ($employee->employee_avatar != '') {
+                                                    echo $employee->employee_avatar;
+                                                } else {
+                                                    echo 'avatar.jpg';
+                                                }
+                                                ?>" alt="" width="100px" height="100px"  />
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-8">
@@ -214,7 +220,13 @@
                                                     <i class="fa fa-camera"></i>
                                                 </button>
                                                 <label class="form-label">upload Image Here</label>
-                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>"/>
+                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php
+                                                if ($employee->employee_avatar != '') {
+                                                    echo $employee->employee_avatar;
+                                                } else {
+                                                    echo 'avatar.jpg';
+                                                }
+                                                ?>"/>
                                             </div>
                                             <div id="sta"><span id="status" ></span></div>
 
@@ -229,15 +241,15 @@
                             <div id="edit_employee_msg" class="form-row"> </div>
 
                             <input type="hidden" id="employee_code" name="employee_code" value="<?php echo $employee->employee_code; ?>"/>
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button class="btn btn-primary btn-cons" type="submit">
-                                        <i class="icon-ok"></i>
-                                        Save
-                                    </button>
-                                
-                                    <a href="<?php echo site_url(); ?>/employee/employee_controller/manage_employees" class="btn btn-white btn-cons" type="button">Cancel</a>
-                                </div>
+                            <div class="modal-footer">
+
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    <i class="icon-ok"></i>
+                                    Save
+                                </button>
+
+                                <a href="<?php echo site_url(); ?>/employee/employee_controller/manage_employees" class="btn btn-white btn-cons" type="button">Cancel</a>
+
                             </div>
 
                         </form>

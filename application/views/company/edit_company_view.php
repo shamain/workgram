@@ -11,7 +11,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_company_form" name="edit_company_form">
 
                             <div class="form-group">
@@ -20,7 +20,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="company_name" class="form-control" type="text" name="company_name" value="<?php echo $company->company_name; ?>">                              
+                                    <input id="company_name" class="form-control" type="text" name="company_name" value="<?php echo $company->company_name; ?>" style="width: 50%" >                              
                                 </div>
                             </div>
 
@@ -30,7 +30,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="company_address" class="form-control" type="text" name="company_address" value="<?php echo $company->company_address; ?>">                              
+                                    <input id="company_address" class="form-control" type="text" name="company_address" value="<?php echo $company->company_address; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="company_email" class="form-control" type="text" name="company_email" value="<?php echo $company->company_email; ?>">                              
+                                    <input id="company_email" class="form-control" type="text" name="company_email" value="<?php echo $company->company_email; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -52,7 +52,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="company_contact" class="form-control" type="text" name="company_contact" value="<?php echo $company->company_contact; ?>">                              
+                                    <input id="company_contact" class="form-control" type="text" name="company_contact" value="<?php echo $company->company_contact; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -70,14 +70,14 @@
                             <div id="edit_company_msg" class="form-row"> </div>
 
                             <input type="hidden" id="company_code" name="company_code" value="<?php echo $company->company_code; ?>"/>
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button class="btn btn-primary btn-cons" type="submit">
-                                        <i class="icon-ok"></i>
-                                        Save
-                                    </button>
-                                    <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies" class="btn btn-white btn-cons" type="button">Cancel</a>
-                                </div>
+                            <div class="modal-footer">
+
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    <i class="icon-ok"></i>
+                                    Save
+                                </button>
+                                <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies" class="btn btn-white btn-cons" type="button">Cancel</a>
+
                             </div>
 
                         </form>

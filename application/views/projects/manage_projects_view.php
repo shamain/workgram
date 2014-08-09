@@ -47,7 +47,7 @@
                             <tr  id="projects_<?php echo $project->project_id; ?>">
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $project->project_name; ?></td>
-                                <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="50px" height="50px" /></td>
+                                <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="100px" height="68px" /></td>
                                 <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
                                 <td>
                                     <?php
