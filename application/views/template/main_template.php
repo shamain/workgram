@@ -132,7 +132,7 @@
                     <div class="pull-right">
                         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
                                 <div class="user-details">
-                                    <div class="username"> <span class="badge badge-important">3</span> <?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> <span class="bold"><?php echo ucfirst($this->session->userdata('EMPLOYEE_LNAME')); ?></span> </div>
+                                    <div class="username" id="user-name"> <span id="notification-count" class="badge badge-important">0</span> <?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> <span class="bold"><?php echo ucfirst($this->session->userdata('EMPLOYEE_LNAME')); ?></span> </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
                             </a>
