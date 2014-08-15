@@ -92,4 +92,17 @@ class Notified_users_controller extends CI_Controller {
         
         echo $notified_users_service->add_new_notified_user($notified_users_model);
     }
+    
+    function mark_notification_as_seen($notified_users_id){
+        
+        $notified_users_service = new Notified_users_service();
+        
+        echo $notified_users_service->mark_notification_as_seen($notified_users_id);
+    }
+    
+    function user_unseen_notification_count(){
+        $notified_users_service = new Notified_users_service();
+        
+        echo $notified_users_service->get_unseen_notification_count_by_user($this->session->userdata('EMPLOYEE_CODE'));
+    }
 }

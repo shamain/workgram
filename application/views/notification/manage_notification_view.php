@@ -1,5 +1,5 @@
 <div class="page-title">	
-    <h3><?php echo $heading; ?></h3>		
+    <h3><b><?php echo $heading; ?></b></h3>		
 </div>
 <div class="row-fluid">
     <div class="span12">
@@ -14,7 +14,8 @@
                         <tr>
                             <th>#</th>
                             <th>Notification Message</th>
-                            <th>Area URL</th>
+                            <th>Sent to..</th>
+                            <th>URL / description</th>
                             <th>System</th>
                             <th>Added Date</th>
                             <th>Options</th>
@@ -28,6 +29,15 @@
                             <tr  id="notification_<?php echo $notification->notification_id; ?>">
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $notification->notification_msg; ?></td>
+                                <td style="width:130px"><?php 
+                                    if ($userscount[$i-1]== count($employees))
+                                    {
+                                         
+                                        echo 'All users';
+                                    }
+                                    else {
+                                        echo $userscount[$i-1];?> user(s)<?php
+                                    }?></td>
                                 <td><?php echo $notification->notification_area_url; ?></td>
 
                                 <td><?php echo $notification->system; ?></td>
@@ -53,7 +63,7 @@
     </div>
 </div>
 
-<button class="btn btn-primary" style="margin-left:12px" data-toggle="modal" onclick="parent.location='<?php echo site_url(); ?>/notification/notified_users_controller/manage_notified_users/'">View Notified Users</button>
+<button class="btn btn-primary" style="margin-left:12px" data-toggle="modal" onclick="parent.location='<?php echo site_url(); ?>/notification/notified_users_controller/manage_notified_users/'">View All Notified Users</button>
 
 <!-- Modal -->
 <div class="modal fade" id="add_notification_modal" tabindex="-1" role="dialog" aria-labelledby="add_notification_modalLabel" aria-hidden="true">
@@ -64,13 +74,32 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
-                    <h4 id="add_notification_modalLabel" class="semi-bold text-white">It's a new Notification</h4>
+                    <h4 id="add_notification_modalLabel" class="semi-bold text-white">Add New Notification</h4>
                     <p class="no-margin text-white">Include notification details here.</p>
                     <br>
                 </div>
                 <div class="modal-body">
 
-
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Notification Type</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <div class="radio radio-success">
+                                    <input id="nglobal" type="radio" name="ntype" value="global" onclick="notification_type_select(this);">
+                                    <label for="nglobal">Global</label>
+                                    <input id="nspecific" type="radio" name="ntype" value="specific" checked="checked" onclick="notification_type_select(this);">
+                                    <label for="nspecific">Specific</label>
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -81,7 +110,8 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="notification_msg" class="form-control" type="text" name="notification_msg">                              
+                                <!--<input id="notification_msg" class="form-control" type="text" name="notification_msg">     -->                         
+                                <textarea id="notification_msg" name="notification_msg" class="form-control" rows="2" cols="50"></textarea>
                             </div>
                         </div>
                     </div>
@@ -96,7 +126,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-    				<select name="system_code" id="system_code" class="select2 form-control"  >
+    				<select name="system_code" id="system_code" class="select2 form-control">
                                     <?php foreach ($systems as $system) { ?>
                                         <option value="<?php echo $system->system_code; ?>" ><?php echo $system->system; ?></option>
                                     <?php } ?>
@@ -104,28 +134,52 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
                 
-                <div class="row form-row">
+                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Notification Area URL</label>
+                                <label class="form-label">URL / Description</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="notification_area_url" class="form-control" type="text" name="notification_area_url">                              
+                                <textarea id="notification_area_url" class="form-control" name="notification_area_url" rows="2" cols="50"></textarea>                              
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label" id="lblnotified">Select Users (Send to...)</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                
+                                <select rows="2" name="notified_users[]" id="notified_users" style="width: 100%;" multiple="yes" class="select2 form-control">
+                                    <?php foreach ($employees as $employee) { ?>
+                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
+                                    <?php } ?> 
+                                </select>
+                                <br><br>
+                            </div>
+                        </div>
+                        <button type="button" id="btnclear" onClick="clearSelected();">Clear</button>
+                    </div>
+                    
+                
+                
                 <div id="add_notification_msg" class="form-row"> </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
+                    <button type="submit" style="margin-left:100px" class="btn btn-primary">Add</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button></center>
 
+                
                 </div>
             </form>
         </div>

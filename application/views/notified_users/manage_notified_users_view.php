@@ -1,5 +1,5 @@
 <div class="page-title">	
-    <h3><?php echo $heading; ?></h3>		
+    <h3><b><?php echo $heading; ?></b></h3>		
 </div>
 
 <div class="row-fluid">
@@ -56,6 +56,8 @@
 </div>
 
 <button class="btn btn-primary" style="margin-left:12px" data-toggle="modal" onclick="parent.location='<?php echo site_url(); ?>/notification/notification_controller/manage_notification/'">View Notifications</button>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="add_notified_users_modal" tabindex="-1" role="dialog" aria-labelledby="add_notified_users_modalLabel" aria-hidden="true">

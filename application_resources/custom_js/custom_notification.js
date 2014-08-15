@@ -100,7 +100,7 @@ $('#edit_notified_users_form').validate({
         //display error alert on form submit    
     },
     errorPlacement: function(label, element) { // render error placement for each input type   
-        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+        $('<span class="error"></span>').insertAfter($(element).parent()).append(label);
         var parent = $(element).parent('.input-with-icon');
         parent.removeClass('success-control').addClass('error-control');
     },
@@ -123,6 +123,7 @@ $('#edit_notified_users_form').validate({
                 $("#edit_notified_users_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Notified Users </a>has been updated.</div>');
                 edit_notified_users_form.reset();
                 location.reload();
+                parent.location= "../manage_notified_users/";
             } else {
                 $("#edit_notified_users_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notified User </a>has failed.</div>');
             }
@@ -147,6 +148,7 @@ function delete_notified_users(notified_users_id) {
                 if (msg == 1) {
 
                     $('#notified_users_' + notified_users_id).hide();
+                    init_notification_menu();
                 }
                 else if (msg == 2) {
                     alert('Cannot be deleted as it is already assigned to notified users');
@@ -174,6 +176,7 @@ function delete_notification(notification_id) {
                 if (msg == 1) {
 
                     $('#notification_' + notification_id).hide();
+                    init_notification_menu();
                 }
                 else if (msg == 2) {
                     alert('Cannot be deleted as it is already assigned to Notifications');
@@ -214,57 +217,8 @@ $(document).ready(function() {
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
     
-
-    //add Notification Form
-    $('#add_notification_form').validate({
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            notification_msg: {
-                required: true
-            },
-            system_code: {
-                required: true
-            },
-            notification_area_url: {
-                required: true
-            }
-
-        },
-        invalidHandler: function(event, validator) {
-            //display error alert on form submit    
-        },
-        errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('success-control').addClass('error-control');
-        },
-        highlight: function(element) { // hightlight error inputs
-            var parent = $(element).parent();
-            parent.removeClass('success-control').addClass('error-control');
-
-        },
-        unhighlight: function(element) { // revert the change done by hightlight
-
-        },
-        success: function(label, element) {
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('error-control').addClass('success-control');
-        }, submitHandler: function(form)
-        {
-            $.post(site_url + '/notification/notification_controller/add_new_notification', $('#add_notification_form').serialize(), function(msg)
-            {
-                if (msg == 1) {
-                    $("#add_notification_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Notification </a>has been added.</div>');
-                    add_notification_form.reset();
-                    location.reload();
-                } else {
-                    $("#add_notification_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notification </a>has failed.</div>');
-                }
-            });
-        }
-    });
-
+    
+    //edit Notification Form
     $('#edit_notification_form').validate({
         focusInvalid: false,
         ignore: "",
@@ -305,8 +259,10 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                     $("#edit_notification_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Notification </a>has been updated.</div>');
-//                    edit_notification_form.reset();
-                    location.reload();
+             //       edit_notification_form.reset();
+             
+                  location.reload();
+                  parent.location= "../manage_notification/"
                 } else {
                     $("#edit_notification_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notification </a>has failed.</div>');
                 }
@@ -314,10 +270,160 @@ $(document).ready(function() {
         }
     });
 
+    //add Notification Form
+    $('#add_notification_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            notification_msg: {
+                required: true
+            },
+            system_code: {
+                required: true
+            },
+            notification_area_url: {
+                required: true
+            },
+            notified_users: {
+                required: true
+            }
 
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label);
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/notification/notification_controller/add_new_notification', $('#add_notification_form').serialize(), function(msg)
+            {
+                
+                if (msg.charAt(msg.length-1) == 1) {
+                    $("#add_notification_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Notification </a>has been added.</div>');
+                    add_notification_form.reset();
+                    location.reload();
+                } else {
+                    $("#add_notification_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notification </a>has failed.</div>');
+                }
+            });
+        }
+    });
+  
+    $("#notified_users").val(['']).select2();
+    
+    init_notification_menu();
 });
 
 
+function clearSelected(){
+    $("#notified_users").val(['']).select2();
+}
+
+function notification_type_select(ntypeRadio) {
+ 
+    if(ntypeRadio.value=='global')
+    {
+   
+       document.getElementById("notified_users").disabled=true;
+       $("#notified_users").select2();
+       document.getElementById("lblnotified").innerHTML = '<del>Select Users (Send to...)</del>';
+    }
+    else
+    {
+        document.getElementById("notified_users").disabled=false;
+        $("#notified_users").select2();
+        document.getElementById("lblnotified").innerHTML = 'Select Users (Send to...)';
+    }
+}
+
+// Main Notification Menu
+function init_notification_menu(){
+    
+    var $messagehtml = "";
+    var div = document.getElementById('notification-list');
+
+    $.getJSON(site_url + '/notification/notification_controller/init_notification_menu',
+            function(msg) {
+                
+                init_menu_unseen_count();
+                
+                $msg_view_cls="";
+                $messagehtml='<div style="width:300px">';
+                
+                if (msg.length>0){
+                    
+                $.each(msg, function(key, val) {
+                    if(val.notified_user_is_seen=='n'){
+                        $msg_view_cls="notification-messages danger";
+                    }
+                    else{
+                        $msg_view_cls="notification-messages info";
+                    }
+                        
+                    $messagehtml += [
+                        '<div class="' + $msg_view_cls + '" onclick="mark_notification_as_seen(' + val.notified_users_id + ');" id="notification_' + val.notified_users_id + '">',
+                            '<div class="message-wrapper">',
+                                '<div class="heading"> ' + val.notification_msg + ' </div>',
+                                '<div class="description"> ' + val.notification_area_url + ' </div>',
+                                '<div class="date pull-left"> ' + val.notification_added_date + ' </div>',
+                            '</div>',
+                            '<div class="clearfix"></div>',
+                        '</div>'].join('\n');
+                    
+                    
+                });
+                }
+                else{
+                    $messagehtml += [
+                        '<div class="notification-messages success">',
+                            '<div class="message-wrapper">',
+                                '<div class="heading"> No Notifications.. </div>',
+                                '<div class="description"></div>',
+                                '<div class="date pull-left"></div>',
+                            '</div>',
+                            '<div class="clearfix"></div>',
+                        '</div>'].join('\n');
+                }
+                $messagehtml += '</div>';
+                div.innerHTML = $messagehtml;
+                
+
+            });
+}
+
+function init_menu_unseen_count(){
+    var notification_count = document.getElementById('notification-count');
+                
+                $.post(site_url + '/notification/notified_users_controller/user_unseen_notification_count/', function(data) {
+                    notification_count.innerHTML = data;
+                    notification_count.title=data + " Unseen Notification(s)..";
+                    
+                });
+    
+}
+
+function mark_notification_as_seen(id){
+    
+    $.post(site_url + '/notification/notified_users_controller/mark_notification_as_seen/'+ id);
+    document.getElementById("notification_" + id).className="notification-messages info";
+    init_menu_unseen_count();
+    document.getElementById("user-name").onclick=init_notification_menu();
+}
 
 
 
