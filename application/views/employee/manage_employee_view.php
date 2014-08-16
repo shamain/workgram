@@ -204,14 +204,22 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Salary</label>
+                                <label class="form-label">Wages Category</label>
 
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_salary" class="form-control" type="text" name="employee_salary" onkeypress="return numbersonly(this, event, '.')">                              
+<!--                                 <select name="employee_wages_category" id="employee_wages_category" class="select2 form-control"  >
+
+                                 <?php foreach ($employee_wages_categorys as $employee_wages_category) {
+                                        ?> 
+                                        <option value="<?php echo $employee_wages_category->category_name; ?>"><?php echo $employee_wages_category->category_name; ?></option>
+                                 <?php } ?>
+                                    -->
+                                </select>    
+                                          
                             </div>
                         </div>
                     </div>

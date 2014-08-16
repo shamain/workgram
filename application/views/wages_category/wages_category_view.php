@@ -1,8 +1,7 @@
-<!--<div class="page-title">	
+<div class="page-title">	
     <h3><?php echo $heading; ?></h3>		
 </div>
-
-Add new Category Form
+<!--Add new Category Form-->
 
 <div class="row-fluid">
     <div class="span12">
@@ -97,4 +96,4 @@ Add new Category Form
         </div>
 
     </div>
-</div>-->
+</div>

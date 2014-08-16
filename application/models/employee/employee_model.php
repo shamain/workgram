@@ -11,7 +11,7 @@ class Employee_model extends CI_Model {
     var $employee_type;
     var $employee_bday;
     var $employee_contact;
-    var $employee_salary;
+    var $employee_wages_category;
     var $employee_contract;
     var $employee_avatar;
     var $account_activation_code;
@@ -63,8 +63,8 @@ class Employee_model extends CI_Model {
         return $this->employee_contact;
     }
 
-    public function get_employee_salary() {
-        return $this->employee_salary;
+    public function get_employee_wages_category() {
+        return $this->employee_wages_category;
     }
 
     public function get_employee_contract() {
@@ -143,8 +143,8 @@ class Employee_model extends CI_Model {
         $this->employee_contact = $employee_contact;
     }
 
-    public function set_employee_salary($employee_salary) {
-        $this->employee_salary = $employee_salary;
+    public function set_employee_wages_category($employee_wages_category) {
+        $this->eemployee_wages_category = $employee_wages_category;
     }
 
     public function set_employee_contract($employee_contract) {

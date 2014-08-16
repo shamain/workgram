@@ -18,7 +18,7 @@ class Employee_service extends CI_Model {
             'employee_type' => $employee_model->get_employee_type(),
             'employee_bday' => $employee_model->get_employee_bday(),
             'employee_contact' => $employee_model->get_employee_contact(),
-            'employee_salary' => $employee_model->get_employee_salary(),
+            'employee_wages_category' => $employee_model->get_employee_wages_category(),
             'employee_contract' => $employee_model->get_employee_contract(),
             'employee_avatar' => $employee_model->get_employee_avatar(),
             'company_code' => $employee_model->get_company_code(),
