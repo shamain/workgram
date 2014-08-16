@@ -75,7 +75,7 @@
             <div class="tiles white">
 
                 <div class="row">
-                    <div class="col-md-3 col-sm-3" >
+                    <div class="col-md-2 col-sm-2" >
                         <div class="user-profile-pic profile-upload-pic" id="pro_pic">	
 
 <!--                            <img width="69" height="69" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">-->
@@ -127,13 +127,13 @@
                                             $("#sta2").html("");
                                             //Add uploaded file to list
                                             if (response != "error") {
-                                                
-                                              //save new pic in database and session
+
+                                                //save new pic in database and session
                                                 $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
                                                 {
 
                                                 });
-                                                
+
                                                 $('#pro_pic').html("");
                                                 $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
                                                 picFileName = response;
@@ -176,7 +176,7 @@
 
                     <!-- loading employee's details-->
 
-                    <div class="col-md-5 user-description-box  col-sm-5">
+                    <div class="col-md-6 user-description-box  col-sm-6">
 
 
                         <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span>;</h3>
@@ -258,50 +258,45 @@
                 <!-- load tasks-->   
 
 
+                <div class="row">
+                    <div class="col-md-2 col-sm-2"></div>
+                    <div class="col-md-6 user-description-box col-sm-6">
+                        <div class="row ">
+                            <div class="col-md-12 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 200px;">
+                                <div class="live-tile slide ha tiles carousel" data-speed="750" data-delay="1000" data-mode="carousel" style="background-color:#CDEAF1">
+                                    
+                                    <div class="slide-back ha tiles slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;background-color:#CDEAF1;color: #12334d !important;">
+                                        <?php
+                                        $employee_service = new Employee_service();
+                                        foreach ($employee_tasks as $task) {
 
-                <div class="col-md-4 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 120px;">
-                    <div class="live-tile slide ha tiles blue   carousel" data-speed="750" data-delay="1000" data-mode="carousel">
-                        <div class="slide-front ha tiles blue  slide" style="transition: transform 750ms ease; -webkit-transition: transform 750ms ease; transform: translate(0%, -100%) translateZ(0px);">
-                            <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                <h4 class="text-white no-margin normal-line-height">Just <span class="semi-bold">Completed</span> the <span class="semi-bold">Heart walk</span> advertising
-                                    campaign</h4>
-                            </div>
-                            <div class="overlayer bottom-left normalwidth">
-                                <div class="overlayer-wrapper">
-                                    <div class="user-comment-wrapper">
-                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" width="35" height="35"> </div>
-                                        <div class="comment">
-                                            <div class="user-name text-white "><span class="bold"> David</span> Cooper </div>
-                                            <p class="text-white-opacity">@ Revox</p>
-                                        </div>
-                                        <div class="clearfix"></div>
+                                            $added_by =$employee_service->get_employee($task->added_by);
+                                            ?> 
+                                            <div class="p-t-20 p-l-20 p-r-20 p-b-20">
+                                                <h4 class="no-margin normal-line-height" ><span class="semi-bold" ><?php echo $task->task_name; ?></span></h4>
+                                            </div>
+                                            <div class="overlayer bottom-left normalwidth">
+                                                <div class="overlayer-wrapper">
+                                                    <div class="user-comment-wrapper">
+                                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" width="35" height="35"> </div>
+                                                        <div class="comment">
+                                                            <div class="user-name"><span class="bold"> <?php echo $added_by->employee_fname;?></span> <?php echo $added_by->employee_lname;?> </div>
+                                                            <p style="color: #12334d !important;">@ <?php echo $task->project_name;?></p>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="slide-back ha tiles blue slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;">
-                            <?php
-                            foreach ($employee_tasks as $task) {
-                                ?> 
-                                <div class="user-comment-wrapper m-t-20">
-                                    <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" width="35" height="35"> </div>
-                                    <div class="comment">
-                                        <div class="user-name text-white "><span class="bold"> Jane</span> Smith </div>
-                                        <p class="text-white-opacity">@ Revox</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-
-                                </div>
-                                <div class="overlayer bottom-left normalwidth">
-                                    <div class="overlayer-wrapper">
-                                        <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                            <h4 class="text-white no-margin normal-line-height"><span class="semi-bold"><?php echo $task->task_name; ?></span> 
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
-                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-3">
+                        
                     </div>
                 </div>
 
@@ -396,21 +391,21 @@
             </div>
         </div>	
     </div>
-</div>
 
 
 
-<script type="text/javascript">
-    $('#employee_parent_menu').addClass('active open');
-    $(document).ready(function() {
 
-        checkEmail();
-        phonenumber(employee_contact);
+    <script type="text/javascript">
+        $('#employee_parent_menu').addClass('active open');
+        $(document).ready(function() {
 
-    });
+            checkEmail();
+            phonenumber(employee_contact);
+
+        });
 
 
-</script>
+    </script>
 
 
 

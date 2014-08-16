@@ -346,24 +346,25 @@ var image_array = [];
                         }
                 );
 
-                if ($('#fileupload').valid()) {
-                    var files = image_array;
+
+                var files = image_array;
 
 
-                    $.ajax(
+                $.ajax(
+                        {
+                            type: "POST",
+                            url: site_url + '/project/project_controller/add_temp_project_stuff/',
+                            data: {file_name: image_array},
+                            async: false,
+                            success: function(msg)
+
                             {
-                                type: "POST",
-                                url: site_url + '/project/project_controller/add_new_project/',
-                                data: {file_name:image_array ,add_project_form:$('#fileupload').serialize()},
-                                async: false,
-                                success: function(msg)
+                                alert(msg);
+                                $.unblockUI;
 
-                                {
-                                    $.unblockUI;
-                                    setTimeout("location.href = '" + site_url + '/project/project_controller/manage_projects' + + "';", 3000);
-                                }
-                            });
-                }
+                            }
+                        });
+
 
 
             },

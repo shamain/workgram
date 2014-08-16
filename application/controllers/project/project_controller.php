@@ -11,17 +11,21 @@ class Project_controller extends CI_Controller {
 //        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
 //            redirect(site_url() . '/login/login_controller');
 //        } else {
-            $this->load->model('project/project_model');
-            $this->load->model('project/project_service');
-            
-            $this->load->model('employee_task/employee_task_model');
-            $this->load->model('employee_task/employee_task_service');
-            
-            $this->load->model('task/task_model');
-            $this->load->model('task/task_service');
-            
-            $this->load->model('project_stuff/project_stuff_model');
-            $this->load->model('project_stuff/project_stuff_service');
+        $this->load->model('project/project_model');
+        $this->load->model('project/project_service');
+
+        $this->load->model('employee_task/employee_task_model');
+        $this->load->model('employee_task/employee_task_service');
+
+        $this->load->model('task/task_model');
+        $this->load->model('task/task_service');
+
+        $this->load->model('project_stuff/project_stuff_model');
+        $this->load->model('project_stuff/project_stuff_service');
+
+        $this->load->model('project_stuff_temp/project_stuff_temp_model');
+        $this->load->model('project_stuff_temp/project_stuff_temp_service');
+
 //        }
     }
 
@@ -35,8 +39,8 @@ class Project_controller extends CI_Controller {
         $partials = array('content' => 'projects/manage_projects_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-    
-     function add_project_view() {
+
+    function add_project_view() {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
 //        if ($perm) {
 
@@ -56,9 +60,8 @@ class Project_controller extends CI_Controller {
 
         $project_model = new Project_model();
         $project_service = new Project_service();
-        
-        $project_stuff_model = new Project_stuff_model();
-        $project_stuff_service = new Project_stuff_service();
+
+
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
@@ -74,8 +77,8 @@ class Project_controller extends CI_Controller {
 
 
         echo $project_service->add_new_project($project_model);
-        
-    
+
+
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
@@ -136,7 +139,6 @@ class Project_controller extends CI_Controller {
 //        }
     }
 
-    
     function upload_project_logo() {
 
         $uploaddir = './uploads/project_logo/';
@@ -152,34 +154,54 @@ class Project_controller extends CI_Controller {
         }
     }
 
+    function add_temp_project_stuff() {
+
+        $project_stuff_temp_model = new Project_stuff_temp_model();
+        $project_stuff_temp_service = new Project_stuff_temp_service();
+
+        $files = $this->input->post('file_name', TRUE);
+
+        foreach ($files as $file) {
+
+
+            $project_stuff_temp_model->set_stuff_name($file);
+            $project_stuff_temp_model->set_del_ind('1');
+            $project_stuff_temp_model->set_added_date(date("Y-m-d H:i:s"));
+            $project_stuff_temp_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+
+            echo $project_stuff_temp_service->add_new_project_stuff_temp($project_stuff_temp_model);
+        }
+    }
+
     /*
      * Api Methods for Project
      */
-    
+
     /*
      * @parameters employee code
      * Give all projects for particular emploee
      * return all project details as json object
      */
+
     public function get_projects_for_employee() {
 
         $project_service = new Project_service();
         $result = $project_service->get_projects_for_employee($this->input->post('employee_code'));
-        
+
         echo json_encode($result);
     }
-    
-    
+
     /*
      * @parameters project id ,employee code 
      * Give all task for particular emploee and particular project
      * return all task details as json object
      */
+
     public function get_task_for_employee() {
 
         $task_service = new Task_service();
         $result = $task_service->get_employee_task_by_project($this->input->post('employee_code'));
-        
+
         echo json_encode($result);
     }
 

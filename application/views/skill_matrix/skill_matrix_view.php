@@ -110,7 +110,7 @@
 
                                             <option value="<?php echo $skill->skill_code; ?>"><?php echo $skill->skill_name; ?></option>
                                         <?php } ?>
-                               <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
+                       <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
                                     </select>   
                                 </div>
                             </div>
@@ -125,7 +125,9 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                                    <div class="slider primary col-md-8">
+                                        <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide" style="width: 30%">
+                                    </div>
                                 </div>
 
                             </div>
@@ -156,6 +158,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
                                             $(document).ready(function() {

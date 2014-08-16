@@ -25,7 +25,7 @@ class Employee_profile_controller extends CI_Controller {
         $employee_service = new Employee_service();
         $task_service = new Task_service();
 
-        $data['employee_tasks'] = $task_service->get_employee_task_by_project($this->session->userdata('EMPLOYEE_CODE'));
+        $data['employee_tasks'] = $task_service->get_employee_task_detail_by_project($this->session->userdata('EMPLOYEE_CODE'));
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
 
