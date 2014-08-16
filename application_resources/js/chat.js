@@ -106,12 +106,12 @@ $(document).ready(function() {
 		}
 	}
 	function send_message(msg){
-//		$('.chat-messages').append('<div class="user-details-wrapper pull-right animated fadeIn">'+
-//			'<div class="user-details">'+
-//			  '<div class="bubble old sender">'+	
-//					msg+
-//			   '</div>'+
-//			'</div>'+				
-//			'<div class="clearfix"></div>'+
-//		'</div>')
+		$('.chat-messages').append('<div class="user-details-wrapper pull-right animated fadeIn">'+
+			'<div class="user-details">'+
+			  '<div class="bubble old sender">'+	
+					msg+
+			   '</div>'+
+			'</div>'+				
+			'<div class="clearfix"></div>'+
+		'</div>')
 	}	

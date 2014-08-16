@@ -6,17 +6,19 @@
  * @param {Map} options A hash of key value options for the widget.
  */
 
-var base_url ;
-var site_url ;
-var employeeName;
-function setPath(x,y){
-    base_url=x;
-    site_url=y;
-}
-
-function setName(name){
-    employeeName=name;
-}
+var path;
+var ename;
+var eemail;
+ function setPath(x,y){
+     path=x;
+ }
+     function setName(name){
+         ename=name;
+     }
+     
+     function setEmail(email){
+          eemail=email;
+     }
 
 function PusherChatWidget(pusher, options) {
   PusherChatWidget.instances.push(this);
@@ -28,7 +30,7 @@ function PusherChatWidget(pusher, options) {
   options = options || {};
   this.settings = $.extend({
     maxItems: 50, // max items to show in the UI. Items beyond this limit will be removed as new ones come in.
-    chatEn_autoScrolldPoint: base_url+'chat/chat.php', // the end point where chat messages should be sanitized and then triggered
+    chatEndPoint: path+'chat/chat.php', // the end point where chat messages should be sanitized and then triggered
     channelName: document.location.href, // the name of the channel the chat will take place on
     appendTo: document.body, // A jQuery selector or object. Defines where the element should be appended to
     debug: true
@@ -49,35 +51,48 @@ function PusherChatWidget(pusher, options) {
   this._chatChannel = this._pusher.subscribe(this.settings.channelName);
   
   this._chatChannel.bind('chat_message', function(data) {
+      console.log('sx');
     self._chatMessageReceived(data);
-  })
+  });
+    
+   
     
   this._itemCount = 0;
   
-  this._widget = PusherChatWidget._createHTML(this.settings.appendTo);
-  this._nicknameEl = employeeName;
-//  this._widget.find('input[name=nickname]')
-  this._emailEl = this._widget.find('input[name=email]');  
+this._widget = PusherChatWidget._createHTML(this.settings.appendTo);
+  this._nicknameEl = ename;
+  this._emailEl = eemail;  
   this._messageInputEl = $('#chat-message-input');
-//  this._widget.find('textarea');
   this._messagesEl = this._widget.find('ul');
-  
-  
-  this._widget.find('button').click(function() {
-   // self._sendChatButtonClicked();
-  })
-  
-   $('#chat-message-input').keypress(function(e){
-		if(e.keyCode == 13)
-		{		
-			  self._sendChatButtonClicked();
-          // send_message($(this).val());
-			$(this).val("");
-			$(this).blur()
-		}
-        $('#main-chat-wrapper').slimScroll({resize: true});
-	 });
-         
+  var x=this;
+
+
+
+$('#send').click(function(event){
+    
+        var nickname = $.trim(ename); // optional
+  var email = $.trim(eemail); // optional
+  if(!nickname) {
+    alert('please supply a nickname');
+    return;
+  }
+  var message = $.trim($('#chat-message-input').val());
+  if(!message) {
+    //alert('please supply a chat message');
+    return;
+  }
+
+  var chatInfo = {
+    nickname: nickname,
+    email: email,
+    text: message
+  };
+  x._sendChatMessage(chatInfo);
+           $('#chat-message-input').val("");
+			$(this).blur();
+    
+      $('#main-chat-wrapper').slimScroll({resize: true});
+});
   var messageEl = this._messagesEl;
   messageEl.scroll(function() {
     var el = messageEl.get(0);
@@ -121,14 +136,14 @@ PusherChatWidget.prototype._chatMessageReceived = function(data) {
 /* @private */
 PusherChatWidget.prototype._sendChatButtonClicked = function() {
   var nickname = $.trim(this._nicknameEl); // optional
-  var email = $.trim(this._emailEl.val()); // optional
+  var email = $.trim(this._emailEl); // optional
   if(!nickname) {
     alert('please supply a nickname');
     return;
   }
   var message = $.trim(this._messageInputEl.val());
   if(!message) {
-    alert('please supply a chat message');
+    //alert('please supply a chat message');
     return;
   }
 
@@ -160,6 +175,7 @@ PusherChatWidget.prototype._sendChatMessage = function(data) {
       self._messageInputEl.removeAttr('readonly');
     },
     success: function(result) {
+console.log('s');
       var activity = result.activity;
       var imageInfo = activity.actor.image;
       var image = $('<div class="pusher-chat-widget-current-user-image">' +
@@ -189,7 +205,7 @@ PusherChatWidget.prototype._startTimeMonitor = function() {
 /* @private */
 PusherChatWidget._createHTML = function(appendTo) {
   var html = '' +
-  '<div class="pusher-chat-widget">' +
+  '<div class="pusher-chat-widget" style="display:none;">' +
     '<div class="pusher-chat-widget-header">' +
       '<label for="nickname">Name</label>' +
       '<input type="text" name="nickname" />' +
@@ -215,54 +231,58 @@ PusherChatWidget._createHTML = function(appendTo) {
   return widget;
 };
 
-
 /* @private */
 PusherChatWidget._buildListItem = function(activity) {
-
     
-    
-    
-  var li = $('<li class="activity"></li>');
-  li.attr('data-activity-id', activity.id);
-  var item = $('<div class="stream-item-content"></div>');
-  li.append(item);
-  
-  var imageInfo = activity.actor.image;
-  var image = $('<div class="image">' +
-                  '<img src="' + imageInfo.url + '" width="' + imageInfo.width + '" height="' + imageInfo.height + '" />' +
-                '</div>');
-  item.append(image);
-  
-  var content = $('<div class="content"></div>');
-  item.append(content);
-  
-  var user = $('<div class="activity-row">' +
-                '<span class="user-name">' +
-                  '<a class="screen-name" title="' + activity.actor.displayName.replace(/\\'/g, "'") + '">' + activity.actor.displayName.replace(/\\'/g, "'") + '</a>' +
-                  //'<span class="full-name">' + activity.actor.displayName + '</span>' +
-                '</span>' +
-              '</div>');
-  content.append(user);
-  
-  var message = $('<div class="activity-row">' +
-                    '<div class="text">' + activity.body.replace(/\\('|&quot;)/g, '$1') + '</div>' +
-                  '</div>');
-  content.append(message);
-  
-  var time = $('<div class="activity-row">' + 
-                '<a ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
-                  '<span title="' + activity.published + '" data-activity-published="' + activity.published + '">' + PusherChatWidget.timeToDescription(activity.published) + '</span>' +
-                '</a>' +
-                '<span class="activity-actions">' +
-                  /*'<span class="tweet-action action-favorite">' +
-                    '<a href="#" class="like-action" data-activity="like" title="Like"><span><i></i><b>Like</b></span></a>' +
-                  '</span>' +*/
-                '</span>' +
-              '</div>');
-  content.append(time);
-                
-  
-  return li;
+    $('.chat-messages').append('<div class="user-details-wrapper pull-right animated fadeIn">'+
+			'<div class="user-details">'+
+			  '<div class="bubble old sender">'+	
+					activity.body.replace(/\\('|&quot;)/g, '$1')+
+			   '</div>'+
+			'</div>'+				
+			'<div class="clearfix"></div>'+
+		'</div>')  ;
+//  var li = $('<li class="activity"></li>');
+//  li.attr('data-activity-id', activity.id);
+//  var item = $('<div class="stream-item-content"></div>');
+//  li.append(item);
+//  
+//  var imageInfo = activity.actor.image;
+//  var image = $('<div class="image">' +
+//                  '<img src="' + imageInfo.url + '" width="' + imageInfo.width + '" height="' + imageInfo.height + '" />' +
+//                '</div>');
+//  item.append(image);
+//  
+//  var content = $('<div class="content"></div>');
+//  item.append(content);
+//  
+//  var user = $('<div class="activity-row">' +
+//                '<span class="user-name">' +
+//                  '<a class="screen-name" title="' + activity.actor.displayName.replace(/\\'/g, "'") + '">' + activity.actor.displayName.replace(/\\'/g, "'") + '</a>' +
+//                  //'<span class="full-name">' + activity.actor.displayName + '</span>' +
+//                '</span>' +
+//              '</div>');
+//  content.append(user);
+//  
+//  var message = $('<div class="activity-row">' +
+//                    '<div class="text">' + activity.body.replace(/\\('|&quot;)/g, '$1') + '</div>' +
+//                  '</div>');
+//  content.append(message);
+//  
+//  var time = $('<div class="activity-row">' + 
+//                '<a ' + (activity.link?'href="' + activity.link + '" ':'') + ' class="timestamp">' +
+//                  '<span title="' + activity.published + '" data-activity-published="' + activity.published + '">' + PusherChatWidget.timeToDescription(activity.published) + '</span>' +
+//                '</a>' +
+//                '<span class="activity-actions">' +
+//                  /*'<span class="tweet-action action-favorite">' +
+//                    '<a href="#" class="like-action" data-activity="like" title="Like"><span><i></i><b>Like</b></span></a>' +
+//                  '</span>' +*/
+//                '</span>' +
+//              '</div>');
+//  content.append(time);
+//      	        
+//  
+//  return li;
 };
 
 /**

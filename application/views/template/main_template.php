@@ -57,9 +57,11 @@
     <link href="<?php echo base_url(); ?>application_resources/css/pusher-chat-widget.css" rel="stylesheet" type="text/css"/>
     <script>
         setPath("<?php echo base_url(); ?>","<?php echo site_url(); ?>");
-        setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?> ");
-        
+        setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?>");
+        setEmail("<?php echo ucfirst($this->session->userdata('EMPLOYEE_EMAIL')); ?>");
+     
     </script>
+    
         <!-- JS -->
 
         <!-- favicon icon -->
