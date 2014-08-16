@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2014 at 05:37 AM
+-- Generation Time: Aug 16, 2014 at 06:16 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `employee_type` varchar(30) NOT NULL,
   `employee_bday` date DEFAULT NULL,
   `employee_contact` varchar(30) DEFAULT NULL,
-  `employee_salary` decimal(20,2) DEFAULT NULL,
+  `employee_wages_category` int(11) DEFAULT NULL,
   `employee_contract` varchar(30) NOT NULL,
   `employee_avatar` varchar(100) DEFAULT NULL,
   `account_activation_code` varchar(100) NOT NULL,
@@ -99,13 +99,13 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_code`, `employee_no`, `employee_fname`, `employee_lname`, `employee_password`, `employee_email`, `employee_type`, `employee_bday`, `employee_contact`, `employee_salary`, `employee_contract`, `employee_avatar`, `account_activation_code`, `company_code`, `is_online`, `del_ind`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES
-(1, '1', 'Shamain', 'Peiris', 'c4961b067d274050e43e26beb9d7d19c', 'shamaingdd@gmail.com', 'employee type', '1991-06-10', '0758376047', 412125125.00, 'dasds', '', '', 1, 'Y', '1', 12, '2014-05-20 18:30:00', NULL, NULL),
+INSERT INTO `employee` (`employee_code`, `employee_no`, `employee_fname`, `employee_lname`, `employee_password`, `employee_email`, `employee_type`, `employee_bday`, `employee_contact`, `employee_wages_category`, `employee_contract`, `employee_avatar`, `account_activation_code`, `company_code`, `is_online`, `del_ind`, `added_by`, `added_date`, `updated_by`, `updated_date`) VALUES
+(1, '1', 'Shamain', 'Peiris', 'c4961b067d274050e43e26beb9d7d19c', 'shamaingdd@gmail.com', 'employee type', '1991-06-10', '0758376047', 412125125, 'dasds', '', '', 1, 'Y', '1', 12, '2014-05-20 18:30:00', NULL, NULL),
 (2, '2', 'Gayathma', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'gayathma3@gmail.com', '0', '1991-04-10', '353523', NULL, 'FULL_TIME', 'employee_avatar1407564628-531709_575297122495442_553449702_n.jpg', '', 1, 'N', '1', 12, '2014-05-30 23:30:00', NULL, NULL),
-(3, '3', 'Rachini', 'Perera', 'b01509c878e24c0dfd78da7bae7d5e70', 'rachini@gmail.com', '2', '2014-06-12', '2332623623', 213232.00, 'FULL_TIME', 'emp_avatar1405095017-p.jpg', '3', 1, '', '1', 0, '2014-07-11 12:40:36', NULL, NULL),
-(4, '4', 'Dahami', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'dahami@gmail.com', 'emp', '2014-06-20', '34535', 32535.00, '235', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL),
-(5, '5', 'Kaumadi', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'kaumadi@gmail.com', 'emp', '2014-06-20', '3453534', 35325.00, 'FULL_TIME', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL),
-(6, '6', 'Dilupa', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'dilupa@gmail.com', 'emp', '2014-06-28', '4234234', 4234.00, 'PART_TIME', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL);
+(3, '3', 'Rachini', 'Perera', 'b01509c878e24c0dfd78da7bae7d5e70', 'rachini@gmail.com', '2', '2014-06-12', '2332623623', 213232, 'FULL_TIME', 'emp_avatar1405095017-p.jpg', '3', 1, '', '1', 0, '2014-07-11 12:40:36', NULL, NULL),
+(4, '4', 'Dahami', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'dahami@gmail.com', 'emp', '2014-06-20', '34535', 32535, '235', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL),
+(5, '5', 'Kaumadi', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'kaumadi@gmail.com', 'emp', '2014-06-20', '3453534', 35325, 'FULL_TIME', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL),
+(6, '6', 'Dilupa', 'Perera', 'c4961b067d274050e43e26beb9d7d19c', 'dilupa@gmail.com', 'emp', '2014-06-28', '4234234', 4234, 'PART_TIME', '', '', 1, '', '1', 1, '2014-06-13 18:30:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -484,7 +484,7 @@ CREATE TABLE IF NOT EXISTS `statistics` (
   `ip` varchar(300) DEFAULT NULL,
   `browser` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`statistic_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=411 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=463 ;
 
 --
 -- Dumping data for table `statistics`
@@ -901,7 +901,59 @@ INSERT INTO `statistics` (`statistic_id`, `user_id`, `action`, `date`, `uri`, `p
 (407, 0, 'view_profile', 1408160197, 'employee/employee_profile_controller/view_profile', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
 (408, 0, 'init_notification_menu', 1408160200, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
 (409, 0, '%5Bobject%20Object%5D', 1408160200, 'employee/employee_profile_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
-(410, 0, 'user_unseen_notification_count', 1408160201, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0');
+(410, 0, 'user_unseen_notification_count', 1408160201, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(411, 0, 'manage_skill_category', 1408160335, 'skill/skill_category_controller/manage_skill_category', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(412, 0, '%5Bobject%20Object%5D', 1408160337, 'skill/skill_category_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(413, 0, 'init_notification_menu', 1408160337, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(414, 0, 'user_unseen_notification_count', 1408160338, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(415, 0, 'manage_skill', 1408160339, 'skill/skill_controller/manage_skill', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(416, 0, '%5Bobject%20Object%5D', 1408160340, 'skill/skill_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(417, 0, 'init_notification_menu', 1408160340, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(418, 0, 'user_unseen_notification_count', 1408160341, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(419, 0, 'manage_skill_category', 1408160343, 'skill/skill_category_controller/manage_skill_category', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(420, 0, 'init_notification_menu', 1408160345, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(421, 0, '%5Bobject%20Object%5D', 1408160345, 'skill/skill_category_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(422, 0, 'edit_skill_category_view', 1408160346, 'skill/skill_category_controller/edit_skill_category_view/1', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(423, 0, 'edit_skill_category_view', 1408160346, 'skill/skill_category_controller/edit_skill_category_view/1', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(424, 0, 'init_notification_menu', 1408160348, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(425, 0, 'edit_skill_category_view', 1408160348, 'skill/skill_category_controller/edit_skill_category_view/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(426, 0, 'user_unseen_notification_count', 1408160349, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(427, 0, 'manage_skill', 1408160354, 'skill/skill_controller/manage_skill', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(428, 0, 'init_notification_menu', 1408160356, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(429, 0, '%5Bobject%20Object%5D', 1408160356, 'skill/skill_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(430, 0, 'user_unseen_notification_count', 1408160357, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(431, 0, 'edit_skill_view', 1408160357, 'skill/skill_controller/edit_skill_view/1', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(432, 0, 'edit_skill_view', 1408160359, 'skill/skill_controller/edit_skill_view/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(433, 0, 'init_notification_menu', 1408160359, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(434, 0, 'user_unseen_notification_count', 1408160360, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(435, 0, 'manage_skill_matrix', 1408160363, 'skill_matrix/skill_matrix_controller/manage_skill_matrix', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(436, 0, 'init_notification_menu', 1408160365, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(437, 0, '%5Bobject%20Object%5D', 1408160365, 'skill_matrix/skill_matrix_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(438, 0, 'user_unseen_notification_count', 1408160366, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(439, 0, 'manage_skill_matrix', 1408160593, 'skill_matrix/skill_matrix_controller/manage_skill_matrix', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(440, 0, '%5Bobject%20Object%5D', 1408160595, 'skill_matrix/skill_matrix_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(441, 0, 'init_notification_menu', 1408160595, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(442, 0, 'user_unseen_notification_count', 1408160596, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(443, 0, 'manage_skill_matrix', 1408160617, 'skill_matrix/skill_matrix_controller/manage_skill_matrix', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(444, 0, 'init_notification_menu', 1408160620, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(445, 0, '%5Bobject%20Object%5D', 1408160620, 'skill_matrix/skill_matrix_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(446, 0, 'user_unseen_notification_count', 1408160621, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(447, 0, 'manage_skill', 1408160675, 'skill/skill_controller/manage_skill', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(448, 0, '%5Bobject%20Object%5D', 1408160677, 'skill/skill_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(449, 0, 'init_notification_menu', 1408160677, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(450, 0, 'user_unseen_notification_count', 1408160679, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(451, 0, 'edit_skill_view', 1408160679, 'skill/skill_controller/edit_skill_view/1', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(452, 0, 'edit_skill_view', 1408160681, 'skill/skill_controller/edit_skill_view/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(453, 0, 'init_notification_menu', 1408160681, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(454, 0, 'user_unseen_notification_count', 1408160682, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(455, 0, 'manage_skill_matrix', 1408160751, 'skill_matrix/skill_matrix_controller/manage_skill_matrix', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(456, 0, '%5Bobject%20Object%5D', 1408160754, 'skill_matrix/skill_matrix_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(457, 0, 'init_notification_menu', 1408160754, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(458, 0, 'user_unseen_notification_count', 1408160755, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(459, 0, 'manage_skill_matrix', 1408160898, 'skill_matrix/skill_matrix_controller/manage_skill_matrix', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(460, 0, '%5Bobject%20Object%5D', 1408160902, 'skill_matrix/skill_matrix_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(461, 0, 'init_notification_menu', 1408160902, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(462, 0, 'user_unseen_notification_count', 1408160903, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0');
 
 -- --------------------------------------------------------
 
@@ -961,6 +1013,27 @@ CREATE TABLE IF NOT EXISTS `task_comment` (
   `added_by` int(11) NOT NULL,
   `added_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wages_category`
+--
+
+CREATE TABLE IF NOT EXISTS `wages_category` (
+  `wages_category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(100) NOT NULL,
+  `basic_salary` decimal(20,2) DEFAULT NULL,
+  `ot_rate` decimal(20,2) DEFAULT NULL,
+  `allowance` decimal(20,2) DEFAULT NULL,
+  `bonus` decimal(20,2) DEFAULT NULL,
+  `del_ind` enum('1','0') NOT NULL,
+  `added_by` int(11) DEFAULT NULL,
+  `added_date` timestamp NULL DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_date` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`wages_category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --

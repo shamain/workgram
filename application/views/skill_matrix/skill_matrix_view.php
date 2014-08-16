@@ -40,7 +40,7 @@
                                 <tr  id="skills_<?php echo $skill->skill_code; ?>">
                                     <td><?php echo++$i; ?></td>
                                     <td><?php echo $skill->skill_cat_name; ?>
-                                       
+
                                     <td>
                                         <?php echo $skill->skill_name; ?> 
 
@@ -76,7 +76,7 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="add_employee_skill_form" name="add_employee_skill_form">
 
 
@@ -86,7 +86,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
+                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control" style="width: 30%" >
                                         <?php foreach ($skill_categories as $skill_category) {
                                             ?> 
                                             <option value="<?php echo $skill_category->skill_cat_code; ?>"><?php echo $skill_category->skill_cat_name; ?></option>
@@ -103,14 +103,14 @@
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
-                                    <select name="skill_code" id="skill_code" class="select2 form-control"  >
-                              
+                                    <select name="skill_code" id="skill_code" class="select2 form-control" style="width: 30%" >
+
                                         <?php foreach ($skills as $skill) {
                                             ?> 
-                                        
+
                                             <option value="<?php echo $skill->skill_code; ?>"><?php echo $skill->skill_name; ?></option>
                                         <?php } ?>
-                                           <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
+                               <!--<input id="skill_code" class="form-control" type="text" name="skill_code" >-->  
                                     </select>   
                                 </div>
                             </div>
@@ -125,42 +125,28 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <div class="slider primary col-md-8">
-                                        <div class="slider slider-horizontal" style="width: 210px;">
-                                            <div class="slider-track">
-                                                <div class="slider-selection"></div>
-                                                <div class="slider-handle round"></div>
-                                                <div class="slider-handle round hide" style="left: 100%;"></div>
-                                                    
-                                            
-                                            <input type="text" class="slider-element form-control" value="" data-slider-value="60" data-slider-step="1" data-slider-max="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
-                                        </div>
-                                    </div>
-
-
+                                    <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="60" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                                 </div>
-                            </div>
 
-                                <br><br><br>
+                            </div>
 
                             <div class="form-group">
                                 <label class="form-label">References</label>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="link" class="form-control" type="text" name="link" >                              
+                                    <input id="link" class="form-control" type="text" name="link" style="width: 50%">                              
                                 </div>
                             </div>
 
                             <div id="add_emp_skill_msg" class="form-row"> </div>
-                            <div class="form-actions">
-                                <div class="pull-right">
-                                    <button class="btn btn-primary btn-cons" type="submit">
-                                        <i class="icon-ok"></i>
-                                        Save
-                                    </button>
-                                    <button class="btn btn-white btn-cons" type="button">Clear</button>
-                                </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-primary btn-cons" type="submit">
+                                    <i class="icon-ok"></i>
+                                    Save
+                                </button>
+                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
                             </div>
 
                         </form>
@@ -172,9 +158,9 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('.slider-element').slider();
-    });
+                                            $(document).ready(function() {
+                                                $('.slider-element').slider();
+                                            });
 </script>
 
 
