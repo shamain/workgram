@@ -346,7 +346,7 @@ var image_array = [];
                         }
                 );
 
-
+//alert("fs");
                 var files = image_array;
 
 

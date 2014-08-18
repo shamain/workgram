@@ -52,16 +52,16 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 
- <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
-    <script src="<?php echo base_url(); ?>application_resources/custom_js/PusherChatWidget.js"></script> 
-    <link href="<?php echo base_url(); ?>application_resources/css/pusher-chat-widget.css" rel="stylesheet" type="text/css"/>
-    <script>
-        setPath("<?php echo base_url(); ?>","<?php echo site_url(); ?>");
-        setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?>");
-        setEmail("<?php echo ucfirst($this->session->userdata('EMPLOYEE_EMAIL')); ?>");
-     
-    </script>
-    
+        <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/PusherChatWidget.js"></script> 
+        <link href="<?php echo base_url(); ?>application_resources/css/pusher-chat-widget.css" rel="stylesheet" type="text/css"/>
+        <script>
+            setPath("<?php echo base_url(); ?>", "<?php echo site_url(); ?>");
+            setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?>");
+            setEmail("<?php echo ucfirst($this->session->userdata('EMPLOYEE_EMAIL')); ?>");
+
+        </script>
+
         <!-- JS -->
 
         <!-- favicon icon -->
@@ -225,18 +225,19 @@
                 <div class="page-sidebar-wrapper" id="main-menu-wrapper">
                     <div class="user-info-wrapper">
                         <div class="profile-wrapper"> 
+                            <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile">
 <!--                            <img src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" width="69" height="69" />
-                            -->
-                            <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+                                -->
+                                <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
 
-                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar2x.jpg" width="69" height="69" />
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar2x.jpg" width="69" height="69" />
 
-                            <?php } else { ?>
-                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
+                                <?php } else { ?>
+                                    <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
 
-                            <?php } ?> 
+                                <?php } ?> 
 
-
+                            </a>
                         </div>
                         <div class="user-info">
                             <div class="greeting">Welcome</div>
