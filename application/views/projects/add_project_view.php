@@ -222,7 +222,7 @@
                             </td>
                             <td>
                             {% if (!i && !o.options.autoUpload) { %}
-                            <button class="btn btn-primary start" disabled>
+                            <button class="btn btn-primary start" disabled style="display:none;">
                             <i class="glyphicon glyphicon-upload"></i>
                             <span>Start</span>
                             </button>
