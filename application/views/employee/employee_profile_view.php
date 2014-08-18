@@ -36,7 +36,11 @@
                                             //Add uploaded file to list
                                             if (response != "error") {
 
+                                             //save new pic in database and session
+                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
+                                                {
 
+                                                });
 
                                                 $('#files').html("");
                                                 $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_cover_pics/' + response + '"  /><br />');
@@ -166,11 +170,11 @@
                             <h3 class="text-success semi-bold">
                                 2548
                             </h3>
-                            <h5>Followers</h5>
+                            <h5>Performance Point</h5>
                             <h3 class="text-success semi-bold">
                                 457
                             </h3>
-                            <h5>Following</h5>
+                            <h5>Projects Done</h5>
                         </div>
                     </div>
 
