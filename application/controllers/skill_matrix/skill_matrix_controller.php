@@ -42,7 +42,6 @@ class Skill_matrix_controller extends CI_Controller {
 
         $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-//        $employee_skill_model->set_del_ind('1');
         $employee_skill_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
         $employee_skill_model->set_del_ind('1');
         $employee_skill_model->set_added_date(date("Y-m-d H:i:s"));
