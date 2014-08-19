@@ -123,6 +123,20 @@ class Employee_profile_controller extends CI_Controller {
         echo $result;
     }
 
+    function update_employee_cover_image() {
+        $employee_service = new Employee_service();
+        $employee_model = new Employee_model();
+
+        $employee_model->set_employee_avatar($this->input->post('employee_cover_image', TRUE));
+        $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
+
+        $result = $employee_service->update_employee_cover_image($employee_model);
+        
+        //update session profile pic into new pic
+        $this->session->set_userdata('EMPLOYEE_COVERPIC', $this->input->post('employee_cover_image', TRUE));
+        
+        echo $result;
+    }
 }
 
 ?>

@@ -14,6 +14,7 @@ class Employee_model extends CI_Model {
     var $employee_wages_category;
     var $employee_contract;
     var $employee_avatar;
+    var $employee_cover_image;
     var $account_activation_code;
     var $company_code;
     var $is_online;

@@ -37,7 +37,7 @@
                                             if (response != "error") {
 
                                              //save new pic in database and session
-                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
+                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_cover_pic', {employee_cover_pic: response, employee_code: $('#employee_code').val()}, function(msg)
                                                 {
 
                                                 });
@@ -395,6 +395,7 @@
             </div>
         </div>	
     </div>
+</div>
 
 
 
