@@ -214,7 +214,7 @@
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
 
-
+                <!--friend's images-->
 
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">6</span> )</h5>

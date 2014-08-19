@@ -21,6 +21,7 @@ class Employee_service extends CI_Model {
             'employee_wages_category' => $employee_model->get_employee_wages_category(),
             'employee_contract' => $employee_model->get_employee_contract(),
             'employee_avatar' => $employee_model->get_employee_avatar(),
+            'employee_cover_image' => $employee_model->get_employee_cover_image(),
             'company_code' => $employee_model->get_company_code(),
             'updated_by' => $employee_model->get_updated_by(),
             'updated_date' => $employee_model->get_updated_date(),
@@ -43,8 +44,8 @@ class Employee_service extends CI_Model {
         $this->db->where('employee_code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
-
-    //get active employees in a company by company code
+    
+     //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {
 
         $query = $this->db->get_where('employee', array('company_code' => $company_code, 'del_ind' => '1'));

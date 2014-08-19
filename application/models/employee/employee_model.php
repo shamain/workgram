@@ -71,9 +71,13 @@ class Employee_model extends CI_Model {
     public function get_employee_contract() {
         return $this->employee_contract;
     }
-
+    
     public function get_employee_avatar() {
         return $this->employee_avatar;
+    }
+    
+    public function get_employee_cover_image() {
+        return $this->employee_cover_image;
     }
 
     public function get_account_activation_code() {
@@ -154,6 +158,10 @@ class Employee_model extends CI_Model {
 
     public function set_employee_avatar($employee_avatar) {
         $this->employee_avatar = $employee_avatar;
+    }
+    
+    public function set_employee_cover_image($employee_cover_image) {
+        $this->employee_cover_image = $employee_cover_image;
     }
 
     public function set_account_activation_code($account_activation_code) {
