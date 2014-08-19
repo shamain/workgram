@@ -160,7 +160,7 @@ class Project_controller extends CI_Controller {
         $project_stuff_temp_service = new Project_stuff_temp_service();
 
         $files = $this->input->post('file_name', TRUE);
-        $files = explode(',', $files);
+//        $files = explode(',', $files);
 
         foreach ($files as $file) {
 

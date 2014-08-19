@@ -112,7 +112,6 @@ var image_array = [];
                     if ((that._trigger('added', e, data) !== false) &&
                             (options.autoUpload || data.autoUpload) &&
                             data.autoUpload !== false) {
-
                         data.submit();
                     }
                 }).fail(function() {
@@ -310,7 +309,6 @@ var image_array = [];
             },
             // Callback for uploads start, equivalent to the global ajaxStart event:
             start: function(e) {
-
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
@@ -322,7 +320,6 @@ var image_array = [];
                             that._trigger('started', e);
                         }
                 );
-
             },
             // Callback for uploads stop, equivalent to the global ajaxStop event:
             stop: function(e) {
@@ -346,13 +343,11 @@ var image_array = [];
                         }
                 );
 
-//alert("fs");
                 var files = image_array;
-
 
                 $.ajax(
                         {
-                            type: "POST",
+                           type: "POST",
                             url: site_url + '/project/project_controller/add_temp_project_stuff/',
                             data: {file_name: image_array},
                             async: false,
@@ -364,7 +359,6 @@ var image_array = [];
 
                             }
                         });
-
 
 
             },
