@@ -22,8 +22,8 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="wages_category_code" id="wages_category_code" class="select2 form-control"  >
-                                  add wages category combobox     
+                                    <select name="category_name" id="category_name" class="select2 form-control"  >
+<!--                                add wages category combobox   --> 
                                     </select>                            
                                 </div>
                             </div>
@@ -31,14 +31,14 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Basic Category</label>
+                                <label class="form-label">Basic Salary</label>
                                
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="wages_basic_category" class="form-control" type="text" name="wages_basic_category">                              
+                                <input id="basic_salary" class="form-control" type="text" name="basic_salary">                              
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="wages_allowance" class="form-control" type="text" name="wages_allowance">                              
+                                <input id="allowance" class="form-control" type="text" name="allowance">                              
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="wages_overtimerate" class="form-control" type="text" name="wages_overtimerate">                              
+                                <input id="ot_rate" class="form-control" type="text" name="ot_rate">                              
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="wages_bonus" class="form-control" type="text" name="wages_bonus">                              
+                                <input id="bonus" class="form-control" type="text" name="bonus">                              
                             </div>
                         </div>
                     </div>
@@ -97,3 +97,7 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+    $('#wages_category_parent_menu').addClass('active open');
+</script>
