@@ -115,6 +115,14 @@ Morris.Donut({
    ],
    colors:['#60bfb6','#91cdec','#eceff1']
  });
+ 
+ $(document).ready(function () {
+                $(document).on('mouseenter', '.divbutton', function () {
+                    $(this).find(":button").show();
+                }).on('mouseleave', '.divbutton', function () {
+                    $(this).find(":button").hide();
+                });
+            });
 
 
  

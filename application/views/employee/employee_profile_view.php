@@ -93,7 +93,8 @@
                             <?php } ?> 
 
                             <span class="hover_edit fa fa-camera">
-                            <!--<i class="fa fa-camera"></i>-->
+                                
+                            
                             </span>
 
                             <!--                        </div>-->
@@ -216,40 +217,19 @@
 
 
                     <div class="col-md-3  col-sm-3">
-                        <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
+                        <h5 class="normal">Friends ( <span class="text-success">6</span> )</h5>
                         <ul class="my-friends">
                             <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    
                                 </div>
                             </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/c2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" alt="">
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/h2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" alt="">
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar_small.jpg" alt=""> 
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/e2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" alt=""> 
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/b2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/b.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/b.jpg" alt=""> 
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/h2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" alt="">
-                                </div>
-                            </li>
-                            <li><div class="profile-pic"> 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/d2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/d.jpg" alt="">
-                                </div>
-                            </li>							
+                            							
                         </ul>	
                         <div class="clearfix"></div>
 
