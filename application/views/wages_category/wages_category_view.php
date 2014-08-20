@@ -138,6 +138,7 @@
                             <th>Overtime Rate</th>
                             <th>Allowance</th>
                             <th>Bonus</th>
+                             <th>Options</th>
                             
 
                         </tr>
@@ -146,9 +147,9 @@
                         <?php
                         foreach ($wages_categories as $wages_category) {
                             ?> 
-                            <tr  id="wages_category<?php echo $wages_category->wages_category_id; ?>">
+                            <tr  id="wages_category_<?php echo $wages_category->wages_category_id; ?>">
 
-
+ <td><?php echo++$i; ?></td>
                                 <td><?php echo $wages_category->category_name ; ?></td>
                                 <td><?php echo $wages_category->basic_salary; ?></td>
                                  <td><?php echo $wages_category->ot_rate ; ?></td>
@@ -156,7 +157,16 @@
                                  <td><?php echo $wages_category->bonus; ?></td>
                                 
                                 
-                                 
+                                   <td>
+
+                                    <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/edit_wages_category_view/<?php echo $wages_category->wages_category_id; ?>">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a style="cursor: pointer;"   title="Delete this wages_category" onclick="delete_wages_category(<?php echo $wages_category->wages_category_id; ?>)">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+
+                                </td>  
                             </tr>
 
                         <?php } ?>    
