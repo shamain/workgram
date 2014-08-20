@@ -45,6 +45,13 @@ class Employee_service extends CI_Model {
         return $this->db->update('employee', $data);
     }
     
+    //update employee cover image
+    function update_employee_cover_image($employee_model) {
+        $data = array('employee_cover_image' => $employee_model->get_employee_cover_image());
+        $this->db->where('employee_code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
+    }
+    
      //get active employees in a company by company code
     function get_employees_by_company_id($company_code) {
 

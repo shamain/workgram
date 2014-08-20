@@ -89,6 +89,12 @@
 </div>
 <script type="text/javascript">
     $('#company_parent_menu').addClass('active open');
+    $(document).ready(function() {
+
+            
+            phonenumber(company_contact);
+
+        });
 </script>
 
 

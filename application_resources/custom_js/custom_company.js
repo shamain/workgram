@@ -164,6 +164,21 @@ $('#edit_company_form').validate({
 });
 
 
+function phonenumber(company_contact)  
+{  
+  var phoneno = /^\d{10}$/;  
+  if((company_contact.value.match(phoneno)))  
+        {  
+      return true;  
+        }  
+      else  
+        {  
+          
+        return false;  
+        }  
+} 
+
+
 
 ////delete company
 //function delete_company(code) {

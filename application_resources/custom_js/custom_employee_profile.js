@@ -20,7 +20,7 @@ function phonenumber(employee_contact)
         }  
       else  
         {  
-        alert("message");  
+        
         return false;  
         }  
 } 
