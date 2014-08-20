@@ -17,14 +17,14 @@ class wages_category_controller extends CI_Controller {
         }
     }
 
-    function manage_skill_category() {
+    function manage_wages_category() {
 
         $wages_category_service = new wages_category_service();
 
-        $data['heading'] = "Manage wages category";
+        $data['heading'] = "Manage Wages Category";
         $data['wages_categories'] = $wages_category_service->get_all_wages_categories();
 
-        $parials = array('content' => 'wages_category/manage_wages_category_view');
+        $parials = array('content' => 'wages_category/wages_category_view');
         $this->template->load('template/main_template', $parials, $data);
     }
 

@@ -213,7 +213,7 @@
                                 <i class=""></i>
                                  <select name="wages_category" id="wages_category" class="select2 form-control"  >
 
-                                 <?php foreach ($wages_categorys as $wages_category) {
+                                 <?php foreach ($wages_categories as $wages_category) {
                                         ?> 
                                         <option value="<?php echo $wages_category->category_name; ?>"><?php echo $wages_category->wages_category_id; ?></option>
                                  <?php } ?>

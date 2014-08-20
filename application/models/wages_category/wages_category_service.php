@@ -12,12 +12,12 @@ class Wages_category_service extends CI_Model {
 
     function add_wages_category($wages_category_model) {
 
-        $this->db->insert('wages_category', $skill_category_model);
+        $this->db->insert('wages_category', $wages_category_model);
         $this->db->last_query();
         return $this->db->insert_id();
     }
 
-    function delete_skill_category($wages_category_id) {
+    function delete_wages_category($wages_category_id) {
         $data = array('del_ind' => '0');
         $this->db->where('wages_category_id', $wages_category_id);
         return $this->db->update('wages_category', $data);
