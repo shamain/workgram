@@ -170,7 +170,7 @@
                         <input type="hidden" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
                         <div class="user-mini-description">
                             <h3 class="text-success semi-bold">
-                                2548
+                               <?php echo count($employee_projects)?>
                             </h3>
                             <h5>Performance Point</h5>
                             <h3 class="text-success semi-bold">

@@ -17,6 +17,15 @@ class Employee_profile_controller extends CI_Controller {
 
             $this->load->model('task/task_model');
             $this->load->model('task/task_service');
+            
+            $this->load->model('project/project_model');
+            $this->load->model('project/project_service');
+            
+//            $this->load->model('employee_skill/employee_skill_model');
+//            $this->load->model('employee_skill/employee_skill_service');
+//            
+//            $this->load->model('skill_category/skill_category_model');
+//            $this->load->model('skill_category/skill_category_service');
         }
     }
 
@@ -24,11 +33,17 @@ class Employee_profile_controller extends CI_Controller {
 
         $employee_service = new Employee_service();
         $task_service = new Task_service();
-
+        $project_service=new Project_service();
+//        $employee_skill_service=new Employee_skill_service();
+//        $skill_category_service=new Skill_category_service();
+        
         $data['employee_tasks'] = $task_service->get_employee_task_detail_by_project($this->session->userdata('EMPLOYEE_CODE'));
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
         $data['employees'] = $employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $data['employee_projects'] = $project_service->get_projects_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+//        $data['employee_skills'] = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+//        $data['employee_skill_categories'] = $skill_category_service->get_all_skill_categories($this->session->userdata('EMPLOYEE_CODE'));
 
 
         $partials = array('content' => 'employee/employee_profile_view');
