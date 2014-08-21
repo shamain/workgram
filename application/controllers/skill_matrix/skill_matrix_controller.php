@@ -43,6 +43,10 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
         $employee_skill_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
+//        $employee_skill_model->set_employee_code($this->input->post('employee_code', TRUE));
+        $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
+        $employee_skill_model->set_reference($this->input->post('reference', TRUE));
+//        $employee_skill_model->set_employee_code($this->session->userdata('EMPLOYEE_CODE'));
         $employee_skill_model->set_del_ind('1');
         $employee_skill_model->set_added_date(date("Y-m-d H:i:s"));
 
@@ -62,9 +66,11 @@ class Skill_matrix_controller extends CI_Controller {
 //        $employee_skill_model->set_added_date($this->input->post('added_by', TRUE));
 //        $employee_skill_model->set_added_date($this->input->post('added_date', TRUE));
 
-
+        
         echo $employee_skill_service->update_employee_skill($employee_skill_model);
     }
+    
+    
 
     function delete_employee_skill() {
 

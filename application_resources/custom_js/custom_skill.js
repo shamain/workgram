@@ -448,7 +448,7 @@ function d() {
 
 //skill matrix table
 //$(document).ready(function() {
-    
+
 //     var skill_matrix_table = $('#my_skill_table').dataTable({
 //        "sDom": "<'row'<'col-md-6'l <'toolbar my_skill_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
 //        "oTableTools": {
@@ -477,53 +477,50 @@ function d() {
 //    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
 
 $('#add_employee_skill_form').validate({
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            skill_code: {
-                required: true
-            }
-//            skill_cat_code: {
-//                required: true
-//            },
-//            colour: {
-//                required: true
-//            }
-
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+        skill_code: {
+            required: true
         },
-        invalidHandler: function(event, validator) {
-            //display error alert on form submit    
-        },
-        errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('success-control').addClass('error-control');
-        },
-        highlight: function(element) { // hightlight error inputs
-            var parent = $(element).parent();
-            parent.removeClass('success-control').addClass('error-control');
-
-        },
-        unhighlight: function(element) { // revert the change done by hightlight
-
-        },
-        success: function(label, element) {
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('error-control').addClass('success-control');
-        }, submitHandler: function(form)
-        {
-            $.post(site_url + '/skill_matrix/skill_matrix_controller/add_new_skill_matrix', $('#add_employee_skill_form').serialize(), function(msg)
-            {
-                if (msg == 1) {
-                    $("#add_emp_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been added.</div>');
-                    add_employee_skill_form.reset();
-                    location.reload();
-                } else {
-                    $("#add_emp_skill_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
-                }
-            });
+        expert_level: {
+            required: true
         }
-    });
+
+    },
+    invalidHandler: function(event, validator) {
+        //display error alert on form submit    
+    },
+    errorPlacement: function(label, element) { // render error placement for each input type   
+        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('success-control').addClass('error-control');
+    },
+    highlight: function(element) { // hightlight error inputs
+        var parent = $(element).parent();
+        parent.removeClass('success-control').addClass('error-control');
+
+    },
+    unhighlight: function(element) { // revert the change done by hightlight
+
+    },
+    success: function(label, element) {
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('error-control').addClass('success-control');
+    }, submitHandler: function(form)
+    {
+        $.post(site_url + '/skill_matrix/skill_matrix_controller/add_new_skill_matrix', $('#add_employee_skill_form').serialize(), function(msg)
+        {
+            if (msg == 1) {
+                $("#add_emp_skill_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been added.</div>');
+                add_employee_skill_form.reset();
+                location.reload();
+            } else {
+                $("#add_emp_skill_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
+            }
+        });
+    }
+});
 
 //});
 //    edit employee skill matrix
@@ -532,13 +529,12 @@ $('#edit_skill_matrix_form').validate({
     focusInvalid: false,
     ignore: "",
     rules: {
-//        skill_name: {
-//            required: true
-//        },
-        sill_code: {
+        skill_code: {
+            required: true
+        },
+        expert_level: {
             required: true
         }
-
 
     },
     invalidHandler: function(event, validator) {
@@ -575,35 +571,29 @@ $('#edit_skill_matrix_form').validate({
 
 
     }
- 
+
 });
 //});
 
-function delete_employee_skill(skill_code) {
+function delete_employee_skill(id) {
 
-    if (confirm('Are you sure want to delete this Skill ?')) {
+    if (confirm('Are you sure want to delete this Skill Matrix?')) {
 
         $.ajax({
             type: "POST",
             url: site_url + '/skill_matrix/skill_matrix_controller/delete_employee_skill',
-            data: "id=" + skill_code,
+            data: "id=" + id,
             success: function(msg) {
                 //alert(msg);
                 if (msg == 1) {
 
-                    $('#skill_matrix_' + skill_code).hide();
+                    $('#skill_matrix_' + id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employee');
+                    alert('Cannot be deleted as it is already assigned to Employees');
                 }
             }
         });
     }
 }
-
-//});
-
-// function slider(){
-//     
-// }
 
