@@ -209,39 +209,30 @@
                             <i class="fa fa-pencil"></i>
                         </a>                  
 
-
-
-<!--                    <h6 class="no-margin"><?php echo ucfirst($employee_detail->company_code) ?></h6>
-<h6 class="no-margin"><?php echo ($employee_detail->del_ind) ?></h6>
-<h6 class="no-margin"><?php echo ucfirst($employee_detail->added_by) ?></h6>
-<h6 class="no-margin"><?php echo ($employee_detail->added_date) ?></h6>
-<h6 class="no-margin"><?php echo ucfirst($employee_detail->updated_by) ?></h6>
-<h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
 
                     <!--friend's images-->
 
                     <div class="col-md-3  col-sm-3">
-                        <h5 class="normal">Friends ( <span class="text-success">6</span> )</h5>
+                        <h5 class="normal">Friends ( <span class="text-success"><?php echo count($employees)?></span> )</h5>
                         <ul class="my-friends">
-                            <li><div class="profile-pic"> 
-                                    <!--                                    <?php
-                                    foreach ($employees as $employee) {
-                                        ?>
-                                                                            <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if ($employee->employee_avatar != '') {
-                                        echo $employee->employee_avatar;
-                                    } else {
-                                        echo 'avatar.jpg';
-                                    } ?>" alt="" width="50px" height="50px" />
-<?php } ?>    -->
 
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
-                                </div>
-                            </li>
+                            <?php
+                            foreach ($employees as $employee) {
+                                ?>
+                                <li>
+                                    <div class="profile-pic"> 
+                                        <?php if ($employee->employee_avatar == '') { ?>
+
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
+
+                                        <?php } else { ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $employee->employee_avatar; ?>" width="35" height="35" />
+
+                                        <?php } ?> 
+                                    </div>
+                                </li>
+                            <?php } ?> 
 
                         </ul>	
                         <div class="clearfix"></div>
@@ -285,7 +276,7 @@
                                                 </div>
                                             </div>
 
-<?php } ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
