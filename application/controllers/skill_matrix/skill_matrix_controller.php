@@ -19,17 +19,33 @@ class Skill_matrix_controller extends CI_Controller {
 
             $this->load->model('employee_skill/employee_skill_model');
             $this->load->model('employee_skill/employee_skill_service');
+            
+             $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
 
-    function manage_skill_matrix() {
+    function manage_skill_matrix($employee_code) {
 
         $skill_category_service = new Skill_category_service();
         $skill_service = new Skill_service();
+//        $employee_service = new employee_service();
+        $employee_skill_service = new Employee_skill_service();
         $data['heading'] = "Skill Matrix";
 
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
         $data['skills'] = $skill_service->get_all_skills();
+//        $data['employee_detail'] = $employee_service->get_employee_by_id($id);
+        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($employee_code);
+
+        $employee_skills = array();
+        foreach ($current_assigned_skills as $current_assigned_skill) {
+            array_push($employee_skills, $current_assigned_skill->skill_code);
+        }
+
+        $data['assigned_skills'] = $employee_skills;
+        $data['employee_code'] = $employee_code;
+
 
         $partials = array('content' => 'skill_matrix/skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -66,11 +82,9 @@ class Skill_matrix_controller extends CI_Controller {
 //        $employee_skill_model->set_added_date($this->input->post('added_by', TRUE));
 //        $employee_skill_model->set_added_date($this->input->post('added_date', TRUE));
 
-        
+
         echo $employee_skill_service->update_employee_skill($employee_skill_model);
     }
-    
-    
 
     function delete_employee_skill() {
 

@@ -148,7 +148,7 @@
                                     <i class="icon-ok"></i>
                                     Save
                                 </button>
-                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix" class="btn btn-white btn-cons" type="button">Cancel</a>
                             </div>
 
                         </form>

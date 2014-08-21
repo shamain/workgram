@@ -47,7 +47,7 @@
                                     <i class="icon-ok"></i>
                                     Save
                                 </button>
-                                <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                               <a href="<?php echo site_url(); ?>/skill/skill_controller/manage_skill" class="btn btn-white btn-cons" type="button">Cancel</a>
                             </div>
 
 
