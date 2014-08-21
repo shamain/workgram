@@ -593,7 +593,7 @@ function delete_employee_skill(employee_skill_id) {
 
                 if (msg == 1) {
 
-                    $('#skills_' + employee_skill_id).hide();
+                    $('#employee_skills_' + employee_skill_id).hide();
                 }
                 else if (msg == 2) {
                     alert('Cannot be deleted as it is already assigned to skills');
