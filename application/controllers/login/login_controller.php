@@ -152,6 +152,7 @@ class Login_controller extends CI_Controller {
                 $this->session->set_userdata('EMPLOYEE_LNAME', $logged_user_details->employee_lname);
                 $this->session->set_userdata('EMPLOYEE_EMAIL', $logged_user_details->employee_email);
                 $this->session->set_userdata('EMPLOYEE_PROPIC', $logged_user_details->employee_avatar);
+                $this->session->set_userdata('EMPLOYEE_COVERPIC', $logged_user_details->employee_cover_image);
                 $this->session->set_userdata('EMPLOYEE_COMPANY_CODE', $logged_user_details->company_code);
                 $this->session->set_userdata('EMPLOYEE_COMPANY_NAME', $logged_user_details->company_name);
                 $this->session->set_userdata('EMPLOYEE_TYPE', $logged_user_details->employee_type);

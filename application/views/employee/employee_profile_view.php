@@ -36,7 +36,7 @@
                                             //Add uploaded file to list
                                             if (response != "error") {
 
-                                             //save new pic in database and session
+                                                //save new pic in database and session
                                                 $.post(site_url + '/employee/employee_profile_controller/update_employee_cover_image', {employee_cover_image: response, employee_code: $('#employee_code').val()}, function(msg)
                                                 {
 
@@ -73,7 +73,14 @@
 
 
                 <div id="files">
-                    <img src="<?php echo base_url(); ?>application_resources/img/cover_pic.png" alt="">
+                    <?php if ($this->session->userdata('EMPLOYEE_COVERPIC') == '') { ?>
+
+                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  />
+
+                    <?php } else { ?>
+                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  />
+
+                    <?php } ?>
                 </div>
             </div>
             <div class="tiles white">
@@ -93,8 +100,8 @@
                             <?php } ?> 
 
                             <span class="hover_edit fa fa-camera">
-                                
-                            
+
+
                             </span>
 
                             <!--                        </div>-->
@@ -190,7 +197,7 @@
                         <br>
                         <h4 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h4>
                         <br>
-                       <h4 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h4>
+                        <h4 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h4>
                         <br>
                         <h4 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h4>
                         <br>
@@ -212,26 +219,30 @@
 <h6 class="no-margin"><?php echo ($employee_detail->updated_date) ?></h6>-->
                     </div>
 
-                <!--friend's images-->
+                    <!--friend's images-->
 
                     <div class="col-md-3  col-sm-3">
                         <h5 class="normal">Friends ( <span class="text-success">6</span> )</h5>
                         <ul class="my-friends">
                             <li><div class="profile-pic"> 
-<!--                                    <?php
-                        foreach ($employees as $employee) {
-                            ?>
-                                    <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="50px" height="50px" />
-                                <?php } ?>    -->
-                                
-                                <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
+                                    <!--                                    <?php
+                                    foreach ($employees as $employee) {
+                                        ?>
+                                                                            <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if ($employee->employee_avatar != '') {
+                                        echo $employee->employee_avatar;
+                                    } else {
+                                        echo 'avatar.jpg';
+                                    } ?>" alt="" width="50px" height="50px" />
+<?php } ?>    -->
+
+                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                                     <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                                     <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                                     <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                                     <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">
                                 </div>
                             </li>
-                            							
+
                         </ul>	
                         <div class="clearfix"></div>
 
@@ -250,13 +261,13 @@
                         <div class="row ">
                             <div class="col-md-12 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 200px;">
                                 <div class="live-tile slide ha tiles carousel" data-speed="750" data-delay="1000" data-mode="carousel" style="background-color:#CDEAF1">
-                                    
+
                                     <div class="slide-back ha tiles slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;background-color:#CDEAF1;color: #12334d !important;">
                                         <?php
                                         $employee_service = new Employee_service();
                                         foreach ($employee_tasks as $task) {
 
-                                            $added_by =$employee_service->get_employee($task->added_by);
+                                            $added_by = $employee_service->get_employee($task->added_by);
                                             ?> 
                                             <div class="p-t-20 p-l-20 p-r-20 p-b-20">
                                                 <h4 class="no-margin normal-line-height" ><span class="semi-bold" ><?php echo $task->task_name; ?></span></h4>
@@ -264,25 +275,25 @@
                                             <div class="overlayer bottom-left normalwidth">
                                                 <div class="overlayer-wrapper">
                                                     <div class="user-comment-wrapper">
-                                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar;?>" width="35" height="35"> </div>
+                                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" width="35" height="35"> </div>
                                                         <div class="comment">
-                                                            <div class="user-name"><span class="bold"> <?php echo $added_by->employee_fname;?></span> <?php echo $added_by->employee_lname;?> </div>
-                                                            <p style="color: #12334d !important;">@ <?php echo $task->project_name;?></p>
+                                                            <div class="user-name"><span class="bold"> <?php echo $added_by->employee_fname; ?></span> <?php echo $added_by->employee_lname; ?> </div>
+                                                            <p style="color: #12334d !important;">@ <?php echo $task->project_name; ?></p>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                        <?php } ?>
+<?php } ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-3 col-sm-3">
-                        
+
                     </div>
                 </div>
 
@@ -382,17 +393,17 @@
 
 
 
-    <script type="text/javascript">
-        $('#employee_parent_menu').addClass('active open');
-        $(document).ready(function() {
+<script type="text/javascript">
+    $('#employee_parent_menu').addClass('active open');
+    $(document).ready(function() {
 
-            checkEmail();
-            phonenumber(employee_contact);
+        checkEmail();
+        phonenumber(employee_contact);
 
-        });
+    });
 
 
-    </script>
+</script>
 
 
 
