@@ -23,30 +23,21 @@ class Wages_category_model extends CI_Model {
         return $this->wages_category_id;
     }
 
-  
-
     public function get_category_name() {
         return $this->category_name;
     }
-
-   
 
     public function get_basic_salary() {
         return $this->basic_salary;
     }
 
-   
-
     public function get_ot_rate() {
         return $this->ot_rate;
     }
 
-   
-
     public function get_allowance() {
         return $this->allowance;
     }
-
 
     public function get_bonus() {
         return $this->bonus;

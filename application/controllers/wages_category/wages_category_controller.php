@@ -49,9 +49,9 @@ class wages_category_controller extends CI_Controller {
         $wages_category_model->set_ot_rate($this->input->post('ot_rate', TRUE));
         $wages_category_model->set_allowance($this->input->post('allowance', TRUE));
         $wages_category_model->set_bonus($this->input->post('bonus', TRUE));
-        $employee_model->set_del_ind('1');  
-        $employee_model->set_added_by($this->session->userdata('wages_category_id'));
-        $employee_model->set_added_date(date("Y-m-d H:i:s"));
+        $wages_category_model->set_del_ind('1');  
+        $wages_category_model->set_added_by($this->session->userdata('wages_category_id'));
+        $wages_category_model->set_added_date(date("Y-m-d H:i:s"));
 
         echo $wages_category_service->add_new_wages_category($wages_category_model);
     }
