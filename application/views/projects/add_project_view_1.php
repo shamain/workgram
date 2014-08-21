@@ -162,11 +162,11 @@
                                                 <input id="fileupload" type="file" multiple="" name="files[]">
                                             </span>
                                             <button type="submit" class="btn btn-primary start" id="start_upload" >
-                                                <i class="icon-upload icon-white"></i>
+                                                <i class="glyphicon glyphicon-upload "></i>
                                                 <span>Start upload</span>
                                             </button>
                                             <button type="reset" class="btn btn-warning cancel">
-                                                <i class="icon-ban-circle icon-white"></i>
+                                                <i class="glyphicon glyphicon-ban-circle"></i>
                                                 <span>Cancel upload</span>
                                             </button>
 
@@ -199,7 +199,7 @@
                                     Save
                                 </button>
 
-                                <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects" class="btn btn-white btn-cons" type="button">Cancel</a>
+                                <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects" class="btn btn-white btn-cons"  type="button">Cancel</a>
 
                             </div>
 

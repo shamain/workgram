@@ -23,7 +23,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".project_table_tbar").html('<div class="table-tools-actions"><a class="btn btn-primary" style="margin-left:12px" href="'+site_url+'/project/project_controller/add_project_view"   id="add_project_btn" >Add New Project</a></div>');
+    $(".project_table_tbar").html('<div class="table-tools-actions"><a class="btn btn-primary" style="margin-left:12px" href="' + site_url + '/project/project_controller/add_project_view"   id="add_project_btn" >Add New Project</a></div>');
 
     $('#project_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#project_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
@@ -49,61 +49,61 @@ $(document).ready(function() {
     });
 
     //add project Form
-//    $('#fileupload').validate({
-//        focusInvalid: false,
-//        ignore: "",
-//        rules: {
-//            project_name: {
-//                required: true
-//            },
-//            project_vendor: {
-//                required: true
-//            },
-//            project_start_date: {
-//                required: true
-//            },
-//            project_description: {
-//                required: true
-//            }
-//
-//
-//        },
-//        invalidHandler: function(event, validator) {
-//            //display error alert on form submit    
-//        },
-//        errorPlacement: function(label, element) { // render error placement for each input type   
-//            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-//            var parent = $(element).parent('.input-with-icon');
-//            parent.removeClass('success-control').addClass('error-control');
-//        },
-//        highlight: function(element) { // hightlight error inputs
-//            var parent = $(element).parent();
-//            parent.removeClass('success-control').addClass('error-control');
-//
-//        },
-//        unhighlight: function(element) { // revert the change done by hightlight
-//
-//        },
-//        success: function(label, element) {
-//            var parent = $(element).parent('.input-with-icon');
-//            parent.removeClass('error-control').addClass('success-control');
-//        }
-////        }, submitHandler: function(form)
-////        {
-//////            $.post(site_url + '/project/project_controller/add_new_project', $('#add_project_form').serialize(), function(msg)
-//////            {
-//////                if (msg == 1) {
-//////                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
-//////                    add_project_form.reset();
-//////                    window.location = site_url + '/project/project_controller/manage_projects';
-//////                } else {
-//////                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
-//////                }
-//////            });
-////
-////
-////        }
-//    });
+    $('#add_project_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            project_name: {
+                required: true
+            },
+            project_vendor: {
+                required: true
+            },
+            project_start_date: {
+                required: true
+            },
+            project_description: {
+                required: true
+            }
+
+
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/project/project_controller/add_new_project', $('#add_project_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#add_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been added.</div>');
+                    add_project_form.reset();
+                    window.location = site_url + '/project/project_controller/manage_projects';
+                } else {
+                    $("#add_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
+                }
+            });
+
+
+        }
+    });
 });
 
 //edit project form start date datepicker
@@ -204,6 +204,12 @@ function delete_project(id) {
 }
 
 
+// add project sumbit btn action
+$(document).on('click', '#add_project_save_btn', function() {
+    if ($('#add_project_form').valid()) {
+        $('#add_project_form').submit();
+    }
+});
 
 
 

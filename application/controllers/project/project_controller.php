@@ -33,6 +33,7 @@ class Project_controller extends CI_Controller {
 
         $project_service = new Project_service();
 
+
         $data['heading'] = "Manage Projects";
         $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
@@ -45,7 +46,10 @@ class Project_controller extends CI_Controller {
 //        if ($perm) {
 
 
-        $data['heading'] = "Edit Project";
+        $data['heading'] = "Add New Project";
+
+        $project_stuff_temp_service = new Project_stuff_temp_service();
+        $project_stuff_temp_service->truncate_project_temp_stuff();
 
         $partials = array('content' => 'projects/add_project_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -60,8 +64,11 @@ class Project_controller extends CI_Controller {
 
         $project_model = new Project_model();
         $project_service = new Project_service();
+        $project_stuff_temp_service = new Project_stuff_temp_service();
+        $project_stuff_service = new Project_stuff_service();
+        $project_stuff_model = new Project_stuff_model();
 
-
+        $project_temp_stuff = $project_stuff_temp_service->get_all_project_stuff_temp_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $project_model->set_project_name($this->input->post('project_name', TRUE));
         $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
@@ -76,7 +83,22 @@ class Project_controller extends CI_Controller {
 
 
 
-        echo $project_service->add_new_project($project_model);
+        $project_id = $project_service->add_new_project($project_model);
+        $msg = 1;
+
+        foreach ($project_temp_stuff as $stuff) {
+            $project_stuff_model->set_stuff_name($stuff->stuff_name);
+            $project_stuff_model->set_company_code($stuff->company_code);
+            $project_stuff_model->set_project_id($project_id);
+            $project_stuff_model->set_del_ind('1');
+            $project_stuff_model->set_added_date(date("Y-m-d H:i:s"));
+            $project_stuff_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+
+            $msg = $project_stuff_service->add_new_project_stuff($project_stuff_model);
+        }
+
+        echo $msg;
+
 
 
 //        } else {
@@ -165,9 +187,11 @@ class Project_controller extends CI_Controller {
         foreach ($files as $file) {
 
             $project_stuff_temp_model->set_stuff_name($file);
+            $project_stuff_temp_model->set_company_code($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
             $project_stuff_temp_model->set_del_ind('1');
             $project_stuff_temp_model->set_added_date(date("Y-m-d H:i:s"));
             $project_stuff_temp_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+
 
             echo $project_stuff_temp_service->add_new_project_stuff_temp($project_stuff_temp_model);
         }

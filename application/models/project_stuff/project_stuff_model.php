@@ -4,6 +4,8 @@ class Project_stuff_model extends CI_Model {
 
     var $project_stuff_id;
     var $stuff_name;
+    var $company_code;
+    var $project_id;
     var $del_ind;
     var $added_date;
     var $added_by;
@@ -26,6 +28,22 @@ class Project_stuff_model extends CI_Model {
 
     public function set_stuff_name($stuff_name) {
         $this->stuff_name = $stuff_name;
+    }
+
+    public function get_company_code() {
+        return $this->company_code;
+    }
+
+    public function set_company_code($company_code) {
+        $this->company_code = $company_code;
+    }
+
+    public function get_project_id() {
+        return $this->project_id;
+    }
+
+    public function set_project_id($project_id) {
+        $this->project_id = $project_id;
     }
 
     public function get_del_ind() {

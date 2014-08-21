@@ -83,97 +83,91 @@
                     <?php } ?>
                 </div>
             </div>
+
+
+            <!--                         js for pro_pic-->
+
+            <script type="text/javascript">
+
+                $(function() {
+                    var btnUpload = $('#upload2');
+                    var status = $('#status2');
+                    new AjaxUpload(btnUpload, {
+                        action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
+                        name: 'uploadfile2',
+                        onSubmit: function(file, ext) {
+                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                // extension is not allowed 
+                                status.text('Only JPG, PNG or GIF files are allowed');
+                                return false;
+                            }
+                            //status.text('Uploading...Please wait');
+                            //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+
+                        },
+                        onComplete: function(file, response) {
+
+                            //On completion clear the status
+                            //status.text('');
+                            $("#files2").html("");
+                            $("#sta2").html("");
+                            //Add uploaded file to list
+                            if (response != "error") {
+
+                                //save new pic in database and session
+                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
+                                {
+
+                                });
+
+                                $('#pro_pic').html("");
+                                $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
+                                picFileName = response;
+                                document.getElementById('image2').value = file;
+                                document.getElementById('employee_avatar').value = response;
+                            } else {
+                                $('<div></div>').appendTo('#files2').text(file).addClass('error');
+                            }
+                        }
+                    });
+
+                });
+
+
+
+
+            </script>
+
             <div class="tiles white">
 
                 <div class="row">
                     <div class="col-md-2 col-sm-2" >
-                        <div class="user-profile-pic profile-upload-pic" id="pro_pic">	
-
-<!--                            <img width="69" height="69" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/avatar2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/avatar.jpg" alt="">-->
-                            <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
-
-                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar2x.jpg" width="69" height="69" />
-
-                            <?php } else { ?>
-                                <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
-
-                            <?php } ?> 
-
-                            <span class="hover_edit fa fa-camera">
-
-
-                            </span>
-
-                            <!--                        </div>-->
-
-
-                            <!--                         js for pro_pic-->
-
-                            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
-                            <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
-
-
-                            <script type="text/javascript">
-
-                                $(function() {
-                                    var btnUpload = $('#upload2');
-                                    var status = $('#status2');
-                                    new AjaxUpload(btnUpload, {
-                                        action: '<?PHP echo site_url(); ?>/employee/employee_profile_controller/upload_employee_avatar',
-                                        name: 'uploadfile2',
-                                        onSubmit: function(file, ext) {
-                                            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                // extension is not allowed 
-                                                status.text('Only JPG, PNG or GIF files are allowed');
-                                                return false;
-                                            }
-                                            //status.text('Uploading...Please wait');
-                                            //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
-
-                                        },
-                                        onComplete: function(file, response) {
-
-                                            //On completion clear the status
-                                            //status.text('');
-                                            $("#files2").html("");
-                                            $("#sta2").html("");
-                                            //Add uploaded file to list
-                                            if (response != "error") {
-
-                                                //save new pic in database and session
-                                                $.post(site_url + '/employee/employee_profile_controller/update_employee_avatar', {employee_avatar: response, employee_code: $('#employee_code').val()}, function(msg)
-                                                {
-
-                                                });
-
-                                                $('#pro_pic').html("");
-                                                $('<div></div>').appendTo('#pro_pic').html('<img src="<?PHP echo base_url(); ?>uploads/employee_avatar/' + response + '"  /><br />');
-                                                picFileName = response;
-                                                document.getElementById('image2').value = file;
-                                                document.getElementById('employee_avatar').value = response;
-                                            } else {
-                                                $('<div></div>').appendTo('#files2').text(file).addClass('error');
-                                            }
-                                        }
-                                    });
-
-                                });
-
-
-
-
-                            </script>
-
+                        <div class="user-profile-pic profile-upload-pic" >
 
                             <div id="upload2">
-                                <button type="button" class=" btn btn-primary btn-small "id="browse2"><i class=" fa fa-camera"></i></button>
+                                <button type="button"  id="browse2">
+                                    <div id="pro_pic" class="profile_custom_image_change">
+                                        <?php if ($this->session->userdata('EMPLOYEE_PROPIC') == '') { ?>
+
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar2x.jpg" width="69" height="69" />
+
+                                        <?php } else { ?>
+                                            <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $this->session->userdata('EMPLOYEE_PROPIC'); ?>" width="69" height="69" />
+
+                                        <?php } ?> 
+
+                                    </div>
+
+                                    <span class="hover_edit fa fa-camera" >
+
+
+                                    </span>
+                                </button>
                             </div>
 
-                            <div id="sta2"><span id="status2" ></span></div>
-                            <input type="hidden" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
 
                         </div>
-
+                        <input type="hidden" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
                         <div class="user-mini-description">
                             <h3 class="text-success semi-bold">
                                 2548
@@ -191,7 +185,7 @@
                     <div class="col-md-6 user-description-box  col-sm-6">
 
 
-                        <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span>;</h3>
+                        <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span></h3>
                         <br>
                         <h4 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h4>
                         <br>
@@ -214,7 +208,7 @@
                     <!--friend's images-->
 
                     <div class="col-md-3  col-sm-3">
-                        <h5 class="normal">Friends ( <span class="text-success"><?php echo count($employees)?></span> )</h5>
+                        <h5 class="normal">Friends ( <span class="text-success"><?php echo count($employees) ?></span> )</h5>
                         <ul class="my-friends">
 
                             <?php

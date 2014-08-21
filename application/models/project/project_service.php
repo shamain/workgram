@@ -19,7 +19,8 @@ class Project_service extends CI_Model {
     }
 
     function add_new_project($project_model) {
-        return $this->db->insert('project', $project_model);
+        $this->db->insert('project', $project_model);
+        return $this->db->insert_id();
     }
 
     function delete_project($project_id) {
