@@ -583,20 +583,20 @@ $('#edit_skill_matrix_form').validate({
 
 function delete_employee_skill(employee_skill_id) {
 
-    if (confirm('Are you sure want to delete this Skill Matrix?')) {
+    if (confirm('Are you sure want to delete this Skill Matrix ?')) {
 
         $.ajax({
             type: "POST",
             url: site_url + '/skill_matrix/skill_matrix_controller/delete_employee_skill',
             data: "id=" + employee_skill_id,
             success: function(msg) {
-                //alert(msg);
+
                 if (msg == 1) {
 
-                    $('#employee_skill_' + employee_skill_id).hide();
+                    $('#skills_' + employee_skill_id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employee');
+                    alert('Cannot be deleted as it is already assigned to skills');
                 }
             }
         });
