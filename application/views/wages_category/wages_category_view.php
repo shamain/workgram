@@ -13,7 +13,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-10 col-sm-10 col-xs-10">
-                        <form id="add_employee_skill_form" name="add_wages_category_form">
+                        <form id="add_employee_wages_category_form" name="add_wages_category_form">
 
                        <div class="row form-row">
                         <div class="col-md-4">
@@ -25,13 +25,7 @@
                         <div class="col-md-8">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                 <select name="category_name" id="category_name" class="select2 form-control"  >
-                                      <?php foreach ($wages_categories as $wages_category) {
-                                        ?> 
-                                        <option value="<?php echo $wages_category->category_name; ?>"><?php echo $wages_category->wages_category_id; ?></option>
-                                        <?php } ?>
-                                  
-                                    </select>                               
+                                <input id="category_name" class="form-control" type="text" name="category_name"> 
                             </div>
                         </div>
                     </div>
@@ -149,7 +143,7 @@
                             ?> 
                             <tr  id="wages_category_<?php echo $wages_category->wages_category_id; ?>">
 
- <td><?php echo++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $wages_category->category_name ; ?></td>
                                 <td><?php echo $wages_category->basic_salary; ?></td>
                                  <td><?php echo $wages_category->ot_rate ; ?></td>
