@@ -27,7 +27,7 @@ class Wages_category_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('wages_category');
-        $this->db->join('employee', 'employee.employee_code = wages_category.added_by');
+       
         $this->db->where('wages_category.del_ind', '1');
         $this->db->order_by("wages_category.wages_category_id", "desc");
         

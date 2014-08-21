@@ -143,7 +143,7 @@
                             ?> 
                             <tr  id="wages_category_<?php echo $wages_category->wages_category_id; ?>">
 
-                                <td><?php echo++$i; ?></td>
+                                
                                 <td><?php echo $wages_category->category_name ; ?></td>
                                 <td><?php echo $wages_category->basic_salary; ?></td>
                                  <td><?php echo $wages_category->ot_rate ; ?></td>
