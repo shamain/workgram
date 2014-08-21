@@ -354,7 +354,7 @@ var image_array = [];
                             success: function(msg)
 
                             {
-                                alert(msg);
+                              
                                 $.unblockUI;
 
                             }

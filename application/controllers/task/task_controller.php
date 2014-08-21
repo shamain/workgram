@@ -26,6 +26,9 @@ class Task_controller extends CI_Controller {
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
 
+            $this->load->model('project_stuff/project_stuff_model');
+            $this->load->model('project_stuff/project_stuff_service');
+
             $this->load->helper('date');
         }
     }
@@ -42,7 +45,7 @@ class Task_controller extends CI_Controller {
         $data['project'] = $project;
         $data['project_admin'] = $employee_service->get_employee_by_id($project->added_by);
         $data['tasks'] = $task_service->get_tasks_for_project($project_id);
-        $data['project_stuff']=$project_stuff_service->get_projects_stuff_for_project($project_id);
+        $data['project_stuff'] = $project_stuff_service->get_projects_stuff_for_project($project_id);
 
         $partials = array('content' => 'task/project_task_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -118,8 +121,7 @@ class Task_controller extends CI_Controller {
 
         echo $task_service->update_task($task_model);
     }
-    
-    
+
     function add_task_comment() {
 
         $task_comment_model = new Task_comment_model();
