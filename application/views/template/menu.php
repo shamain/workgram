@@ -35,6 +35,18 @@
     </ul>
 </li> 
 
+<li class="" id="wages_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Wages</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/manage_wages_category"> Manage Wages Categories </a> </li>
+        
+    </ul>
+</li> 
+
 <li class="" id="skill_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
