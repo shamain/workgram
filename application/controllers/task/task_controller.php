@@ -35,12 +35,14 @@ class Task_controller extends CI_Controller {
         $project_service = new Project_service();
         $task_service = new Task_service();
         $employee_service = new employee_service();
+        $project_stuff_service = new Project_stuff_service();
 
         $project = $project_service->get_project_by_id($project_id);
 
         $data['project'] = $project;
         $data['project_admin'] = $employee_service->get_employee_by_id($project->added_by);
         $data['tasks'] = $task_service->get_tasks_for_project($project_id);
+        $data['project_stuff']=$project_stuff_service->get_projects_stuff_for_project($project_id);
 
         $partials = array('content' => 'task/project_task_view');
         $this->template->load('template/main_template', $partials, $data);

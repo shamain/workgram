@@ -7,13 +7,12 @@ class Project_stuff_service extends CI_Model {
         $this->load->model('project_stuff/project_stuff_model');
     }
 
-    public function get_all_projects_for_company($company_code) {
+    public function get_projects_stuff_for_project($project_id) {
 
-        $this->db->select('project.*,employee.employee_fname,employee.employee_lname');
-        $this->db->from('project');
-        $this->db->join('employee', 'employee.employee_code = project.added_by');
-        $this->db->where('project.company_code', $company_code);
-        $this->db->order_by("project.project_id", "desc");
+        $this->db->select('*');
+        $this->db->from('project_stuff');
+        $this->db->where('project_id', $project_id);
+        $this->db->order_by("del_ind", "1");
         $query = $this->db->get();
         return $query->result();
     }

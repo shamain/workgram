@@ -44,6 +44,25 @@
                         <br>
                         <p><?php echo $project->project_description; ?></p>
 
+                        <div>
+                            <?php
+                            foreach ($project_stuff as $stuff) {
+                                $filename = $stuff->stuff_name;
+                                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                                if ($ext == 'jpg' || $ext == 'png' || $ext == 'svg' || $ext == 'gif') {
+                                    ?>
+                            <img src="<?php echo base_url(); ?>uploads/" />
+                                    <?php
+                                }
+                                ?>
+
+                                <?php
+                            }
+                            ?>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -79,7 +98,7 @@
                                 <span class="label label-important">Pending</span>
                             <?php } else { ?>
                                 <span class="label label-success">Complete</span>
-                            <?php } ?>
+        <?php } ?>
 
                         </p>
                         <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a> <a class="remove" href="javascript:;"><i class="fa fa-times"></i></a> </div>
@@ -89,7 +108,7 @@
                         <div class="post">
                             <div class="info-wrapper">
                                 <div class="info"> 
-                                    <?php echo $task->task_descrption; ?>
+        <?php echo $task->task_descrption; ?>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -150,7 +169,7 @@
 
                                                 </div>
                                             </div>
-                                        <?php } ?>
+        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -199,14 +218,14 @@
                         <div class="friend-list">
                             <div class="friend-profile-pic">
                                 <div class="user-profile-pic-normal">
-                                    <?php if ($project_admin == '') { ?>
+<?php if ($project_admin == '') { ?>
 
                                         <img src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small.jpg" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/avatar_small2x.jpg" width="35" height="35" />
 
-                                    <?php } else { ?>
+<?php } else { ?>
                                         <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $project_admin->employee_avatar; ?>" width="35" height="35" />
 
-                                    <?php } ?> 
+<?php } ?> 
                                 </div>
                             </div>
                             <div class="friend-details-wrapper">
@@ -251,7 +270,7 @@
                                 }
                                 ?> 
                             </ul>
-                        <?php } else { ?>
+<?php } else { ?>
                             <div class="grid simple no-border">
                                 <div class="row">
 
@@ -355,7 +374,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
