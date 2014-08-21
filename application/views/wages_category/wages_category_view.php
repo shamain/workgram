@@ -13,7 +13,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-10 col-sm-10 col-xs-10">
-                        <form id="add_employee_wages_category_form" name="add_wages_category_form">
+                        <form id="add_wages_category_form" name="add_wages_category_form">
 
                        <div class="row form-row">
                         <div class="col-md-4">
