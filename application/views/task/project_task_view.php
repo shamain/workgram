@@ -52,7 +52,7 @@
 
                                 if ($ext == 'jpg' || $ext == 'png' || $ext == 'svg' || $ext == 'gif') {
                                     ?>
-                            <img src="<?php echo base_url(); ?>uploads/" />
+                            <img src="<?php echo base_url(); ?>uploads/<?php echo $filename; ?>" />
                                     <?php
                                 }
                                 ?>
