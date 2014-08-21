@@ -25,7 +25,7 @@ class Skill_matrix_controller extends CI_Controller {
         }
     }
 
-    function manage_skill_matrix($employee_code) {
+    function manage_skill_matrix() {
 
         $skill_category_service = new Skill_category_service();
         $skill_service = new Skill_service();
@@ -36,15 +36,10 @@ class Skill_matrix_controller extends CI_Controller {
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
         $data['skills'] = $skill_service->get_all_skills();
 //        $data['employee_detail'] = $employee_service->get_employee_by_id($id);
-        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($employee_code);
+        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
 
-        $employee_skills = array();
-        foreach ($current_assigned_skills as $current_assigned_skill) {
-            array_push($employee_skills, $current_assigned_skill->skill_code);
-        }
-
-        $data['assigned_skills'] = $employee_skills;
-        $data['employee_code'] = $employee_code;
+        $data['assigned_skills'] = $current_assigned_skills;
+        $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
 
 
         $partials = array('content' => 'skill_matrix/skill_matrix_view');

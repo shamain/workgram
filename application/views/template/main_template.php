@@ -365,6 +365,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-mixitup/jquery.mixitup.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/modernizr.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/boostrap-slider/js/bootstrap-slider.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-superbox/js/superbox.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
@@ -430,8 +431,8 @@
 
             <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js" type="text/javascript"></script>
 
-            <script src="<?php echo base_url(); ?>application_resources/jupload/js/jquery-ui-1.8.20.custom.min.js"></script>
-            <script src="<?php echo base_url(); ?>application_resources/jupload/js/vendor/jquery.ui.widget.js"></script>
+<!--            <script src="<?php echo base_url(); ?>application_resources/jupload/js/jquery-ui-1.8.20.custom.min.js"></script>
+            <script src="<?php echo base_url(); ?>application_resources/jupload/js/vendor/jquery.ui.widget.js"></script>-->
             <script src="<?php echo base_url(); ?>application_resources/jupload/js/tmpl.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/jupload/js/load-image.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/jupload/js/canvas-to-blob.min.js"></script>
