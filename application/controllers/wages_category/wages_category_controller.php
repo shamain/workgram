@@ -58,7 +58,7 @@ class wages_category_controller extends CI_Controller {
 
     function edit_wages_category() {
 
-        $swages_category_model = new wages_category_model();
+        $wages_category_model = new wages_category_model();
         $wages_category_service = new wages_category_service();
 
         
