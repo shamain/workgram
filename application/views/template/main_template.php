@@ -411,6 +411,7 @@
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_tasks.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_skill.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_notification.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_wages.js" type="text/javascript"></script>
             <!-- END CUSTOM JS -->
 
 

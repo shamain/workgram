@@ -22,7 +22,7 @@ $(document).ready(function() {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
         }
-      });
+    });
 
 //add wages Form
 
@@ -31,20 +31,25 @@ $(document).ready(function() {
         ignore: "",
         rules: {
             category_name: {
-                required: true
+                required: true,
+                number: true
             },
             basic_salary: {
-                required: true
+                required: true,
+                number: true
             },
             ot_rate: {
-                required: true
-               
+                required: true,
+                number: true
+
             },
             allowance: {
-                required: true
+                required: true,
+                number: true
             },
             bonus: {
-                required: true
+                required: true,
+                number: true
             }
 
 
@@ -70,20 +75,20 @@ $(document).ready(function() {
             parent.removeClass('error-control').addClass('success-control');
         }, submitHandler: function(form)
         {
-            $.post(site_url + '/wages_category/wages_categor_controller/add_new_wages_categor', $('#add_wages_categor_form').serialize(), function(msg)
+            $.post(site_url + '/wages_category/wages_category_controller/add_new_wages_category', $('#add_wages_category_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#add_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages_category </a>has been added.</div>');
+                    $("#add_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages category </a>has been added.</div>');
                     add_wages_category_form.reset();
                     location.reload();
                 } else {
-                    $("#add_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages_category </a>has failed.</div>');
+                    $("#add_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages category </a>has failed.</div>');
                 }
             });
 
 
         }
-       });
+    });
 
 
 
