@@ -7,77 +7,78 @@ $('.grid .clickable').on('click', function() {
     el.slideToggle(200);
 });
 
-
+$(document).ready(function() {
 //HTML5 editor
-$('#task_description').wysihtml5();
+    $('#task_description').wysihtml5();
 
 //add task form start date datepicker
-$('#task_deadline_dpicker').datepicker({
-    format: "yyyy-mm-dd",
-    autoclose: true,
-    todayHighlight: true
-});
+    $('#task_deadline_dpicker').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayHighlight: true
+    });
+
 
 //add Task form
-$('#add_task_form').validate({
-    focusInvalid: false,
-    ignore: "",
-    rules: {
-        task_name: {
-            required: true
-        },
-        task_description: {
-            required: true
-        },
-        task_deadline: {
-            required: true
-        },
-        task_priority: {
-            required: true
-        },
-        task_progress: {
-            required: true
-        }
-    },
-    invalidHandler: function(event, validator) {
-        //display error alert on form submit    
-    },
-    errorPlacement: function(label, element) { // render error placement for each input type   
-        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-        var parent = $(element).parent('.input-with-icon');
-        parent.removeClass('success-control').addClass('error-control');
-    },
-    highlight: function(element) { // hightlight error inputs
-        var parent = $(element).parent();
-        parent.removeClass('success-control').addClass('error-control');
-
-    },
-    unhighlight: function(element) { // revert the change done by hightlight
-
-    },
-    success: function(label, element) {
-        var parent = $(element).parent('.input-with-icon');
-        parent.removeClass('error-control').addClass('success-control');
-    }, submitHandler: function(form)
-    {
-        $.post(site_url + '/task/task_controller/add_task', $('#add_task_form').serialize(), function(msg)
-        {
-            if (msg == 1) {
-                $("#add_task_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > Task </a>has been added.</div>');
-                add_task_form.reset();
-                location.reload();
-            } else {
-                $("#add_task_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#"> Task </a>has failed.</div>');
+    $('#add_task_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            task_name: {
+                required: true
+            },
+            task_description: {
+                required: true
+            },
+            task_deadline: {
+                required: true
+            },
+            task_priority: {
+                required: true
+            },
+            task_progress: {
+                required: true
             }
-        });
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/task/task_controller/add_task', $('#add_task_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#add_task_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > Task </a>has been added.</div>');
+                    add_task_form.reset();
+                    location.reload();
+                } else {
+                    $("#add_task_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#"> Task </a>has failed.</div>');
+                }
+            });
 
 
-    }
-});
+        }
+    });
 
 //Employee Task Comments
 
-$(document).ready(function() {
+
     var conversation = [[1, "sadsadsad"], [1, "asdsad"], [0, "asdsada"]];
     $('.user-details-wrapper').click(function() {
         set_user_details($(this).attr('data-user-name'), $(this).attr('data-chat-status'));
@@ -103,10 +104,10 @@ $(document).ready(function() {
     $('#employe_task_comment').keypress(function(e) {
         if (e.keyCode == 13)
         {
-            var employee_code =$('#employee_code').val() ;
-            var task_id =$('#task_id').val();
-            
-            send_message($(this).val() ,employee_code ,task_id);
+            var employee_code = $('#employee_code').val();
+            var task_id = $('#task_id').val();
+
+            send_message($(this).val(), employee_code, task_id);
             $(this).val("");
             $(this).blur()
         }
@@ -187,9 +188,10 @@ function build_conversation(msg, isOpponent, img, retina) {
                 '</div>')
     }
 }
-function send_message(msg,employee_code,task_id) {
-    
-    $.post(site_url + '/task/task_controller/add_task_comment', {msg:msg ,employee_code:employee_code,task_id:task_id}, function(msg)
+
+function send_message(msg, employee_code, task_id) {
+
+    $.post(site_url + '/task/task_controller/add_task_comment', {msg: msg, employee_code: employee_code, task_id: task_id}, function(msg)
     {
         $('#task_comments').append(msg);
     });
