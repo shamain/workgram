@@ -141,14 +141,14 @@ $('#edit_wages_category_form').validate({
         parent.removeClass('error-control').addClass('success-control');
     }, submitHandler: function(form)
     {
-        $.post(site_url + '/wages_category/wages_category_controller/ edit_wages_category', $('#edit_wages_category_form').serialize(), function(msg)
+        $.post(site_url + '/wages_category/wages_category_controller/edit_wages_category', $('#edit_wages_category_form').serialize(), function(msg)
         {
             if (msg == 1) {
-                $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages_category</a>has been updated.</div>');
+                $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages category</a> has been updated.</div>');
                 edit_wages_category_form.reset();
                 location.reload();
             } else {
-                $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages_category </a>has failed.</div>');
+                $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages category </a> has failed.</div>');
             }
         });
 

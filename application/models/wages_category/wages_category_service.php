@@ -46,7 +46,7 @@ class Wages_category_service extends CI_Model {
             'bonus' => $wages_category_model->get_bonus(),
         );
 
-        $this->db->where('wages_category_id', $wages_categoey_model->get_wages_category_id());
+        $this->db->where('wages_category_id', $wages_category_model->get_wages_category_id());
         return $this->db->update('wages_category', $data);
     }
 

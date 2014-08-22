@@ -58,10 +58,10 @@ class wages_category_controller extends CI_Controller {
 
     function edit_wages_category() {
 
-        $wages_category_model = new wages_category_model();
-        $wages_category_service = new wages_category_service();
+        $wages_category_model = new Wages_category_model();
+        $wages_category_service = new Wages_category_service();
 
-        
+        $wages_category_model->set_wages_category_id($this->input->post('wages_category_id', TRUE));
         $wages_category_model->set_category_name($this->input->post('category_name', TRUE));
         $wages_category_model->set_basic_salary($this->input->post('basic_salary', TRUE));
         $wages_category_model->set_ot_rate($this->input->post('ot_rate', TRUE));
