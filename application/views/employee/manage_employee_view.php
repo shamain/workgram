@@ -215,7 +215,7 @@
 
                                  <?php foreach ($wages_categories as $wages_category) {
                                         ?> 
-                                        <option value="<?php echo $wages_category->category_name; ?>"><?php echo $wages_category->wages_category_id; ?></option>
+                                        <option value="<?php echo $wages_category->wages_category_id; ?>"><?php echo $wages_category->category_name; ?></option>
                                  <?php } ?>
                                   
                                 </select>    
