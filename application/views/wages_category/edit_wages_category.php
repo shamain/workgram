@@ -118,3 +118,6 @@
     </div>
 
 
+<script type="text/javascript">
+    $('#wages_category_parent_menu').addClass('active open');
+</script>
