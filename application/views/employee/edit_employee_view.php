@@ -269,7 +269,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('#employee_parent_menu').addClass('active open');
+    $('#wages_category_parent_menu').addClass('active open');
 </script>
 
 
