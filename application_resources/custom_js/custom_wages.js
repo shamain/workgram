@@ -31,8 +31,8 @@ $(document).ready(function() {
         ignore: "",
         rules: {
             category_name: {
-                required: true,
-                number: true
+                required: true
+                
             },
             basic_salary: {
                 required: true,
@@ -92,6 +92,69 @@ $(document).ready(function() {
 
 
 
+//edit wages category Form
+$('#edit_wages_category_form').validate({
+    focusInvalid: false,
+    ignore: "",
+    rules: {
+         category_name: {
+                required: true
+                
+            },
+            basic_salary: {
+                required: true,
+                number: true
+            },
+            ot_rate: {
+                required: true,
+                number: true
+
+            },
+            allowance: {
+                required: true,
+                number: true
+            },
+            bonus: {
+                required: true,
+                number: true
+            }
+
+    },
+    invalidHandler: function(event, validator) {
+        //display error alert on form submit    
+    },
+    errorPlacement: function(label, element) { // render error placement for each input type   
+        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('success-control').addClass('error-control');
+    },
+    highlight: function(element) { // hightlight error inputs
+        var parent = $(element).parent();
+        parent.removeClass('success-control').addClass('error-control');
+
+    },
+    unhighlight: function(element) { // revert the change done by hightlight
+
+    },
+    success: function(label, element) {
+        var parent = $(element).parent('.input-with-icon');
+        parent.removeClass('error-control').addClass('success-control');
+    }, submitHandler: function(form)
+    {
+        $.post(site_url + '/wages_category/wages_category_controller/ edit_wages_category', $('#edit_wages_category_form').serialize(), function(msg)
+        {
+            if (msg == 1) {
+                $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages_category</a>has been updated.</div>');
+                edit_wages_category_form.reset();
+                location.reload();
+            } else {
+                $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages_category </a>has failed.</div>');
+            }
+        });
+
+
+    }
+});
 
 
 

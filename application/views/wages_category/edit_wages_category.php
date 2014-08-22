@@ -4,7 +4,7 @@
 </div>
 
 <!--edit wages Category Form-->
-<div class="col-md-8 ">
+<!--<div class="col-md-8 ">-->
 <div class="row-fluid">
     <div class="span12">
         <div class="grid simple ">
@@ -14,81 +14,81 @@
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-10 col-sm-10 col-xs-10">
-                        <form id="add_wages_category_form" name="add_wages_category_form">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form id="edit_wages_category_form" name="edit_wages_category_form">
 
-                       <div class="row form-row">
-                        <div class="col-md-4">
+                       <div class=" form-row">
+                       
                             <div class="form-group">
                                 <label class="form-label">Wages Category</label>
-                               
+                               <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-8">
+                        
+                       
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="category_name" class="form-control" type="text" name="category_name" value="<?php echo $wages_category->category_name; ?>" style="width: 50%"> 
                             </div>
-                        </div>
+                        
                     </div>
                      
-                    <div class="row form-row">
-                           <div class="col-md-4">
+                    <div class=" form-row">
+                          
                             <div class="form-group">
                              
                                 <label class="form-label">Basic Salary</label>
-                               
+                               <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-8">
+                        
+                       
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="basic_salary" class="form-control" type="text" name="basic_salary" value="<?php echo $wages_category->basic_salary; ?>" style="width: 50%">                              
                             </div>
-                        </div>
+                       
                     </div>
                  
-                    <div class="row form-row">
-                        <div class="col-md-4">
+                    <div class=" form-row">
+                        
                             <div class="form-group">
                                 <label class="form-label">Overtime Rate</label>
-                               
+                               <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-8">
+                       
+                       
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="ot_rate" class="form-control" type="text" name="ot_rate" value="<?php echo $wages_category->ot_rate; ?>" style="width: 50%">                              
                             </div>
-                        </div>
+                        
                     </div>
-                      <div class="row form-row">
-                        <div class="col-md-4">
+                      <div class=" form-row">
+                       
                             <div class="form-group">
                                 <label class="form-label">Allowance</label>
-                                
+                                <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-8">
+                       
+                       
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="allowance" class="form-control" type="text" name="allowance" value="<?php echo $wages_category->allowance; ?>" style="width: 50%">                              
                             </div>
-                        </div>
+                       
                     </div>
-                     <div class="row form-row">
-                        <div class="col-md-4">
+                     <div class=" form-row">
+                        
                             <div class="form-group">
                                 <label class="form-label">Bonus</label>
-                                
+                                <span style="color: red">*</span>
                             </div>
-                        </div>
-                        <div class="col-md-8">
+                      
+                       
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <input id="bonus" class="form-control" type="text" name="bonus" value="<?php echo $wages_category->bonus; ?>" style="width: 50%">                              
                             </div>
-                        </div>
+                        
                     </div>
 
                 
@@ -104,7 +104,7 @@
                                     Save
                                 </button>
 
-                                <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/manage_wages_categories" class="btn btn-white btn-cons" type="button">Cancel</a>
+                                <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/manage_wages_category" class="btn btn-white btn-cons" type="button">Cancel</a>
 
                             </div>
                 </div>
@@ -115,7 +115,7 @@
     </div>
 </div>
 </div>
-    </div>
+<!--    </div>-->
 
 
 <script type="text/javascript">
