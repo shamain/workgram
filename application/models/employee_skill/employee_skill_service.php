@@ -10,6 +10,7 @@ class Employee_skill_service extends CI_Model {
     public function get_all_employee_skills() {
         $this->db->select('*');
         $this->db->from('employee_skill');
+        $this->db->where('del_ind', '1');
         $query = $this->db->get();
         return $query->result();
     }
@@ -25,6 +26,8 @@ class Employee_skill_service extends CI_Model {
         $this->db->select('employee_skill.*,skill.skill_name');
         $this->db->from('employee_skill');
         $this->db->join('skill', 'employee_skill.skill_code = skill.skill_code');
+        $this->db->where('employee_skill.del_ind', '1');
+        $this->db->where('skill.del_ind', '1');
         $this->db->where('employee_skill.employee_code', $emp_code);
         $this->db->order_by("employee_skill.employee_skill_id", "desc");
         $query = $this->db->get();
