@@ -53,7 +53,7 @@
                                         <i class="icon-ok"></i>
                                         Save
                                     </button>
-                                    <button class="btn btn-white btn-cons" type="button">Cancel</button>
+                                    <button class="btn btn-white btn-cons" type="button" onclick="parent.location='<?php echo site_url(); ?>/notification/notified_users_controller/manage_notified_users/'">Cancel</button>
                                 </div>
                             </div>
 

@@ -27,14 +27,20 @@
                             ?> 
                             <tr  id="notified_users_<?php echo $notified_user->notified_users_id; ?>">
                                 <td><?php echo++$i; ?></td>
-                                <td><?php echo $notified_user->employee_fname, ' ', $notified_user->employee_lname ; ?>
+                                <td>
+                                    <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($notified_user->employee_avatar !='' ){ echo $notified_user->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="20px" height="20px" />
+                                    <?php echo $notified_user->employee_fname, ' ', $notified_user->employee_lname ; ?>
                                 </td>
                                 <td>
                                     <?php echo $notified_user->notification_msg; ?> 
 
                                 </td>
                                 <td>
-                                    <?php echo $notified_user->notified_user_is_seen; ?> 
+                                    <?php if($notified_user->notified_user_is_seen=='n')
+                                              { echo '<span class="label label-danger">NO</span>';} 
+                                          else 
+                                              {echo '<span class="label label-info">YES</span>';} 
+                                    ?>  
 
                                 </td>
                                 <td>

@@ -42,7 +42,7 @@
                             </div>
                     
                             <div class="form-group">
-                                <label class="form-label">Notification Area URL</label>
+                                <label class="form-label">URL/Description</label>
                                 <span style="color: red">*</span>
                             
                                 <div class="input-with-icon  right">                                       

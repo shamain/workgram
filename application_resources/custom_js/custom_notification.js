@@ -23,7 +23,7 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
+        }
     });
 
     $(".notified_users_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_notified_users_btn" data-toggle="modal" data-target="#add_notified_users_modal">Add New Notified User</button></div>');
@@ -48,7 +48,7 @@ $(document).ready(function() {
             //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label);
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('success-control').addClass('error-control');
         },
@@ -122,8 +122,9 @@ $('#edit_notified_users_form').validate({
             if (msg == 1) {
                 $("#edit_notified_users_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Notified Users </a>has been updated.</div>');
                 edit_notified_users_form.reset();
-                location.reload();
-                parent.location= "../manage_notified_users/";
+                
+                parent.location= site_url + "/notification/notified_users_controller/manage_notified_users/";
+                //location.reload();
             } else {
                 $("#edit_notified_users_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notified User </a>has failed.</div>');
             }
@@ -206,7 +207,7 @@ $(document).ready(function() {
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
             "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
-        },
+        }
     });
 
     $(".notification_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_notification_btn" data-toggle="modal" data-target="#add_notification_modal">Add New Notification</button></div>');
@@ -238,7 +239,7 @@ $(document).ready(function() {
             //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label);
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('success-control').addClass('error-control');
         },
@@ -259,10 +260,12 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                     $("#edit_notification_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Notification </a>has been updated.</div>');
-             //       edit_notification_form.reset();
+                   edit_notification_form.reset();
              
-                  location.reload();
-                  parent.location= "../manage_notification/"
+                  //location.reload();
+                  
+                  parent.location= site_url + "/notification/notification_controller/manage_notification/";
+                
                 } else {
                     $("#edit_notification_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Notification </a>has failed.</div>');
                 }
@@ -325,7 +328,7 @@ $(document).ready(function() {
     });
   
     $("#notified_users").val(['']).select2();
-    
+    document.getElementById("user-name").onclick=init_notification_menu();
     init_notification_menu();
 });
 
@@ -355,14 +358,14 @@ function notification_type_select(ntypeRadio) {
 function init_notification_menu(){
     
     var $messagehtml = "";
-    var div = document.getElementById('notification-list');
+    var $div_menu = document.getElementById('notification-list');
 
     $.getJSON(site_url + '/notification/notification_controller/init_notification_menu',
             function(msg) {
                 
                 init_menu_unseen_count();
                 
-                $msg_view_cls="";
+                var $msg_view_cls="";
                 $messagehtml='<div style="width:300px">';
                 
                 if (msg.length>0){
@@ -400,18 +403,29 @@ function init_notification_menu(){
                         '</div>'].join('\n');
                 }
                 $messagehtml += '</div>';
-                div.innerHTML = $messagehtml;
+                
+                $div_menu.innerHTML = $messagehtml;
                 
 
             });
 }
 
+//notification count
 function init_menu_unseen_count(){
     var notification_count = document.getElementById('notification-count');
                 
                 $.post(site_url + '/notification/notified_users_controller/user_unseen_notification_count/', function(data) {
+                    if (data=="0")
+                    {
+                        notification_count.className="badge badge-info";
+                    }
+                    else{
+                        notification_count.className="badge badge-important";
+                    }
+                        
                     notification_count.innerHTML = data;
-                    notification_count.title=data + " Unseen Notification(s)..";
+                    
+                    notification_count.title="You have " + data + " unseen Notification(s)..";
                     
                 });
     
