@@ -54,7 +54,7 @@ class Employee_controller extends CI_Controller {
         $employee_model->set_employee_password(md5($this->input->post('employee_password', TRUE)));
         $employee_model->set_employee_email($this->input->post('employee_email', TRUE));
         $employee_model->set_employee_type($this->input->post('employee_type', TRUE));
-        $employee_model->set_employee_wages_category($this->input->post('employee_wages_category', TRUE));
+        $employee_model->set_employee_wages_category($this->input->post('wages_category', TRUE));
         $employee_model->set_employee_contract($this->input->post('employee_contract', TRUE));
         $employee_model->set_employee_avatar('default_cover_pic.png');
         $employee_model->set_company_code($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
