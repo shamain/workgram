@@ -70,10 +70,9 @@
                 Task
             </div>
 
-            <div id="SortByArea" class="meta area">
+            <div class="meta area">
                 Date 
-                <span class="sort anim150 asc" data-order="asc" data-sort="data-area"></span>
-                <span class="sort anim150 desc" data-order="desc" data-sort="data-area"></span>
+                
             </div>
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
@@ -83,6 +82,7 @@
             </div>
 
         </div>
+        
 
 
 
@@ -108,14 +108,12 @@
                             <li>Swimming</li>
                         </ul>
                     </div>
-                    <div class="meta area">
-                        <p>47,452.80</p>
-                    </div>
+                    
 
                     <div class="meta rec">
                         <div class="checkbox check-primary checkbox-circle">
                             <input id="checkbox9" type="checkbox" checked="checked" value="1">
-                            <label for="checkbox9">Mark</label>
+                            <label for="checkbox9"></label>
                         </div>
                     </div>
                 </li>
@@ -178,7 +176,7 @@
                         </div>
                     </div>
                 </div>
-        </div>
+       
         <div class="row form-row">
             <div class="col-md-5">
                 <div class="form-group">
@@ -191,9 +189,10 @@
                     <i class=""></i>
                     <textarea id="company_description" class="form-control" type="text" name="company_description">    </textarea>                          
                 </div>
-            </div>
+            </div
         </div>
-    </div>
+        </div>
+        
 
     <div id="add_inquiry_msg" class="form-row"> </div>
     <div class="modal-footer">
@@ -203,10 +202,8 @@
     </div>
 
 </form>
-</div>
-
-</div>
-
+        </div>
+    </div>
 </div>
 
 
