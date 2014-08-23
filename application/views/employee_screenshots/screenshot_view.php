@@ -4,6 +4,7 @@
 
 <div class="row-fluid">
     <div id="work_snap_filters" class="pull-left">
+        
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu">
                 <li class="active" data-filter="all" data-dimension="region"><a href="#">All</a></li>
@@ -41,7 +42,7 @@
             </ul>
         </div>
     </div>
-
+<button class="btn btn-primary" style="margin-left:12px" background-color="#f35958"  id="add_inquiry_btn" data-toggle="modal" data-target="#add_inquiry_modal">Add Inquiry</button>
     <div class="pull-right">
         <div class="btn-group" data-toggle="buttons-radio">
             <button id="ToList" class="btn btn-primary active" type="button">
