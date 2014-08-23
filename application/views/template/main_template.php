@@ -378,7 +378,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.resize.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.orderBars.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
-            <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/js/morris.min.js"></script>
+            <!--<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/js/morris.min.js"></script>-->
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-easy-pie-chart/js/jquery.easypiechart.min.js"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-metrojs/MetroJs.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/skycons/skycons.js"></script>

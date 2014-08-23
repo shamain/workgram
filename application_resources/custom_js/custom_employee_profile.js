@@ -105,16 +105,7 @@ $('#edit_employee_profile_form').validate({
 
    
 
-//skill graph js
-Morris.Donut({
-   element: 'donut-example',
-   data: [
-  {label: "Design", value: 40},
-  {label: "Programming", value: 30},
-  {label: "Developing", value: 30}
-   ],
-   colors:['#60bfb6','#91cdec','#eceff1']
- });
+
  
  $(document).ready(function () {
                 $(document).on('mouseenter', '.divbutton', function () {

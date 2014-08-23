@@ -170,7 +170,7 @@
                         <input type="hidden" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
                         <div class="user-mini-description">
                             <h3 class="text-success semi-bold">
-                               <?php echo count($employee_projects)?>
+                                <?php echo count($employee_projects) ?>
                             </h3>
                             <h5>Performance Point</h5>
                             <h3 class="text-success semi-bold">
@@ -182,26 +182,61 @@
 
                     <!-- loading employee's details-->
 
-                    <div class="col-md-6 user-description-box  col-sm-6">
+                    <div class="col-md-6   col-sm-6">
+
+                        <div class="user-description-box">
+                            <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span></h3>
+                            <br>
+                            <h4 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h4>
+                            <br>
+                            <h4 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h4>
+                            <br>
+                            <h4 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h4>
+                            <br>
+                            <h4 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h4>
+                            <br>
+                            <h4 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h4>
 
 
-                        <h3 class="semi-bold no-margin"> <i class="fa fa-user"></i>   <?php echo ucfirst($employee_detail->employee_fname) ?><span class="semi-bold"><?php echo ucfirst($employee_detail->employee_lname) ?></span></h3>
-                        <br>
-                        <h4 class="no-margin"><i class="fa fa-sort-numeric-asc"></i>   <?php echo ($employee_detail->employee_no) ?></h4>
-                        <br>
-                        <h4 class="no-margin"><i class="fa fa-envelope"></i>    <?php echo ucfirst($employee_detail->employee_email) ?></h4>
-                        <br>
-                        <h4 class="no-margin"><i class="fa fa-smile-o"></i>   <?php echo ($employee_detail->employee_bday) ?></h4>
-                        <br>
-                        <h4 class="no-margin"><i class="fa fa-mobile"></i>   <?php echo ($employee_detail->employee_contact) ?></h4>
-                        <br>
-                        <h4 class="no-margin"><i class="fa fa-clock-o"></i>   <?php echo ucfirst($employee_detail->employee_contract) ?></h4>
 
+                            <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
+                                <i class="fa fa-pencil"></i>
+                            </a> 
 
+                        </div>
 
-                        <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
-                            <i class="fa fa-pencil"></i>
-                        </a>                  
+                        <!-- load tasks-->   
+                        <div class="col-md-12 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 200px;">
+                            <div class="live-tile slide ha tiles carousel" data-speed="750" data-delay="1000" data-mode="carousel" style="background-color:#CDEAF1">
+
+                                <div class="slide-back ha tiles slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;background-color:#CDEAF1;color: #12334d !important;">
+                                    <?php
+                                    $employee_service = new Employee_service();
+                                    foreach ($employee_tasks as $task) {
+
+                                        $added_by = $employee_service->get_employee($task->added_by);
+                                        ?> 
+                                        <div class="p-t-20 p-l-20 p-r-20 p-b-20">
+                                            <h4 class="no-margin normal-line-height" ><span class="semi-bold" ><?php echo $task->task_name; ?></span></h4>
+                                        </div>
+                                        <div class="overlayer bottom-left normalwidth">
+                                            <div class="overlayer-wrapper">
+                                                <div class="user-comment-wrapper">
+                                                    <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" width="35" height="35"> </div>
+                                                    <div class="comment">
+                                                        <div class="user-name"><span class="bold"> <?php echo $added_by->employee_fname; ?></span> <?php echo $added_by->employee_lname; ?> </div>
+                                                        <p style="color: #12334d !important;">@ <?php echo $task->project_name; ?></p>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
 
@@ -230,57 +265,56 @@
 
                         </ul>	
                         <div class="clearfix"></div>
-
+                        <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
+                        <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
+                        <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
+                        <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/js/morris.min.js"></script>
                         <!-- skill graph-->
-                        <div id="donut-example" style="height:200px;">
-                        </div>
+
+                        <script>
+                            //skill graph js
+                            var data = new Array();
+                            var temp;
+                            var colours= new Array();
+                        </script>
+                        <?php
+                        $employee_skill_service = new Employee_skill_service();
+                        foreach ($employee_skill_categories as $employee_skill_category) {
+                            $skills = $employee_skill_service->get_skills_for_employee_by_skill_cat_code($this->session->userdata('EMPLOYEE_CODE'), $employee_skill_category->skill_cat_code);
+                            ?>
+                            <div id = "<?php echo $employee_skill_category->skill_cat_code; ?>" style = "height:200px;">
+                            </div>
+                            <?php
+                            foreach ($skills as $skill) {
+                                ?>
+                                <script>
+                                    cl=ColorLuminance(<?php echo $employee_skill_category->colour; ?>,0.2);
+                                    temp = {label: "<?php echo $skill->skill_name; ?>", value: <?php echo round($skill->expert_level); ?>};
+                                    data.push(temp);
+                                    colours.push(cl);
+                                </script>
+                                <?php
+                            }
+                            ?>
+                            <script>
+
+                                Morris.Donut({
+                                    element: '<?php echo $employee_skill_category->skill_cat_code; ?>',
+                                    data: data,
+                                    colors: colours
+                                });
+                                data.length = 0;
+                                colours.length = 0;
+
+                            </script>
+
+                            <?php
+                        }
+                        ?>
+
                     </div>				
                 </div>
 
-                <!-- load tasks-->   
-
-
-                <div class="row">
-                    <div class="col-md-2 col-sm-2"></div>
-                    <div class="col-md-6 user-description-box col-sm-6">
-                        <div class="row ">
-                            <div class="col-md-12 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 200px;">
-                                <div class="live-tile slide ha tiles carousel" data-speed="750" data-delay="1000" data-mode="carousel" style="background-color:#CDEAF1">
-
-                                    <div class="slide-back ha tiles slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;background-color:#CDEAF1;color: #12334d !important;">
-                                        <?php
-                                        $employee_service = new Employee_service();
-                                        foreach ($employee_tasks as $task) {
-
-                                            $added_by = $employee_service->get_employee($task->added_by);
-                                            ?> 
-                                            <div class="p-t-20 p-l-20 p-r-20 p-b-20">
-                                                <h4 class="no-margin normal-line-height" ><span class="semi-bold" ><?php echo $task->task_name; ?></span></h4>
-                                            </div>
-                                            <div class="overlayer bottom-left normalwidth">
-                                                <div class="overlayer-wrapper">
-                                                    <div class="user-comment-wrapper">
-                                                        <div class="profile-wrapper"> <img src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" alt="" data-src="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_avatar/<?php echo $added_by->employee_avatar; ?>" width="35" height="35"> </div>
-                                                        <div class="comment">
-                                                            <div class="user-name"><span class="bold"> <?php echo $added_by->employee_fname; ?></span> <?php echo $added_by->employee_lname; ?> </div>
-                                                            <p style="color: #12334d !important;">@ <?php echo $task->project_name; ?></p>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3">
-
-                    </div>
-                </div>
 
 
                 <div class="tiles-body">
@@ -387,6 +421,26 @@
 
     });
 
+
+    function ColorLuminance(hex, lum) {
+
+        // validate hex string
+        hex = String(hex).replace(/[^0-9a-f]/gi, '');
+        if (hex.length < 6) {
+            hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        }
+        lum = lum || 0;
+
+        // convert to decimal and change luminosity
+        var rgb = "#", c, i;
+        for (i = 0; i < 3; i++) {
+            c = parseInt(hex.substr(i * 2, 2), 16);
+            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+            rgb += ("00" + c).substr(c.length);
+        }
+
+        return rgb;
+    }
 
 </script>
 
