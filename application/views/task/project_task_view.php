@@ -7,10 +7,10 @@
                 <h4>
                     <div class="project-logo">
                         <?php if ($project->project_logo == '') { ?>
-                            <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="69" height="69" />
+                            <img src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/project_default_logo.png" width="100px" height="68px" />
 
                         <?php } else { ?>
-                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="69" height="69" />
+                            <img src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" data-src-retina="<?php echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" width="100px" height="68px" />
 
                         <?php } ?> 
                     </div>
@@ -115,7 +115,7 @@
                         <div class="post">
                             <div class="info-wrapper">
                                 <div class="info"> 
-                                    <?php echo $task->task_descrption; ?>
+                                    <?php echo $task->task_description; ?>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

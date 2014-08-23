@@ -1,4 +1,5 @@
 <?php
+
 class Wages_category_service extends CI_Model {
 
     function __construct() {
@@ -6,15 +7,13 @@ class Wages_category_service extends CI_Model {
         $this->load->model('wages_category/wages_category_model');
     }
 
-   function add_new_wages_category($wages_category_model) {
+    function add_new_wages_category($wages_category_model) {
         return $this->db->insert('wages_category', $wages_category_model);
     }
 
     function add_wages_category($wages_category_model) {
 
-        $this->db->insert('wages_category', $wages_category_model);
-        $this->db->last_query();
-        return $this->db->insert_id();
+        return $this->db->insert('wages_category', $wages_category_model);
     }
 
     function delete_wages_category($wages_category_id) {
@@ -27,14 +26,13 @@ class Wages_category_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('wages_category');
-       
+
         $this->db->where('wages_category.del_ind', '1');
         $this->db->order_by("wages_category.wages_category_id", "desc");
-        
+
         $query = $this->db->get();
         return $query->result();
     }
-
 
     function update_wages_category($wages_category_model) {
 
@@ -54,4 +52,5 @@ class Wages_category_service extends CI_Model {
         $query = $this->db->get_where('wages_category', array('wages_category_id' => $wages_category_id));
         return $query->row();
     }
+
 }

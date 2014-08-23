@@ -15,7 +15,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p> <?php echo $task->task_descrption; ?></p>
+                        <p> <?php echo $task->task_description; ?></p>
                     </div>
 
                     <div class="clearfix"></div>

@@ -90,6 +90,7 @@ class Task_controller extends CI_Controller {
         $task_model->set_task_deadline($this->input->post('task_deadline', TRUE));
         $task_model->set_task_priority($this->input->post('task_priority', TRUE));
         $task_model->set_task_progress($this->input->post('task_progress', TRUE));
+        $task_model->set_task_status('0');
         $task_model->set_del_ind('1');
         $task_model->set_added_date(date("Y-m-d H:i:s"));
         $task_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));

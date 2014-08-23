@@ -1,6 +1,6 @@
 <?php
 
-class worker_service extends CI_Model {
+class Worker_service extends CI_Model {
 
     function __construct() {
         parent::__construct();
@@ -23,6 +23,12 @@ class worker_service extends CI_Model {
         $data = array('del_ind' => '0');
         $this->db->where('worker_id', $worker_id);
         return $this->db->update('worker', $data);
+    }
+    
+     function add_worker_detail($worker_model) {
+
+        return $this->db->insert('worker', $worker_model);
+     
     }
 }
 

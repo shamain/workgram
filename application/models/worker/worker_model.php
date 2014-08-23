@@ -1,6 +1,6 @@
 <?php
 
-class worker_model extends CI_Model {
+class Worker_model extends CI_Model {
     
     var $worker_id;
     var $emp_code;

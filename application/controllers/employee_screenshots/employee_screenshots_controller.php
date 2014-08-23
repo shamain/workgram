@@ -36,6 +36,27 @@ class Employee_screenshots_controller extends CI_Controller {
         $partials = array('content' => 'employee_screenshots/screenshot_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
+    
+    
+    /*
+     * API method
+     * get data from desktop client and save in database
+     */
+    function submit_shot_data(){
+        $worker_model = new Worker_model();
+        $worker_service = new Worker_service();
+        
+        $worker_model->set_emp_code($this->input->post('emp_code', TRUE));
+        $worker_model->set_worker_date($this->input->post('worker_date', TRUE));
+        $worker_model->set_worker_project_id($this->input->post('project_id', TRUE));
+        $worker_model->set_worker_project_task_id($this->input->post('task_id', TRUE));
+        $worker_model->set_worker_shot_name($this->input->post('shot_name', TRUE));
+        $worker_model->set_del_ind('1');
+        
+        $worker_service->add_worker_detail($worker_model);
+        
+    }
 
 }
 
