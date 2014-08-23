@@ -47,7 +47,8 @@ $('#edit_employee_profile_form').validate({
             required: true
         },
         employee_email: {
-            required: true
+            required: true,
+            email:true
         },
         employee_type: {
             required: true
@@ -56,7 +57,8 @@ $('#edit_employee_profile_form').validate({
             required: true
         },
         employee_contact: {
-            required: true
+            required: true,
+            number:true
         },
         employee_contract: {
             required: true

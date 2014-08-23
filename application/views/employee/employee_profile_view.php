@@ -247,6 +247,7 @@
                         <ul class="my-friends">
 
                             <?php
+
                             foreach ($employees as $employee) {
                                 ?>
                                 <li>
@@ -275,7 +276,29 @@
                             //skill graph js
                             var data = new Array();
                             var temp;
-                            var colours= new Array();
+                            var colours = new Array();
+
+
+                            function ColorLuminance(hex, lum) {
+
+                                // validate hex string
+                                hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                                if (hex.length < 6) {
+                                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                                }
+                                lum = lum || 0;
+
+                                // convert to decimal and change luminosity
+                                var rgb = "#", c, i;
+                                for (i = 0; i < 3; i++) {
+                                    c = parseInt(hex.substr(i * 2, 2), 16);
+                                    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                                    rgb += ("00" + c).substr(c.length);
+                                }
+
+                                return rgb;
+                            }
+
                         </script>
                         <?php
                         $employee_skill_service = new Employee_skill_service();
@@ -288,7 +311,7 @@
                             foreach ($skills as $skill) {
                                 ?>
                                 <script>
-                                    cl=ColorLuminance(<?php echo $employee_skill_category->colour; ?>,0.2);
+                                    var cl = ColorLuminance("<?php echo substr($employee_skill_category->colour, 1); ?>", <?php echo (float)rand()/(float)getrandmax(); ?>);
                                     temp = {label: "<?php echo $skill->skill_name; ?>", value: <?php echo round($skill->expert_level); ?>};
                                     data.push(temp);
                                     colours.push(cl);
@@ -421,26 +444,6 @@
 
     });
 
-
-    function ColorLuminance(hex, lum) {
-
-        // validate hex string
-        hex = String(hex).replace(/[^0-9a-f]/gi, '');
-        if (hex.length < 6) {
-            hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-        }
-        lum = lum || 0;
-
-        // convert to decimal and change luminosity
-        var rgb = "#", c, i;
-        for (i = 0; i < 3; i++) {
-            c = parseInt(hex.substr(i * 2, 2), 16);
-            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-            rgb += ("00" + c).substr(c.length);
-        }
-
-        return rgb;
-    }
 
 </script>
 
