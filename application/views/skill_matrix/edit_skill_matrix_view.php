@@ -16,13 +16,20 @@
                         <form id="edit_skill_matrix_form" name="edit_skill_matrix_form">
 
                             <div class="form-group">
+
                                 <label class="form-label">Skill Name</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $employee_skill->skill_name; ?>" style="width: 50%">                              
+                                    <select name="skill_code" id="skill_code" class="select2 form-control" style="width: 50%" >
+                                        <?php foreach ($skills as $skill) {
+                                            ?> 
+                                            <option value="<?php echo $skill->skill_code; ?>"  <?php if ($skill->skill_code == $skill->skill_code) { ?> selected="true" <?php } ?>><?php echo $skill->skill_name; ?></option>
+                                        <?php } ?>
+                                    </select>                              
                                 </div>
+
                             </div>
 
                             <div class="form-group">
@@ -47,7 +54,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skill->references; ?>" style="width: 50%">                       
+                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                       
                                 </div>
                             </div>
 

@@ -98,7 +98,7 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_skill_model->set_reference($this->input->post('reference', TRUE));
 //        $skill_category_model->set_colour($this->input->post('colour', TRUE));
 
-        echo $employee_skill_service->update_employee_skill($employee_skill_model );
+        echo $employee_skill_service->update_employee_skill($employee_skill_model);
     }
     function delete_employee_skill() {
 
