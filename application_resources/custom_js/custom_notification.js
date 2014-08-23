@@ -364,12 +364,12 @@ function init_notification_menu(){
             function(msg) {
                 
                 init_menu_unseen_count();
-                
+                $div_menu.innerHTML ="";
                 var $msg_view_cls="";
                 $messagehtml='<div style="width:300px">';
                 
                 if (msg.length>0){
-                    
+                    var url_string
                 $.each(msg, function(key, val) {
                     if(val.notified_user_is_seen=='n'){
                         $msg_view_cls="notification-messages danger";
@@ -381,8 +381,8 @@ function init_notification_menu(){
                     $messagehtml += [
                         '<div class="' + $msg_view_cls + '" onclick="mark_notification_as_seen(' + val.notified_users_id + ');" id="notification_' + val.notified_users_id + '">',
                             '<div class="message-wrapper">',
-                                '<div class="heading"> ' + val.notification_msg + ' </div>',
-                                '<div class="description"> ' + val.notification_area_url + ' </div>',
+                                '<div class="heading"><b> ' + val.notification_msg + ' </b></div>',
+                                '<div class="description"> ' + replace_string_with_urls(val.notification_area_url) + ' </div>',
                                 '<div class="date pull-left"> ' + val.notification_added_date + ' </div>',
                             '</div>',
                             '<div class="clearfix"></div>',
@@ -408,6 +408,8 @@ function init_notification_menu(){
                 
 
             });
+            
+            
 }
 
 //notification count
@@ -417,14 +419,14 @@ function init_menu_unseen_count(){
                 $.post(site_url + '/notification/notified_users_controller/user_unseen_notification_count/', function(data) {
                     if (data=="0")
                     {
-                        notification_count.className="badge badge-info";
+                        notification_count.className="";
+                        notification_count.innerHTML = "";
                     }
                     else{
                         notification_count.className="badge badge-important";
+                        notification_count.innerHTML = data;
                     }
-                        
-                    notification_count.innerHTML = data;
-                    
+                      
                     notification_count.title="You have " + data + " unseen Notification(s)..";
                     
                 });
@@ -439,5 +441,26 @@ function mark_notification_as_seen(id){
     document.getElementById("user-name").onclick=init_notification_menu();
 }
 
+function replace_string_with_urls(text){
+    var exp = /(\b(((https?|ftp|file|):\/\/)|www[.])[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var temp = text.replace(exp,'<a href=\"$1\" target=\"_blank\" style="color:blue">$1</a>');
+    var result = "";
+
+    while (temp.length > 0) {
+        var pos = temp.indexOf("href=\"");
+        if (pos == -1) {
+            result += temp;
+            break;
+        }
+        result += temp.substring(0, pos + 6);
+
+        temp = temp.substring(pos + 6, temp.length);
+        if ((temp.indexOf("://") > 8) || (temp.indexOf("://") == -1)) {
+            result += "http://";
+        }
+    }
+
+    return result;
+}
 
 

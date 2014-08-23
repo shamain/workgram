@@ -8,8 +8,22 @@
                 <h4>Advance <span class="semi-bold">Options</span></h4>
                 <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
             </div>
+            <?php
+
+            function replace_urls($text = null) {
+                $regex = '/((http|ftp|https):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/';
+                return preg_replace_callback($regex, function( $m ) {
+                    $link = $name = $m[0];
+                    if (empty($m[1])) {
+                        $link = "http://" . $link;
+                    }
+                    return '<a href="' . $link . '" target="_blank" rel="nofollow">' . $name . '</a>';
+                }, $text);
+            }
+            ?>
+            
             <div class="grid-body ">
-                <table class="table" id="notification_table" >
+                <table class="table" id="notification_table" onload="notification_table_onload();" >
                     <thead>
                         <tr>
                             <th>#</th>
@@ -38,7 +52,7 @@
                                     else {
                                         echo $userscount[$i-1];?> user(s)<?php
                                     }?></td>
-                                <td><?php echo $notification->notification_area_url; ?></td>
+                                <td><?php echo replace_urls($notification->notification_area_url); ?></td>
 
                                 <td><?php echo $notification->system; ?></td>
 								
