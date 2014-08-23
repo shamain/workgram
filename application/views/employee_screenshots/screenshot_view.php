@@ -72,7 +72,7 @@
 
             <div class="meta area">
                 Date 
-                
+
             </div>
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
@@ -82,7 +82,7 @@
             </div>
 
         </div>
-        
+
 
 
 
@@ -108,7 +108,7 @@
                             <li>Swimming</li>
                         </ul>
                     </div>
-                    
+
 
                     <div class="meta rec">
                         <div class="checkbox check-primary checkbox-circle">
@@ -139,104 +139,47 @@
                     <!--<p class="no-margin text-white">Choose a Skill category and make this a child of it.</p>-->
                     <br>
                 </div>
-
-                <!--                <div class="modal-body">
-                                    
-                                    <div class="row form-row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label class="form-label">Skill Category</label>
-                                                <span style="color: red">*</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-with-icon  right">                                       
-                                                <i class=""></i>
-                                                <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control"  >
-                <?php foreach ($skill_categories as $skill_category) {
-                    ?> 
-                                                            <option value="<?php echo $skill_category->skill_cat_code; ?>"><?php echo $skill_category->skill_cat_name; ?></option>
-                <?php } ?>
-                                                </select>                              
-                                            </div>
-                                        </div>
-                                    </div>-->
-
-                <div class="row form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="form-label">Inquiry Name</label>
-                            <span style="color: red">*</span>
+                <div class="modal-body">
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Inquiry Name</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_name">                              
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_name">                              
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <span style="color: red">*</span>
+                            </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <textarea id="company_description" class="form-control" type="text" name="company_description">    </textarea>                          
+                            </div>
+                        </div
                     </div>
                 </div>
-       
-        <div class="row form-row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <span style="color: red">*</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-with-icon  right">                                       
-                    <i class=""></i>
-                    <textarea id="company_description" class="form-control" type="text" name="company_description">    </textarea>                          
-                </div>
-            </div
-        </div>
-        </div>
-        
 
-    <div id="add_inquiry_msg" class="form-row"> </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-    </div>
-
-</form>
         </div>
+        <div id="add_inquiry_msg" class="form-row"> </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+
+        </form>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
