@@ -55,7 +55,8 @@ $(document).ready(function() {
 
             },
             company_contact: {
-                required: true
+                required: true,
+                number:true
             },
             company_description: {
                 required: true
@@ -119,7 +120,8 @@ $('#edit_company_form').validate({
             required: true
         },
         company_contact: {
-            required: true
+            required: true,
+            number:true
         },
         company_description: {
             required: true
@@ -164,19 +166,7 @@ $('#edit_company_form').validate({
 });
 
 
-function phonenumber(company_contact)  
-{  
-  var phoneno = /^\d{10}$/;  
-  if((company_contact.value.match(phoneno)))  
-        {  
-      return true;  
-        }  
-      else  
-        {  
-          
-        return false;  
-        }  
-} 
+
 
 
 
