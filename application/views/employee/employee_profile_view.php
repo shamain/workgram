@@ -199,7 +199,7 @@
 
 
 
-                            <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/edit_employee_profile/<?php echo $employee_detail->employee_code; ?>">
+                            <a data-toggle="modal" data-target="#edit_profile_modal" style="cursor: pointer">
                                 <i class="fa fa-pencil"></i>
                             </a> 
 
@@ -247,7 +247,6 @@
                         <ul class="my-friends">
 
                             <?php
-
                             foreach ($employees as $employee) {
                                 ?>
                                 <li>
@@ -311,7 +310,7 @@
                             foreach ($skills as $skill) {
                                 ?>
                                 <script>
-                                    var cl = ColorLuminance("<?php echo substr($employee_skill_category->colour, 1); ?>", <?php echo (float)rand()/(float)getrandmax(); ?>);
+                                    var cl = ColorLuminance("<?php echo substr($employee_skill_category->colour, 1); ?>", <?php echo (float) rand() / (float) getrandmax(); ?>);
                                     temp = {label: "<?php echo $skill->skill_name; ?>", value: <?php echo round($skill->expert_level); ?>};
                                     data.push(temp);
                                     colours.push(cl);
@@ -340,100 +339,199 @@
 
 
 
-<!--                <div class="tiles-body">
-                    <div class="row">
-                        <div class="post col-md-12">
-                            <div class="user-profile-pic-wrapper">
-                                <div class="user-profile-pic-normal">
-                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/c2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="info-wrapper">					
-                                <div class="username">
-                                    <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>	
-                                </div>
-                                <div class="info">
-                                    Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours, 
-                                    Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;) 
-                                </div>	
-                                <div class="more-details">
-                                    <ul class="post-links">
-                                        <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                        <li><a href="#" class="text-info">Collapse</a></li>
-                                        <li><a href="#" class="text-info" ><i class="fa fa-reply"></i> Reply</a></li>
-                                        <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                                        <li><a href="#"  class="muted">More</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-
-                                <ul class="action-bar">
-                                    <li><a href="#"  class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                                    <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> 47k</a> likes</li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <div class="post comments-section">
-                                    <div class="user-profile-pic-wrapper">
-                                        <div class="user-profile-pic-normal">
-                                            <img width="35" height="35" alt="" src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/e2x.jpg">
+                <!--                <div class="tiles-body">
+                                    <div class="row">
+                                        <div class="post col-md-12">
+                                            <div class="user-profile-pic-wrapper">
+                                                <div class="user-profile-pic-normal">
+                                                    <img width="35" height="35" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/c2x.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" src="<?php echo base_url(); ?>application_resources/img/profiles/c.jpg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="info-wrapper">					
+                                                <div class="username">
+                                                    <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>	
+                                                </div>
+                                                <div class="info">
+                                                    Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours, 
+                                                    Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;) 
+                                                </div>	
+                                                <div class="more-details">
+                                                    <ul class="post-links">
+                                                        <li><a href="#" class="muted">2 Minutes ago</a></li>
+                                                        <li><a href="#" class="text-info">Collapse</a></li>
+                                                        <li><a href="#" class="text-info" ><i class="fa fa-reply"></i> Reply</a></li>
+                                                        <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
+                                                        <li><a href="#"  class="muted">More</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="clearfix"></div>
+                
+                                                <ul class="action-bar">
+                                                    <li><a href="#"  class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
+                                                    <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> 47k</a> likes</li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                                <div class="post comments-section">
+                                                    <div class="user-profile-pic-wrapper">
+                                                        <div class="user-profile-pic-normal">
+                                                            <img width="35" height="35" alt="" src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/e.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/e2x.jpg">
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-wrapper">					
+                                                        <div class="username">
+                                                            <span class="dark-text">Thunderbolt</span> 
+                                                        </div>
+                                                        <div class="info">
+                                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
+                                                        </div>	
+                                                        <div class="more-details">
+                                                            <ul class="post-links">
+                                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
+                                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
+                                                                <li><a href="#"  class="muted">Details</a></li>
+                                                            </ul>
+                                                        </div>
+                
+                                                    </div>	
+                                                    <div class="clearfix"></div>						
+                                                </div>
+                                                <div class="post comments-section">
+                                                    <div class="user-profile-pic-wrapper">
+                                                        <div class="user-profile-pic-normal">
+                                                            <img width="35" height="35" src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/h2x.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="info-wrapper">					
+                                                        <div class="username">
+                                                            <span class="dark-text">Thunderbolt</span> 
+                                                        </div>
+                                                        <div class="info">
+                                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
+                                                        </div>	
+                                                        <div class="more-details">
+                                                            <ul class="post-links">
+                                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
+                                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
+                                                                <li><a href="#"  class="muted">Details</a></li>
+                                                            </ul>
+                                                        </div>
+                
+                                                    </div>	
+                                                    <div class="clearfix"></div>						
+                                                </div>							
+                                            </div>	
+                                            <div class="clearfix"></div>	
+                                            <br>
+                                            <br>
                                         </div>
                                     </div>
-                                    <div class="info-wrapper">					
-                                        <div class="username">
-                                            <span class="dark-text">Thunderbolt</span> 
-                                        </div>
-                                        <div class="info">
-                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                        </div>	
-                                        <div class="more-details">
-                                            <ul class="post-links">
-                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                <li><a href="#"  class="muted">Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>	
-                                    <div class="clearfix"></div>						
-                                </div>
-                                <div class="post comments-section">
-                                    <div class="user-profile-pic-wrapper">
-                                        <div class="user-profile-pic-normal">
-                                            <img width="35" height="35" src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" data-src="<?php echo base_url(); ?>application_resources/img/profiles/h.jpg" data-src-retina="<?php echo base_url(); ?>application_resources/img/profiles/h2x.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="info-wrapper">					
-                                        <div class="username">
-                                            <span class="dark-text">Thunderbolt</span> 
-                                        </div>
-                                        <div class="info">
-                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                        </div>	
-                                        <div class="more-details">
-                                            <ul class="post-links">
-                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                <li><a href="#"  class="muted">Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>	
-                                    <div class="clearfix"></div>						
-                                </div>							
-                            </div>	
-                            <div class="clearfix"></div>	
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>-->
+                                </div>-->
             </div>
         </div>	
     </div>
 </div>
 
 
+<div class="modal fade" id="edit_profile_modal" tabindex="-1" role="dialog" aria-labelledby="edit_profile_modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="edit_profile_form" name="edit_profile_form">
+                <div class="modal-header tiles green">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
+                    <br>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="edit_profile_modalLabel" class="semi-bold text-white">Edit Details</h4>
+                    <p class="no-margin text-white">Edit your details here.</p>
+                    <br>
+                </div>
+                <div class="modal-body">
 
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <span style="color: red">*</span>
+
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee_detail->employee_fname; ?>">                              
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <span style="color: red">*</span>
+
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee_detail->employee_lname; ?>">                              
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <span style="color: red">*</span>
+
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee_detail->employee_email; ?>">                              
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="form-label">Birth Day</label>
+                        <span style="color: red">*</span><br>
+
+                        <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
+                            <i class=""></i>
+
+                            <input class="form-control" type="text" input-append id="employee_bday" name="employee_bday" readonly="true"  value="<?php echo $employee_detail->employee_bday; ?>">
+                            <span class="add-on">
+                                <span class="arrow"></span>
+                                <i class="fa fa-th"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contact No</label>
+                        <span style="color: red">*</span>
+
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="employee_contact" class="form-control" type="text" name="employee_contact" value="<?php echo $employee_detail->employee_contact; ?>">                              
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="edit_employee_profile_msg" class="form-row"> </div>
+
+                    <input type="hidden" id="employee_code" name="employee_code" value="<?php echo $employee_detail->employee_code; ?>"/>
+                    <div class="form-actions">
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-cons" type="submit">
+                                <i class="icon-ok"></i>
+                                Save
+                            </button>
+                            <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile" class="btn btn-white btn-cons" type="button">Cancel</a>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     $('#employee_parent_menu').addClass('active open');

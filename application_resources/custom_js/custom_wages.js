@@ -217,8 +217,7 @@ $('#edit_wages_category_form').validate({
   $('#year_dpicker').datepicker({
         format: "yyyy",
         autoclose: true,
-        todayHighlight: true,
-        disabled:month
+        todayHighlight: true
     });
 
 
