@@ -141,8 +141,8 @@ $(document).ready(function() {
             {
                 if (msg == 1) {
                     $("#edit_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege </a>has been updated.</div>');
-                    edit_privilege_form.reset();
-                    location.reload();
+//                    edit_privilege_form.reset();
+                    window.location = site_url + '/settings/privilage_controller/manage_privileges';
                 } else {
                     $("#edit_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege </a>has failed.</div>');
                 }

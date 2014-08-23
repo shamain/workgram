@@ -76,7 +76,7 @@
             </div>
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
-                    <input id="checkbox9" type="checkbox" checked="checked" value="1">
+                    <input id="checkbox9" type="checkbox" checked="checked" value="0">
                     <label for="checkbox9">Mark</label>
                 </div>
             </div>
