@@ -67,9 +67,6 @@ class Skill_matrix_controller extends CI_Controller {
         $data['all_multi_array'] = $all_multi_array;
         $data['skill_cat_array'] = $skill_cat_array;
 
-
-
-
         $partials = array('content' => 'skill_matrix/skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
     }
@@ -91,24 +88,18 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->add_new_employee_skill($employee_skill_model);
     }
 
-    function edit_employee_skill_matrix() {
+     function edit_employee_skill_matrix() {
 
         $employee_skill_model = new Employee_skill_model();
         $employee_skill_service = new Employee_skill_service();
 
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-        
-       $employee_skill_model-> set_expert_level($this->input->post('expert_level', TRUE));
-       $employee_skill_model->set_reference($this->input->post('reference', TRUE));
-//        $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
-//        $employee_skill_model->set_del_ind($this->input->post('del_ind', TRUE));
-//        $employee_skill_model->set_added_date($this->input->post('added_by', TRUE));
-//        $employee_skill_model->set_added_date($this->input->post('added_date', TRUE));
+        $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
+        $employee_skill_model->set_reference($this->input->post('reference', TRUE));
+//        $skill_category_model->set_colour($this->input->post('colour', TRUE));
 
-
-        echo $employee_skill_service->update_employee_skill($employee_skill_model);
+        echo $employee_skill_service->update_employee_skill($employee_skill_model );
     }
-
     function delete_employee_skill() {
 
 
@@ -117,17 +108,17 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->delete_employee_skill(trim($this->input->post('id', TRUE)));
     }
 
-    function edit_skill_matrix_view($skill_code) {
+     function edit_skill_matrix_view($skill_code) {
 
 
         $skill_service = new Skill_service();
         $skill_category_service = new Skill_category_service();
-        $employee_skill_service = new Employee_skill_service();
+        $employee_skill_service = new Employee_skill_service ();
 
-        $data['heading'] = "Edit Skill Matix";
+        $data['heading'] = "Edit Skill Matrix";
         $data['skill'] = $skill_service->get_skill_by_code($skill_code);
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-        $data['employee_skills'] =  $employee_skill_service-> get_all_employee_skills();
+        $data['employee_skills'] = $employee_skill_service-> get_all_employee_skills();
 
         $partials = array('content' => 'skill_matrix/edit_skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);

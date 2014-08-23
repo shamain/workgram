@@ -15,17 +15,17 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_skill_matrix_form" name="edit_skill_matrix_form">
 
-                           <div class="form-group">
+                            <div class="form-group">
                                 <label class="form-label">Skill Name</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="skill_matrix_name" class="form-control" type="text" name="skill_matrix_name" value="<?php echo $assigned_skill->skill_code; ?>" style="width: 50%">                              
+                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $assigned_skills->skill_name; ?>" style="width: 50%">                              
                                 </div>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
 
                                 <label class="form-label">Expert Level</label>
                                 <span style="color: red">*</span>
@@ -33,34 +33,35 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <div class="slider sucess">
-                                         <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $assigned_skill->expert_level; ?>" style="width: 50%">              
+
+                                    <div class="input-with-icon  right">  
+                                        <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skills->expert_level; ?>" style="width: 50%">              
                                     </div>
                                 </div>
 
                             </div>
 
-                            
-                               <div class="form-group">
+
+                            <div class="form-group">
                                 <label class="form-label">References</label>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="references" class="form-control" type="text" name="references" value="<?php echo $assigned_skill->references; ?>" style="width: 50%">                       
+                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skills->references; ?>" style="width: 50%">                       
                                 </div>
                             </div>
-                            
-                            <div id="edit_skill_matrix_msg" class="form-row"> </div>
-                            
 
-                            <input id="employee_skill_id" class="form-control" type="hidden" name="employee_skill_id" value="<?php echo $assigned_skill->employee_skill_id; ?>" style="width: 50%"> 
+                            <div id="edit_skill_matrix_msg" class="form-row"> </div>
+
+
+                            <input id="employee_skill_id" class="form-control" type="hidden" name="employee_skill_id" value="<?php echo $employee_skills->employee_skill_id; ?>" style="width: 50%"> 
 
                             <div class="modal-footer">
                                 <button class="btn btn-primary btn-cons" type="submit">
                                     <i class="icon-ok"></i>
                                     Save
                                 </button>
-                               <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix" class="btn btn-white btn-cons" type="button">Cancel</a>
+                                <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix" class="btn btn-white btn-cons" type="button">Cancel</a>
                             </div>
 
 
