@@ -21,7 +21,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $assigned_skills->skill_name; ?>" style="width: 50%">                              
+                                    <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $employee_skill->skill_name; ?>" style="width: 50%">                              
                                 </div>
                             </div>
 
@@ -35,7 +35,7 @@
                                     <i class=""></i>
 
                                     <div class="input-with-icon  right">  
-                                        <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skills->expert_level; ?>" style="width: 50%">              
+                                        <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skill->expert_level; ?>" style="width: 50%">              
                                     </div>
                                 </div>
 
@@ -47,14 +47,14 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skills->references; ?>" style="width: 50%">                       
+                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skill->references; ?>" style="width: 50%">                       
                                 </div>
                             </div>
 
                             <div id="edit_skill_matrix_msg" class="form-row"> </div>
 
 
-                            <input id="employee_skill_id" class="form-control" type="hidden" name="employee_skill_id" value="<?php echo $employee_skills->employee_skill_id; ?>" style="width: 50%"> 
+                            <input id="employee_skill_id" class="form-control" type="hidden" name="employee_skill_id" value="<?php echo $employee_skill->employee_skill_id; ?>" style="width: 50%"> 
 
                             <div class="modal-footer">
                                 <button class="btn btn-primary btn-cons" type="submit">

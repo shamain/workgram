@@ -15,10 +15,10 @@ class Employee_skill_service extends CI_Model {
         return $query->result();
     }
 
-    function get_skill_by_employee_code($employee_code) {
+    function get_employee_skill_by_employee_skill_code($employee_skill_code) {
 
-        $query = $this->db->get_where('employee_skill', array('employee_code' => $employee_code));
-        return $query->result();
+        $query = $this->db->get_where('employee_skill', array('employee_skill_id' => $employee_skill_code));
+        return $query->row();
     }
 
     function get_skills_for_employee($emp_code) {
