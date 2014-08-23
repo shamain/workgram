@@ -1,29 +1,5 @@
 
-function checkEmail() {
-
-    var employee_email = document.getElementById('employee_email');
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-    if (!filter.test(employee_email.value)) {
-    alert('Please provide a valid email address');
-    employee_email.focus;
-    return false;
- }
-}
-
-function phonenumber(employee_contact)  
-{  
-  var phoneno = /^\d{10}$/;  
-  if((employee_contact.value.match(phoneno)))  
-        {  
-      return true;  
-        }  
-      else  
-        {  
-        
-        return false;  
-        }  
-} 
+ 
 
 //edit employee bday datepicker
 $('#employee_bday_edit_dpicker').datepicker({
@@ -43,16 +19,12 @@ $('#edit_employee_profile_form').validate({
         employee_lname:{
             required: true
          },
-        employee_no: {
-            required: true
-        },
+       
         employee_email: {
             required: true,
             email:true
         },
-        employee_type: {
-            required: true
-        },
+        
         employee_bday: {
             required: true
         },
@@ -60,9 +32,7 @@ $('#edit_employee_profile_form').validate({
             required: true,
             number:true
         },
-        employee_contract: {
-            required: true
-        }
+        
 
 
     },

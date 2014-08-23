@@ -30,6 +30,23 @@ class Employee_service extends CI_Model {
         $this->db->where('employee_Code', $employee_model->get_employee_code());
         return $this->db->update('employee', $data);
     }
+    
+    //update employee_profile
+    function update_employee_profile($employee_model) {
+
+        $data = array(
+            'employee_fname' => $employee_model->get_employee_fname(),
+            'employee_lname' => $employee_model->get_employee_lname(),
+            'employee_email' => $employee_model->get_employee_email(),
+            'employee_bday' => $employee_model->get_employee_bday(),
+            'employee_contact' => $employee_model->get_employee_contact(),
+           
+            
+        );
+
+        $this->db->where('employee_Code', $employee_model->get_employee_code());
+        return $this->db->update('employee', $data);
+    }
 
     //update online status
     function update_online_status($employee_model) {

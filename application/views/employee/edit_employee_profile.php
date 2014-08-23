@@ -15,27 +15,40 @@
                     <div class="col-md-5 col-sm-5 col-xs-5">
                         <form id="edit_employee_profile_form" name="edit_employee_profile_form">
 
+<!--<div class="modal fade" id="edit_employee_profile_modal" tabindex="-1" role="dialog" aria-labelledby="edit_employee_profile_modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="edit_employee_profile_form" name="edit_employee_profile_form">
+                <div class="modal-header tiles green">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
+                    <br>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="edit_employee_profile_modalLabel" class="semi-bold text-white">Edit Details</h4>
+                    <p class="no-margin text-white">Edit your details here.</p>
+                    <br>
+                </div>-->
                             <div class="form-group">
-                                <label class="form-label">First Name</label><label class="form-label">Last Name</label>
+                                <label class="form-label">First Name</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee_detail->employee_fname; ?>"><input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee_detail->employee_lname; ?>">                              
+                                    <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee_detail->employee_fname; ?>">                              
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <span style="color: red">*</span>
+
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee_detail->employee_lname; ?>">                              
+                                </div>
+                            </div>
                             
 
-                         <div class="form-group">
-                                <label class="form-label">Previous no</label>
-                                <span style="color: red">*</span>
-                                
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="employee_no" class="form-control" type="text" name="employee_no" value="<?php echo $employee_detail->employee_no; ?>">                              
-                                </div>
-                            </div>
+                         
 
                             <div class="form-group">
                                 <label class="form-label">Email</label>
@@ -77,20 +90,7 @@
 
                             
 
-                            <div class="form-group">
-                                <label class="form-label">Contract</label>
-                                <span style="color: red">*</span>
-
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-
-                                        <option value="FULL_TIME" <?php if ($this->config->item('FULL_TIME') == $employee_detail->employee_contract) { ?> selected="true" <?php } ?>>Full Time</option>
-                                        <option value="PART_TIME" <?php if ($this->config->item('PART_TIME') == $employee_detail->employee_contract) { ?> selected="true" <?php } ?>>Part Time</option>
-
-                                    </select>                               
-                                </div>
-                            </div>
+                            
 
                             
                              
