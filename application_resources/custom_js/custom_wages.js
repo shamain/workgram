@@ -157,6 +157,80 @@ $('#edit_wages_category_form').validate({
 });
 
 
+				var $filters = $('#Filters').find('li'),
+					dimensions = {
+						company: 'all', // Create string for first dimension
+						recreation: 'all' // Create string for second dimension
+					};
+					
+				// Bind checkbox click handlers:
+				
+				$filters.on('click',function(){
+					var $t = $(this),
+						dimension = $t.attr('data-dimension'),
+						filter = $t.attr('data-filter'),
+						filterString = dimensions[dimension];
+						
+					if(filter == 'all'){
+						// If "all"
+						if(!$t.hasClass('active')){
+							// if unchecked, check "all" and uncheck all other active filters
+							$t.addClass('active').siblings().removeClass('active');
+							// Replace entire string with "all"
+							filterString = 'all';	
+						} else {
+							// Uncheck
+							$t.removeClass('active');
+							// Emtpy string
+							filterString = '';
+						}
+					} else {
+						// Else, uncheck "all"
+						$t.siblings('[data-filter="all"]').removeClass('active');
+						// Remove "all" from string
+						filterString = filterString.replace('all','');
+						if(!$t.hasClass('active')){
+							// Check checkbox
+							$t.addClass('active');
+							// Append filter to string
+							filterString = filterString == '' ? filter : filterString+' '+filter;
+						} else {
+							// Uncheck
+							$t.removeClass('active');
+							// Remove filter and preceeding space from string with RegEx
+							var re = new RegExp('(\\s|^)'+filter);
+							filterString = filterString.replace(re,'');
+						};
+					};
+					
+					// Set demension with filterString
+					dimensions[dimension] = filterString;
+					
+					// We now have two strings containing the filter arguments for each dimension:	
+					console.info('dimension 1: '+dimensions.company);
+					console.info('dimension 2: '+dimensions.recreation);
+					
+					$('#Parks').mixitup('filter',[dimensions.company, dimensions.recreation])			
+				});
 
+			});
+  $('#year_dpicker').datepicker({
+        format: "yyyy",
+        autoclose: true,
+        todayHighlight: true,
+        disabled:month
+    });
+
+
+//get skills for skill category when assigning skills for employees
+$(document).on('change', '#wages_company_filter', function() {
+    alert("fs");
+    var skill_cat_code = $('#skill_cat_code').val();
+    $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_for_skill_category_filter', {skill_cat_code: skill_cat_code}, function(msg) {
+        if (msg != '') {
+            $("#skill_code").html('');
+            $("#skill_code").html(msg);
+        }
+    });
 
 });
