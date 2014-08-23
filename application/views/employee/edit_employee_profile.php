@@ -3,7 +3,7 @@
     <h3><?php echo $heading; ?></h3>		
 </div>
 
-<div class="row-fluid">
+<!--<div class="row-fluid">
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-title">
@@ -13,20 +13,20 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-5 col-sm-5 col-xs-5">
-                        <form id="edit_employee_profile_form" name="edit_employee_profile_form">
+                        <form id="edit_employee_profile_form" name="edit_employee_profile_form">-->
 
-<!--<div class="modal fade" id="edit_employee_profile_modal" tabindex="-1" role="dialog" aria-labelledby="edit_employee_profile_modalLabel" aria-hidden="true">
+<div class="modal fade" id="edit_profile_modal" tabindex="-1" role="dialog" aria-labelledby="edit_profile_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="edit_employee_profile_form" name="edit_employee_profile_form">
+            <form id="edit_profile_form" name="edit_profile_form">
                 <div class="modal-header tiles green">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
-                    <h4 id="edit_employee_profile_modalLabel" class="semi-bold text-white">Edit Details</h4>
+                    <h4 id="edit_profile_modalLabel" class="semi-bold text-white">Edit Details</h4>
                     <p class="no-margin text-white">Edit your details here.</p>
                     <br>
-                </div>-->
+                
                             <div class="form-group">
                                 <label class="form-label">First Name</label>
                                 <span style="color: red">*</span>
@@ -107,14 +107,17 @@
                                     <a href="<?php echo site_url(); ?>/employee/employee_profile_controller/view_profile" class="btn btn-white btn-cons" type="button">Cancel</a>
                                 </div>
                             </div>
+                            
+                            
 
-                        </form>
+                        <!--</form>-->
                     </div>
+            </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    <!--</div>-->
+<!--</div>-->
 <script type="text/javascript">
     $('#employee_parent_menu').addClass('active open');
     

@@ -340,7 +340,7 @@
 
 
 
-                <div class="tiles-body">
+<!--                <div class="tiles-body">
                     <div class="row">
                         <div class="post col-md-12">
                             <div class="user-profile-pic-wrapper">
@@ -426,7 +426,7 @@
                             <br>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>	
     </div>
