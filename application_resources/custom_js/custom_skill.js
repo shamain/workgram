@@ -322,7 +322,7 @@ $(document).ready(function() {
 
 //skill chart
 //$(document).ready(function() {
-  
+
 
 function d() {
     alert();
@@ -331,7 +331,7 @@ function d() {
 //skill matrix table
 $(document).ready(function() {
 
-     var skill_matrix_table = $('#my_skill_table').dataTable({
+    var skill_matrix_table = $('#my_skill_table').dataTable({
         "sDom": "<'row'<'col-md-6'l <'toolbar my_skill_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
@@ -357,7 +357,7 @@ $(document).ready(function() {
     $('#my_skill_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#my_skill_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
+
 });
 
 $('#add_employee_skill_form').validate({
@@ -450,8 +450,9 @@ $('#edit_skill_matrix_form').validate({
         {
             if (msg == 1) {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
-                edit_employee_skill_form.reset();
-                location.reload();
+//                edit_employee_skill_form.reset();             
+//                location.reload();
+                window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';
             } else {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
             }
