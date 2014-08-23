@@ -81,7 +81,7 @@ $emp_names_string = implode(',', $emp_names);
                                     <?php echo $assigned_skill->reference; ?> 
                                 </td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $assigned_skill->employee_skill_id; ?>">
+                                    <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/edit_skill_matrix_view/<?php echo $assigned_skill->employee_skill_id; ?>">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Skill" onclick="delete_employee_skill(<?php echo $assigned_skill->employee_skill_id; ?>)">

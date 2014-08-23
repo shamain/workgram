@@ -32,19 +32,17 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_service = new Employee_service();
 
         $data['heading'] = "Skill Matrix";
-        
+
         $skill_cats = $skill_category_service->get_all_skill_categories();
         $data['skill_categories'] = $skill_cats;
         $data['skills'] = $skill_service->get_all_skills();
 
         $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
-        $all_employees=$employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $all_employees = $employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $data['assigned_skills'] = $current_assigned_skills;
         $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
-        $data['employees'] = 
-        
-        $all_multi_array = array();
+        $data['employees'] = $all_multi_array = array();
 
         for ($i = 0; $i < count($all_employees); $i++) {
             $emp_string = $all_employees[$i]->employee_fname;
@@ -53,7 +51,7 @@ class Skill_matrix_controller extends CI_Controller {
                 'emp_name' => $emp_string
             );
         }
-        
+
         $skill_cat_array = array();
 
         for ($i = 0; $i < count($skill_cats); $i++) {
@@ -61,14 +59,14 @@ class Skill_matrix_controller extends CI_Controller {
 
             $skill_cat_array[$i] = array(
                 'cat_string' => $cat_string,
-                'colour' =>  $skill_cats[$i]->colour
+                'colour' => $skill_cats[$i]->colour
             );
         }
-        $data['skill_cats']=$skill_category_service->get_skill_cats();
+        $data['skill_cats'] = $skill_category_service->get_skill_cats();
 
         $data['all_multi_array'] = $all_multi_array;
         $data['skill_cat_array'] = $skill_cat_array;
-        
+
 
 
 
@@ -99,7 +97,9 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_skill_service = new Employee_skill_service();
 
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-//        $employee_skill_model->set_employee_code($this->input->post('employee_code', TRUE));
+        
+       $employee_skill_model-> set_expert_level($this->input->post('expert_level', TRUE));
+       $employee_skill_model->set_reference($this->input->post('reference', TRUE));
 //        $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
 //        $employee_skill_model->set_del_ind($this->input->post('del_ind', TRUE));
 //        $employee_skill_model->set_added_date($this->input->post('added_by', TRUE));
@@ -117,19 +117,22 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->delete_employee_skill(trim($this->input->post('id', TRUE)));
     }
 
-//    function edit_skill_view($skill_code) {
-//
-//
-//        $skill_service = new Skill_service();
-//        $skill_category_service = new Skill_category_service();
-//
-//        $data['heading'] = "Edit Skill";
-//        $data['skill'] = $skill_service->get_skill_by_code($skill_code);
-//        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-//
-//        $partials = array('content' => 'skill/edit_skill_view');
-//        $this->template->load('template/main_template', $partials, $data);
-//    }
+    function edit_skill_matrix_view($skill_code) {
+
+
+        $skill_service = new Skill_service();
+        $skill_category_service = new Skill_category_service();
+        $employee_skill_service = new Employee_skill_service();
+
+        $data['heading'] = "Edit Skill Matix";
+        $data['skill'] = $skill_service->get_skill_by_code($skill_code);
+        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        $data['employee_skills'] =  $employee_skill_service-> get_all_employee_skills();
+
+        $partials = array('content' => 'skill_matrix/edit_skill_matrix_view');
+        $this->template->load('template/main_template', $partials, $data);
+    }
+
     //get skills for skill category
     function get_skill_for_skill_category_filter() {
 
