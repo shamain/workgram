@@ -452,7 +452,7 @@ $('#edit_skill_matrix_form').validate({
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
 //                edit_employee_skill_form.reset();             
 //                location.reload();
-                window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';
+                window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';;
             } else {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
             }
