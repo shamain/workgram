@@ -61,7 +61,7 @@
     </ul>
 </li> 
 
-<li class="" id="skill_parent_menu"> 
+<li class="" id="snap_shot_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
         <span class="title">Work Snaps</span> 

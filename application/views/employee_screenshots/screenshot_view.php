@@ -183,3 +183,6 @@
     </div>
 </div>
 </div>
+<script type="text/javascript">
+    $('#snap_shot_parent_menu').addClass('active open');
+</script>
