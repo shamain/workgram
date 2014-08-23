@@ -29,6 +29,7 @@ class Skill_matrix_controller extends CI_Controller {
         $skill_category_service = new Skill_category_service();
         $skill_service = new Skill_service();
         $employee_skill_service = new Employee_skill_service();
+        $employee_service = new Employee_service();
 
         $data['heading'] = "Skill Matrix";
         
@@ -37,25 +38,38 @@ class Skill_matrix_controller extends CI_Controller {
         $data['skills'] = $skill_service->get_all_skills();
 
         $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+        $all_employees=$employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $data['assigned_skills'] = $current_assigned_skills;
         $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
+        $data['employees'] = 
         
         $all_multi_array = array();
 
-        for ($i = 0; $i < count($skill_cats); $i++) {
+        for ($i = 0; $i < count($all_employees); $i++) {
+            $emp_string = $all_employees[$i]->employee_fname;
 
-
-            $cat_string = $skill_cats[$i]->skill_cat_name;
-
-            $all_multi_array[$cat_string] = array(
-                'cats' => $cat_string,
-                'colour' => floatval($skill_cats[$i]->colour)
+            $all_multi_array[$emp_string] = array(
+                'emp_name' => $emp_string
             );
         }
+        
+        $skill_cat_array = array();
 
+        for ($i = 0; $i < count($skill_cats); $i++) {
+            $cat_string = $skill_cats[$i]->skill_cat_name;
+
+            $skill_cat_array[$i] = array(
+                'cat_string' => $cat_string,
+                'colour' =>  $skill_cats[$i]->colour
+            );
+        }
+        $data['skill_cats']=$skill_category_service->get_skill_cats();
 
         $data['all_multi_array'] = $all_multi_array;
+        $data['skill_cat_array'] = $skill_cat_array;
+        
+
 
 
         $partials = array('content' => 'skill_matrix/skill_matrix_view');

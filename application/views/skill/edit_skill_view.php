@@ -39,6 +39,9 @@
                                     <input id="skill_name" class="form-control" type="text" name="skill_name" value="<?php echo $skill->skill_name; ?>" style="width: 50%">                              
                                 </div>
                             </div>
+                            
+                            <div id="edit_skill_msg" class="form-row"> </div>
+                            
 
                             <input id="skill_code" class="form-control" type="hidden" name="skill_code" value="<?php echo $skill->skill_code; ?>" style="width: 50%"> 
 

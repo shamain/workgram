@@ -2,24 +2,31 @@
 <?php
 //formating the graph data 
 
-//$skill_cats = array();
-//$colours = array();
-//
-//
-//foreach ($all_multi_array as $row) {
-//    //only get the months where there are values
-//    if (($row['cats'] != 0)) {
-//
-//        $skill_cats[] = "'" . $row['cats'] . "'";
-//        $colours[] = $row['colour'];
-//    }
-//}
-//
-//$skill_cat_string = implode(',', $skill_cats);
+$emp_names = array();
+$colours = array();
+
+
+foreach ($all_multi_array as $row) {
+    //only get the months where there are values
+
+    if (($row['emp_name'] != '')) {
+
+        $emp_names[] = "'" . $row['emp_name'] . "'";
+    }
+}
+
+$emp_names_string = implode(',', $emp_names);
 //$colours_string = implode(',', $colours);
 ?>
 
 
+
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.orderBars.js"></script>
 
 
 <!--Chart-->
@@ -33,7 +40,7 @@
                 <h4>Find out the skills of other <span class="semi-bold"> employees</span></h4>
                 <p></p>
                 <br>
-                <div id="my_skill_matrix_chart" style="height:250px"></div>
+                <div id="stacked-ordered-chart" style="height:250px"></div>
             </div>
         </div>
     </div>
@@ -63,7 +70,7 @@
                         foreach ($assigned_skills as $assigned_skill) {
                             ?> 
                             <tr  id="skill_matrix_<?php echo $assigned_skill->employee_skill_id; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $assigned_skill->skill_name; ?>
 
                                 <td>
@@ -129,10 +136,7 @@
                                     <i class=""></i>
                                     <select name="skill_code" id="skill_code" class="select2 form-control" style="width: 30%" >
                                         <option value="">-- Select Skills --</option>
-                                        <?php foreach ($skills as $skill) {
-                                            ?> 
-                                            <option value="<?php echo $skill->skill_code; ?>"><?php echo $skill->skill_name; ?></option>
-                                        <?php } ?>
+
                                     </select>   
                                 </div>
                             </div>
@@ -182,7 +186,155 @@
 </div>
 
 
+<script>
 
+                                    var v0 = [
+                                        [1325376000000, 120],
+                                        [1328054400000, 70],
+                                        [1330560000000, 100],
+                                        [1333238400000, 60],
+                                        [1335830400000, 35]
+                                    ];
+
+                                    var v1 = [
+                                        [1325376000000, 80],
+                                        [1328054400000, 60],
+                                        [1330560000000, 30],
+                                        [1333238400000, 35],
+                                        [1335830400000, 30]
+                                    ];
+
+                                    var v2 = [
+                                        [1325376000000, 80],
+                                        [1328054400000, 40],
+                                        [1330560000000, 30],
+                                        [1333238400000, 20],
+                                        [1335830400000, 10]
+                                    ];
+
+                                    var v3 = [
+                                        [1325376000000, 15],
+                                        [1328054400000, 10],
+                                        [1330560000000, 15],
+                                        [1333238400000, 20],
+                                        [1335830400000, 15]
+                                    ];
+                                    // ORDERED & STACKED  
+                                    var data2 = new Array();
+<?php
+$v = 0;
+foreach ($skill_cat_array as $skill_cat) {
+    ?>
+
+                                        var temp = {
+                                            label: "<?php echo $skill_cat['cat_string']; ?>",
+                                            data: <?php echo 'v' . $v; ?>,
+                                            bars: {
+                                                show: true,
+                                                barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                                                fill: true,
+                                                lineWidth: 0,
+                                                order: 0,
+                                                fillColor: "<?php echo $skill_cat['colour']; ?>"
+                                            },
+                                            color: "<?php echo $skill_cat['colour']; ?>"
+                                        };
+
+                                        data2.push(temp);
+
+
+    <?php
+    ++$v;
+}
+?>
+
+                                    //                                        var data2 = [
+                                    //
+                                    //                                            {
+                                    //                                                
+                                    //                                                label: "Product 1",
+                                    //                                                data: d1_1,
+                                    //                                                bars: {
+                                    //                                                    show: true,
+                                    //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                                    //                                                    fill: true,
+                                    //                                                    lineWidth: 0,
+                                    //                                                    order: 0,
+                                    //                                                    fillColor: "rgba(243, 89, 88, 0.7)"
+                                    //                                                },
+                                    //                                                color: "rgba(243, 89, 88, 0.7)"
+                                    //                                            },
+                                    //
+                                    //                                                 
+                                    //                                            {
+                                    //                                                label: "Product 2",
+                                    //                                                data: d1_2,
+                                    //                                                bars: {
+                                    //                                                    show: true,
+                                    //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                                    //                                                    fill: true,
+                                    //                                                    lineWidth: 0,
+                                    //                                                    order: 0,
+                                    //                                                    fillColor: "rgba(251, 176, 94, 0.7)"
+                                    //                                                },
+                                    //                                                color: "rgba(251, 176, 94, 0.7)"
+                                    //                                            },
+                                    //                                            {
+                                    //                                                label: "Product 3",
+                                    //                                                data: d1_3,
+                                    //                                                bars: {
+                                    //                                                    show: true,
+                                    //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                                    //                                                    fill: true,
+                                    //                                                    lineWidth: 0,
+                                    //                                                    order: 0,
+                                    //                                                    fillColor: "rgba(10, 166, 153, 0.7)"
+                                    //                                                },
+                                    //                                                color: "rgba(10, 166, 153, 0.7)"
+                                    //                                            },
+                                    //                                            {
+                                    //                                                label: "Product 4",
+                                    //                                                data: d1_4,
+                                    //                                                bars: {
+                                    //                                                    show: true,
+                                    //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                                    //                                                    fill: true,
+                                    //                                                    lineWidth: 0,
+                                    //                                                    order: 0,
+                                    //                                                    fillColor: "rgba(0, 144, 217, 0.7)"
+                                    //                                                },
+                                    //                                                color: "rgba(0, 144, 217, 0.7)"
+                                    //                                            },
+                                    //                                        ];
+                                    $.plot($('#stacked-ordered-chart'), data2, {
+                                        grid: {
+                                            hoverable: true,
+                                            clickable: false,
+                                            borderWidth: 1,
+                                            borderColor: '#f0f0f0',
+                                            labelMargin: 8
+
+                                        },
+                                        xaxis: {
+                                            min: (new Date(2011, 11, 15)).getTime(),
+                                            max: (new Date(2012, 04, 18)).getTime(),
+                                            mode: "time",
+                                            timeformat: "%b",
+                                            tickSize: [1, "month"],
+                                            monthNames: [<?php echo $emp_names_string; ?>],
+                                            tickLength: 0, // hide gridlines
+                                            axisLabel: 'Employees',
+                                            axisLabelUseCanvas: true,
+                                            axisLabelFontSizePixels: 12,
+                                            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+                                            axisLabelPadding: 5
+                                        },
+                                        stack: true
+                                    });
+
+
+
+</script>
 
 
 <script>

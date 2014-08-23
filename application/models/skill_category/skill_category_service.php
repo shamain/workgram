@@ -52,5 +52,15 @@ class Skill_category_service extends CI_Model {
         $query = $this->db->get_where('skill_category', array('skill_cat_code' => $skill_cat_code));
         return $query->row();
     }
+    
+     public function get_skill_cats() {
+
+        $this->db->select('*');
+        $this->db->from('skill_category');
+        $this->db->where('del_ind', '1');
+        
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 }
