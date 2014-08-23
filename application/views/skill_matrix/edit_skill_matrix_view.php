@@ -80,7 +80,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('#skill_matrix_parent_menu').addClass('active open');
+    $('#skill_parent_menu').addClass('active open');
 </script>
 
 

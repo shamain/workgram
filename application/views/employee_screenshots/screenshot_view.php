@@ -42,6 +42,7 @@
             </ul>
         </div>
     </div>
+    <button id="search_screenshot_btn" style="margin-left:12px" name="search_screenshot_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
     <button class="btn btn-primary" style="margin-left:12px" background-color="#f35958"  id="add_inquiry_btn" data-toggle="modal" data-target="#add_inquiry_modal">Add Inquiry</button>
     <div class="pull-right">
         <div class="btn-group" data-toggle="buttons-radio">
