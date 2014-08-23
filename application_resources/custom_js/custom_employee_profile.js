@@ -61,11 +61,11 @@ $('#edit_profile_form').validate({
         {
             
             if (msg == 1) {
-                $("#edit_profile_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
-                edit_employee_profile_form.reset();
+                $("#edit_employee_profile_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >details </a>has been updated.</div>');
+                edit_profile_form.reset();
                 window.location = site_url + '/employee/employee_profile_controller/view_profile';
             } else {
-                $("#edit_profile_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">details </a>has failed.</div>');
+                $("#edit_employee_profile_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">details </a>has failed.</div>');
             }
         });
 

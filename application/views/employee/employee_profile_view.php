@@ -431,7 +431,7 @@
     </div>
 </div>
 
-
+<!--edit modal-->
 <div class="modal fade" id="edit_profile_modal" tabindex="-1" role="dialog" aria-labelledby="edit_profile_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -446,46 +446,60 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="form-group">
-                        <label class="form-label">First Name</label>
-                        <span style="color: red">*</span>
 
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee_detail->employee_fname; ?>">                              
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="employee_fname" class="form-control" type="text" name="employee_fname">                              
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Last Name</label>
-                        <span style="color: red">*</span>
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="employee_lname" class="form-control" type="text" name="employee_lname">                              
+                            </div>
+                        </div>
+                    </div>
+                    
 
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee_detail->employee_lname; ?>">                              
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="employee_email" class="form-control" type="text" name="employee_email">                              
+                            </div>
                         </div>
                     </div>
 
-
-
-
-                    <div class="form-group">
-                        <label class="form-label">Email</label>
-                        <span style="color: red">*</span>
-
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee_detail->employee_email; ?>">                              
-
-                        </div>
-                    </div>
-
-
-
+                <div class="row form-row">
+                        <div class="col-md-5">
                     <div class="form-group">
                         <label class="form-label">Birth Day</label>
-                        <span style="color: red">*</span><br>
-
+                        <span style="color: red">*</span>
+                    </div>
+                        </div>
                         <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
                             <i class=""></i>
 
@@ -497,13 +511,18 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Contact No</label>
-                        <span style="color: red">*</span>
-
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="employee_contact" class="form-control" type="text" name="employee_contact" value="<?php echo $employee_detail->employee_contact; ?>">                              
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Contact No</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="employee_contact" class="form-control" type="text" name="employee_contact">                              
+                            </div>
                         </div>
                     </div>
 
@@ -537,8 +556,7 @@
     $('#employee_parent_menu').addClass('active open');
     $(document).ready(function() {
 
-        checkEmail();
-        phonenumber(employee_contact);
+        
 
     });
 
