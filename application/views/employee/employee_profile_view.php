@@ -43,7 +43,7 @@
                                                 });
 
                                                 $('#files').html("");
-                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_cover_pics/' + response + '"  /><br />');
+                                                $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/employee_cover_pics/' + response + '"   style="width: 100%;" /><br />');
                                                 picFileName = response;
                                                 document.getElementById('image').value = file;
                                                 document.getElementById('cover_image').value = response;
@@ -75,10 +75,10 @@
                 <div id="files">
                     <?php if ($this->session->userdata('EMPLOYEE_COVERPIC') == '') { ?>
 
-                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  />
+                    <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" style="width: 100%;" />
 
                     <?php } else { ?>
-                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  />
+                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  style="width: 100%;" />
 
                     <?php } ?>
                 </div>
@@ -206,7 +206,7 @@
                         </div>
 
                         <!-- load tasks-->   
-                        <div class="col-md-12 col-sm-4 m-b-20" data-aspect-ratio="true" style="height: 200px;">
+                        <div class="col-md-12 col-sm-4 m-b-20 t-h" data-aspect-ratio="true" >
                             <div class="live-tile slide ha tiles carousel" data-speed="750" data-delay="1000" data-mode="carousel" style="background-color:#CDEAF1">
 
                                 <div class="slide-back ha tiles slide active" style="transform: translate(0%, 0%) translateZ(0px); transition: transform 750ms ease; -webkit-transition: transform 750ms ease;background-color:#CDEAF1;color: #12334d !important;">
@@ -271,10 +271,20 @@
                         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/js/morris.min.js"></script>
                         <!-- skill graph-->
 
+                        <?php
+                        $employee_skill_service = new Employee_skill_service();
+                        foreach ($employee_skill_categories as $employee_skill_category) {
+                            $skills = $employee_skill_service->get_skills_for_employee_by_skill_cat_code($this->session->userdata('EMPLOYEE_CODE'), $employee_skill_category->skill_cat_code);
+                            ?>
+                            <div id = "<?php echo $employee_skill_category->skill_cat_code; ?>" style = "height:200px;"></div>
+                            <?php
+                        }
+                        ?>
+
+
                         <script>
                             //skill graph js
-                            var data = new Array();
-                            var temp;
+                            var datas = new Array();
                             var colours = new Array();
 
 
@@ -298,42 +308,43 @@
                                 return rgb;
                             }
 
-                        </script>
-                        <?php
-                        $employee_skill_service = new Employee_skill_service();
-                        foreach ($employee_skill_categories as $employee_skill_category) {
-                            $skills = $employee_skill_service->get_skills_for_employee_by_skill_cat_code($this->session->userdata('EMPLOYEE_CODE'), $employee_skill_category->skill_cat_code);
-                            ?>
-                            <div id = "<?php echo $employee_skill_category->skill_cat_code; ?>" style = "height:200px;">
-                            </div>
-                            <?php
-                            foreach ($skills as $skill) {
-                                ?>
-                                <script>
+
+<?php
+foreach ($employee_skill_categories as $employee_skill_category) {
+    $skills = $employee_skill_service->get_skills_for_employee_by_skill_cat_code($this->session->userdata('EMPLOYEE_CODE'), $employee_skill_category->skill_cat_code);
+    foreach ($skills as $skill) {
+        ?>
+
+
                                     var cl = ColorLuminance("<?php echo substr($employee_skill_category->colour, 1); ?>", <?php echo (float) rand() / (float) getrandmax(); ?>);
-                                    temp = {label: "<?php echo $skill->skill_name; ?>", value: <?php echo round($skill->expert_level); ?>};
-                                    data.push(temp);
+                                    datas.push({
+                                        label: '<?php echo $skill->skill_name; ?>',
+                                        value: <?php echo round($skill->expert_level); ?>
+                                    });
+                                    console.log("<?php echo $skill->skill_name; ?>");
+        //                                    datas.push(temp);
                                     colours.push(cl);
-                                </script>
-                                <?php
-                            }
-                            ?>
-                            <script>
+
+        <?php
+    }
+    ?>
+
 
                                 Morris.Donut({
                                     element: '<?php echo $employee_skill_category->skill_cat_code; ?>',
-                                    data: data,
+                                    data: datas,
                                     colors: colours
                                 });
-                                data.length = 0;
-                                colours.length = 0;
+                                
+                                datas = [];
+                                colours = [];
 
-                            </script>
 
-                            <?php
-                        }
-                        ?>
 
+    <?php
+}
+?>
+                        </script>
                     </div>				
                 </div>
 
@@ -476,7 +487,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="row form-row">
                         <div class="col-md-5">
@@ -493,12 +504,12 @@
                         </div>
                     </div>
 
-                <div class="row form-row">
+                    <div class="row form-row">
                         <div class="col-md-5">
-                    <div class="form-group">
-                        <label class="form-label">Birth Day</label>
-                        <span style="color: red">*</span>
-                    </div>
+                            <div class="form-group">
+                                <label class="form-label">Birth Day</label>
+                                <span style="color: red">*</span>
+                            </div>
                         </div>
                         <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
                             <i class=""></i>
@@ -556,7 +567,7 @@
     $('#employee_parent_menu').addClass('active open');
     $(document).ready(function() {
 
-        
+
 
     });
 
