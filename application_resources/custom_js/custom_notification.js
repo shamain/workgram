@@ -379,11 +379,11 @@ function init_notification_menu(){
                     }
                         
                     $messagehtml += [
-                        '<div class="' + $msg_view_cls + '" onclick="mark_notification_as_seen(' + val.notified_users_id + ');" id="notification_' + val.notified_users_id + '">',
+                        '<div class="' + $msg_view_cls + '" onclick="mark_notification_as_seen(' + val.notified_users_id + '); view_notification_details(' + val.notified_users_id + ');" id="notification_' + val.notified_users_id + '" >',
                             '<div class="message-wrapper">',
-                                '<div class="heading"><b> ' + val.notification_msg + ' </b></div>',
-                                '<div class="description"> ' + replace_string_with_urls(val.notification_area_url) + ' </div>',
-                                '<div class="date pull-left"> ' + val.notification_added_date + ' </div>',
+                                '<div class="heading" id="msg_' + val.notified_users_id + '" > ' + val.notification_msg + ' </div>',
+                                '<div class="description" id="desc_' + val.notified_users_id + '" > ' + val.notification_area_url + ' </div>',
+                                '<div class="date pull-left" id="msgtime_' + val.notified_users_id + '"> ' + val.notification_added_date + ' </div>',
                             '</div>',
                             '<div class="clearfix"></div>',
                         '</div>'].join('\n');
@@ -463,4 +463,53 @@ function replace_string_with_urls(text){
     return result;
 }
 
+//notification details view
+$(document).ready(function() {
+var notification_view_modal=[
+    '<div class="modal fade" id="view_notification_modal" tabindex="-1" role="dialog" aria-labelledby="view_notification_modalLabel" aria-hidden="true">',
+    '<div class="modal-dialog">',
+        '<div class="modal-content">',
+            '<form id="view_notification_form" name="view_notification_form">',
+                '<div class="modal-header tiles blue">',
+                    
+                    '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>',
+                    
+                    
+                    '<h5 id="view_notification_modalLabel" class="semi-bold text-white">Notification Message Details</h5>',
+                '</div>',
+                
+                '<div class="modal-body">',
 
+                    
+                    '<table class="table" style="table-layout: auto">',
+                        
+                        '<tr ><td style="word-break:break-all;background-color: white" id="view_noti_msg"><b>',
+                     '</b></td> ',
+                    '</tr>',
+                    '<tr><td style="word-break:break-all;background-color: white" id="view_noti_url">',
+                               
+                    '</td></tr>',
+                    
+                    '<tr><td style="word-break:break-all;background-color: white" id="view_noti_time">',
+                  
+                     '</td></tr>',
+                    '<tr><td>',
+                    '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button></center>',
+                        '</td></tr>',
+                    '</table>',
+                '</div>',
+            '</form>',
+        '</div>',
+
+    '</div>',
+'</div>'].join('\n');
+document.getElementById('notification_view_details').innerHTML=notification_view_modal;
+});
+
+function view_notification_details($n_id){
+        
+    $('#view_notification_modal').modal('show');
+    document.getElementById("view_noti_msg").innerHTML="<b>"+ document.getElementById("msg_"+ $n_id).innerHTML + "</b>";
+    document.getElementById("view_noti_url").innerHTML=replace_string_with_urls(document.getElementById("desc_"+ $n_id).innerHTML);
+    document.getElementById("view_noti_time").innerHTML=document.getElementById("msgtime_"+ $n_id).innerHTML;
+}

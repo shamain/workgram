@@ -23,7 +23,7 @@
             ?>
             
             <div class="grid-body ">
-                <table class="table" id="notification_table" onload="notification_table_onload();" >
+                <table class="table" id="notification_table" onload="notification_table_onload();" style="table-layout: auto">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -52,7 +52,7 @@
                                     else {
                                         echo $userscount[$i-1];?> user(s)<?php
                                     }?></td>
-                                <td><?php echo replace_urls($notification->notification_area_url); ?></td>
+                                <td style="word-break:break-all;"><?php echo replace_urls($notification->notification_area_url); ?></td>
 
                                 <td><?php echo $notification->system; ?></td>
 								

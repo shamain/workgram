@@ -323,7 +323,10 @@
                 </div>
 
             </div>
-
+            
+            <!-- Notification View Details -->
+            <div id="notification_view_details"></div>
+            
             <!-- END CONTAINER -->
             <!-- BEGIN CHAT -->
             <div id="sidr" class="chat-window-wrapper">

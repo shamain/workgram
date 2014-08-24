@@ -114,7 +114,7 @@ class Notification_controller extends CI_Controller {
         echo $notification_service->add_new_notification($notification_model);
         
         $notifications=$notification_service->get_all_notifications();
-        $count=count($notifications);
+        
         $all_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $ntype=$this->input->post('ntype', TRUE);
         
@@ -123,7 +123,7 @@ class Notification_controller extends CI_Controller {
             foreach ($this->input->post('notified_users') as $employee) {
                 $notified_users_model->set_notified_users_id($this->input->post('notified_users_id', TRUE));
                 $notified_users_model->set_employee_code($employee);
-                $notified_users_model->set_notification_id($notifications[$count - 1]->notification_id);
+                $notified_users_model->set_notification_id($notifications[0]->notification_id);
                 $notified_users_model->set_notified_user_is_seen('n');
 
                 echo $notified_users_service->add_new_notified_user($notified_users_model);
@@ -133,7 +133,7 @@ class Notification_controller extends CI_Controller {
             foreach ($all_employees as $employee) {
                 $notified_users_model->set_notified_users_id($this->input->post('notified_users_id', TRUE));
                 $notified_users_model->set_employee_code($employee->employee_code);
-                $notified_users_model->set_notification_id($notifications[$count - 1]->notification_id);
+                $notified_users_model->set_notification_id($notifications[0]->notification_id);
                 $notified_users_model->set_notified_user_is_seen('n');
 
                 echo $notified_users_service->add_new_notified_user($notified_users_model);

@@ -12,7 +12,7 @@ class Notification_service extends CI_Model {
         $this->db->select('notification.*,system.system');
         $this->db->from('notification');
         $this->db->join('system', 'system.system_code = notification.system_id');
-        $this->db->order_by("notification.notification_id", "asc");
+        $this->db->order_by("notification.notification_id", "desc");
         
         $query = $this->db->get();
         return $query->result();
