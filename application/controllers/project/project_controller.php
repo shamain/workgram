@@ -8,6 +8,7 @@ class Project_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
+        
 //        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
 //            redirect(site_url() . '/login/login_controller');
 //        } else {
