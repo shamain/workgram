@@ -77,18 +77,15 @@ class Employee_profile_controller extends CI_Controller {
         $employee_service = new employee_service();
         $employee_model->set_employee_fname($this->input->post('employee_fname', TRUE));
         $employee_model->set_employee_lname($this->input->post('employee_lname', TRUE));
-        $employee_model->set_employee_no($this->input->post('employee_no', TRUE));
         $employee_model->set_employee_email($this->input->post('employee_email', TRUE));
-        $employee_model->set_employee_type($this->input->post('employee_type', TRUE));
         $employee_model->set_employee_bday($this->input->post('employee_bday', TRUE));
         $employee_model->set_employee_contact($this->input->post('employee_contact', TRUE));
-        $employee_model->set_employee_contract($this->input->post('employee_contract', TRUE));
         ;
 
         $employee_model->set_employee_code($this->input->post('employee_code', TRUE));
 
 
-        echo $employee_service->update_employee($employee_model);
+        echo $employee_service->update_employee_profile($employee_model);
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }

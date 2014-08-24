@@ -76,6 +76,64 @@ $(document).ready(function() {
         }
     });
 
+    //edit Task form
+    $('#edit_task_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            task_name: {
+                required: true
+            },
+            task_description: {
+                required: true
+            },
+            task_deadline: {
+                required: true
+            },
+            task_priority: {
+                required: true
+            },
+            task_progress: {
+                required: true
+            }
+        },
+        invalidHandler: function(event, validator) {
+            //display error alert on form submit    
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
+
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
+
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, submitHandler: function(form)
+        {
+            $.post(site_url + '/task/task_controller/edit_task', $('#edit_task_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_task_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > Task </a>has been added.</div>');
+                    edit_task_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_task_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#"> Task </a>has failed.</div>');
+                }
+            });
+
+
+        }
+    });
+
+
 //Employee Task Comments
 
 
@@ -197,3 +255,34 @@ function send_message(msg, employee_code, task_id) {
     });
 }
 
+//search selected fa items
+function task_comment_enter_btn_trgr(e) {
+    var keynum;
+    var keychar;
+    var numcheck;
+    if (window.event) // IE
+    {
+        keynum = e.keyCode;
+    }
+    else if (e.which) // Netscape/Firefox/Opera
+    {
+        keynum = e.which;
+    }
+    if (keynum == 13) {
+        add_task_comment();
+    }
+}
+
+function  add_task_comment(){
+
+    var task_id = $('#task_id').val();
+    var employee_code = $('#employee_code').val();
+    var employe_task_comment = $('#employe_task_comment').val();
+    
+    
+    $.post(site_url + '/task/task_controller/add_task_comment', {msg: employe_task_comment, employee_code: employee_code, task_id: task_id}, function(msg)
+    {
+     location.reload();
+    });
+    
+}

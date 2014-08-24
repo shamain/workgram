@@ -134,7 +134,7 @@ class Task_controller extends CI_Controller {
         $task_comment_model->set_added_date(date("Y-m-d H:i:s"));
         $task_comment_model->set_added_by($this->input->post('employee_code', TRUE));
 
-        echo $task_comment_service->add_new_task($task_comment_model);
+        echo $task_comment_service->add_new_task_comment($task_comment_model);
     }
 
 }

@@ -169,7 +169,8 @@ $('#edit_employee_form').validate({
             required: true
         },
         employee_contact: {
-            required: true
+            required: true,
+            number:true
         },
         employee_contract: {
             required: true
@@ -203,7 +204,7 @@ $('#edit_employee_form').validate({
             if (msg == 1) {
                 $("#edit_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been updated.</div>');
                 edit_employee_form.reset();
-                location.reload();
+                 window.location = site_url +'/employee/employee_controller/manage_employees';
             } else {
                 $("#edit_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
             }

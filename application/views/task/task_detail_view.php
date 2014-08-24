@@ -3,7 +3,7 @@
         <div class="grid solid yellow">
             <div class="grid-title">
                 <h4> Created by <?php echo $task->employee_fname . ' ' . $task->employee_lname; ?> on <?php echo date('Y-m-d', strtotime($task->added_date)) . ' at ' . date('H:i:s', strtotime($task->added_date)) ?> &nbsp;&nbsp;</h4>
-
+                <a class="right" style="cursor: pointer;float: right" data-toggle="modal" data-target="#edit_task_modal"><i class="fa fa-pencil-square-o"></i></a>
             </div>
             <div class="grid-body">
                 <div class="row">
@@ -41,7 +41,8 @@
                                 </li>
                                 <?php
                             }
-                        } ?>
+                        }
+                        ?>
                     </ul>
                     <br>
                     <div class="pull-right">
@@ -52,7 +53,7 @@
                             <?php
                             if ($remain_dates != '') {
                                 echo $remain_dates;
-                            } 
+                            }
                             ?>
                         </span>
 
@@ -92,8 +93,8 @@
                 <?php
             }
             ?>
-         
-        
+
+
             <li>
                 <time class="cbp_tmtime" datetime="<?php echo date("Y-m-d H:i:s"); ?>">
                     <span class="date">today</span>
@@ -117,9 +118,9 @@
                         <div class="clearfix"></div><br>
                         <div class="inline" style="width:100%">
                             <div class="input-group transparent ">
-                                <input class="form-control" type="text" placeholder="Write a comment" id="employe_task_comment">
-                                <input type="hidden" name="task_id" id="task_id" value="<?php echo $task->task_id ;?>"/>
-                                <input type="hidden" name="employee_code" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE');?>"/>
+                                <input class="form-control" type="text" placeholder="Write a comment" id="employe_task_comment" onkeypress="task_comment_enter_btn_trgr(event);">
+                                <input type="hidden" name="task_id" id="task_id" value="<?php echo $task->task_id; ?>"/>
+                                <input type="hidden" name="employee_code" id="employee_code" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>"/>
                                 <span class="input-group-addon">
                                     <i class="fa fa-camera"></i>
                                 </span>
@@ -135,3 +136,116 @@
         </ul>
     </div>
 </div>
+
+
+<div class="modal fade" id="edit_task_modal" tabindex="-1" role="dialog" aria-labelledby="edit_task_modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="edit_task_form" name="edit_task_form">
+                <div class="modal-header tiles green">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <br>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="add_task_modalLabel" class="semi-bold text-white">It's a new task </h4>
+                    <p class="no-margin text-white">Include task details here.</p>
+                    <br>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Task</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_name" class="form-control" type="text" name="task_name" value=" <?php echo $task->task_name; ?>">                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="right">                                       
+                                <i class=""></i>
+                                <textarea id="task_description" class="form-control" type="text" name="task_description" rows="10"><?php echo $task->task_description; ?></textarea>                        
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Deadline</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="task_deadline_dpicker">                                       
+                                <i class=""></i>
+
+                                <input class="form-control" type="text" id="task_deadline" name="task_deadline" readonly="true" value="<?php echo $task->task_deadline; ?>">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Priority</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_priority" class="form-control" type="text" name="task_priority">                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Progress</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="task_progress" class="form-control" type="text" name="task_progress">                              
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="edit_task_msg" class="form-row"> </div>
+                <input id="task_id" class="form-control" type="hidden" name="task_id" value="<?php echo $task->task_id; ?>">                              
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $('#project_parent_menu').addClass('active open');
+</script>

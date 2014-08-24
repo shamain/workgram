@@ -75,7 +75,7 @@
                 <div id="files">
                     <?php if ($this->session->userdata('EMPLOYEE_COVERPIC') == '') { ?>
 
-                    <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" style="width: 100%;" />
+                        <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/default_cover_pic.png" style="width: 100%;" />
 
                     <?php } else { ?>
                         <img src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  alt="" data-src="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>" data-src-retina="<?php echo base_url(); ?>uploads/employee_cover_pics/<?php echo $this->session->userdata('EMPLOYEE_COVERPIC'); ?>"  style="width: 100%;" />
@@ -321,8 +321,8 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                                         label: '<?php echo $skill->skill_name; ?>',
                                         value: <?php echo round($skill->expert_level); ?>
                                     });
-                                    console.log("<?php echo $skill->skill_name; ?>");
-        //                                    datas.push(temp);
+                                    
+                                    //                                    datas.push(temp);
                                     colours.push(cl);
 
         <?php
@@ -335,7 +335,7 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                                     data: datas,
                                     colors: colours
                                 });
-                                
+
                                 datas = [];
                                 colours = [];
 
@@ -468,7 +468,7 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_fname" class="form-control" type="text" name="employee_fname">                              
+                                <input id="employee_fname" class="form-control" type="text" name="employee_fname" value="<?php echo $employee_detail->employee_fname; ?>">                              
                             </div>
                         </div>
                     </div>
@@ -483,7 +483,7 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_lname" class="form-control" type="text" name="employee_lname">                              
+                                <input id="employee_lname" class="form-control" type="text" name="employee_lname" value="<?php echo $employee_detail->employee_lname; ?>">                              
                             </div>
                         </div>
                     </div>
@@ -499,7 +499,7 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_email" class="form-control" type="text" name="employee_email">                              
+                                <input id="employee_email" class="form-control" type="text" name="employee_email" value="<?php echo $employee_detail->employee_email; ?>">                              
                             </div>
                         </div>
                     </div>
@@ -511,14 +511,16 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                                 <span style="color: red">*</span>
                             </div>
                         </div>
-                        <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
-                            <i class=""></i>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
+                                <i class=""></i>
 
-                            <input class="form-control" type="text" input-append id="employee_bday" name="employee_bday" readonly="true"  value="<?php echo $employee_detail->employee_bday; ?>">
-                            <span class="add-on">
-                                <span class="arrow"></span>
-                                <i class="fa fa-th"></i>
-                            </span>
+                                <input class="form-control" type="text" input-append id="employee_bday" name="employee_bday" readonly="true"  value="<?php echo $employee_detail->employee_bday; ?>">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
 
@@ -532,16 +534,10 @@ foreach ($employee_skill_categories as $employee_skill_category) {
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="employee_contact" class="form-control" type="text" name="employee_contact">                              
+                                <input id="employee_contact" class="form-control" type="text" name="employee_contact"  value="<?php echo $employee_detail->employee_contact; ?>">                              
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
 
 
                     <div id="edit_employee_profile_msg" class="form-row"> </div>

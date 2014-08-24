@@ -119,6 +119,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
+                            <br>
+                            <br>
                             <div class="clearfix"></div>
                             <p class="text-black semi-bold no-margin">
                                 <a href="<?php echo site_url(); ?>/task/task_controller/view_task_detail_view/<?php echo $task->task_id; ?>">
@@ -126,6 +128,7 @@
                                     Detail View
                                 </a>
                             </p>
+                            <br>
                             <br>
                             <div class="clearfix"></div>
                             <div class="row">

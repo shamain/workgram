@@ -88,18 +88,21 @@
 
 
         <ul>
-            <?php for ($i = 0; $i < 10; $i++) { ?>
+            <?php
+         
+            foreach ($my_screen_shots as $my_screen_shot) {
+                ?>
                 <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80">
 
                     <div class="meta name">
-                        <div class="img_wrapper"> <img src="<?php echo base_url(); ?>application_resources/img/others/acadia.jpg" alt="" /> </div>
+                        <div class="img_wrapper"> <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name.'/'.$my_screen_shot->worker_shot_name;?>" alt="" /> </div>
                         <div class="titles">
-                            <h2>Acadia</h2>
-                            <p><em>Maine</em></p>
+                            <h2><?php echo $my_screen_shot->project_name;?></h2>
+                            <p><em><?php echo $my_screen_shot->employee_fname.' '.$my_screen_shot->employee_lname;?></em></p>
                         </div>
                     </div>
                     <div class="meta region">
-                        <p>Northeast</p>
+                        <p><?php echo $my_screen_shot->task_name;?></p>
                     </div>
                     <div class="meta rec">
                         <ul>
@@ -166,7 +169,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <textarea id="company_description" class="form-control" type="text" name="company_description">    </textarea>                          
+                                <textarea id="inquiry_description" class="form-control" type="text" name="inquiry_description">    </textarea>                          
                             </div>
                         </div
                     </div>

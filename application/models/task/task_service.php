@@ -54,7 +54,7 @@ class Task_service extends CI_Model {
 
         $data = array(
             'task_name' => $task_model->get_task_name(),
-            'task_descrption' => $task_model->get_task_description(),
+            'task_description' => $task_model->get_task_description(),
             'task_priority' => $task_model->get_task_priority(),
             'task_progress' => $task_model->get_task_progress(),
             'task_deadline' => $task_model->get_task_deadline(),

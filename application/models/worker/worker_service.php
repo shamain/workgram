@@ -30,5 +30,22 @@ class Worker_service extends CI_Model {
         return $this->db->insert('worker', $worker_model);
      
     }
+    
+    public function get_screen_shotsfor_user($emp_code) {
+
+        $this->db->select('worker.*,employee.employee_fname,employee.employee_lname,project.project_name,task.task_name');
+        $this->db->from('worker');
+        $this->db->join('employee', 'employee.employee_code = worker.emp_code');
+        $this->db->join('project', 'worker.worker_project_id = project.project_id');
+        $this->db->join('task', 'worker.worker_project_task_id = task.task_id');
+        $this->db->where('worker.emp_code', $emp_code);
+        $this->db->where('worker.del_ind', '1');
+        $this->db->where('project.del_ind', '1');
+        $this->db->where('task.del_ind', '1');
+        $this->db->order_by("worker.worker_id", "desc");
+        
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 
