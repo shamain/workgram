@@ -74,12 +74,14 @@ class Employee_skill_service extends CI_Model {
     function update_employee_skill($employee_skill_model) {
 
         $data = array(
-            'employee_code' => $employee_skill_model->get_employee_code(),
-            'skill_code' => $employee_skill_model->get_skill_code()
+//            'employee_code' => $employee_skill_model->get_employee_code(),
+            'skill_code' => $employee_skill_model->get_skill_code(),
+            'reference' => $employee_skill_model->get_reference(),
+            'expert_level' => $employee_skill_model->get_expert_level()
         );
 
 
-        $this->db->where('employee_skill_code', $employee_skill_model->get_employee_skill_id());
+        $this->db->where('employee_skill_id', $employee_skill_model->get_employee_skill_id());
 
         return $this->db->update('employee_skill', $data);
     }

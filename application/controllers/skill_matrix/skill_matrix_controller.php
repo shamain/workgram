@@ -94,9 +94,12 @@ class Skill_matrix_controller extends CI_Controller {
         $employee_skill_service = new Employee_skill_service();
 
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
-        $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
+//        $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
         $employee_skill_model->set_reference($this->input->post('reference', TRUE));
+        $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
 //        $skill_category_model->set_colour($this->input->post('colour', TRUE));
+
+        $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
 
         echo $employee_skill_service->update_employee_skill($employee_skill_model);
     }
