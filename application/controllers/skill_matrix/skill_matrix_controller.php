@@ -88,7 +88,7 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->add_new_employee_skill($employee_skill_model);
     }
 
-     function edit_employee_skill_matrix() {
+    function edit_employee_skill_matrix() {
 
         $employee_skill_model = new Employee_skill_model();
         $employee_skill_service = new Employee_skill_service();
@@ -100,6 +100,7 @@ class Skill_matrix_controller extends CI_Controller {
 
         echo $employee_skill_service->update_employee_skill($employee_skill_model);
     }
+
     function delete_employee_skill() {
 
 
@@ -108,7 +109,7 @@ class Skill_matrix_controller extends CI_Controller {
         echo $employee_skill_service->delete_employee_skill(trim($this->input->post('id', TRUE)));
     }
 
-     function edit_skill_matrix_view($employee_skill_code) {
+    function edit_skill_matrix_view($employee_skill_code) {
 
 
         $skill_service = new Skill_service();
@@ -141,6 +142,40 @@ class Skill_matrix_controller extends CI_Controller {
             <?php
         }
         ?>
+        <?php
+    }
+
+    //get employees for skill category
+    function get_skill_employees_for_skill_category_filter() {
+
+        $skill_service = new Skill_service();
+        $employee_skill_service = new Employee_skill_service ();
+
+        $skill_cat_codes = $this->input->post('skill_cat_codes');
+        $skill_cat_array = array();
+
+        foreach ($skill_cat_codes as $skill_cat_code) {
+            $skill_cat_array[] = $skill_cat_code;
+        }
+        
+        $skill_cat_ids = implode(',', $skill_cat_array);
+       
+        $skills = $skill_service->get_skills_by_skill_cat_codes($skill_cat_ids);
+
+        $skillarray = array();
+
+        foreach ($skills as $skill) {
+            $skillarray[] = $skill->skill_code;
+        }
+
+        $skill_ids = implode(',', $skillarray);
+
+        $employees = $employee_skill_service->get_all_employee_for_skills_by_skill_ids($skill_ids);
+        ?>
+
+        <?php foreach ($employees as $employee) { ?>
+            <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
+        <?php } ?> 
         <?php
     }
 

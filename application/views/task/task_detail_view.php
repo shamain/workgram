@@ -201,17 +201,24 @@
                         </div>
                     </div>
 
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Priority</label>
+                                <label class="form-label" id="lblnotified">Skill Categories for Task</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="task_priority" class="form-control" type="text" name="task_priority">                              
+
+                                <select rows="2" name="task_cats_add[]" id="task_cats_add" style="width: 100%;" multiple="yes" class="select2 form-control">
+                                    <?php foreach ($skill_cats as $skill_cat) { ?>
+                                        <option value="<?php echo $skill_cat->skill_cat_code; ?>"><?php echo $skill_cat->skill_cat_name; ?></option> 
+                                    <?php } ?> 
+                                </select>
+                                <br><br>
                             </div>
                         </div>
                     </div>
@@ -219,17 +226,53 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Progress</label>
+                                <label class="form-label" id="lblnotified">Assign Users</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="task_progress" class="form-control" type="text" name="task_progress">                              
+
+                                <select rows="2" name="task_users[]" id="task_users" style="width: 100%;" multiple="yes" class="select2 form-control">
+                                    <?php foreach ($employees as $employee) { ?>
+                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
+                                    <?php } ?> 
+                                </select>
+                                <br><br>
                             </div>
                         </div>
                     </div>
+
+                    <!--                    <div class="row form-row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="form-label">Priority</label>
+                                                    <span style="color: red">*</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-with-icon  right">                                       
+                                                    <i class=""></i>
+                                                    <input id="task_priority" class="form-control" type="text" name="task_priority">                              
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="row form-row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="form-label">Progress</label>
+                                                    <span style="color: red">*</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-with-icon  right">                                       
+                                                    <i class=""></i>
+                                                    <input id="task_progress" class="form-control" type="text" name="task_progress">                              
+                                                </div>
+                                            </div>
+                                        </div>-->
 
                 </div>
                 <div id="edit_task_msg" class="form-row"> </div>
@@ -247,5 +290,5 @@
 
 
 <script type="text/javascript">
-    $('#project_parent_menu').addClass('active open');
+                                    $('#project_parent_menu').addClass('active open');
 </script>

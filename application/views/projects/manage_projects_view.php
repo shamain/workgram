@@ -28,6 +28,7 @@
                         $task_service = new Task_service();
                         $i = 0;
                         foreach ($projects as $project) {
+                            
                             $complete_count = $task_service->get_complete_task_count_for_project($project->project_id);
                             $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
 

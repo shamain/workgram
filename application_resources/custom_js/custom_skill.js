@@ -487,12 +487,14 @@ function delete_employee_skill(employee_skill_id) {
 }
 
 //get skills for skill category when assigning skills for employees
-$(document).on('change', '#skill_cat_code', function() {
-    var skill_cat_code = $('#skill_cat_code').val();
-    $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_for_skill_category_filter', {skill_cat_code: skill_cat_code}, function(msg) {
+$(document).on('change', '#task_cats_add', function() {
+
+    var skill_cat_codes = $('#task_cats_add').val();
+    
+    $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_employees_for_skill_category_filter', {skill_cat_codes: skill_cat_codes}, function(msg) {
         if (msg != '') {
-            $("#skill_code").html('');
-            $("#skill_code").html(msg);
+            $("#task_users").html('');
+            $("#task_users").html(msg);
         }
     });
 

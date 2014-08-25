@@ -41,7 +41,8 @@ class Task_service extends CI_Model {
     }
 
     function add_new_task($task_model) {
-        return $this->db->insert('task', $task_model);
+         $this->db->insert('task', $task_model);
+        return $this->db->insert_id();
     }
 
     function delete_task($task_id) {

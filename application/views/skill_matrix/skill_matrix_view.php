@@ -99,7 +99,7 @@ $emp_names_string = implode(',', $emp_names);
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <?php echo $assigned_skill->reference; ?> 
+                                    <a href="<?php echo $assigned_skill->reference; ?>" target="_blank"><?php echo $assigned_skill->reference; ?></a> 
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/edit_skill_matrix_view/<?php echo $assigned_skill->employee_skill_id; ?>">

@@ -62,5 +62,7 @@ class Skill_category_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    
+    
 
 }

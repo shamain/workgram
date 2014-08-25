@@ -89,4 +89,17 @@ class Employee_skill_service extends CI_Model {
         return $this->db->insert('employee_skill', $employee_skill_model);
     }
 
+    public function get_all_employee_for_skills_by_skill_ids($skill_ids) {
+
+        $this->db->select('employee_skill.*,employee.employee_fname,employee.employee_lname');
+        $this->db->from('employee_skill');
+        $this->db->join('employee', 'employee.employee_code = employee_skill.employee_code');
+        $this->db->where('employee_skill.skill_code IN('.$skill_ids.')');
+        $this->db->where('employee_skill.del_ind', '1');
+  
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
 }

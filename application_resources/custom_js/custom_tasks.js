@@ -11,6 +11,9 @@ $(document).ready(function() {
 //HTML5 editor
     $('#task_description').wysihtml5();
 
+    $("#task_users").val(['']).select2();
+    $("#task_cats_add").val(['']).select2();
+
 //add task form start date datepicker
     $('#task_deadline_dpicker').datepicker({
         format: "yyyy-mm-dd",
@@ -33,12 +36,12 @@ $(document).ready(function() {
             task_deadline: {
                 required: true
             },
-            task_priority: {
-                required: true
-            },
-            task_progress: {
-                required: true
-            }
+//            task_priority: {
+//                required: true
+//            },
+//            task_progress: {
+//                required: true
+//            }
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    
@@ -90,12 +93,12 @@ $(document).ready(function() {
             task_deadline: {
                 required: true
             },
-            task_priority: {
-                required: true
-            },
-            task_progress: {
-                required: true
-            }
+//            task_priority: {
+//                required: true
+//            },
+//            task_progress: {
+//                required: true
+//            }
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    
@@ -121,7 +124,7 @@ $(document).ready(function() {
             $.post(site_url + '/task/task_controller/edit_task', $('#edit_task_form').serialize(), function(msg)
             {
                 if (msg == 1) {
-                    $("#edit_task_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > Task </a>has been added.</div>');
+                    $("#edit_task_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" > Task </a>has been updated successfully.</div>');
                     edit_task_form.reset();
                     location.reload();
                 } else {
@@ -273,16 +276,32 @@ function task_comment_enter_btn_trgr(e) {
     }
 }
 
-function  add_task_comment(){
+function  add_task_comment() {
 
     var task_id = $('#task_id').val();
     var employee_code = $('#employee_code').val();
     var employe_task_comment = $('#employe_task_comment').val();
-    
-    
+
+
     $.post(site_url + '/task/task_controller/add_task_comment', {msg: employe_task_comment, employee_code: employee_code, task_id: task_id}, function(msg)
     {
-     location.reload();
+        location.reload();
     });
-    
+
 }
+
+function clear_task_users() {
+    $("#task_users").val(['']).select2();
+}
+
+//get skills for skill category when assigning skills for tasks
+$(document).on('change', '#skill_cat_code', function() {
+    var skill_cat_code = $('#skill_cat_code').val();
+    $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_for_skill_category_filter', {skill_cat_code: skill_cat_code}, function(msg) {
+        if (msg != '') {
+            $("#skill_code").html('');
+            $("#skill_code").html(msg);
+        }
+    });
+
+});

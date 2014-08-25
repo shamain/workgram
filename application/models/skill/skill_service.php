@@ -43,7 +43,17 @@ class Skill_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-
+    
+    public function get_skills_by_skill_cat_codes($skill_cat_codes) {
+        $this->db->select('*');
+        $this->db->from('skill');
+        $this->db->where('del_ind', '1');
+        $this->db->where('skill_cat_code IN('.$skill_cat_codes.')');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+   
     function update_skill($skill_model) {
 
         $data = array(
