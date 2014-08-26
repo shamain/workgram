@@ -25,7 +25,6 @@ class Skill_matrix_controller extends CI_Controller {
     }
 
     function manage_skill_matrix() {
-
         $skill_category_service = new Skill_category_service();
         $skill_service = new Skill_service();
         $employee_skill_service = new Employee_skill_service();
@@ -43,7 +42,6 @@ class Skill_matrix_controller extends CI_Controller {
         $data['assigned_skills'] = $current_assigned_skills;
         $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
         $data['employees'] = $all_multi_array = array();
-
         for ($i = 0; $i < count($all_employees); $i++) {
             $emp_string = $all_employees[$i]->employee_fname;
 
@@ -51,7 +49,6 @@ class Skill_matrix_controller extends CI_Controller {
                 'emp_name' => $emp_string
             );
         }
-
         $skill_cat_array = array();
 
         for ($i = 0; $i < count($skill_cats); $i++) {
@@ -63,14 +60,11 @@ class Skill_matrix_controller extends CI_Controller {
             );
         }
         $data['skill_cats'] = $skill_category_service->get_skill_cats();
-
         $data['all_multi_array'] = $all_multi_array;
         $data['skill_cat_array'] = $skill_cat_array;
-
         $partials = array('content' => 'skill_matrix/skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-
     function add_new_skill_matrix() {
 
         $employee_skill_service = new Employee_skill_service();
