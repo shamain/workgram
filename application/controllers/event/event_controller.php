@@ -51,6 +51,7 @@ class Event_controller extends CI_Controller {
 
         $event_service = new Event_service();
         $event_model = new Event_model();
+        $employee_service= new Employee_service();
 
         $event_model->set_event_title($this->input->post('event_title', TRUE));
         $event_model->set_event_description($this->input->post('event_description', TRUE));

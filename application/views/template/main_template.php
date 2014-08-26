@@ -23,6 +23,7 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/css/morris.css" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
@@ -323,10 +324,10 @@
                 </div>
 
             </div>
-            
+
             <!-- Notification View Details -->
             <div id="notification_view_details"></div>
-            
+
             <!-- END CONTAINER -->
             <!-- BEGIN CHAT -->
             <div id="sidr" class="chat-window-wrapper">
@@ -416,12 +417,13 @@
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_skill.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_notification.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_wages.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_event.js" type="text/javascript"></script>
             <!-- END CUSTOM JS -->
 
 
             <!-- BEGIN CORE TEMPLATE JS -->
-
-
+ <script src="<?php echo base_url(); ?>application_resources/js/moment.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/js/fullcalendar.min.js" type="text/javascript"></script>
 
             <!-- END PAGE LEVEL PLUGINS -->
             <!-- BEGIN CORE TEMPLATE JS -->

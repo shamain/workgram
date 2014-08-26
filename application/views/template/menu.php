@@ -85,6 +85,18 @@
     </ul>
 </li> 
 
+<li class="" id="event_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-file-text"></i> 
+        <span class="title">Events</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/event/event_controller/manage_event"> Manage Events </a> </li>
+   
+    </ul>
+</li> 
+
 <li class="" id="settings_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-wrench"></i> 

@@ -2,39 +2,49 @@
     <h3><?php echo $heading; ?></h3>		
 </div>
 
-    <!--start calender import -->
+<!--start calender import -->
 <!--                <link href="<?php echo base_url(); ?>application_resources/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
-                <link href="<?php echo base_url(); ?>application_resources/css/fullcalendar.print.css" rel="stylesheet" type="text/css"/>
+            <link href="<?php echo base_url(); ?>application_resources/css/fullcalendar.print.css" rel="stylesheet" type="text/css"/>
 
-                <script src="<?php echo base_url(); ?>application_resources/js/fullcalendar.min.js" type="text/javascript"></script>
-                <script src="<?php echo base_url(); ?>application_resources/js/moment.min.js" type="text/javascript"></script>
-                <script src="<?php echo base_url(); ?>application_resources/js/jquery-ui.custom.min.js" type="text/javascript"></script>-->
-    <!--end calender import -->
-    
-    <!--calender bigin -->
-<script>
-    
-   </script>
-    
+            <script src="<?php echo base_url(); ?>application_resources/js/fullcalendar.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/js/moment.min.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/js/jquery-ui.custom.min.js" type="text/javascript"></script>-->
+<!--end calender import -->
+
+<!--calender bigin -->
+
+
 <div>
     <style>
 
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+        }
 
-	#calendar {
-		width: 900px;
-		margin: 40px auto;
-	}
+        #calendar {
+            width: 900px;
+            margin: 40px auto;
+        }
 
-        </style>
+    </style>
 </div> 
-    <div id='calendar'></div>
+<div class="clearfix"></div>
+<br>
+<br>
+<br>
+<div class="row-fluid">
+    <div class="grid-body no-border">
+    <div class="tiles row tiles-container white  no-padding">
+        <div id='calendar'></div>
+    </div>
+    </div>
     <!--calender end -->
+
+</div>
+
 
 
 <div class="row-fluid">
@@ -64,7 +74,7 @@
                         foreach ($events as $event) {
                             ?> 
                             <tr  id="event_<?php echo $event->event_id; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $event->event_title; ?></td>
                                 <td><?php echo $event->event_description; ?></td>
                                 <td><?php echo $event->start_date; ?></td>
@@ -107,9 +117,9 @@
                     <br>
                 </div>
                 <div class="modal-body">
-                    
-                   <!--  start radio button  -->
-                    
+
+                    <!--  start radio button  -->
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -129,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--end radio button--> 
 
 
@@ -162,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -171,16 +181,16 @@
                             </div>
                         </div>
                         <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_edit_dpicker">                                       
-                                    <i class=""></i>
+                            <i class=""></i>
 
-                                    <input class="form-control" type="text" id="start_date" name="start_date" readonly="true" value="<?php echo date("Y-m-d"); ?>">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
+                            <input class="form-control" type="text" id="start_date" name="start_date" readonly="true" value="<?php echo date("Y-m-d"); ?>">
+                            <span class="add-on">
+                                <span class="arrow"></span>
+                                <i class="fa fa-th"></i>
+                            </span>
                         </div>
                     </div>
-                    
+
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -189,44 +199,44 @@
                             </div>
                         </div>
                         <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
-                                    <i class=""></i>
+                            <i class=""></i>
 
-                                    <input class="form-control" type="text" id="end_date" name="end_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
+                            <input class="form-control" type="text" id="end_date" name="end_date" readonly="true">
+                            <span class="add-on">
+                                <span class="arrow"></span>
+                                <i class="fa fa-th"></i>
+                            </span>
                         </div>
                     </div>
 
                 </div>
-                
+
                 <!-- multi select field start-->
-                    <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label" id="lblevent">Select Users (Send to...)</label>
-                                <span style="color: red">*</span>
-                            </div>
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label" id="lblevent">Select Users (Send to...)</label>
+                            <span style="color: red">*</span>
                         </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                
-                                <select rows="2" name="employee_events[]" id="employee_events" style="width: 100%;" multiple="yes" class="select2 form-control">
-                                    <?php foreach ($employees as $employee) { ?>
-                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
-                                    <?php } ?> 
-                                </select>
-                                <br><br>
-                            </div>
-                        </div>
-                        <button type="button" id="btnEventClear" onClick="clearEventSelected();">Clear</button>
                     </div>
-                
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+
+                            <select rows="2" name="employee_events[]" id="employee_events" style="width: 100%;" multiple="yes" class="select2 form-control">
+                                <?php foreach ($employees as $employee) { ?>
+                                    <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
+                                <?php } ?> 
+                            </select>
+                            <br><br>
+                        </div>
+                    </div>
+                    <button type="button" id="btnEventClear" onClick="clearEventSelected();">Clear</button>
+                </div>
+
                 <!-- multi select field end -->
-                
-                
+
+
                 <div id="add_event_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
