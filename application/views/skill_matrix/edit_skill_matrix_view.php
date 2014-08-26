@@ -15,54 +15,57 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_skill_matrix_form" name="edit_skill_matrix_form">
 
-                            <div class="form-group">
 
-                                <label class="form-label">Skill Name</label>
+
+                            <div class="form-group">
+                                <label class="form-label">Skill</label>
                                 <span style="color: red">*</span>
+
+
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <select name="skill_code" id="skill_code" class="select2 form-control" style="width: 50%" >
+                                    <select name="skill_code" id="skill_code" class="select2 form-control"  style="width: 50%">
                                         <?php foreach ($skills as $skill) {
                                             ?> 
-                                            <option value="<?php echo $skill->skill_code; ?>"  <?php if ($skill->skill_code == $skill->skill_code) { ?> selected="true" <?php } ?>><?php echo $skill->skill_name; ?></option>
+                                            <option value="<?php echo $skill->skill_code; ?>" <?php if ($skill->skill_code == $employee_skill->skill_code) { ?> selected="true" <?php } ?>><?php echo $skill->skill_name; ?></option>
                                         <?php } ?>
-                                    </select>                              
+                                    </select>    
                                 </div>
-
                             </div>
 
-                            <div class="form-group">
 
+
+                            <div class="form-group">
                                 <label class="form-label">Expert Level</label>
                                 <span style="color: red">*</span>
 
 
+
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-
-                                    <div class="input-with-icon  right">  
-                                        <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skill->expert_level; ?>" style="width: 50%">              
-                                    </div>
+                                    <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skill->expert_level; ?>" style="width: 50%">                                         
                                 </div>
-
                             </div>
+
 
 
                             <div class="form-group">
                                 <label class="form-label">References</label>
+                          
+
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="reference" class="form-control" type="text" name="reference" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                       
+                                    <input id="references" class="form-control" type="text" name=references" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                                         
                                 </div>
-                            </div>
 
+                            </div>
+                            
                             <div id="edit_skill_matrix_msg" class="form-row"> </div>
 
-
-                            <input id="employee_skill_id" class="form-control" type="hidden" name="employee_skill_id" value="<?php echo $employee_skill->employee_skill_id; ?>" style="width: 50%"> 
-
+                            <input type="hidden" id="employee_skill_id" name="employee_skill_id" value="<?php echo $employee_skill->employee_skill_id; ?>"/>
+                            
                             <div class="modal-footer">
                                 <button class="btn btn-primary btn-cons" type="submit">
                                     <i class="icon-ok"></i>
@@ -70,7 +73,6 @@
                                 </button>
                                 <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix" class="btn btn-white btn-cons" type="button">Cancel</a>
                             </div>
-
 
                         </form>
                     </div>
@@ -80,8 +82,9 @@
     </div>
 </div>
 <script type="text/javascript">
-    $('#skill_matrix_parent_menu').addClass('active open');
+    $('#skill_parent_menu').addClass('active open');
 </script>
+
 
 
 

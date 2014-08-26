@@ -370,6 +370,8 @@ $('#add_employee_skill_form').validate({
         expert_level: {
             required: true
         }
+        
+     
 
     },
     invalidHandler: function(event, validator) {
@@ -423,7 +425,7 @@ $('#edit_skill_matrix_form').validate({
         expert_level: {
             required: true
         }
-
+        
     },
     invalidHandler: function(event, validator) {
         //display error alert on form submit    
@@ -450,8 +452,6 @@ $('#edit_skill_matrix_form').validate({
         {
             if (msg == 1) {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
-//                edit_employee_skill_form.reset();             
-//                location.reload();
                 window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';;
             } else {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
