@@ -43,6 +43,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/manage_wages_category"> Manage Wages Categories </a> </li>
+        <li > <a href="<?php echo site_url(); ?>/wages/manage_wages_controller/manage_wages"> Manage Wages </a> </li>
         
     </ul>
 </li> 
