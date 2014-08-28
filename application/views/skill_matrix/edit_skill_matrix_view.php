@@ -15,14 +15,25 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <form id="edit_skill_matrix_form" name="edit_skill_matrix_form">
 
+                            <div class="form-group">
+                                <label class="form-label">Skill Category</label>
+                                <span style="color: red">*</span>                       
 
+                                <div class="input-with-icon  right">                                       
+                                    <i class=""></i>
+                                    <select name="skill_cat_code" id="skill_cat_code" class="select2 form-control" style="width: 30%" >
+                                        <option value="">-- Select Skill Category --</option>
+                                        <?php foreach ($skill_categories as $skill_category) {
+                                            ?> 
+                                            <option value="<?php echo $skill_category->skill_cat_code; ?>" <?php if ($employee_skill_detail->skill_cat_code == $skill_category->skill_cat_code) { ?> selected="true" <?php } ?>><?php echo $skill_category->skill_cat_name; ?></option>
+                                        <?php } ?>
+                                    </select>                            
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label class="form-label">Skill</label>
                                 <span style="color: red">*</span>
-
-
-
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <select name="skill_code" id="skill_code" class="select2 form-control"  style="width: 50%">
@@ -39,33 +50,30 @@
                             <div class="form-group">
                                 <label class="form-label">Expert Level</label>
                                 <span style="color: red">*</span>
-
-
-
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="expert_level" class="form-control" type="text" name="expert_level" value="<?php echo $employee_skill->expert_level; ?>" style="width: 50%">                                         
+                                    <div class="slider sucess">
+                                        <input type="text" class="slider-element form-control" value="" data-slider-min="1" data-slider-max="70" data-slider-step="1" data-slider-value="50" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                                    </div>
                                 </div>
+
                             </div>
 
 
 
                             <div class="form-group">
                                 <label class="form-label">References</label>
-                          
-
-
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
                                     <input id="references" class="form-control" type="text" name=references" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                                         
                                 </div>
 
                             </div>
-                            
+
                             <div id="edit_skill_matrix_msg" class="form-row"> </div>
 
                             <input type="hidden" id="employee_skill_id" name="employee_skill_id" value="<?php echo $employee_skill->employee_skill_id; ?>"/>
-                            
+
                             <div class="modal-footer">
                                 <button class="btn btn-primary btn-cons" type="submit">
                                     <i class="icon-ok"></i>
@@ -83,6 +91,10 @@
 </div>
 <script type="text/javascript">
     $('#skill_parent_menu').addClass('active open');
+    $(document).ready(function() {
+
+        $('.slider-element').slider();
+    });
 </script>
 
 

@@ -89,7 +89,7 @@ class Skill_matrix_controller extends CI_Controller {
 
         $employee_skill_model->set_skill_code($this->input->post('skill_code', TRUE));
         $employee_skill_model->set_expert_level($this->input->post('expert_level', TRUE));
-        $employee_skill_model->set_reference($this->input->post('reference', TRUE));
+        $employee_skill_model->set_reference($this->input->post('references', TRUE));
 
         $employee_skill_model->set_employee_skill_id($this->input->post('employee_skill_id', TRUE));
 
@@ -114,7 +114,9 @@ class Skill_matrix_controller extends CI_Controller {
         $data['heading'] = "Edit Skill Matrix";
         $data['skills'] = $skill_service->get_all_skills();
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-        $data['employee_skill'] = $employee_skill_service->get_employee_skill_by_employee_skill_code($employee_skill_code);
+        $employee_skill=$employee_skill_service->get_employee_skill_by_employee_skill_code($employee_skill_code);
+        $data['employee_skill'] = $employee_skill;
+        $data['employee_skill_detail']=$skill_service->get_skill_by_code($employee_skill->skill_code);
 
         $partials = array('content' => 'skill_matrix/edit_skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
