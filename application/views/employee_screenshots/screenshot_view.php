@@ -7,23 +7,23 @@
 
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu">
-                <li class="active" data-filter="all" data-dimension="region"><a href="#">All</a></li>
+                <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>
                 <?php
                 foreach ($employees as $employee) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
+                    <li data-filter = "alaska" data-dimension = "employee"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
                 <?php }
                 ?>
             </ul>
         </div>
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Project</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu">
-                <li class="active" data-filter="all" data-dimension="recreation"><a href="#">All</a></li>
+                <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 
                 <?php
                 foreach ($projects as $project) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
+                    <li data-filter = "alaska" data-dimension = "project"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
                 <?php }
                 ?>
 
@@ -32,11 +32,11 @@
         </div>
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Task</span> <span class="caret"></span> </a>
             <ul class="dropdown-menu">
-                <li class="active" data-filter="all" data-dimension="region"><a href="#">All</a></li>
+                <li class="active" data-filter="all" data-dimension="tasks"><a href="#">All</a></li>
                 <?php
                 foreach ($tasks as $task) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "region"><a href = "#"><?php echo ucfirst($task->task_id . ' ' . $task->task_name); ?></a></li>
+                    <li data-filter = "alaska" data-dimension = "tasks"><a href = "#"><?php echo ucfirst($task->task_id . ' ' . $task->task_name); ?></a></li>
                 <?php }
                 ?>
             </ul>
@@ -59,15 +59,15 @@
     <div id="Parks" class="just list">
         <div class="list_header">
 
-            <div id="sortByName" class="meta name active desc">
+            <div id="sortByName" class="meta name employee active desc">
                 Employee
                 <span class="sort anim150 asc" data-order="desc" data-sort="data-name"></span>
                 <span class="sort anim150 desc active" data-order="asc" data-sort="data-name"></span>
             </div>
-            <div class="meta region">
+            <div class="meta project  ">
                 Project
             </div>
-            <div class="meta rec">
+            <div class="meta rec tasks">
                 Task
             </div>
 
