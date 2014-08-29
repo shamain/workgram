@@ -116,25 +116,28 @@
                                 </div>
                             </div>
 
+                         
+                        
                             <div class="form-group">
                                 <label class="form-label">Wages Category</label>
-                                <span style="color: red">*</span>
 
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                      <select name="employee_wages_category" id="employee_wages_category" class="select2 form-control"  style="width: 50%" value="<?php echo $employee->employee_wages_category; ?>" >
+                            </div>
+                      
+                        
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                 <select name="employee_wages_category" id="employee_wages_category" class="select2 form-control" value="<?php echo $employee->employee_wages_category; ?>"style="width: 50%" >
 
-                                 <?php foreach ($wages_categorys as $wages_category) {
+                                 <?php foreach ($wages_categories as $wages_category) {
                                         ?> 
-                                        <option value="<?php echo $wages_category->category_name; ?>"><?php echo $wages_category->wages_category_id; ?></option>
+                                        <option value="<?php echo $wages_category->wages_category_id; ?>"><?php echo $wages_category->category_name; ?></option>
                                  <?php } ?>
                                   
                                 </select>    
-                          
-                                   
-                                </div>
+                                          
                             </div>
-
+                       
+                   
                             <div class="form-group">
                                 <label class="form-label">Contract</label>
                                 <span style="color: red">*</span>

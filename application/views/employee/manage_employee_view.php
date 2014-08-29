@@ -191,9 +191,9 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <select name="employee_type" id="employee_type" class="select2 form-control"  >
-                                    <option value="1">Admin</option>
-                                    <option value="2">Company Owner</option>
-                                    <option value="3">Employee</option>
+                                    <option value="1"  selected="true" >Admin</option>
+                                    <option value="2"  selected="true" >Company Owner</option>
+                                    <option value="3" selected="true">Employee</option>
                                 </select>  
 
                             </div>
@@ -236,8 +236,8 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <select name="employee_contract" id="employee_contract" class="select2 form-control"  >
-                                    <option value="FULL_TIME">Full Time</option>
-                                    <option value="PART_TIME">Part Time</option>
+                                    <option value="FULL_TIME" selected="true">Full Time</option>
+                                    <option value="PART_TIME" selected="true">Part Time</option>
 
                                 </select>                             
                             </div>
