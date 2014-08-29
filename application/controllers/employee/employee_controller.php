@@ -14,25 +14,24 @@ class Employee_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
-            
-            $this->load->library('email');
-            
-            $this->load->model('wages_category/wages_category_model');
-            $this->load->model('wages_category/wages_category_service'); 
 
+            $this->load->library('email');
+
+            $this->load->model('wages_category/wages_category_model');
+            $this->load->model('wages_category/wages_category_service');
         }
     }
 
     function manage_employees() {
-        
+
         $employee_service = new employee_service();
         $wages_category_service = new wages_category_service();
         $data['heading'] = "Manage Employee";
         $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        
+
         $data['wages_categories'] = $wages_category_service->get_all_wages_categories();
-        
-        
+
+
         $partials = array('content' => 'employee/manage_employee_view');
         $this->template->load('template/main_template', $partials, $data);
     }
@@ -114,10 +113,11 @@ class Employee_controller extends CI_Controller {
 //        if ($perm) {
 
         $employee_service = new employee_service();
-
+        $wages_category_service = new wages_category_service();
 
         $data['heading'] = "Edit Employee Details";
         $data['employee'] = $employee_service->get_employee_by_id($employee_code);
+        $data['wages_categories'] = $wages_category_service->get_all_wages_categories();
 
 
         $partials = array('content' => 'employee/edit_employee_view');

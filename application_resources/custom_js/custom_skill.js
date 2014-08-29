@@ -370,8 +370,8 @@ $('#add_employee_skill_form').validate({
         expert_level: {
             required: true
         }
-        
-     
+
+
 
     },
     invalidHandler: function(event, validator) {
@@ -425,7 +425,7 @@ $('#edit_skill_matrix_form').validate({
         expert_level: {
             required: true
         }
-        
+
     },
     invalidHandler: function(event, validator) {
         //display error alert on form submit    
@@ -448,11 +448,16 @@ $('#edit_skill_matrix_form').validate({
         parent.removeClass('error-control').addClass('success-control');
     }, submitHandler: function(form)
     {
-        $.post(site_url + '/skill_matrix/skill_matrix_controller/edit_employee_skill_matrix', $('#edit_skill_matrix_form').serialize(), function(msg)
+        var expert_level = $('.slider-selection')[0].style.left;
+        expert_level = expert_level.replace('%', '');
+
+        var data = $('#edit_skill_matrix_form').serialize() + '&expert_level=' + expert_level;
+        $.post(site_url + '/skill_matrix/skill_matrix_controller/edit_employee_skill_matrix', data, function(msg)
         {
             if (msg == 1) {
-                $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated.</div>');
-                window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';;
+                $("#edit_skill_matrix_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Skill </a>has been updated .</div>');
+                window.location = site_url + '/skill_matrix/skill_matrix_controller/manage_skill_matrix';
+                
             } else {
                 $("#edit_skill_matrix_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Skill </a>has failed.</div>');
             }
@@ -490,7 +495,7 @@ function delete_employee_skill(employee_skill_id) {
 $(document).on('change', '#task_cats_add', function() {
 
     var skill_cat_codes = $('#task_cats_add').val();
-    
+
     $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_employees_for_skill_category_filter', {skill_cat_codes: skill_cat_codes}, function(msg) {
         if (msg != '') {
             $("#task_users").html('');

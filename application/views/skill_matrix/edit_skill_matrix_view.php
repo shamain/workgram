@@ -65,7 +65,7 @@
                                 <label class="form-label">References</label>
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="references" class="form-control" type="text" name=references" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                                         
+                                    <input id="references" class="form-control" type="text" name="references" value="<?php echo $employee_skill->reference; ?>" style="width: 50%">                                         
                                 </div>
 
                             </div>

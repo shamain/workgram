@@ -130,7 +130,7 @@
 
                                  <?php foreach ($wages_categories as $wages_category) {
                                         ?> 
-                                        <option value="<?php echo $wages_category->wages_category_id; ?>"><?php echo $wages_category->category_name; ?></option>
+                                     <option value="<?php echo $wages_category->wages_category_id; ?>" <?php if($wages_category->wages_category_id == $employee->employee_wages_category){?> selected="true" <?php } ?>><?php echo $wages_category->category_name; ?></option>
                                  <?php } ?>
                                   
                                 </select>    
@@ -227,12 +227,12 @@
 
                                             <div id="upload">
 
-                                                <input type="text" id="image" name="image"/>
+                                                <input type="text" style="visibility: hidden" id="image" name="image"/>
                                                 <button class="btn btn-default btn-sm btn-small" type="button" id="browse">
                                                     <i class="fa fa-camera"></i>
                                                 </button>
                                                 <label class="form-label">upload Image Here</label>
-                                                <input type="text" id="employee_avatar" name="employee_avatar" style="visibility: hidden" value="<?php
+                                                <input type="hidden" id="employee_avatar" name="employee_avatar"  value="<?php
                                                 if ($employee->employee_avatar != '') {
                                                     echo $employee->employee_avatar;
                                                 } else {
