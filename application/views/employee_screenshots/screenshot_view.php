@@ -147,7 +147,7 @@
 </div>
 
 
-
+<!--inquiry Form-->
 <div class="modal fade" id="add_inquiry_modal" tabindex="-1" role="dialog" aria-labelledby="add_inquiry_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
