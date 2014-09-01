@@ -73,7 +73,7 @@ $(function() {
      *	for this demo to achieve the precise behaviour we need.
      */
 
-    var $filters = $('#Filters').find('li'),
+    var $filters = $('#work_snap_filters').find('li'),
             dimensions = {
         employee: 'all', // Create string for first dimension
         project: 'all', // Create string for first dimension
@@ -83,11 +83,24 @@ $(function() {
     // Bind checkbox click handlers:
 
     $filters.on('click', function() {
-        alert("sa");
+
         var $t = $(this),
                 dimension = $t.attr('data-dimension'),
                 filter = $t.attr('data-filter'),
                 filterString = dimensions[dimension];
+
+        if (dimension == 'employee') {
+            $.post(site_url + '/worker/worker_controller/get_employee_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
+            {
+                $("#project_ul").html('');
+                $("#project_ul").html(msg);
+            });
+
+        } else if (dimension == 'project') {
+
+        } else if (dimension == 'tasks') {
+
+        }
 
         if (filter == 'all') {
             // If "all"
@@ -119,9 +132,14 @@ $(function() {
                 var re = new RegExp('(\\s|^)' + filter);
                 filterString = filterString.replace(re, '');
             }
-            ;
+
+            $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
+            {
+                $("#filter_result_div").html('');
+                $("#filter_result_div").html(msg);
+            });
+
         }
-        ;
 
         // Set demension with filterString
         dimensions[dimension] = filterString;

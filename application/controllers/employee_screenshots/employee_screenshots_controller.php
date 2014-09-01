@@ -35,7 +35,7 @@ class Employee_screenshots_controller extends CI_Controller {
         $data['heading'] = "Work Snaps";
         $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $data['tasks'] = $task_service->get_employee_task_by_project($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $data['tasks'] = $task_service->get_employee_task_by_project($this->session->userdata('EMPLOYEE_CODE'));
         $data['my_screen_shots'] = $worker_service->get_screen_shotsfor_user($this->session->userdata('EMPLOYEE_CODE'));
 
         $username_arr = explode('@', $this->session->userdata('EMPLOYEE_EMAIL'));

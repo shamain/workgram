@@ -6,24 +6,24 @@
     <div id="work_snap_filters" class="pull-left">
 
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="employee_ul">
                 <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>
                 <?php
                 foreach ($employees as $employee) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "employee"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
+                    <li data-filter = "<?php echo $employee->employee_code; ?>" data-dimension = "employee"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
                 <?php }
                 ?>
             </ul>
         </div>
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Project</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="project_ul">
                 <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 
                 <?php
                 foreach ($projects as $project) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "project"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
+                    <li data-filter = "<?php echo $project->project_id; ?>" data-dimension = "project"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
                 <?php }
                 ?>
 
@@ -31,12 +31,12 @@
             </ul>
         </div>
         <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Task</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="tasks_ul">
                 <li class="active" data-filter="all" data-dimension="tasks"><a href="#">All</a></li>
                 <?php
                 foreach ($tasks as $task) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "tasks"><a href = "#"><?php echo ucfirst($task->task_id . ' ' . $task->task_name); ?></a></li>
+                    <li data-filter = "<?php echo $task->task_id; ?>" data-dimension = "tasks"><a href = "#"><?php echo ucfirst($task->task_name); ?></a></li>
                 <?php }
                 ?>
             </ul>
@@ -90,45 +90,44 @@
 
 
 
+        <div id="filter_result_div">
+            <ul>
+                <?php
+                foreach ($my_screen_shots as $my_screen_shot) {
+                    ?>
+                    <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80">
 
-        <ul>
-            <?php
-         
-            foreach ($my_screen_shots as $my_screen_shot) {
-                ?>
-                <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80">
-
-                    <div class="meta name">
-                        <div class="img_wrapper"> <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name.'/'.$my_screen_shot->worker_shot_name;?>" alt="" /> </div>
-                        <div class="titles">
-                            <h2><?php echo $my_screen_shot->project_name;?></h2>
-                            <p><em><?php echo $my_screen_shot->employee_fname.' '.$my_screen_shot->employee_lname;?></em></p>
+                        <div class="meta name employee">
+                            <div class="img_wrapper"> <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>" alt="" /> </div>
+                            <div class="titles">
+                                <h2><?php echo $my_screen_shot->project_name; ?></h2>
+                                <p><em><?php echo $my_screen_shot->employee_fname . ' ' . $my_screen_shot->employee_lname; ?></em></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="meta region">
-                        <p><?php echo $my_screen_shot->task_name;?></p>
-                    </div>
-                    <div class="meta rec">
-                        <ul>
-                            <li>Camping</li>
-                            <li>Climbing</li>
-                            <li>Fishing</li>
-                            <li>Swimming</li>
-                        </ul>
-                    </div>
-
-
-                    <div class="meta rec">
-                        <div class="checkbox check-primary checkbox-circle">
-                            <input id="checkbox9" type="checkbox" checked="checked" value="1">
-                            <label for="checkbox9"></label>
+                        <div class="meta project">
+                            <p><?php echo $my_screen_shot->task_name; ?></p>
                         </div>
-                    </div>
-                </li>
-            <?php } ?>
-            <!-- END LIST OF PARKS -->
-        </ul>
+                        <div class="meta tasks">
+                            <ul>
+                                <li>Camping</li>
+                                <li>Climbing</li>
+                                <li>Fishing</li>
+                                <li>Swimming</li>
+                            </ul>
+                        </div>
 
+
+                        <div class="meta rec">
+                            <div class="checkbox check-primary checkbox-circle">
+                                <input id="checkbox9" type="checkbox" checked="checked" value="1">
+                                <label for="checkbox9"></label>
+                            </div>
+                        </div>
+                    </li>
+                <?php } ?>
+                <!-- END LIST OF PARKS -->
+            </ul>
+        </div>
 
     </div>
 </div>

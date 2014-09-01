@@ -188,7 +188,7 @@ function auto_write_human_friendly_code() {
     var replaced_text = privilege_text.replace(/ /g, "_");
 
     //convert to upper case
-    document.getElementById('privilege_hf').value = replaced_text.toUpperCase();
+    $('#privilege_hf').val(replaced_text.toUpperCase());
 }
 
 ////////////////Privilege Master/////////////////////////////////////////////////////////
@@ -336,7 +336,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#edit_privilege_master_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The<a class="link" > Master Privilege </a>has been updated.</div>');
 //                    edit_privilege_master_form.reset();
-                     window.location = site_url + '/settings/privilege_master_controller/manage_privilege_masters';
+                    window.location = site_url + '/settings/privilege_master_controller/manage_privilege_masters';
                 } else {
                     $("#edit_privilege_master_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Master Privilege </a>has failed.</div>');
                 }
@@ -398,7 +398,7 @@ function save_privileges_from_system(system_code, emp_id) {
 
 
 function save_privileges_from_user(privilige_code, emp_code) {
-    
+
     $("#msg" + privilige_code).html('');
     $("#loader_ajax_check_all_hrm" + privilige_code).html('<i id="animate-icon" class="fa fa-spinner fa fa-2x fa-spin"></i>');
 

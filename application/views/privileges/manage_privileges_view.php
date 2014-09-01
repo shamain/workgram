@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="privilege_hf" class="form-control" type="text" name="privilege_hf">                              
+                                <input id="privilege_hf" class="form-control" type="text" name="privilege_hf" readonly="true">                              
                             </div>
                         </div>
                     </div>

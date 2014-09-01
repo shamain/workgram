@@ -27,6 +27,7 @@ class Privilege_service extends CI_Model {
         $this->db->where('privilege.assign_for', $this->session->userdata('ALL'));
         $this->db->or_where('privilege.assign_for', $user);
         $query = $this->db->get();
+//        echo $this->db->last_query();die;
         return $query->result();
     }
 

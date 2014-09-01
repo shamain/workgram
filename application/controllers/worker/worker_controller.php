@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -16,6 +15,9 @@ class Worker_controller extends CI_Controller {
 
         $this->load->model('task/task_model');
         $this->load->model('task/task_service');
+        
+        $this->load->model('project/project_model');
+            $this->load->model('project/project_service');
     }
 
     /*
@@ -47,6 +49,55 @@ class Worker_controller extends CI_Controller {
 
 
 //        echo $task_service->
+    }
+
+    function get_screenshot() {
+
+        $worker_model = new Worker_model();
+        $worker_service = new Worker_service();
+
+        $employee = $this->input->post('employee', TRUE);
+        $project = $this->input->post('project', TRUE);
+        $task = $this->input->post('task', TRUE);
+
+        $employee = str_replace(' ', ',', $employee);
+        $project = str_replace(' ', ',', $project);
+        $task = str_replace(' ', ',', $task);
+
+        $worker_model->get_emp_code($employee);
+        $worker_model->set_worker_project_id($project);
+        $worker_model->set_worker_project_task_id($task);
+
+        $data['my_screen_shots'] = $worker_service->filter_screen_shotsfor_user($worker_model);
+        $username_arr = explode('@', $this->session->userdata('EMPLOYEE_EMAIL'));
+        if (!isset($username_arr[1])) {
+            $email = $username_arr[0] . '@gmail.com';
+        }
+
+
+        $data['user_name'] = $username_arr[0];
+
+        echo $this->load->view('employee_screenshots/screenshot_filter_view', $data);
+    }
+
+    function get_employee_filter_data() {
+        $project_service = new project_service();
+
+        $dimension = $this->input->post('dimension', TRUE);
+        $filterString = $this->input->post('filterString', TRUE);
+        $filterString = str_replace(' ', ',', $filterString);
+
+        $projects = $project_service->get_projects_for_employee($filterString);
+
+        ?>
+        <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
+
+        <?php
+        foreach ($projects as $project) {
+            ?>
+            <li data-filter = "<?php echo $project->project_id; ?>" data-dimension = "project"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
+            <?php
+        }
     }
 
 }

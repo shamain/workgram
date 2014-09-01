@@ -56,7 +56,7 @@
 
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
-                                    <input id="privilege_hf" class="form-control" type="text" name="privilege_hf" value="<?php echo $privilege->priviledge_code_HF; ?>" style="width: 50%">                              
+                                    <input id="privilege_hf" class="form-control" type="text" name="privilege_hf" value="<?php echo $privilege->priviledge_code_HF; ?>" style="width: 50%" readonly="true">                              
                                 </div>
                             </div>
 

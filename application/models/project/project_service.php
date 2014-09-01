@@ -13,7 +13,7 @@ class Project_service extends CI_Model {
         $this->db->from('project');
         $this->db->join('employee', 'employee.employee_code = project.added_by');
         $this->db->where('project.company_code', $company_code);
-        $this->db->order_by("project.project_id", "desc");
+        $this->db->order_by("project.project_end_date", "asc");
         $query = $this->db->get();
         return $query->result();
     }
@@ -62,10 +62,11 @@ class Project_service extends CI_Model {
         $this->db->from('project');
         $this->db->join('task', 'task.project_id = project.project_id');
         $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
-        $this->db->where('employee_tasks.employee_id', $emp_code);
+        $this->db->where('employee_tasks.employee_id IN('. $emp_code.')');
         $this->db->group_by("task.project_id");
         $this->db->order_by("project.project_id", "desc");
         $query = $this->db->get();
+
         return $query->result();
     }
 
