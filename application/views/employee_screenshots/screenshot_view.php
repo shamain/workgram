@@ -80,6 +80,10 @@
                     <input id="checkbox9" type="checkbox" checked="checked" value="0">
                     <label for="checkbox9">Mark</label>
                 </div>
+                <a href="<?php echo site_url(); ?>/screenshot/screenshot_controller/edit_screenshot_view/<?php echo $employee_screenshot_id->employee_screenshot_id; ?>">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    
             </div>
 
         </div>
