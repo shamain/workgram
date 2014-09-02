@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.carousel.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application_resources/plugins/owl-carousel/owl.theme.css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css"/>
@@ -28,7 +29,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/css/morris.css" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
 
-        <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+        
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/boostrap-checkbox/css/bootstrap-checkbox.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -364,6 +365,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/webarchScroll.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
@@ -390,7 +392,7 @@
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-polymaps/polymaps.min.js" type="text/javascript"></script>
 
 
-            <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+            
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
             <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
             <script type="text/javascript" src="<?php echo base_url(); ?>application_resources/plugins/datatables-responsive/js/datatables.responsive.js"></script>
@@ -472,6 +474,7 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".live-tile,.flip-list").liveTile();
+                    $(".select2").select2();
                 });
             </script>
 
