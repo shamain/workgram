@@ -8,7 +8,7 @@ class Project_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-        
+
 //        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
 //            redirect(site_url() . '/login/login_controller');
 //        } else {
@@ -26,6 +26,9 @@ class Project_controller extends CI_Controller {
 
         $this->load->model('project_stuff_temp/project_stuff_temp_model');
         $this->load->model('project_stuff_temp/project_stuff_temp_service');
+
+        $this->load->model('employee/employee_model');
+        $this->load->model('employee/employee_service');
 
 //        }
     }
@@ -197,15 +200,19 @@ class Project_controller extends CI_Controller {
             echo $project_stuff_temp_service->add_new_project_stuff_temp($project_stuff_temp_model);
         }
     }
-    
-    
-    function view_project_report(){
-        
-        
-        
-        
+
+    function view_project_report() {
+        $employee_service = new employee_service();
+        $project_service = new Project_service();
+
+        $data['heading'] = "Project Summary";
+        $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+
+
+        $partials = array('content' => 'reports/project_report');
+        $this->template->load('template/main_template', $partials, $data);
     }
-    
 
     /*
      * Api Methods for Project
