@@ -4,59 +4,83 @@
 
 
 
-<!--employee Attendance table-->
+
 <div class="row-fluid">
-    <div class="span12">
-        <div class="grid simple ">
-            <div class="grid-title">
-                <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-            </div>
-            <div class="grid-body ">
-                <table class="table" id="employee_attendance_table" >
-                    <thead>
-                        <tr>                          
-                            <th>Attendance ID</th>                    
-                            <th>Employee ID</th>                           
-                            <th>Company work ID</th>
-                            <th>Date</th>
-                            <th>Fine</th>
-                            <th>Allowance</th>
-                            <th>Paid</th>
-                            
+    <div class="col-md-2" >
 
-                        </tr>
-                    </thead>
-<!--                    <tbody>
-                        //<?php
-//                    foreach ($employee_attendances as $employee_attendance) {
-//                            ?> 
-                            <tr  id="employee_attendance_<?php echo $employee_attendance->attendance_id; ?>">
-
-                                
-                                <td><?php echo $employee_attendance->attendance_id ; ?></td>
-                                <td><?php echo $employee_attendance->employee_id; ?></td>
-                                 <td><?php echo $employee_attendance->company_work_id ; ?></td>
-                                <td><?php echo $employee_attendance->date; ?></td>
-                                 <td><?php echo $employee_attendance->fine; ?></td>
-                                 <td><?php echo $employee_attendance->allowance; ?></td>
-                                 <td><?php echo $employee_attendance->paid; ?></td>
-                                
-                                
-                                   
-
-                                    
-
-                                 
-                            </tr>
-
-                        <?php //  } ?>    
-                    </tbody>-->
-                </table>
-            </div>
+        <div class="btn-group"> <a href="#" onclick="alert(sf)" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>
+            <ul class="dropdown-menu" id="employee_attendance_filter" onchange="alert(l);">
+                <li class="active" data-filter="all" data-dimension="company"><a href="#">All</a></li>
+                <?php
+                foreach ($employees as $employee) {
+                    ?>
+                    <li data-filter = "alaska" data-dimension = "employee"><a href = "#"><?php echo  $employee->employee_fname, ' ', $employee->employee_lname; ?></a></li>
+                <?php }
+                ?>
+            </ul>
         </div>
     </div>
+     
+                              
+   <div class="col-md-2" >
+<div class="input-with-icon  right input-append primary date  no-padding" id="year_dpicker">                                       
+    <i class=""></i>
+
+    <input class="form-control" type="text" input-append id="year_dpicker" >
+    <span class="add-on">
+        <span class="arrow"></span>
+        <i class="fa fa-th"></i>
+    </span>
 </div>
+       
+       
+   </div>
+    
+    <div class="col-md-2" >
+<div class="input-with-icon  right input-append primary date  no-padding" id="month_dpicker">                                       
+    <i class=""></i>
+
+    <input class="form-control" type="text" input-append id="month_dpicker" >
+    <span class="add-on">
+        <span class="arrow"></span>
+        <i class="fa fa-th"></i>
+    </span>
+</div>
+   </div>
+    
+    
+    
+    
+</div> 
+
+<div class="clearfix"></div>
+
+<table class="table table-bordered no-more-tables">
+    <thead>
+        <tr>
+
+            <th class="text-center" style="width:22%">Employee</th>
+            <th class="text-center" style="width:22%">January</th>
+            <th class="text-center" style="width:22%">February</th>
+            <th class="text-center" style="width:22%">March</th>
+            <th class="text-center" style="width:22%">April</th>
+            <th class="text-center" style="width:22%">May</th>
+            <th class="text-center" style="width:22%">June</th>
+            <th class="text-center" style="width:22%">July</th>
+            <th class="text-center" style="width:22%">August</th>
+            <th class="text-center" style="width:22%">September</th>
+            <th class="text-center" style="width:22%">October</th>
+            <th class="text-center" style="width:22%">November</th>
+            <th class="text-center" style="width:22%">December</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+
+
+    </tbody>
+</table>
 
 <script type="text/javascript">
     $('#employee_attendance_parent_menu').addClass('active open');
