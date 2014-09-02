@@ -7,7 +7,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies"> Manage Companies </a> </li>
-        
+
     </ul>
 </li>
 
@@ -19,7 +19,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects"> Manage Projects </a> </li>
-        
+
     </ul>
 </li> 
 
@@ -31,7 +31,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/employee/employee_controller/manage_employees"> Manage Employees </a> </li>
-        
+
     </ul>
 </li> 
 
@@ -44,7 +44,7 @@
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/manage_wages_category"> Manage Wages Categories </a> </li>
         <li > <a href="<?php echo site_url(); ?>/wages/manage_wages_controller/manage_wages"> Manage Wages </a> </li>
-        
+
     </ul>
 </li> 
 
@@ -58,7 +58,7 @@
         <li > <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/manage_skill_matrix"> Skills Matrix </a> </li>
         <li > <a href="<?php echo site_url(); ?>/skill/skill_category_controller/manage_skill_category"> Manage Skill Categories </a> </li>
         <li > <a href="<?php echo site_url(); ?>/skill/skill_controller/manage_skill"> Manage Skills </a> </li>
-        
+
     </ul>
 </li> 
 
@@ -70,7 +70,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/employee_screenshots/employee_screenshots_controller/manage_employee_screenshot"> Snap Shots </a> </li>
-   
+
     </ul>
 </li> 
 
@@ -82,7 +82,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/notification/notification_controller/manage_notification"> Manage Notification </a> </li>
-   
+
     </ul>
 </li> 
 
@@ -94,7 +94,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/event/event_controller/manage_event"> Manage Events </a> </li>
-   
+
     </ul>
 </li> 
 
@@ -108,5 +108,17 @@
         <li > <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/manage_privilege_masters"> Manage Master Privileges </a> </li>
         <li > <a href="<?php echo site_url(); ?>/settings/privilege_controller/manage_privileges"> Manage Privileges </a> </li>
         <li > <a href="<?php echo site_url(); ?>/settings/statistics_controller/index"> Usage Statistics </a> </li>
+    </ul>
+</li> 
+
+<li class="" id="reports_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-wrench"></i> 
+        <span class="title">Reports</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/manage_privilege_masters">Project Report </a> </li>
+
     </ul>
 </li> 

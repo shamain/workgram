@@ -197,6 +197,15 @@ class Project_controller extends CI_Controller {
             echo $project_stuff_temp_service->add_new_project_stuff_temp($project_stuff_temp_model);
         }
     }
+    
+    
+    function view_project_report(){
+        
+        
+        
+        
+    }
+    
 
     /*
      * Api Methods for Project
