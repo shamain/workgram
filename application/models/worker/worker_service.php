@@ -44,6 +44,7 @@ class Worker_service extends CI_Model {
         $this->db->order_by("worker.worker_id", "desc");
 
         $query = $this->db->get();
+
         return $query->result();
     }
 
@@ -71,6 +72,7 @@ class Worker_service extends CI_Model {
         $this->db->order_by("worker.worker_id", "desc");
 
         $query = $this->db->get();
+        
         return $query->result();
     }
 
