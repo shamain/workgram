@@ -54,14 +54,14 @@ class Worker_service extends CI_Model {
         $this->db->join('employee', 'employee.employee_code = worker.emp_code');
         $this->db->join('project', 'worker.worker_project_id = project.project_id');
         $this->db->join('task', 'worker.worker_project_task_id = task.task_id');
-        if ($worker_model->get_emp_code() != '') {
+        if ($worker_model->get_emp_code() != '' && $worker_model->get_emp_code() != 'all') {
             $this->db->where('worker.emp_code IN('. $worker_model->get_emp_code().')');
         }
-        if ($worker_model->get_worker_project_id() != '') {
+        if ($worker_model->get_worker_project_id() != '' && $worker_model->get_worker_project_id() != 'all') {
             $this->db->where('worker.worker_project_id IN('.$worker_model->get_worker_project_id().')');
         }
 
-        if ($worker_model->get_worker_project_task_id() != '') {
+        if ($worker_model->get_worker_project_task_id() != '' && $worker_model->get_worker_project_task_id() != 'all') {
             $this->db->where('worker.worker_project_task_id IN('. $worker_model->get_worker_project_task_id().')');
         }
 

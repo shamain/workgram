@@ -75,10 +75,10 @@ $(function() {
 
     var $filters = $('#work_snap_filters').find('li'),
             dimensions = {
-        employee: 'all', // Create string for first dimension
-        project: 'all', // Create string for first dimension
-        tasks: 'all' // Create string for second dimension
-    };
+                employee: 'all', // Create string for first dimension
+                project: 'all', // Create string for first dimension
+                tasks: 'all' // Create string for second dimension
+            };
 
     // Bind checkbox click handlers:
 
@@ -97,9 +97,11 @@ $(function() {
             });
 
         } else if (dimension == 'project') {
-
-        } else if (dimension == 'tasks') {
-
+            $.post(site_url + '/worker/worker_controller/get_project_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
+            {
+                $("#tasks_ul").html('');
+                $("#tasks_ul").html(msg);
+            });
         }
 
         if (filter == 'all') {
@@ -133,13 +135,15 @@ $(function() {
                 filterString = filterString.replace(re, '');
             }
 
-            $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
-            {
-                $("#filter_result_div").html('');
-                $("#filter_result_div").html(msg);
-            });
+
 
         }
+
+        $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
+        {
+            $("#filter_result_div").html('');
+            $("#filter_result_div").html(msg);
+        });
 
         // Set demension with filterString
         dimensions[dimension] = filterString;
@@ -210,5 +214,32 @@ $('#add_inquiry_form').validate({
         });
 
 
+    }
+});
+
+
+//check box actions
+//check all checkboxes
+$(document).on('click', '.main_sc_chk_box', function() {
+
+    if ($('.main_sc_chk_box').is(':checked') == true) {
+
+        var boxes = $('.sc_chk_box');
+        for (var i = 0; i < boxes.length; i++) {
+            $(boxes[i]).attr('checked', true);
+            $(boxes[i]).next().val('1');
+        }
+    } else {
+        $('.sc_chk_box').attr('checked', false);
+        $('.sc_chk_box').next().val('0');
+    }
+});
+
+$(document).on('click', '.sc_chk_box', function() {
+
+    if ($(this).is(':checked') == true) {
+        $(this).next().val('1');
+    } else {
+        $(this).next().val('0');
     }
 });

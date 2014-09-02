@@ -62,6 +62,9 @@ $(document).ready(function() {
             project_start_date: {
                 required: true
             },
+            project_end_date: {
+                required: true
+            },
             project_description: {
                 required: true
             }

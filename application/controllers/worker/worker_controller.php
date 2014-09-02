@@ -15,9 +15,9 @@ class Worker_controller extends CI_Controller {
 
         $this->load->model('task/task_model');
         $this->load->model('task/task_service');
-        
+
         $this->load->model('project/project_model');
-            $this->load->model('project/project_service');
+        $this->load->model('project/project_service');
     }
 
     /*
@@ -81,14 +81,32 @@ class Worker_controller extends CI_Controller {
     }
 
     function get_employee_filter_data() {
-        $project_service = new project_service();
+        $project_service = new Project_service();
 
         $dimension = $this->input->post('dimension', TRUE);
         $filterString = $this->input->post('filterString', TRUE);
         $filterString = str_replace(' ', ',', $filterString);
 
         $projects = $project_service->get_projects_for_employee($filterString);
+        ?>
+        <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 
+        <?php
+        foreach ($projects as $project) {
+            ?>
+            <li data-filter = "<?php echo $project->project_id; ?>" data-dimension = "project"><a href = "#"><?php echo ucfirst($project->project_name); ?></a></li>
+            <?php
+        }
+    }
+
+    function get_project_filter_data() {
+        $task_service = new Task_service();
+
+        $dimension = $this->input->post('dimension', TRUE);
+        $filterString = $this->input->post('filterString', TRUE);
+        $filterString = str_replace(' ', ',', $filterString);
+
+        $projects = $project_service->get_tasks_for_project_and_employee($filterString);
         ?>
         <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 
@@ -101,4 +119,3 @@ class Worker_controller extends CI_Controller {
     }
 
 }
-

@@ -77,13 +77,13 @@
             </div>
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
-                    <input id="checkbox9" type="checkbox" checked="checked" value="0">
+                    <input id="checkbox9" type="checkbox" checked="checked"  class="main_sc_chk_box">
                     <label for="checkbox9">Mark</label>
                 </div>
                 <a href="<?php echo site_url(); ?>/screenshot/screenshot_controller/edit_screenshot_view/<?php echo $employee_screenshot_id->employee_screenshot_id; ?>">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    
+                    <i class="fa fa-pencil"></i>
+                </a>
+
             </div>
 
         </div>
@@ -119,8 +119,11 @@
 
                         <div class="meta rec">
                             <div class="checkbox check-primary checkbox-circle">
-                                <input id="checkbox9" type="checkbox" checked="checked" value="1">
+                                <input id="checkbox9" type="checkbox" class="sc_chk_box">
+                                <input type="hidden" value="0" name="chk_boxes[]">
+                                <input type="hidden" value="<?php echo $my_screen_shot->employee_screenshot_id; ?>" >
                                 <label for="checkbox9"></label>
+
                             </div>
                         </div>
                     </li>

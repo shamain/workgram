@@ -41,7 +41,7 @@ class Task_service extends CI_Model {
     }
 
     function add_new_task($task_model) {
-         $this->db->insert('task', $task_model);
+        $this->db->insert('task', $task_model);
         return $this->db->insert_id();
     }
 
@@ -79,7 +79,7 @@ class Task_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     function get_employee_task_detail_by_project($employee_code) {
         $this->db->select('task.*,project.project_name,project.project_id');
         $this->db->from('task');
@@ -92,8 +92,6 @@ class Task_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
-    
 
     function get_task_by_id($task_id) {
         $this->db->select('task.*,employee.employee_fname,employee.employee_lname');
@@ -103,6 +101,25 @@ class Task_service extends CI_Model {
         $this->db->where("task.del_ind", "1");
         $query = $this->db->get();
         return $query->row();
+    }
+
+    public function get_tasks_for_project_and_employee($project_id, $employee_code) {
+
+        $this->db->select('task.*,employee.employee_fname,employee.employee_lname');
+        $this->db->from('task');
+        $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
+        $this->db->join('employee', 'employee.employee_code = task.added_by');
+        if ($employee_code != '') {
+            $this->db->where('employee_tasks.employee_id', $employee_code);
+        }
+        if ($project_id != '') {
+            $this->db->where('task.project_id', $project_id);
+        }
+        $this->db->where("task.del_ind", "1");
+        $this->db->order_by("task.task_priority", "desc");
+
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }
