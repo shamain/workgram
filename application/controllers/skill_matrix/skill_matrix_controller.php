@@ -65,6 +65,7 @@ class Skill_matrix_controller extends CI_Controller {
         $partials = array('content' => 'skill_matrix/skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+
     function add_new_skill_matrix() {
 
         $employee_skill_service = new Employee_skill_service();
@@ -114,9 +115,9 @@ class Skill_matrix_controller extends CI_Controller {
         $data['heading'] = "Edit Skill Matrix";
         $data['skills'] = $skill_service->get_all_skills();
         $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-        $employee_skill=$employee_skill_service->get_employee_skill_by_employee_skill_code($employee_skill_code);
+        $employee_skill = $employee_skill_service->get_employee_skill_by_employee_skill_code($employee_skill_code);
         $data['employee_skill'] = $employee_skill;
-        $data['employee_skill_detail']=$skill_service->get_skill_by_code($employee_skill->skill_code);
+        $data['employee_skill_detail'] = $skill_service->get_skill_by_code($employee_skill->skill_code);
 
         $partials = array('content' => 'skill_matrix/edit_skill_matrix_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -174,6 +175,33 @@ class Skill_matrix_controller extends CI_Controller {
             <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
         <?php } ?> 
         <?php
+    }
+
+    //skill report
+    function view_skill_report() {
+
+        $employee_service = new employee_service();
+        $skill_category_service = new Skill_category_service();
+        $skill_service = new Skill_service();
+        $employee_skill_service = new Employee_skill_service();
+
+        $data['heading'] = "Skill Report";
+
+        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        $data['skills'] = $skill_service->get_all_skills();
+
+        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $skills = array();
+        foreach ($current_assigned_skills as $current_assigned_skill) {
+            array_push($skills, $current_assigned_skill->skill_code);
+        }
+
+        $data['assigned_skills'] = $skills;
+        $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
+
+        $partials = array('content' => 'reports/skill_report');
+        $this->template->load('template/main_template', $partials, $data);
     }
 
     public function get_skills_for_employee() {
