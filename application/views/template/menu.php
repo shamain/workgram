@@ -118,7 +118,7 @@
         <span class="arrow "></span> 
     </a>
     <ul class="sub-menu">
-        <li > <a href="<?php echo site_url(); ?>/settings/privilege_master_controller/manage_privilege_masters">Project Report </a> </li>
+        <li > <a href="<?php echo site_url(); ?>/project/project_controller/view_project_report">Project Report </a> </li>
 
     </ul>
 </li> 

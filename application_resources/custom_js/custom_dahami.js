@@ -223,23 +223,22 @@ $('#add_inquiry_form').validate({
 $(document).on('click', '.main_sc_chk_box', function() {
 
     if ($('.main_sc_chk_box').is(':checked') == true) {
-
         var boxes = $('.sc_chk_box');
         for (var i = 0; i < boxes.length; i++) {
             $(boxes[i]).attr('checked', true);
-            $(boxes[i]).next().val('1');
+            $(boxes[i]).parent().next().val('1');
         }
     } else {
         $('.sc_chk_box').attr('checked', false);
-        $('.sc_chk_box').next().val('0');
+        $('.sc_chk_box').parent().next().val('0');
     }
 });
 
 $(document).on('click', '.sc_chk_box', function() {
 
     if ($(this).is(':checked') == true) {
-        $(this).next().val('1');
+        $(this).parent().next().val('1');
     } else {
-        $(this).next().val('0');
+        $(this).parent().next().val('0');
     }
 });

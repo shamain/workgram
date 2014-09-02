@@ -77,8 +77,8 @@
             </div>
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
-                    <input id="checkbox9" type="checkbox" checked="checked"  class="main_sc_chk_box">
-                    <label for="checkbox9">Mark</label>
+                    <input id="main_sc_chk_box" type="checkbox" checked="checked"  class="main_sc_chk_box">
+                    <label for="main_sc_chk_box">Mark</label>
                 </div>
 <!--                <a href="<?php echo site_url(); ?>/screenshot/screenshot_controller/edit_screenshot_view/<?php echo $employee_screenshot_id->worker_id; ?>">
                     <i class="fa fa-pencil"></i>
@@ -117,14 +117,13 @@
                         </div>
 
 
-                        <div class="meta rec">
+                        <div class="meta mark">
                             <div class="checkbox check-primary checkbox-circle">
-                                <input id="checkbox9" type="checkbox" class="sc_chk_box">
-                                <input type="hidden" value="0" name="chk_boxes[]">
-                                <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
-                                <label for="checkbox9"></label>
-
+                                <input id="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"  type="checkbox" class="sc_chk_box">
+                                <label for="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"></label>
                             </div>
+                            <input type="hidden" value="0" name="chk_boxes[]">
+                            <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
                         </div>
                     </li>
                 <?php } ?>

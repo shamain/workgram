@@ -1,7 +1,6 @@
 
 <ul>
     <?php
-
     foreach ($my_screen_shots as $my_screen_shot) {
         ?>
         <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80" style="display: block; opacity: 1;">
@@ -28,9 +27,11 @@
 
             <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
-                    <input id="checkbox9" type="checkbox" checked="checked" value="1">
-                    <label for="checkbox9"></label>
+                    <input id="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"  type="checkbox" class="sc_chk_box">
+                    <label for="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"></label>
                 </div>
+                <input type="hidden" value="0" name="chk_boxes[]">
+                <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
             </div>
         </li>
     <?php } ?>
