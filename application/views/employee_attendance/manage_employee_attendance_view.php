@@ -23,10 +23,10 @@
      
                               
    <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="year_dpicker">                                       
+<div class="input-with-icon  right input-append primary date  no-padding" id="att_year_dpicker">                                       
     <i class=""></i>
 
-    <input class="form-control" type="text" input-append id="year_dpicker" >
+    <input class="form-control" type="text" input-append id="att_filter_year_dpicker" >
     <span class="add-on">
         <span class="arrow"></span>
         <i class="fa fa-th"></i>
@@ -37,10 +37,10 @@
    </div>
     
     <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="month_dpicker">                                       
+<div class="input-with-icon  right input-append primary date  no-padding" id="att_month_dpicker">                                       
     <i class=""></i>
 
-    <input class="form-control" type="text" input-append id="month_dpicker" >
+    <input class="form-control" type="text" readonly="true" id="att_filter_m_picker" >
     <span class="add-on">
         <span class="arrow"></span>
         <i class="fa fa-th"></i>
