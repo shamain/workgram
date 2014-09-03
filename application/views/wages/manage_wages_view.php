@@ -20,15 +20,12 @@
             </ul>
         </div>
     </div>
-     <div class="col-md-4" >
-          
+     <div class="col-md-3" >     
      <select rows="2" name="notified_users[]" id="notified_users" style="width: 100%;" multiple="yes" class="select2 form-control" >
                                     <?php foreach ($employees as $employee) { ?>
                                         <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
                                     <?php } ?> 
-     </select>
-         
-                                    
+     </select>                          
      </div>
    
                             
@@ -43,7 +40,10 @@
     </span>
 </div>
    </div>
+    <div class="col-md-5" >
+    <a href="../icon/search"><i class="fa fa-search"></i> fa-search</a>
 </div> 
+    </div>
 
 <div class="clearfix"></div>
 
