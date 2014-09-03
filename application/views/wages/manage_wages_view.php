@@ -4,7 +4,7 @@
 
 
 
-
+<!--//////////////////page top///////////////////-->
 <div class="row-fluid">
     <div class="col-md-2" >
 
@@ -20,16 +20,20 @@
             </ul>
         </div>
     </div>
-     <div class="col-md-2" >
-          <select rows="2" name="notified_users[]" id="notified_users" style="width: 100%;" multiple="yes" class="select2 form-control">
+     <div class="col-md-4" >
+          
+     <select rows="2" name="notified_users[]" id="notified_users" style="width: 100%;" multiple="yes" class="select2 form-control" >
                                     <?php foreach ($employees as $employee) { ?>
                                         <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
                                     <?php } ?> 
-                                </select>
+     </select>
+         
+                                    
      </div>
-                              
+   
+                            
    <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="year_dpicker">                                       
+<div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
     <i class=""></i>
 
     <input class="form-control" type="text" input-append id="month" >
@@ -43,34 +47,59 @@
 
 <div class="clearfix"></div>
 
-<table class="table table-bordered no-more-tables">
-    <thead>
-        <tr>
+<!--//////////////////////Table//////////////////////-->
 
-            <th class="text-center" style="width:22%">Employee</th>
-            <th class="text-center" style="width:22%">January</th>
-            <th class="text-center" style="width:22%">February</th>
-            <th class="text-center" style="width:22%">March</th>
-            <th class="text-center" style="width:22%">April</th>
-            <th class="text-center" style="width:22%">May</th>
-            <th class="text-center" style="width:22%">June</th>
-            <th class="text-center" style="width:22%">July</th>
-            <th class="text-center" style="width:22%">August</th>
-            <th class="text-center" style="width:22%">September</th>
-            <th class="text-center" style="width:22%">October</th>
-            <th class="text-center" style="width:22%">November</th>
-            <th class="text-center" style="width:22%">December</th>
+<div class="row-fluid">
+    <div class="span15">
+        <div class="grid simple ">
+            <div class="grid-title">
+                <h4>Advance <span class="semi-bold">Options</span></h4>
+            </div>
+            <div class="grid-body ">
+                <table class="table" id="manage_wages_table" >
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Employee</th>
+                          
+                            <th>January</th>
+                            <th>February</th>
+                            <th>March</th>
+                            <th>April</th>
+                            <th>May</th>
+                            <th>June</th>
+                            <th>July</th>
+                            <th>August</th>
+                            <th>September</th>
+                            <th>October</th>
+                            <th>November</th>
+                            <th>December</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                   <?php
+                        $i = 0;
+                        foreach ($employees as $employee) {
+                            ?> 
+                            <tr  id="employee_<?php echo $employee->company_code; ?>">
+                                <td><?php echo++$i; ?></td>
+                                <td><?php echo $employee->employee_fname; ?></td>
+                                
+                                <td>
 
-        </tr>
-
-    </thead>
-    <tbody>
 
 
-    </tbody>
-</table>
-<!-- Modal -->
-<div class="modal fade" id="wages_modal" tabindex="-1" role="dialog" aria-labelledby="wages_modalLabel" aria-hidden="true">
+                                </td>
+                            </tr>             
+                        <?php } ?>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--////////////////////////////modal//////////////////////////////////-->
+<!--<div class="modal fade" id="wages_modal" tabindex="-1" role="dialog" aria-labelledby="wages_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="wages_form" name="wages_form">
@@ -89,7 +118,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-<!--                                <input id="employee_name" class="form-control" type="text" name="employee_name">                              -->
+                                <input id="employee_name" class="form-control" type="text" name="employee_name">                              
                             </div>
                         </div>
                     </div>
@@ -108,7 +137,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-<!--                                <input id="year" class="form-control" type="text" name="year">                              -->
+                                <input id="year" class="form-control" type="text" name="year">                              
                             </div>
                         </div>
                     </div>
@@ -124,7 +153,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-<!--                                <input id="month" class="form-control" type="text" name="month">                              -->
+                                <input id="month" class="form-control" type="text" name="month">                              
                             </div>
                         </div>
                     </div>
@@ -221,7 +250,7 @@
 
             </form>
         </div>
-        <!-- /.modal-content -->
+         /.modal-content 
     </div>
-    <!-- /.modal-dialog -->
-</div>
+     /.modal-dialog 
+</div>-->

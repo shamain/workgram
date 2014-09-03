@@ -214,12 +214,12 @@ $('#edit_wages_category_form').validate({
 				});
 
 			});
-  $('#year_dpicker').datepicker({
-        format: "yyyy",
-        autoclose: true,
-        todayHighlight: true
-    });
-
+ 
+$("#datepicker").datepicker( {
+    format: "yyyy",
+    viewMode: "years", 
+    minViewMode: "years"
+});
 
 //get skills for skill category when assigning skills for employees
 $(document).on('change', '#wages_company_filter', function() {
