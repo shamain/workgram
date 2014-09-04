@@ -2,48 +2,60 @@
     <h3><?php echo $heading; ?></h3>		
 </div>
 
-
-
-<!--//////////////////page top///////////////////-->
 <div class="row-fluid">
-    <div class="col-md-2" >
+    <div id="wages_filters" class="pull-left">
 
-        <div class="btn-group"> <a href="#" onclick="alert(sf)" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Company</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu" id="wages_company_filter" onchange="alert(l);">
+        <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Company</span> <span class="caret"></span> </a>
+            <ul class="dropdown-menu" id="company_ul">
                 <li class="active" data-filter="all" data-dimension="company"><a href="#">All</a></li>
                 <?php
                 foreach ($companies as $company) {
                     ?>
-                    <li data-filter = "alaska" data-dimension = "company"><a href = "#"><?php echo ucfirst($company->company_name); ?></a></li>
+                    <li data-filter = "<?php echo $company->company_code; ?>" data-dimension = "company"><a href = "#"><?php echo ucfirst($company->company_name ); ?></a></li>
                 <?php }
                 ?>
             </ul>
         </div>
-    </div>
-     <div class="col-md-3" >     
-     <select rows="2" name="notified_users[]" id="notified_users" style="width: 100%;" multiple="yes" class="select2 form-control" >
-                                    <?php foreach ($employees as $employee) { ?>
-                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
-                                    <?php } ?> 
-     </select>                          
-     </div>
-   
-                            
-   <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
-    <i class=""></i>
+        
+<!--        <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>-->
+<!--            <ul class="select2 form-control" id="employee_ul">
+                <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>-->
+                
+           <select rows="2" name="employee_name" id="employee_ul" style="width: 100%;" multiple="yes" class="select2 form-control" >
+              <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>
 
-    <input class="form-control" type="text" input-append id="month" >
-    <span class="add-on">
-        <span class="arrow"></span>
-        <i class="fa fa-th"></i>
-    </span>
-</div>
-   </div>
-    <div class="col-md-5" >
-    <a href="../icon/search"><i class="fa fa-search"></i> fa-search</a>
-</div> 
+                  <?php
+                foreach ($employees as $employee) {
+                    ?>
+                    <li data-filter = "<?php echo $employee->employee_code; ?>" data-dimension = "employee"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
+                <?php }
+                ?>
+                </select>
+
+            </ul>
+            
+                            
+        </div>
+       
     </div>
+
+
+    
+   <div class="col-md-2" >
+        <div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
+            <i class=""></i>
+
+               <input class="form-control" type="text" input-append id="month" >
+                      <span class="add-on">
+                      <span class="arrow"></span>
+               <i class="fa fa-th"></i>
+            </span>
+         </div>
+   </div>
+    
+  
+    </div>
+
 
 <div class="clearfix"></div>
 

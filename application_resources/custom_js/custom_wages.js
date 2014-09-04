@@ -157,79 +157,105 @@ $('#edit_wages_category_form').validate({
 });
 
 
-				var $filters = $('#Filters').find('li'),
-					dimensions = {
-						company: 'all', // Create string for first dimension
-						recreation: 'all' // Create string for second dimension
-					};
-					
-				// Bind checkbox click handlers:
-				
-				$filters.on('click',function(){
-					var $t = $(this),
-						dimension = $t.attr('data-dimension'),
-						filter = $t.attr('data-filter'),
-						filterString = dimensions[dimension];
-						
-					if(filter == 'all'){
-						// If "all"
-						if(!$t.hasClass('active')){
-							// if unchecked, check "all" and uncheck all other active filters
-							$t.addClass('active').siblings().removeClass('active');
-							// Replace entire string with "all"
-							filterString = 'all';	
-						} else {
-							// Uncheck
-							$t.removeClass('active');
-							// Emtpy string
-							filterString = '';
-						}
-					} else {
-						// Else, uncheck "all"
-						$t.siblings('[data-filter="all"]').removeClass('active');
-						// Remove "all" from string
-						filterString = filterString.replace('all','');
-						if(!$t.hasClass('active')){
-							// Check checkbox
-							$t.addClass('active');
-							// Append filter to string
-							filterString = filterString == '' ? filter : filterString+' '+filter;
-						} else {
-							// Uncheck
-							$t.removeClass('active');
-							// Remove filter and preceeding space from string with RegEx
-							var re = new RegExp('(\\s|^)'+filter);
-							filterString = filterString.replace(re,'');
-						};
-					};
-					
-					// Set demension with filterString
-					dimensions[dimension] = filterString;
-					
-					// We now have two strings containing the filter arguments for each dimension:	
-					console.info('dimension 1: '+dimensions.company);
-					console.info('dimension 2: '+dimensions.recreation);
-					
-					$('#Parks').mixitup('filter',[dimensions.company, dimensions.recreation])			
-				});
-
-			});
- 
 $("#datepicker").datepicker( {
     format: "yyyy",
     viewMode: "years", 
     minViewMode: "years"
 });
 
-//get skills for skill category when assigning skills for employees
-$(document).on('change', '#wages_company_filter', function() {
-    alert("fs");
-    var skill_cat_code = $('#skill_cat_code').val();
-    $.post(site_url + '/skill_matrix/skill_matrix_controller/get_skill_for_skill_category_filter', {skill_cat_code: skill_cat_code}, function(msg) {
-        if (msg != '') {
-            $("#skill_code").html('');
-            $("#skill_code").html(msg);
+
+//filter
+ var $filters = $('#wages_filters').find('li'),
+            dimensions = {
+                employee: 'all', // Create string for first dimension
+                project: 'all', // Create string for first dimension
+                tasks: 'all' // Create string for second dimension
+            };
+
+    // Bind checkbox click handlers:
+
+    $filters.on('click', function() {
+
+        var $t = $(this),
+                dimension = $t.attr('data-dimension'),
+                filter = $t.attr('data-filter'),
+                filterString = dimensions[dimension];
+
+        if (dimension == 'employee') {
+            $.post(site_url + '/worker/worker_controller/get_employee_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
+            {
+                $("#project_ul").html('');
+                $("#project_ul").html(msg);
+            });
+
+        } else if (dimension == 'project') {
+            $.post(site_url + '/worker/worker_controller/get_project_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
+            {
+                $("#tasks_ul").html('');
+                $("#tasks_ul").html(msg);
+            });
         }
+
+        if (filter == 'all') {
+            // If "all"
+            if (!$t.hasClass('active')) {
+                // if unchecked, check "all" and uncheck all other active filters
+                $t.addClass('active').siblings().removeClass('active');
+                // Replace entire string with "all"
+                filterString = 'all';
+            } else {
+                // Uncheck
+                $t.removeClass('active');
+                // Emtpy string
+                filterString = '';
+            }
+        } else {
+            // Else, uncheck "all"
+            $t.siblings('[data-filter="all"]').removeClass('active');
+            // Remove "all" from string
+            filterString = filterString.replace('all', '');
+            if (!$t.hasClass('active')) {
+                // Check checkbox
+                $t.addClass('active');
+                // Append filter to string
+                filterString = filterString == '' ? filter : filterString + ' ' + filter;
+            } else {
+                // Uncheck
+                $t.removeClass('active');
+                // Remove filter and preceeding space from string with RegEx
+                var re = new RegExp('(\\s|^)' + filter);
+                filterString = filterString.replace(re, '');
+            }
+
+
+
+        }
+
+        $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
+        {
+            $("#filter_result_div").html('');
+            $("#filter_result_div").html(msg);
+        });
+
+        // Set demension with filterString
+        dimensions[dimension] = filterString;
+
+        // We now have two strings containing the filter arguments for each dimension:	
+        console.info('dimension 1: ' + dimensions.employee);
+        console.info('dimension 2: ' + dimensions.project);
+        console.info('dimension 3: ' + dimensions.tasks);
+
+
+        /*
+         *	We then send these strings to MixItUp using the filter method. We can send as
+         *	many dimensions to MixitUp as we need using an array as the second argument
+         *	of the "filter" method. Each dimension must be a space seperated string.
+         *
+         *	In this case, MixItUp will show elements using OR logic within each dimension and
+         *	AND logic between dimensions. At least one dimension must pass for the element to show.
+         */
+
+        $('#Parks').mixitup('filter', [dimensions.employee, dimensions.project, dimensions.tasks])
     });
 
 });

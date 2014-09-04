@@ -35,5 +35,9 @@ class manage_wages_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
-}
+    
+    
+ 
+ 
 
+}
