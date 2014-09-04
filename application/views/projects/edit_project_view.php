@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Dead Line</label>
+                                <label class="form-label">DeadLine</label>
                                 <br>
 
                                 <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       

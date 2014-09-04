@@ -94,7 +94,7 @@
                             </a> </li>
                     </ul>
                     <!-- BEGIN LOGO -->
-                    <a href="index-2.html"><img src="<?php echo base_url(); ?>application_resources/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>application_resources/img/logo.png" data-src-retina="<?php echo base_url(); ?>application_resources/img/logo2x.png" width="125" height="30"/></a>
+                    <a href="<?php echo site_url(); ?>/dashboard/dashboard_controller/"><img src="<?php echo base_url(); ?>application_resources/img/logo.png" class="logo" alt=""  data-src="<?php echo base_url(); ?>application_resources/img/logo.png" data-src-retina="<?php echo base_url(); ?>application_resources/img/logo2x.png" width="125" height="30"/></a>
                     <!-- END LOGO -->
                     <ul class="nav pull-right notifcation-center">
                         <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url(); ?>/dashboard/dashboard_controller/" class="dropdown-toggle active" data-toggle="">
