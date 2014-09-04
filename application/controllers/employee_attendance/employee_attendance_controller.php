@@ -27,6 +27,20 @@ class Employee_attendance_controller extends CI_Controller {
         $partials = array('content' => 'employee_attendance/manage_employee_attendance_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
+    function view_employee_attendance_report() {
+        
+        $employee_service = new employee_service();
+        $employee_attendance_service = new Employee_attendance_service();
+
+        $data['heading'] = "Attendance Summary";
+        $data['attendance'] = '';
+        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+
+
+        $partials = array('content' => 'reports/employee_attendance_report');
+        $this->template->load('template/main_template', $partials, $data);
+    }
 
 }
 
