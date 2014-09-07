@@ -176,10 +176,10 @@ $(document).on('change', '#select_company', function() {
 
     var company_code = $('#select_company').val();
 
-    $.post(site_url + '/wages/wages_controller/get_employee_by_company', {select_company: select_company}, function(msg) {
+    $.post(site_url + '/wages/manage_wages_controller/get_employee_by_company', {company_code: company_code}, function(msg) {
         if (msg != '') {
-            $("#select_company").html('');
-            $("#select_company").html(msg);
+            $("#select_employee").html('');
+            $("#select_employee").html(msg);
         }
     });
 

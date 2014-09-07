@@ -43,7 +43,7 @@ class manage_wages_controller extends CI_Controller {
         $company_code = $this->input->post('company_code');
         $employee_model->set_company_code($company_code);
         
-        $employees=$employee_service->get_employee_by_company_code($employee_modal);
+        $employees=$employee_service->get_employee_by_company_code($employee_model);
         ?>
         <option value="">-- Select Employees --</option>
         <?php  foreach ($employees as $employee){?>
