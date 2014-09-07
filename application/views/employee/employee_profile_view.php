@@ -176,7 +176,7 @@
                             <h3 class="text-success semi-bold">
                                 457
                             </h3>
-                            <h5>Projects Done</h5>
+                           <h5>Projects Done</h5>
                         </div>
                     </div>
 

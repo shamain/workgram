@@ -41,11 +41,32 @@ class Employee_profile_controller extends CI_Controller {
         $data['heading'] = "My Profile";
         $data['employee_detail'] = $employee_service->get_employee_by_id($this->session->userdata('EMPLOYEE_CODE'));
         $data['employees'] = $employee_service->get_employees_by_company_id($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $data['employee_projects'] = $project_service->get_projects_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+        $projects = $project_service->get_projects_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+        $data['employee_projects'] =$projects;
         $data['employee_skills'] = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
         $data['employee_skill_categories'] = $employee_skill_service->get_skill_categories_for_employee($this->session->userdata('EMPLOYEE_CODE'));
 
+         
+                        $project_done;
+                        $i = 0;
+                        foreach ($projects as $project) {
+                            
+                            $complete_count = $task_service->get_complete_task_count_for_project($project->project_id);
+                            $not_complete_count = $task_service->get_not_complete_task_count_for_project($project->project_id);
 
+                            //calculate progress
+                            $total = $complete_count + $not_complete_count;
+
+                            $progress = 0;
+                            if ($total != 0) {
+                                $progress = ( $complete_count * 100) / $total;
+                                
+                                if($progress==100){
+                                    
+                                    $project_done++;
+                                }
+                            }
+                        } 
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
     }
@@ -150,6 +171,8 @@ class Employee_profile_controller extends CI_Controller {
         
         echo $result;
     }
+    
+    
 }
 
 ?>
