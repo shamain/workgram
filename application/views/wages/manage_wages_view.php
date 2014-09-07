@@ -38,7 +38,7 @@
     </div>
 
     <div class="col-md-2" >
-        <button id="search_employee_skill_btn" style="margin-left:12px" name="search_employee_skill_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
+        <button id="search_wages_btn" style="margin-left:12px" name="search_wages_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
     </div>
 </div>
 

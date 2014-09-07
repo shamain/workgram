@@ -171,7 +171,7 @@ $(document).ready(function() {
     });
 
 });
-//get skills for skill category when assigning skills for employees
+//get employee for company
 $(document).on('change', '#select_company', function() {
 
     var company_code = $('#select_company').val();
@@ -180,6 +180,25 @@ $(document).on('change', '#select_company', function() {
         if (msg != '') {
             $("#select_employee").html('');
             $("#select_employee").html(msg);
+        }
+    });
+
+});
+//Search button
+$(document).on('click', '#search_wages_btn', function() {
+
+    var company_code = $('#search_wages_btn').val();
+    var employee_code =$('#search_wages_btn').val();
+    var year =$('#search_wages_btn').val();
+
+    $.post(site_url + '/wages/manage_wages_controller/get_wages_details', {company_code: company_code}, function(msg) {
+        if (msg != '') {
+            $("#select_company").html('');
+            $("#select_company").html(msg);
+            $("#select_employee").html('');
+            $("#select_employee").html(msg);
+            $("#select_datepicker").html('');
+            $("#select_datepicker").html(msg);
         }
     });
 
