@@ -191,14 +191,11 @@ $(document).on('click', '#search_wages_btn', function() {
     var employee_code =$('#search_wages_btn').val();
     var year =$('#search_wages_btn').val();
 
-    $.post(site_url + '/wages/manage_wages_controller/get_wages_details', {company_code: company_code}, function(msg) {
+    $.post(site_url + '/wages/manage_wages_controller/get_wages_details', {company_code: company_code,employee_code:employee_code,year:year}, function(msg) {
         if (msg != '') {
-            $("#select_company").html('');
-            $("#select_company").html(msg);
-            $("#select_employee").html('');
-            $("#select_employee").html(msg);
-            $("#select_datepicker").html('');
-            $("#select_datepicker").html(msg);
+            $("#search_wages_table").html('');
+            $("#search_wages_table").html(msg);
+            
         }
     });
 
