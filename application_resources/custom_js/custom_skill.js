@@ -505,4 +505,16 @@ $(document).on('change', '#task_cats_add', function() {
 
 });
 
+$(document).on('change', '#employee_cats_add', function() {
+
+    var employee_codes = $('#employee_cats_add').val();
+
+    $.post(site_url + '/skill_matrix/skill_matrix_controller/ get_skills_for_employee_code', {employee_code: employee_codes}, function(msg) {
+        if (msg != '') {
+            $("#task_users").html('');
+            $("#task_users").html(msg);
+        }
+    });
+
+});
 

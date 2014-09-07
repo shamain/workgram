@@ -7,7 +7,7 @@
             <div id="Empskill" class="just list">
                 <div class="list_header">
 
-                    <select class="select2 span12">
+                    <select class="select2 span12" id="employee_cats_add">
                         <option value="">Select Employee</option>
                         <?php
                         foreach ($employees as $employee) {
