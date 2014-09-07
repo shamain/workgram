@@ -41,6 +41,8 @@ class Employee_attendance_controller extends CI_Controller {
         $partials = array('content' => 'reports/employee_attendance_report');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
+    
 
 }
 
