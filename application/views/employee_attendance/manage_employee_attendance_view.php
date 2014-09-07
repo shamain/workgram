@@ -20,19 +20,6 @@
     </div>
 
 
-    <div class="col-md-2" >
-        <div class="input-with-icon  right input-append primary date  no-padding" id="att_year_dpicker">                                       
-            <i class=""></i>
-
-            <input class="form-control" type="text" input-append id="att_filter_year_dpicker" >
-            <span class="add-on">
-                <span class="arrow"></span>
-                <i class="fa fa-th"></i>
-            </span>
-        </div>
-
-
-    </div>
 
     <div class="col-md-2" >
         <div class="input-with-icon  right input-append primary date  no-padding" id="att_month_dpicker">                                       
@@ -45,8 +32,11 @@
             </span>
         </div>
     </div>
+    
+    <div class="col-md-2" >
+        <button id="search_employee_attendance_btn" style="margin-left:12px" name="search_employee_attendance_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
-
+    </div>
 
 
 </div> 
