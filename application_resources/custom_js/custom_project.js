@@ -215,6 +215,22 @@ $(document).on('click', '#add_project_save_btn', function() {
 });
 
 
+//////////////////////Project Report/////////////////////////////////////////////////////////
+// project report search
+$(document).on('click', '#report_project_search_btn', function() {
+    $.post(site_url + '/project/project_controller/edit_project', $('#edit_project_form').serialize(), function(msg)
+    {
+        if (msg == 1) {
+            $("#edit_project_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >project </a>has been updated.</div>');
+            edit_project_form.reset();
+            window.location = site_url + '/project/project_controller/manage_projects';
+        } else {
+            $("#edit_project_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">project </a>has failed.</div>');
+        }
+    });
+});
+
+
 
 
 
