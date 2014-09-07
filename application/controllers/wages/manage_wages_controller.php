@@ -36,6 +36,28 @@ class manage_wages_controller extends CI_Controller {
     }
 
     
+    function get_employee_by_company(){
+        $employee_model=new employee_model();
+        $employee_service = new employee_service();
+        
+        $company_code = $this->input->post('company_code');
+        $employee_model->set_company_code($company_code);
+        
+        $employees=$employee_service->get_employee_by_company_code($employee_modal);
+        ?>
+        <option value="">-- Select Employees --</option>
+        <?php  foreach ($employees as $employee){?>
+         <option value="<?php echo $employee->employee_code ?>"><?php echo $employee->employee_name; ?></option>
+            <?php
+        }
+        ?>
+        <?php
+    }
+        
+        
+      
+    
+        
     
  
  

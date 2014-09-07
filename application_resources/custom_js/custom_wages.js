@@ -1,4 +1,4 @@
-var base_url = js_base_url;
+var  base_url = js_base_url;
 var site_url = js_site_url;
 
 
@@ -8,15 +8,18 @@ $(document).ready(function() {
         "sDom": "<'row'<'col-md-6'l <'toolbar wages_category_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
-                {
-                    "sExtends": "collection",
-                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
-                    "aButtons": ["csv", "xls", "pdf", "copy"]
-                }
+            {
+                "sExtends": "collection",
+                "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                "aButtons": ["csv", "xls", "pdf", "copy"]
+            }
             ]
         },
         "aoColumnDefs": [
-            {"bSortable": false, "aTargets": [0]}
+        {
+            "bSortable": false, 
+            "aTargets": [0]
+            }
         ],
         "oLanguage": {
             "sLengthMenu": "_MENU_ ",
@@ -24,7 +27,7 @@ $(document).ready(function() {
         }
     });
 
-//add wages Form
+    //add wages Form
 
     $('#add_wages_category_form').validate({
         focusInvalid: false,
@@ -55,7 +58,7 @@ $(document).ready(function() {
 
         },
         invalidHandler: function(event, validator) {
-            //display error alert on form submit    
+        //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
             $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
@@ -73,7 +76,9 @@ $(document).ready(function() {
         success: function(label, element) {
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('error-control').addClass('success-control');
-        }, submitHandler: function(form)
+        }, 
+        submitHandler: function(form)
+
         {
             $.post(site_url + '/wages_category/wages_category_controller/add_new_wages_category', $('#add_wages_category_form').serialize(), function(msg)
             {
@@ -92,12 +97,12 @@ $(document).ready(function() {
 
 
 
-//edit wages category Form
-$('#edit_wages_category_form').validate({
-    focusInvalid: false,
-    ignore: "",
-    rules: {
-         category_name: {
+    //edit wages category Form
+    $('#edit_wages_category_form').validate({
+        focusInvalid: false,
+        ignore: "",
+        rules: {
+            category_name: {
                 required: true
                 
             },
@@ -119,143 +124,64 @@ $('#edit_wages_category_form').validate({
                 number: true
             }
 
-    },
-    invalidHandler: function(event, validator) {
+        },
+        invalidHandler: function(event, validator) {
         //display error alert on form submit    
-    },
-    errorPlacement: function(label, element) { // render error placement for each input type   
-        $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-        var parent = $(element).parent('.input-with-icon');
-        parent.removeClass('success-control').addClass('error-control');
-    },
-    highlight: function(element) { // hightlight error inputs
-        var parent = $(element).parent();
-        parent.removeClass('success-control').addClass('error-control');
+        },
+        errorPlacement: function(label, element) { // render error placement for each input type   
+            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('success-control').addClass('error-control');
+        },
+        highlight: function(element) { // hightlight error inputs
+            var parent = $(element).parent();
+            parent.removeClass('success-control').addClass('error-control');
 
-    },
-    unhighlight: function(element) { // revert the change done by hightlight
+        },
+        unhighlight: function(element) { // revert the change done by hightlight
 
-    },
-    success: function(label, element) {
-        var parent = $(element).parent('.input-with-icon');
-        parent.removeClass('error-control').addClass('success-control');
-    }, submitHandler: function(form)
-    {
-        $.post(site_url + '/wages_category/wages_category_controller/edit_wages_category', $('#edit_wages_category_form').serialize(), function(msg)
+        },
+        success: function(label, element) {
+            var parent = $(element).parent('.input-with-icon');
+            parent.removeClass('error-control').addClass('success-control');
+        }, 
+        submitHandler: function(form)
+
         {
-            if (msg == 1) {
-                $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages category</a> has been updated.</div>');
-                edit_wages_category_form.reset();
-                location.reload();
-            } else {
-                $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages category </a> has failed.</div>');
-            }
-        });
-
-
-    }
-});
-
-
-$("#datepicker").datepicker( {
-    format: "yyyy",
-    viewMode: "years", 
-    minViewMode: "years"
-});
-
-
-//filter
- var $filters = $('#wages_filters').find('li'),
-            dimensions = {
-                employee: 'all', // Create string for first dimension
-                project: 'all', // Create string for first dimension
-                tasks: 'all' // Create string for second dimension
-            };
-
-    // Bind checkbox click handlers:
-
-    $filters.on('click', function() {
-
-        var $t = $(this),
-                dimension = $t.attr('data-dimension'),
-                filter = $t.attr('data-filter'),
-                filterString = dimensions[dimension];
-
-        if (dimension == 'employee') {
-            $.post(site_url + '/worker/worker_controller/get_employee_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
+            $.post(site_url + '/wages_category/wages_category_controller/edit_wages_category', $('#edit_wages_category_form').serialize(), function(msg)
             {
-                $("#project_ul").html('');
-                $("#project_ul").html(msg);
+                if (msg == 1) {
+                    $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages category</a> has been updated.</div>');
+                    edit_wages_category_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages category </a> has failed.</div>');
+                }
             });
-
-        } else if (dimension == 'project') {
-            $.post(site_url + '/worker/worker_controller/get_project_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
-            {
-                $("#tasks_ul").html('');
-                $("#tasks_ul").html(msg);
-            });
-        }
-
-        if (filter == 'all') {
-            // If "all"
-            if (!$t.hasClass('active')) {
-                // if unchecked, check "all" and uncheck all other active filters
-                $t.addClass('active').siblings().removeClass('active');
-                // Replace entire string with "all"
-                filterString = 'all';
-            } else {
-                // Uncheck
-                $t.removeClass('active');
-                // Emtpy string
-                filterString = '';
-            }
-        } else {
-            // Else, uncheck "all"
-            $t.siblings('[data-filter="all"]').removeClass('active');
-            // Remove "all" from string
-            filterString = filterString.replace('all', '');
-            if (!$t.hasClass('active')) {
-                // Check checkbox
-                $t.addClass('active');
-                // Append filter to string
-                filterString = filterString == '' ? filter : filterString + ' ' + filter;
-            } else {
-                // Uncheck
-                $t.removeClass('active');
-                // Remove filter and preceeding space from string with RegEx
-                var re = new RegExp('(\\s|^)' + filter);
-                filterString = filterString.replace(re, '');
-            }
-
 
 
         }
-
-        $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
-        {
-            $("#filter_result_div").html('');
-            $("#filter_result_div").html(msg);
-        });
-
-        // Set demension with filterString
-        dimensions[dimension] = filterString;
-
-        // We now have two strings containing the filter arguments for each dimension:	
-        console.info('dimension 1: ' + dimensions.employee);
-        console.info('dimension 2: ' + dimensions.project);
-        console.info('dimension 3: ' + dimensions.tasks);
+    });
 
 
-        /*
-         *	We then send these strings to MixItUp using the filter method. We can send as
-         *	many dimensions to MixitUp as we need using an array as the second argument
-         *	of the "filter" method. Each dimension must be a space seperated string.
-         *
-         *	In this case, MixItUp will show elements using OR logic within each dimension and
-         *	AND logic between dimensions. At least one dimension must pass for the element to show.
-         */
-
-        $('#Parks').mixitup('filter', [dimensions.employee, dimensions.project, dimensions.tasks])
+    $("#datepicker").datepicker( {
+        format: "yyyy",
+        viewMode: "years", 
+        minViewMode: "years"
     });
 
 });
+//get skills for skill category when assigning skills for employees
+$(document).on('change', '#select_company', function() {
+
+    var company_code = $('#select_company').val();
+
+    $.post(site_url + '/wages/wages_controller/get_employee_by_company', {select_company: select_company}, function(msg) {
+        if (msg != '') {
+            $("#select_company").html('');
+            $("#select_company").html(msg);
+        }
+    });
+
+});
+

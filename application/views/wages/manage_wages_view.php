@@ -3,8 +3,8 @@
 </div>
 
 <div class="row-fluid">
-    <div class="col-md-4" >
-        <select class="select2 span12">
+    <div class="col-md-6" >
+        <select class="select2 span12" id="select_company">
             <option value="">Select Company</option>
             <?php
             foreach ($companies as $company) {
@@ -14,7 +14,7 @@
             ?>
         </select>
 
-        <select class="select2 span12">
+        <select class="select2 span12" id="select_employee">
             <option value="">Select Employee</option>
             <?php
             foreach ($employees as $employee) {
@@ -74,7 +74,7 @@
                             <th>December</th>
                         </tr>
                     </thead>
-                    <tbody>
+<!--                    <tbody>
                         <?php
                         $i = 0;
                         foreach ($employees as $employee) {
@@ -90,7 +90,7 @@
                                 </td>
                             </tr>             
                         <?php } ?>   
-                    </tbody>
+                    </tbody>-->
                 </table>
             </div>
         </div>
