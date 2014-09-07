@@ -111,6 +111,18 @@
     </ul>
 </li> 
 
+<li class="" id="attendance_parent_menu"> 
+    <a href="javascript:;">
+        <i class="fa fa-wrench"></i> 
+        <span class="title">Attendance</span> 
+        <span class="arrow "></span> 
+    </a>
+    <ul class="sub-menu">
+        <li > <a href="<?php echo site_url(); ?>/employee_attendance/employee_attendance_controller/manage_employee_attendance">Employee Attendance </a> </li>
+
+    </ul>
+</li> 
+
 <li class="" id="reports_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-wrench"></i> 
@@ -119,6 +131,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/project/project_controller/view_project_report">Project Report </a> </li>
+        <li > <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/view_skill_report">Skill Report </a> </li>
 
     </ul>
 </li> 

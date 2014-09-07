@@ -7,50 +7,48 @@
 
 <div class="row-fluid">
     <div class="col-md-2" >
-
-        <div class="btn-group"> <a href="#" onclick="alert(sf)" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu" id="employee_attendance_filter" onchange="alert(l);">
-                <li class="active" data-filter="all" data-dimension="company"><a href="#">All</a></li>
-                <?php
-                foreach ($employees as $employee) {
-                    ?>
-                    <li data-filter = "alaska" data-dimension = "employee"><a href = "#"><?php echo  $employee->employee_fname, ' ', $employee->employee_lname; ?></a></li>
-                <?php }
+        <select class="select2 span12">
+            <option value="">Select Employee</option>
+            <?php
+            foreach ($employees as $employee) {
                 ?>
-            </ul>
+                <option value="<?php echo $employee->employee_code; ?>"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></option>
+            <?php }
+            ?>
+        </select>
+
+    </div>
+
+
+    <div class="col-md-2" >
+        <div class="input-with-icon  right input-append primary date  no-padding" id="att_year_dpicker">                                       
+            <i class=""></i>
+
+            <input class="form-control" type="text" input-append id="att_filter_year_dpicker" >
+            <span class="add-on">
+                <span class="arrow"></span>
+                <i class="fa fa-th"></i>
+            </span>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-2" >
+        <div class="input-with-icon  right input-append primary date  no-padding" id="att_month_dpicker">                                       
+            <i class=""></i>
+
+            <input class="form-control" type="text" readonly="true" id="att_filter_m_picker" >
+            <span class="add-on">
+                <span class="arrow"></span>
+                <i class="fa fa-th"></i>
+            </span>
         </div>
     </div>
-     
-                              
-   <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="att_year_dpicker">                                       
-    <i class=""></i>
 
-    <input class="form-control" type="text" input-append id="att_filter_year_dpicker" >
-    <span class="add-on">
-        <span class="arrow"></span>
-        <i class="fa fa-th"></i>
-    </span>
-</div>
-       
-       
-   </div>
-    
-    <div class="col-md-2" >
-<div class="input-with-icon  right input-append primary date  no-padding" id="att_month_dpicker">                                       
-    <i class=""></i>
 
-    <input class="form-control" type="text" readonly="true" id="att_filter_m_picker" >
-    <span class="add-on">
-        <span class="arrow"></span>
-        <i class="fa fa-th"></i>
-    </span>
-</div>
-   </div>
-    
-    
-    
-    
+
+
 </div> 
 
 <div class="clearfix"></div>
