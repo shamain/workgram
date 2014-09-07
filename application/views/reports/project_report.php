@@ -30,7 +30,6 @@
                                 <th>Title</th>
                                 <th>Founder</th>
                                 <th>Deadline</th>
-                                <th>Progress</th>
                             </tr>
                         </thead>
                         <tbody>
