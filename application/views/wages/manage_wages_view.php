@@ -3,58 +3,44 @@
 </div>
 
 <div class="row-fluid">
-    <div id="wages_filters" class="pull-left">
-
-        <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Company</span> <span class="caret"></span> </a>
-            <ul class="dropdown-menu" id="company_ul">
-                <li class="active" data-filter="all" data-dimension="company"><a href="#">All</a></li>
-                <?php
-                foreach ($companies as $company) {
-                    ?>
-                    <li data-filter = "<?php echo $company->company_code; ?>" data-dimension = "company"><a href = "#"><?php echo ucfirst($company->company_name ); ?></a></li>
-                <?php }
+    <div class="col-md-4" >
+        <select class="select2 span12">
+            <option value="">Select Company</option>
+            <?php
+            foreach ($companies as $company) {
                 ?>
-            </ul>
-        </div>
-        
-<!--        <div class="btn-group"> <a href="#" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space"> <span class="anim150">Employee</span> <span class="caret"></span> </a>-->
-<!--            <ul class="select2 form-control" id="employee_ul">
-                <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>-->
-                
-           <select rows="2" name="employee_name" id="employee_ul" style="width: 100%;" multiple="yes" class="select2 form-control" >
-              <li class="active" data-filter="all" data-dimension="employee"><a href="#">All</a></li>
+                <option value="<?php echo $company->company_code; ?>"><?php echo ucfirst($company->company_name); ?></option>
+            <?php }
+            ?>
+        </select>
 
-                  <?php
-                foreach ($employees as $employee) {
-                    ?>
-                    <li data-filter = "<?php echo $employee->employee_code; ?>" data-dimension = "employee"><a href = "#"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></a></li>
-                <?php }
+        <select class="select2 span12">
+            <option value="">Select Employee</option>
+            <?php
+            foreach ($employees as $employee) {
                 ?>
-                </select>
+                <option value="<?php echo $employee->employee_code; ?>"><?php echo ucfirst($employee->employee_fname . ' ' . $employee->employee_lname); ?></option>
+            <?php }
+            ?>
+        </select>
 
-            </ul>
-            
-                            
-        </div>
-       
     </div>
-
-
-    
-   <div class="col-md-2" >
+    <div class="col-md-2" >
         <div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
             <i class=""></i>
 
-               <input class="form-control" type="text" input-append id="month" >
-                      <span class="add-on">
-                      <span class="arrow"></span>
-               <i class="fa fa-th"></i>
+            <input class="form-control" type="text" input-append id="month" >
+            <span class="add-on">
+                <span class="arrow"></span>
+                <i class="fa fa-th"></i>
             </span>
-         </div>
-   </div>
-    
-  
+        </div>
     </div>
+
+    <div class="col-md-2" >
+        <button id="search_employee_skill_btn" style="margin-left:12px" name="search_employee_skill_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
+    </div>
+</div>
 
 
 <div class="clearfix"></div>
@@ -73,7 +59,7 @@
                         <tr>
                             <th>#</th>
                             <th>Employee</th>
-                          
+
                             <th>January</th>
                             <th>February</th>
                             <th>March</th>
@@ -89,14 +75,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                   <?php
+                        <?php
                         $i = 0;
                         foreach ($employees as $employee) {
                             ?> 
                             <tr  id="employee_<?php echo $employee->company_code; ?>">
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $employee->employee_fname; ?></td>
-                                
+
                                 <td>
 
 
