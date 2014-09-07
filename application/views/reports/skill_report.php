@@ -7,7 +7,7 @@
             <div id="Empskill" class="just list">
                 <div class="list_header">
 
-                    <select class="select2 span12" id="employee_cats_add">
+                    <select class="select2 span12" >
                         <option value="">Select Employee</option>
                         <?php
                         foreach ($employees as $employee) {
@@ -23,27 +23,20 @@
 
                     <div class="grid-body ">
 
-                        <table class="table" id="emp_skill_table" >
+                        <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>    
-                                    <th>Skill Name</th>
-                                    <th>Skill Category</th>                    
-                                </tr>
+                                    <th>#</th>
+                                    <th>Employee Name</th>
+                                    <th>Skill</th>
+                                    <th>Skill Category</th>
+                                    <th>Progress</th>
+                                    <th>References</th>
+
+                                <tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $i = 0;
-                                foreach ($skills as $skill) {
-                                    ?> 
-                                    <tr  id="skills_<?php echo $skill->skill_code; ?>">
-                                        <td><?php echo++$i; ?></td>
-                                        <td><?php echo $skill->skill_name; ?></td>
-                                        <td>
-                                            <?php echo $skill->skill_cat_name; ?> 
-                                        </td>
-                                    </tr>
-                                <?php } ?>    
+                                 
                             </tbody>
                         </table>
 

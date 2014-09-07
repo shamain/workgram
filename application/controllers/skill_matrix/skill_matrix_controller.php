@@ -187,18 +187,18 @@ class Skill_matrix_controller extends CI_Controller {
 
         $data['heading'] = "Skill Report";
 
-        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
-        $data['skills'] = $skill_service->get_all_skills();
-
-        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+//        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+//        $data['skills'] = $skill_service->get_all_skills();
+//
+//        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
         $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $skills = array();
-        foreach ($current_assigned_skills as $current_assigned_skill) {
-            array_push($skills, $current_assigned_skill->skill_code);
-        }
-
-        $data['assigned_skills'] = $skills;
-        $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
+//        $skills = array();
+//        foreach ($current_assigned_skills as $current_assigned_skill) {
+//            array_push($skills, $current_assigned_skill->skill_code);
+//        }
+//
+//        $data['assigned_skills'] = $skills;
+//        $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
 
         $partials = array('content' => 'reports/skill_report');
         $this->template->load('template/main_template', $partials, $data);
@@ -212,11 +212,11 @@ class Skill_matrix_controller extends CI_Controller {
         echo json_encode($result);
     }
 
-     public function get_skills_for_employee_code() {
+    public function get_skills_for_employee_code() {
 
         $employee_skill_service = new Employee_skill_service();
-        $result = $employee_skill_service->get_skills_for_employee($this->input->post('employee_code'));
-
-        echo json_encode($result);
+        $data['results'] = $employee_skill_service->get_skills_for_employee($this->input->post('employee_code'));
+        $this->load->view('reports/skill_report_search_view', $data);
     }
+
 }
