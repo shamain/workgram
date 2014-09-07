@@ -42,7 +42,17 @@ class Employee_attendance_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
     
-    
+    function get_dates_for_employee_attendance_filter() {
+
+        $employee_attendance_model = new Employee_attendance_model();
+        $employee_attendance_service = new Employee_attendance_service();
+
+        $emp_code = $this->input->post('emp_code');
+        $employee_attendance_model->set_emp_code($emp_code);
+
+        
+        $this->load->view('employee_attendance/employee_attendance_filter_view',$data);
+    }
 
 }
 

@@ -17,6 +17,8 @@ class Employee_attendance_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    
+    
 
     
     

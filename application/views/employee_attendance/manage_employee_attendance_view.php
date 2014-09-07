@@ -43,6 +43,7 @@
 
 <div class="clearfix"></div>
 
+<div id="search_result_table">
 <table class="table table-bordered no-more-tables">
     <thead>
         <tr>
@@ -69,7 +70,7 @@
 
     </tbody>
 </table>
-
+</div>
 <script type="text/javascript">
     $('#employee_attendance_parent_menu').addClass('active open');
 </script>
