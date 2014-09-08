@@ -30,11 +30,37 @@
         </div>
     </div>
 
+
     <div class="col-md-2" >
         <button id="search_employee_attendance_btn" style="margin-left:12px" name="search_employee_attendance_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
     </div>
-
+    <div class="col-md-2" >
+        <table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454">
+            <tbody>
+                <tr>
+                    <td class="legendColorBox">
+                        <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid <?php echo $this->config->item('ABSENT_C');?>;overflow:hidden"></div>
+                        </div>
+                    </td>
+                     <td class="legendLabel">Absent</td>
+                    <td class="legendColorBox">
+                         <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid <?php echo $this->config->item('HALF_DAY_C');?>;overflow:hidden"></div>
+                        </div>
+                    </td>
+                     <td class="legendLabel">Half Day</td>
+                    <td class="legendColorBox">
+                        <div style="border:1px solid #ccc;padding:1px">
+                            <div style="width:4px;height:0;border:5px solid <?php echo $this->config->item('FULL_DAY_C');?>;overflow:hidden"></div>
+                        </div>
+                    </td>
+                    <td class="legendLabel">Full Day</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div> 
 
