@@ -21,7 +21,7 @@ class Employee_attendance_service extends CI_Model {
     
     public function get_employee_attendance($employee_attendance_model) {
 
-        $query = $this->db->get_where('employee_attendance', array('employee_code' => $employee_code,'date'=>$date));
+        $query = $this->db->get_where('employee_attendance', array('employee_code' => $employee_attendance_model->get_employee_code(),'date'=>$employee_attendance_model->get_date()));
         return $query->row();
         
     }

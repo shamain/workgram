@@ -47,24 +47,52 @@ class Employee_attendance_controller extends CI_Controller {
     function get_dates_for_employee_attendance_filter() {
 
 
-
+        $employee_service = new employee_service();
         $employee_attendance_model = new Employee_attendance_model();
         $employee_attendance_service = new Employee_attendance_service();
 
         $emp_code = $this->input->post('emp_code');
         $att_filter_m_picker = $this->input->post('date');
 
-        $num_of_days = date('t',  strtotime($att_filter_m_picker));
 
-        $result =array();
-        for ($i = 1; $i <= $num_of_days; $i++){
-            $dates[] = date('Y',strtotime($att_filter_m_picker)) . "-" . date('m',strtotime($att_filter_m_picker)) . "-" . str_pad($i, 2, '0', STR_PAD_LEFT);
+
+        $results = array();
+        $emp_array = array();
+        $num_of_days = date('t', strtotime($att_filter_m_picker));
+
+        if ($emp_code != '') {
+            $emp_array[] = $employee_service->get_employee($emp_code);
+        } else {
+            $emp_array = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         }
-        $data['dates']=$dates;
 
-        $employee_attendance_model->set_employee_code($emp_code);
+        for ($i = 1; $i <= $num_of_days; $i++) {
+            $dates[] = date('Y', strtotime($att_filter_m_picker)) . "-" . date('m', strtotime($att_filter_m_picker)) . "-" . str_pad($i, 2, '0', STR_PAD_LEFT);
+        }
 
-        $data[''] = '';
+        foreach ($emp_array as $emp) {
+
+            $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $atn_array = array();
+            foreach ($dates as $date) {
+                $employee_attendance_model->set_employee_code($emp->employee_code);
+                $employee_attendance_model->set_date($date);
+                $attendance = $employee_attendance_service->get_employee_attendance($employee_attendance_model);
+                if (!empty($attendance)) {
+                    $atn_array[] = $attendance->type;
+                } else {
+                    $atn_array[] = $this->config->item('ABSENT');
+                }
+            }
+            $temp['atn'] = $atn_array;
+            $results[] = $temp;
+        }
+
+        $data['dates'] = $dates;
+        $data['results'] = $results;
+
+
+
 
         $this->load->view('employee_attendance/employee_attendance_filter_view', $data);
     }

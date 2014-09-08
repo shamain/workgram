@@ -2,9 +2,6 @@
     <h3><?php echo $heading; ?></h3>		
 </div>
 
-
-
-
 <div class="row-fluid">
     <div class="col-md-2" >
         <select class="select2 span12" id="emp_atn_employee">

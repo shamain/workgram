@@ -17,7 +17,14 @@ $config['ALL']= 4;
 $config['FULL_TIME']= 'FULL_TIME';
 $config['PART_TIME']= 'PART_TIME';
 
+//Employee Attendance
+$config['ABSENT']='A';
+$config['HALF_DAY']='H';
+$config['FULL_DAY']='F';
 
+$config['ABSENT_C']='#f35958';
+$config['HALF_DAY_C']='#0090d9';
+$config['FULL_DAY_C']='#0aa699';
 
 
 
