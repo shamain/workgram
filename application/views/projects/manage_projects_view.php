@@ -84,14 +84,15 @@
                                 </td>
 
                                 <td>
+                                    
                                     <a href="<?php echo site_url(); ?>/task/task_controller/view_task_for_projects/<?php echo $project->project_id; ?>" style="cursor: pointer;"   title="Assign Tasks">
-                                        <i class="fa fa-bolt"></i>
+                                       <span class="label label-success">Tasks</span>
                                     </a>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Project" onclick="delete_project(<?php echo $project->project_id; ?>)">
-                                        <i class="fa fa-times"></i>
+                                      <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>

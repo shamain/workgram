@@ -28,7 +28,7 @@
 
 
                             <div class="form-group">
-                                <label class="form-label">Vendor</label>
+                                <label class="form-label">Client</label>
                                 <span style="color: red">*</span>
 
                                 <div class="input-with-icon  right">                                       

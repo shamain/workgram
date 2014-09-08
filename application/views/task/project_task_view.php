@@ -18,8 +18,8 @@
                         <?php echo $project->project_vendor; ?>
                     </span>
                 </h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="reload"></a>  </div>
-                <span class="semi-bold">
+                <div style="float:right">
+                <span class="semi-bold" >
                     Deadline 
                 </span>
                 <span class="label label-important">
@@ -31,6 +31,7 @@
                     }
                     ?>
                 </span>
+                </div>
 
             </div>
             <div class="grid-body no-border">
@@ -45,6 +46,7 @@
                         <p><?php echo $project->project_description; ?></p>
 
                         <div>
+                            <h4><b>Project Assets</b></h4>
                             <?php
                             foreach ($project_stuff as $stuff) {
                                 $filename = $stuff->stuff_name;
@@ -81,7 +83,7 @@
     Task
     <span class="semi-bold">List</span>
     <div class="pull-right actions">
-        <button id="add_task_button" data-toggle="modal" data-target="#add_task_modal" class="btn btn-warning btn-cons" type="button">New Task</button>
+        <button id="add_task_button" data-toggle="modal" data-target="#add_task_modal" class="btn btn-primary btn-cons" type="button">New Task</button>
     </div>
 </h4>
 <div class="row">
@@ -96,7 +98,7 @@
             ?>
             <div class="col-md-12">
                 <div class="grid simple no-border">
-                    <div class="grid-title no-border descriptive clickable">
+                    <div class="grid-title no-border descriptive clickable" style="border: 1px solid rgb(134, 134, 134);">
                         <h4 class="semi-bold"><?php echo ucfirst($task->task_name); ?></h4>
                         <p >
                             Created on <?php echo date('Y-m-d', strtotime($task->added_date)) . ' at ' . date('H:i:s', strtotime($task->added_date)) ?> - Created by <?php echo $task->employee_fname . ' ' . $task->employee_lname; ?>&nbsp;&nbsp;
@@ -108,7 +110,7 @@
                             <?php } ?>
 
                         </p>
-                        <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a> <a class="remove" href="javascript:;"><i class="fa fa-times"></i></a> </div>
+                        <div class="actions"> <a class="view" href="javascript:;"><i class="fa fa-search"></i></a> </div>
                     </div>
 
                     <div class="grid-body  no-border" style="display:none">
