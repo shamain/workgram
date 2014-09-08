@@ -18,7 +18,7 @@
                         <?php echo $project->project_vendor; ?>
                     </span>
                 </h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a>  </div>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="reload"></a>  </div>
                 <span class="semi-bold">
                     Deadline 
                 </span>

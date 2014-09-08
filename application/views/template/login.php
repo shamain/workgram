@@ -18,6 +18,7 @@
         <!-- BEGIN CSS TEMPLATE -->
         <link href="<?php echo base_url(); ?>application_resources/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url(); ?>application_resources/css/animate-login.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
         <!-- END CSS TEMPLATE -->
@@ -53,20 +54,12 @@
         <div class="container">
             <div class="row login-container column-seperation">  
                 <div class="col-md-5 col-md-offset-1">
-                    <img src="<?php echo base_url(); ?>application_resources/img/logow.png" style="width:100%"/>
+                    <img src="<?php echo base_url(); ?>application_resources/img/logow.png" style="width:100%" class="fadeInDown animated"/>
                     <h2>Sign in to workgram</h2>
                     <p>Use Facebook, Twitter or your email to sign in.<br>
                         <a href="#">Sign up Now!</a> for a workgram account,It's free and always will be..</p>
                     <br>
-
-                    <button class="btn btn-block btn-info col-md-8" type="button">
-                        <span class="pull-left"><i class="icon-facebook"></i></span>
-                        <span class="bold">Login with Facebook</span> </button>
-                    <button class="btn btn-block btn-success col-md-8" type="button">
-                        <span class="pull-left"><i class="icon-twitter"></i></span>
-                        <span class="bold">Login with Twitter</span>
-                    </button>
-                   
+                  
                    
                 </div>
                 <div class="col-md-5 "> <br>

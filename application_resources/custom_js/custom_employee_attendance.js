@@ -14,13 +14,13 @@ $("#att_month_dpicker").datepicker( {
 
 $(document).on('click', '#search_employee_attendance_btn', function() {
 
-    var emp_code = $('#search_employee_attendance_btn').val();
-    var date_filter = $('#search_employee_attendance_btn').val();
+    var emp_code = $('#emp_atn_employee').val();
+    var date_filter = $('#att_filter_m_picker').val();
 
-    $.post(site_url + '/employee_attendance/employee_attendance_controller/get_skill_employees_for_skill_category_filter', {emp_code: emp_code}, function(msg) {
+    $.post(site_url + '/employee_attendance/employee_attendance_controller/get_dates_for_employee_attendance_filter', {emp_code: emp_code,date:date_filter}, function(msg) {
         if (msg != '') {
-            $("#emp_code").html('');
-            $("#date_filter").html(msg);
+            $("#search_result_table").html('');
+            $("#search_result_table").html(msg);
         }
     });
 

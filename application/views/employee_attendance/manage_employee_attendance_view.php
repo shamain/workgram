@@ -7,7 +7,7 @@
 
 <div class="row-fluid">
     <div class="col-md-2" >
-        <select class="select2 span12">
+        <select class="select2 span12" id="emp_atn_employee">
             <option value="">Select Employee</option>
             <?php
             foreach ($employees as $employee) {
@@ -32,7 +32,7 @@
             </span>
         </div>
     </div>
-    
+
     <div class="col-md-2" >
         <button id="search_employee_attendance_btn" style="margin-left:12px" name="search_employee_attendance_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
 
@@ -43,33 +43,44 @@
 
 <div class="clearfix"></div>
 
-<div id="search_result_table">
-<table class="table table-bordered no-more-tables">
-    <thead>
-        <tr>
+<div class="row">
+    <div class="col-md-1">
+        <div class="invoice-button-action-set">
+            <p>
+                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-11">
+        <div id="search_result_table">
+            <table class="table table-bordered no-more-tables">
+                <thead>
+                    <tr>
 
-            <th class="text-center" style="width:22%">Employee</th>
-            <th class="text-center" style="width:22%">January</th>
-            <th class="text-center" style="width:22%">February</th>
-            <th class="text-center" style="width:22%">March</th>
-            <th class="text-center" style="width:22%">April</th>
-            <th class="text-center" style="width:22%">May</th>
-            <th class="text-center" style="width:22%">June</th>
-            <th class="text-center" style="width:22%">July</th>
-            <th class="text-center" style="width:22%">August</th>
-            <th class="text-center" style="width:22%">September</th>
-            <th class="text-center" style="width:22%">October</th>
-            <th class="text-center" style="width:22%">November</th>
-            <th class="text-center" style="width:22%">December</th>
+                        <th class="text-center" style="width:22%">Employee</th>
+                        <th class="text-center" style="width:22%">January</th>
+                        <th class="text-center" style="width:22%">February</th>
+                        <th class="text-center" style="width:22%">March</th>
+                        <th class="text-center" style="width:22%">April</th>
+                        <th class="text-center" style="width:22%">May</th>
+                        <th class="text-center" style="width:22%">June</th>
+                        <th class="text-center" style="width:22%">July</th>
+                        <th class="text-center" style="width:22%">August</th>
+                        <th class="text-center" style="width:22%">September</th>
+                        <th class="text-center" style="width:22%">October</th>
+                        <th class="text-center" style="width:22%">November</th>
+                        <th class="text-center" style="width:22%">December</th>
 
-        </tr>
+                    </tr>
 
-    </thead>
-    <tbody>
+                </thead>
+                <tbody>
 
 
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     $('#employee_attendance_parent_menu').addClass('active open');
