@@ -3,86 +3,101 @@
 </div>
 
 <div class="row-fluid">
-    <div class="span12">
-        <div class="grid simple ">
-            <div class="grid-title">
-                <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a>  <a href="javascript:;" class="reload"></a>  </div>
-            </div>
-            <div class="grid-body ">
-                <table class="table" id="employee_table" >
-                    <thead>
-                        <tr>                          
-                            <th>Full Name</th>                    
-                            <th>Email</th>
-                            <th>Type</th>
-                            <th>Contact No</th>
-                            <th>Contract</th>
-                            <th>Image</th>
-                            <th>Options</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($employees as $employee) {
-                            ?> 
-                            <tr  id="employee_<?php echo $employee->employee_code; ?>">
-
-
-                                <td><?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?></td>
-                                <td><?php echo $employee->employee_email; ?></td>
-                                <td>  
-                                    <?php if ($employee->employee_type == $this->config->item('ADMIN')) {
-                                        ?>
-                                        <span class="label label-important"><?php echo 'ADMIN'; ?></span>
-
-                                    <?php } else if ($employee->employee_type == $this->config->item('COMPANY_OWNER')) {
-                                        ?>
-
-                                        <span class="label label-success"><?php echo 'COMPANY OWNER'; ?></span>
-
-                                    <?php } else {
-                                        ?>
-                                        <span class="label label-info"><?php echo 'EMPLOYEE'; ?></span>
-                                    <?php } ?>
-
-                                </td>
-
-
-                                <td><?php echo $employee->employee_contact; ?>  </td>
-
-                                <td>  <?php if ($employee->employee_contract == $this->config->item('FULL_TIME')) {
-                                        ?>
-                                        <span class="label label-success"><?php echo 'FULL TIME'; ?></span>
-
-                                    <?php } else if ($employee->employee_contract == $this->config->item('PART_TIME')) {
-                                        ?>   
-                                        <span class="label label-warning"><?php echo 'PART TIME'; ?></span>
-                                    <?php } ?>
-                                </td>
-                                <td>
-                                    <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php if($employee->employee_avatar !='' ){ echo $employee->employee_avatar; }else{ echo 'avatar.jpg' ;} ?>" alt="" width="50px" height="50px" /></td>
-
-                                <td>
-                                    <a href="<?php echo site_url(); ?>/employee/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a style="cursor: pointer;"   title="Delete this Employee" onclick="delete_employee(<?php echo $employee->employee_code; ?>)">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                    <a href="<?php echo site_url(); ?>/employee_privilege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
-                                        <i class="fa fa-unlock-alt"></i>
-                                    </a>
-
-                                </td>
+    <div class="col-md-11">
+        <div class="span12">
+            <div class="grid simple ">
+                <div class="grid-title">
+                    <h4>Advance <span class="semi-bold">Options</span></h4>
+                    <div class="tools"> <a href="javascript:;" class="collapse"></a>  <a href="javascript:;" class="reload"></a>  </div>
+                </div>
+                <div class="grid-body ">
+                    <table class="table table-hover" id="employee_table" >
+                        <thead>
+                            <tr>                          
+                                <th>Full Name</th>                    
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Contact No</th>
+                                <th>Contract</th>
+                                <th>Image</th>
+                                <th>Options</th>
 
                             </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($employees as $employee) {
+                                ?> 
+                                <tr  id="employee_<?php echo $employee->employee_code; ?>">
 
-                        <?php } ?>    
-                    </tbody>
-                </table>
+
+                                    <td><?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?></td>
+                                    <td><?php echo $employee->employee_email; ?></td>
+                                    <td>  
+                                        <?php if ($employee->employee_type == $this->config->item('ADMIN')) {
+                                            ?>
+                                            <span class="label label-important"><?php echo 'ADMIN'; ?></span>
+
+                                        <?php } else if ($employee->employee_type == $this->config->item('COMPANY_OWNER')) {
+                                            ?>
+
+                                            <span class="label label-success"><?php echo 'COMPANY OWNER'; ?></span>
+
+                                        <?php } else {
+                                            ?>
+                                            <span class="label label-info"><?php echo 'EMPLOYEE'; ?></span>
+                                        <?php } ?>
+
+                                    </td>
+
+
+                                    <td><?php echo $employee->employee_contact; ?>  </td>
+
+                                    <td>  <?php if ($employee->employee_contract == $this->config->item('FULL_TIME')) {
+                                            ?>
+                                            <span class="label label-success"><?php echo 'FULL TIME'; ?></span>
+
+                                        <?php } else if ($employee->employee_contract == $this->config->item('PART_TIME')) {
+                                            ?>   
+                                            <span class="label label-warning"><?php echo 'PART TIME'; ?></span>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <img src="<?PHP echo base_url(); ?>uploads/employee_avatar/<?php
+                                        if ($employee->employee_avatar != '') {
+                                            echo $employee->employee_avatar;
+                                        } else {
+                                            echo 'avatar.jpg';
+                                        }
+                                        ?>" alt="" width="50px" height="50px" /></td>
+
+                                    <td>
+                                        <a href="<?php echo site_url(); ?>/employee/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a style="cursor: pointer;"   title="Delete this Employee" onclick="delete_employee(<?php echo $employee->employee_code; ?>)">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                        <a href="<?php echo site_url(); ?>/employee_privilege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
+                                            <i class="fa fa-unlock-alt"></i>
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            <?php } ?>    
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="invoice-button-action-set">
+            <p>
+                <button class="btn btn-primary" type="button" id="employee_print_btn"><i class="fa fa-print"></i></button>
+            </p>
         </div>
     </div>
 </div>
@@ -211,15 +226,15 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                 <select name="wages_category" id="wages_category" class="select2 form-control"  >
+                                <select name="wages_category" id="wages_category" class="select2 form-control"  >
 
-                                 <?php foreach ($wages_categories as $wages_category) {
+                                    <?php foreach ($wages_categories as $wages_category) {
                                         ?> 
                                         <option value="<?php echo $wages_category->wages_category_id; ?>"><?php echo $wages_category->category_name; ?></option>
-                                 <?php } ?>
-                                  
+                                    <?php } ?>
+
                                 </select>    
-                                          
+
                             </div>
                         </div>
                     </div>
@@ -263,6 +278,6 @@
 </div>
 <!-- /.modal -->
 <script type="text/javascript">
-                                    $('#employee_parent_menu').addClass('active open');
+                                        $('#employee_parent_menu').addClass('active open');
 </script>
 

@@ -3,53 +3,62 @@
 </div>
 
 <div class="row-fluid">
-    <div class="span12">
-        <div class="grid simple ">
-            <div class="grid-title">
-                <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a>  <a href="javascript:;" class="reload"></a>  </div>
-            </div>
-            <div class="grid-body ">
-                <table class="table" id="company_table" >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Contact No</th>
-                            <th>Description</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $i = 0;
-                        foreach ($companies as $company) {
-                            ?> 
-                            <tr  id="company_<?php echo $company->company_code; ?>">
-                                <td><?php echo++$i; ?></td>
-                                <td><?php echo $company->company_name; ?></td>
-                                <td><?php echo $company->company_email; ?></td>
-                                <td><?php echo $company->company_address; ?></td>
-                                <td><?php echo $company->company_contact; ?></td>
-                                <td><?php echo $company->company_desc; ?></td>
-
-                                <td>
-
-                                    <a href="<?php echo site_url(); ?>/company/company_controller/edit_company_view/<?php echo $company->company_code; ?>">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a style="cursor: pointer;"   title="Delete this company" onclick="delete_company(<?php echo $company->company_code; ?>)">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-
-                                </td>
+    <div class="col-md-11">
+        <div class="span12">
+            <div class="grid simple ">
+                <div class="grid-title">
+                    <h4>Advance <span class="semi-bold">Options</span></h4>
+                    <div class="tools"> <a href="javascript:;" class="collapse"></a>  <a href="javascript:;" class="reload"></a>  </div>
+                </div>
+                <div class="grid-body ">
+                    <table class="table  table-hover" id="company_table" >
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Contact No</th>
+                                <th>Description</th>
+                                <th>Options</th>
                             </tr>
-                        <?php } ?>    
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 0;
+                            foreach ($companies as $company) {
+                                ?> 
+                                <tr  id="company_<?php echo $company->company_code; ?>">
+                                    <td><?php echo++$i; ?></td>
+                                    <td><?php echo $company->company_name; ?></td>
+                                    <td><?php echo $company->company_email; ?></td>
+                                    <td><?php echo $company->company_address; ?></td>
+                                    <td><?php echo $company->company_contact; ?></td>
+                                    <td><?php echo $company->company_desc; ?></td>
+
+                                    <td>
+
+                                        <a href="<?php echo site_url(); ?>/company/company_controller/edit_company_view/<?php echo $company->company_code; ?>">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a style="cursor: pointer;"   title="Delete this company" onclick="delete_company(<?php echo $company->company_code; ?>)">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            <?php } ?>    
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <div class="invoice-button-action-set">
+            <p>
+                <button class="btn btn-primary" type="button" id="company_print_btn"><i class="fa fa-print"></i></button>
+            </p>
         </div>
     </div>
 </div>

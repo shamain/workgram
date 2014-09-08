@@ -74,7 +74,7 @@
                     <div class="col-md-1">
                         <div class="invoice-button-action-set">
                             <p>
-                                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
+                                <button class="btn btn-primary" type="button" id="attendance_print_btn"><i class="fa fa-print"></i></button>
                             </p>
                         </div>
                     </div>

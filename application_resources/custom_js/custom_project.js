@@ -37,7 +37,8 @@ $(document).ready(function() {
     $('#project_start_date_dpicker').datepicker({
         format: "yyyy-mm-dd",
         autoclose: true,
-        todayHighlight: true
+        todayHighlight: true,
+        minDate: new Date()
     });
 
     //add project form start date datepicker

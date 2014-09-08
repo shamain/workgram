@@ -352,7 +352,7 @@ $(document).ready(function() {
         },
     });
 
-    $(".skill_my_skill_table_tbar").html('<div class="table-tools-actions"><button class="btn btn-primary" style="margin-left:12px" id="add_skill_category_btn" data-toggle="modal" data-target="#add_skill_category_modal">Add New Skill Category</button></div>');
+    $(".my_skill_table_tbar").html('<div class="table-tools-actions"><div><p><button class="btn btn-primary" style="margin-left:31px" type="button" id="my_skill_print_btn"><i class="fa fa-print"></i></button></p></div></div>');
 
     $('#my_skill_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#my_skill_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");

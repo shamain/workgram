@@ -54,7 +54,7 @@ $emp_names_string = implode(',', $emp_names);
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-body ">
-                <table class="table" id="my_skill_table" >
+                <table class="table table-hover" id="my_skill_table" >
                     <thead>
                         <tr>  
                             <th>ID</th>                    

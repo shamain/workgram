@@ -19,3 +19,12 @@ $(document).on('click', '#search_employee_attendance_btn', function() {
     });
 
 });
+
+
+//print attendance report
+$(document).on('click', '#attendance_print_btn', function() {
+    var emp_code = $('#emp_atn_employee').val();
+    var date_filter = $('#att_filter_m_picker').val();
+    var win = window.open(site_url + '/employee_attendance/employee_attendance_controller/print_attendance_pdf_report?emp_code=' + emp_code+'&date='+date_filter, '_blank');
+    win.focus();
+});

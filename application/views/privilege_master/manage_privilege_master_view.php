@@ -10,7 +10,7 @@
                 <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="javascript:;" class="reload"></a> </div>
             </div>
             <div class="grid-body ">
-                <table class="table" id="privilege_master_table" >
+                <table class="table table-hover" id="privilege_master_table" >
                     <thead>
                         <tr>
                             <th>Master Privilege ID</th>
