@@ -25,7 +25,7 @@
         <div class="input-with-icon  right input-append primary date  no-padding" id="att_month_dpicker">                                       
             <i class=""></i>
 
-            <input class="form-control" type="text" readonly="true" id="att_filter_m_picker" >
+            <input class="form-control" type="text" readonly="true" id="att_filter_m_picker" value="<?php echo date('F Y', strtotime("0 month")) ?>">
             <span class="add-on">
                 <span class="arrow"></span>
                 <i class="fa fa-th"></i>
@@ -43,42 +43,50 @@
 
 <div class="clearfix"></div>
 
-<div class="row">
-    <div class="col-md-1">
-        <div class="invoice-button-action-set">
-            <p>
-                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
-            </p>
-        </div>
-    </div>
-    <div class="col-md-11">
-        <div id="search_result_table">
-            <table class="table table-bordered no-more-tables">
-                <thead>
-                    <tr>
+<div class="row-fluid">
+    <div class="span15">
+        <div class="grid simple ">
+            <div class="grid-body " >
+                <div class="row" id="search_result_table">
+                    <div class="col-md-1">
+                        <div class="invoice-button-action-set">
+                            <p>
+                                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-11" >
+                        <div>
+                            <table class="table table-bordered no-more-tables">
+                                <thead>
+                                    <tr>
 
-                        <th class="text-center" style="width:22%">Employee</th>
-                        <th class="text-center" style="width:22%">January</th>
-                        <th class="text-center" style="width:22%">February</th>
-                        <th class="text-center" style="width:22%">March</th>
-                        <th class="text-center" style="width:22%">April</th>
-                        <th class="text-center" style="width:22%">May</th>
-                        <th class="text-center" style="width:22%">June</th>
-                        <th class="text-center" style="width:22%">July</th>
-                        <th class="text-center" style="width:22%">August</th>
-                        <th class="text-center" style="width:22%">September</th>
-                        <th class="text-center" style="width:22%">October</th>
-                        <th class="text-center" style="width:22%">November</th>
-                        <th class="text-center" style="width:22%">December</th>
+                                        <th class="text-center" style="width:22%">Employee</th>
+                                        <th class="text-center" style="width:22%">January</th>
+                                        <th class="text-center" style="width:22%">February</th>
+                                        <th class="text-center" style="width:22%">March</th>
+                                        <th class="text-center" style="width:22%">April</th>
+                                        <th class="text-center" style="width:22%">May</th>
+                                        <th class="text-center" style="width:22%">June</th>
+                                        <th class="text-center" style="width:22%">July</th>
+                                        <th class="text-center" style="width:22%">August</th>
+                                        <th class="text-center" style="width:22%">September</th>
+                                        <th class="text-center" style="width:22%">October</th>
+                                        <th class="text-center" style="width:22%">November</th>
+                                        <th class="text-center" style="width:22%">December</th>
 
-                    </tr>
+                                    </tr>
 
-                </thead>
-                <tbody>
+                                </thead>
+                                <tbody>
 
 
-                </tbody>
-            </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

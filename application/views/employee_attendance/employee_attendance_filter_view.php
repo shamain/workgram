@@ -1,27 +1,31 @@
+<div class="row" id="search_result_table">
+    <div class="col-md-1">
+        <div class="invoice-button-action-set">
+            <p>
+                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-11 scroller" >
+        <div>
+            <table class="table table-bordered no-more-tables">
+                <thead>
+                    <tr>
 
-<table class="table table-bordered no-more-tables">
-    <thead>
-        <tr>
+                        <th class="text-center" style="width:22%">Employee</th>
+                        <?php foreach ($dates as $date) { ?>
+                        <th class="text-center" style="width:22%"><?php echo date('j',strtotime($date)); ?></th>
+                            <?php } ?>
 
-            <th class="text-center" style="width:22%">Employee</th>
-            <th class="text-center" style="width:22%">January</th>
-            <th class="text-center" style="width:22%">February</th>
-            <th class="text-center" style="width:22%">March</th>
-            <th class="text-center" style="width:22%">April</th>
-            <th class="text-center" style="width:22%">May</th>
-            <th class="text-center" style="width:22%">June</th>
-            <th class="text-center" style="width:22%">July</th>
-            <th class="text-center" style="width:22%">August</th>
-            <th class="text-center" style="width:22%">September</th>
-            <th class="text-center" style="width:22%">October</th>
-            <th class="text-center" style="width:22%">November</th>
-            <th class="text-center" style="width:22%">December</th>
+                    </tr>
 
-        </tr>
+                </thead>
+                <tbody>
 
-    </thead>
-    <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
-    </tbody>
-</table>

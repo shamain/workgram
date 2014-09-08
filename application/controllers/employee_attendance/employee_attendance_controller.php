@@ -46,13 +46,25 @@ class Employee_attendance_controller extends CI_Controller {
 
     function get_dates_for_employee_attendance_filter() {
 
+
+
         $employee_attendance_model = new Employee_attendance_model();
         $employee_attendance_service = new Employee_attendance_service();
 
         $emp_code = $this->input->post('emp_code');
+        $att_filter_m_picker = $this->input->post('date');
+
+        $num_of_days = date('t',  strtotime($att_filter_m_picker));
+
+        $result =array();
+        for ($i = 1; $i <= $num_of_days; $i++){
+            $dates[] = date('Y',strtotime($att_filter_m_picker)) . "-" . date('m',strtotime($att_filter_m_picker)) . "-" . str_pad($i, 2, '0', STR_PAD_LEFT);
+        }
+        $data['dates']=$dates;
+
         $employee_attendance_model->set_employee_code($emp_code);
 
-        $data['']='';
+        $data[''] = '';
 
         $this->load->view('employee_attendance/employee_attendance_filter_view', $data);
     }
