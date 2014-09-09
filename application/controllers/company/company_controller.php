@@ -224,5 +224,24 @@ class Company_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
+    public function print_company_pdf_report() {
+        $company_service = new Company_service();
+
+        
+
+        $current_companies = $company_service->get_all_companies();
+        $data['companies'] = $current_companies;
+        
+        $data['title'] = 'Company';
+        $SResultString = $this->load->view('reports/view_company_report', $data, TRUE);
+
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf->SetDisplayMode('fullpage');
+
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
+    }
 
 }

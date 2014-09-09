@@ -165,6 +165,12 @@ $('#edit_company_form').validate({
     }
 });
 
+//print company  report
+$(document).on('click', '#company_print_btn', function() {
+    var win = window.open(site_url + '/company/company_controller/print_company_pdf_report');
+    win.focus();
+});
+
 
 
 

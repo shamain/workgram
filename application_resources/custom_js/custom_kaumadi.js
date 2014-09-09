@@ -239,6 +239,12 @@ function delete_employee(code) {
     }
 
 }
+//print employee report
+$(document).on('click', '#employee_print_btn', function() {
+    var win = window.open(site_url + '/employee/employee_controller/print_employee_pdf_report');
+    win.focus();
+});
+
 
 
 

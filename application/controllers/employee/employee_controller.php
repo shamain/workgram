@@ -210,6 +210,25 @@ class Employee_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
+    
+    public function print_employee_pdf_report() {
+        $employee_service = new Employee_service();
+
+        
+
+        $current_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        $data['employees'] = $current_employees;
+        
+        $data['title'] = 'Employee';
+        $SResultString = $this->load->view('reports/view_employee_report', $data, TRUE);
+
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf->SetDisplayMode('fullpage');
+
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
+    }
 
 }
 
