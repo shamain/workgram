@@ -42,7 +42,7 @@
                                             <span class="label label-info">Edit</span>
                                         </a>
                                         <a style="cursor: pointer;"   title="Delete this company" onclick="delete_company(<?php echo $company->company_code; ?>)">
-                                            <span class="label label-info">Delete</span>
+                                            <span class="label label-important">Delete</span>
                                         </a>
 
                                     </td>

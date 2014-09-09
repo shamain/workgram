@@ -154,10 +154,10 @@
                                    <td>
 
                                     <a href="<?php echo site_url(); ?>/wages_category/wages_category_controller/edit_wages_category_view/<?php echo $wages_category->wages_category_id; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this wages_category" onclick="delete_wages_category(<?php echo $wages_category->wages_category_id; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>  

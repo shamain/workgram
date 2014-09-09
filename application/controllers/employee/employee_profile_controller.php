@@ -45,6 +45,7 @@ class Employee_profile_controller extends CI_Controller {
         $data['employee_projects'] =$projects;
         $data['employee_skills'] = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
         $data['employee_skill_categories'] = $employee_skill_service->get_skill_categories_for_employee($this->session->userdata('EMPLOYEE_CODE'));
+        $data['project_done'] = '';
 
          
                         $project_done;
