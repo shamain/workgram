@@ -218,5 +218,25 @@ class Skill_matrix_controller extends CI_Controller {
         $data['results'] = $employee_skill_service->get_skills_for_employee($this->input->post('employee_code'));
         $this->load->view('reports/skill_report_search_view', $data);
     }
+    
+    
+    public function print_my_skill_pdf_report() {
+        $employee_skill_service = new Employee_skill_service();
+
+        $emp_code = $this->input->get('emp_code');
+
+        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($emp_code);
+        $data['assigned_skills'] = $current_assigned_skills;
+        
+        $data['title'] = 'Skill Matrix';
+        $SResultString = $this->load->view('reports/view_my_skill_report', $data, TRUE);
+
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf->SetDisplayMode('fullpage');
+
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
+    }
 
 }

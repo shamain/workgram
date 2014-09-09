@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>
-                            <span class="semi-bold"><?php echo ucfirst($task->task_name); ?></span>
+                            <a href="<?php echo site_url(); ?>/task/task_controller/view_task_for_projects/<?php echo $task->project_id; ?>"><span class="semi-bold"><?php echo ucfirst($task->task_name); ?></span></a>
                         </h3>
                     </div>         
                 </div>

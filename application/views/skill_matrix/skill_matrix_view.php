@@ -54,6 +54,7 @@ $emp_names_string = implode(',', $emp_names);
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-body ">
+                <input type="hidden" value="<?php echo $this->session->userdata('EMPLOYEE_CODE');?>" id="skill_matrix_print_user"/>
                 <table class="table table-hover" id="my_skill_table" >
                     <thead>
                         <tr>  

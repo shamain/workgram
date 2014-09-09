@@ -518,3 +518,9 @@ $(document).on('click', '#search_employee_skill_btn', function() {
 
 });
 
+//print my skill report
+$(document).on('click', '#my_skill_print_btn', function() {
+    var emp_code = $('#skill_matrix_print_user').val();
+    var win = window.open(site_url + '/skill_matrix/skill_matrix_controller/print_my_skill_pdf_report?emp_code=' + emp_code, '_blank');
+    win.focus();
+});
