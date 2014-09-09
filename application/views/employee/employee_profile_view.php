@@ -174,7 +174,7 @@
                             </h3>
                             <h5>Performance Point</h5>
                             <h3 class="text-success semi-bold">
-                                457
+                                <?php echo count($projects) ?>
                             </h3>
                            <h5>Projects Done</h5>
                         </div>
