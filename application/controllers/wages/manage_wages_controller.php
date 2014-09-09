@@ -55,25 +55,42 @@ class manage_wages_controller extends CI_Controller {
         <?php
     }
         
-      function get_wages_details(){
-        $employee_model=new employee_model();
+//      function get_wages_details(){
+//        $employee_model=new employee_model();
+//        $employee_service = new employee_service();
+//       
+//        $employee_code = $this->input->post('employee_code');
+//        $employee_model->set_company_code($employee_code);
+//        
+//        $company_code = $this->input->post('company_code');
+//        $employee_model->set_company_code($company_code);
+//         
+//        $datepicker= $this->input->post('year');
+//        
+//        $employees=$employee_service->get_employee_by_company_code($employee_model);
+//      
+//        $this->load->view('manage_wages_controller/manage_wages_view',$data);
+//        
+//      }
+      
+     function get_employee_payment() {
+
+
         $employee_service = new employee_service();
-       
-        $employee_code = $this->input->post('employee_code');
-        $employee_model->set_company_code($employee_code);
-        
+        $employee_payment_model = new employee_payment_model();
+        $employee_payment_service = new employee_payment_service();
         $company_code = $this->input->post('company_code');
-        $employee_model->set_company_code($company_code);
-         
-        $datepicker= $this->input->post('year');
-        
-        $employees=$employee_service->get_employee_by_company_code($employee_model);
+        $employee_code = $this->input->post('employee_code');
+        $datepicker = $this->input->post('year');
+  
+        $results = array();
+        $emp_array = array();
       
-        $this->load->view('manage_wages_controller/manage_wages_view',$data);
-        
-      }
-      
-    
+       
+
+        $this->load->view('wages/manage_wages_view', $data);
+    }
+
         
     
  
