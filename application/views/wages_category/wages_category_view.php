@@ -8,7 +8,7 @@
         <div class="grid simple ">
             <div class="grid-title">
                 <h4> Wages Category</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" ></a><a href="javascript:;" class="reload"></a>  </div>
             </div>
             <div class="grid-body ">
                 <div class="row">
@@ -121,7 +121,7 @@
         <div class="grid simple ">
             <div class="grid-title">
                 <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" ></a> <a href="javascript:;" class="reload"></a>  </div>
             </div>
             <div class="grid-body ">
                 <table class="table" id="wages_category_table" >
