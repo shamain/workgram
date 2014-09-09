@@ -187,14 +187,14 @@ $(document).on('change', '#select_company', function() {
 //Search button
 $(document).on('click', '#search_wages_btn', function() {
 
-    var company_code = $('#search_wages_btn').val();
-    var employee_code =$('#search_wages_btn').val();
-    var year =$('#search_wages_btn').val();
+    var company_code = $('#select_company').val();
+    var employee_code =$('#select_employee').val();
+    var year =$('#year_wages').val();
 
     $.post(site_url + '/wages/manage_wages_controller/get_employee_payment', {company_code:company_code,employee_code:employee_code,year:year}, function(msg) {
         if (msg != '') {
-            $("#search_wages_table").html('');
-            $("#search_wages_table").html(msg);
+            $("#search_wages_div").html('');
+            $("#search_wages_div").html(msg);
             
         }
     });

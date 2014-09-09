@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -13,10 +12,12 @@ class manage_wages_controller extends CI_Controller {
         } else {
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
-            
+
             $this->load->model('company/company_model');
             $this->load->model('company/company_service');
-           
+
+            $this->load->model('employee_payment/employee_payment_model');
+            $this->load->model('employee_payment/employee_payment_service');
         }
     }
 
@@ -24,37 +25,34 @@ class manage_wages_controller extends CI_Controller {
 
         $employee_service = new employee_service();
         $company_service = new company_service();
-       
+
 
         $data['heading'] = "Wages Management";
         $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $data['companies'] = $company_service->get_all_companies($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-       
-        
+
+
         $partials = array('content' => 'wages/manage_wages_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    
-    function get_employee_by_company(){
-        $employee_model=new employee_model();
+    function get_employee_by_company() {
+        $employee_model = new employee_model();
         $employee_service = new employee_service();
-        
+
         $company_code = $this->input->post('company_code');
-        $employee_model->set_company_code($company_code);
-        
-        $employees=$employee_service->get_employee_by_company_code($employee_model);
-    
+
+        $employees = $employee_service->get_employees_by_company_id_manage($company_code);
         ?>
         <option value="">-- Select Employees --</option>
-        <?php  foreach ($employees as $employee){?>
-         <option value="<?php echo $employee->employee_code ?>"><?php echo $employee->employee_name; ?></option>
+        <?php foreach ($employees as $employee) { ?>
+            <option value="<?php echo $employee->employee_code ?>"><?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?></option>
             <?php
         }
         ?>
         <?php
     }
-        
+
 //      function get_wages_details(){
 //        $employee_model=new employee_model();
 //        $employee_service = new employee_service();
@@ -72,28 +70,52 @@ class manage_wages_controller extends CI_Controller {
 //        $this->load->view('manage_wages_controller/manage_wages_view',$data);
 //        
 //      }
-      
-     function get_employee_payment() {
+
+    function get_employee_payment() {
 
 
         $employee_service = new employee_service();
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
+
         $company_code = $this->input->post('company_code');
-        $employee_code = $this->input->post('employee_code');
-        $datepicker = $this->input->post('year');
-  
+        $emp_code = $this->input->post('employee_code');
+        $year = $this->input->post('year');
+
         $results = array();
         $emp_array = array();
-      
-       
+        $num_of_months = 12;
 
-        $this->load->view('wages/manage_wages_view', $data);
+        if ($emp_code != '') {
+            $emp_array[] = $employee_service->get_employee($emp_code);
+        } else {
+            $emp_array = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        }
+
+        for ($i = 0; $i < $num_of_months; $i++) {
+            $months[] = date('M',strtotime("+$i month", $year));
+        }
+        foreach ($emp_array as $emp) {
+
+            $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $wage_array = array();
+            foreach ($months as $month) {
+                //get wages details here
+                $wages_details = 0;
+                if (!empty($wages_details)) {
+                    $wage_array[] = $wages_details->type;
+                } else {
+                    $wage_array[] = $this->config->item('ABSENT');
+                }
+            }
+            $temp['wage'] = $wage_array;
+            $results[] = $temp;
+        }
+
+        $data['months'] = $months;
+        $data['results'] = $results;
+
+        $this->load->view('wages/wages_filter_view', $data);
     }
-
-        
-    
- 
- 
 
 }

@@ -233,7 +233,7 @@ class Company_controller extends CI_Controller {
         $current_companies = $company_service->get_all_companies();
         $data['companies'] = $current_companies;
         
-        $data['title'] = 'Company';
+        $data['title'] = 'Company Report';
         $SResultString = $this->load->view('reports/view_company_report', $data, TRUE);
 
         $this->load->library('MPDF56/mpdf');

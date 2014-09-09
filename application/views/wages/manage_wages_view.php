@@ -3,7 +3,7 @@
 </div>
 
 <div class="row-fluid">
-    <div class="col-md-6" >
+    <div class="col-md-4" >
         <select class="select2 span12" id="select_company">
             <option value="">Select Company</option>
             <?php
@@ -29,7 +29,7 @@
         <div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
             <i class=""></i>
 
-            <input class="form-control" type="text" input-append id="month" >
+            <input class="form-control" type="text" input-append id="year_wages" >
             <span class="add-on">
                 <span class="arrow"></span>
                 <i class="fa fa-th"></i>
@@ -47,7 +47,7 @@
 
 <!--//////////////////////Table//////////////////////-->
 
-<div id="search_wages_table">
+<div id="search_wages_div">
 <table class="table table-bordered no-more-tables">
     <thead>
         <tr>

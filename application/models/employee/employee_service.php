@@ -484,13 +484,6 @@ class Employee_service extends CI_Model {
         $this->db->insert('employee', $employee_model);
         return $this->db->insert_id();
     }
-    public function get_employee_by_company_code($employee_modal) {
-        $this->db->select('*');
-        $this->db->from('employee');
-        $this->db->where('del_ind', '1');
-        $this->db->where('company_code', $employee_model->get_company_code());
-        $query = $this->db->get();
-        return $query->result();
-    }
+
 
 }

@@ -219,7 +219,7 @@ class Employee_controller extends CI_Controller {
         $current_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $data['employees'] = $current_employees;
         
-        $data['title'] = 'Employee';
+        $data['title'] = 'Employee Report';
         $SResultString = $this->load->view('reports/view_employee_report', $data, TRUE);
 
         $this->load->library('MPDF56/mpdf');
