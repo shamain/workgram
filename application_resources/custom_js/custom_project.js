@@ -38,7 +38,7 @@ $(document).ready(function() {
         format: "yyyy-mm-dd",
         autoclose: true,
         todayHighlight: true,
-        minDate: new Date()
+        minDate: "0M", // maxDate:"-1M"
     });
 
     //add project form start date datepicker
@@ -46,7 +46,7 @@ $(document).ready(function() {
         format: "yyyy-mm-dd",
         autoclose: true,
         todayHighlight: true,
-        minDate: new Date()
+        minDate: "0M", // maxDate:"-1M"
     });
 
     //add project Form
