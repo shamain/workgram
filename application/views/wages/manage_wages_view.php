@@ -47,54 +47,33 @@
 
 <!--//////////////////////Table//////////////////////-->
 
-<div class="row-fluid">
-    <div class="span15">
-        <div class="grid simple ">
-            <div class="grid-title">
-                <h4>Advance <span class="semi-bold">Options</span></h4>
-            </div>
-            <div class="grid-body ">
-                <table class="table" id="manage_wages_table" >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Employee</th>
+<div id="search_wages_table">
+<table class="table table-bordered no-more-tables">
+    <thead>
+        <tr>
 
-                            <th>January</th>
-                            <th>February</th>
-                            <th>March</th>
-                            <th>April</th>
-                            <th>May</th>
-                            <th>June</th>
-                            <th>July</th>
-                            <th>August</th>
-                            <th>September</th>
-                            <th>October</th>
-                            <th>November</th>
-                            <th>December</th>
-                        </tr>
-                    </thead>
-<!--                    <tbody>
-                        <?php
-                        $i = 0;
-                        foreach ($employees as $employee) {
-                            ?> 
-                            <tr  id="employee_<?php echo $employee->company_code; ?>">
-                                <td><?php echo++$i; ?></td>
-                                <td><?php echo $employee->employee_fname; ?></td>
+            <th class="text-center" style="width:22%">Employee</th>
+            <th class="text-center" style="width:22%">January</th>
+            <th class="text-center" style="width:22%">February</th>
+            <th class="text-center" style="width:22%">March</th>
+            <th class="text-center" style="width:22%">April</th>
+            <th class="text-center" style="width:22%">May</th>
+            <th class="text-center" style="width:22%">June</th>
+            <th class="text-center" style="width:22%">July</th>
+            <th class="text-center" style="width:22%">August</th>
+            <th class="text-center" style="width:22%">September</th>
+            <th class="text-center" style="width:22%">October</th>
+            <th class="text-center" style="width:22%">November</th>
+            <th class="text-center" style="width:22%">December</th>
 
-                                <td>
+        </tr>
+
+    </thead>
+    <tbody>
 
 
-
-                                </td>
-                            </tr>             
-                        <?php } ?>   
-                    </tbody>-->
-                </table>
-            </div>
-        </div>
-    </div>
+    </tbody>
+</table>
 </div>
 <!--////////////////////////////modal//////////////////////////////////-->
 <!--<div class="modal fade" id="wages_modal" tabindex="-1" role="dialog" aria-labelledby="wages_modalLabel" aria-hidden="true">
