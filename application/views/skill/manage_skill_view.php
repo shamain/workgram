@@ -33,10 +33,10 @@
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill/skill_controller/edit_skill_view/<?php echo $skill->skill_code; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Skill" onclick="delete_skill(<?php echo $skill->skill_code; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>

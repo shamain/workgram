@@ -103,10 +103,10 @@ $emp_names_string = implode(',', $emp_names);
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/edit_skill_matrix_view/<?php echo $assigned_skill->employee_skill_id; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Skill" onclick="delete_employee_skill(<?php echo $assigned_skill->employee_skill_id; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>

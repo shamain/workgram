@@ -43,10 +43,10 @@
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/settings/privilege_controller/edit_privileges_view/<?php echo $privilege->privilege_code; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Privilege" onclick="delete_privilege(<?php echo $privilege->privilege_code; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>

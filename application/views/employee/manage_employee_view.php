@@ -73,10 +73,10 @@
 
                                     <td>
                                         <a href="<?php echo site_url(); ?>/employee/employee_controller/edit_employee_view/<?php echo $employee->employee_code; ?>">
-                                            <i class="fa fa-pencil"></i>
+                                            <span class="label label-info">Edit</span>
                                         </a>
                                         <a style="cursor: pointer;"   title="Delete this Employee" onclick="delete_employee(<?php echo $employee->employee_code; ?>)">
-                                            <i class="fa fa-times"></i>
+                                            <span class="label label-important">Delete</span>
                                         </a>
                                         <a href="<?php echo site_url(); ?>/employee_privilege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
                                             <i class="fa fa-unlock-alt"></i>

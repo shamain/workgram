@@ -38,10 +38,10 @@
                                 <td>
 
                                     <a href="<?php echo site_url(); ?>/skill/skill_category_controller/edit_skill_category_view/<?php echo $skill_category->skill_cat_code; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this skill category" onclick="delete_skill_category(<?php echo $skill_category->skill_cat_code; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>
