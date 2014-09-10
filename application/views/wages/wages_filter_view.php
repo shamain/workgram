@@ -31,8 +31,8 @@
                                
                                 ?>
                               
-                                <td class="v-align-middle">
-                                   A
+                                <td class="v-align-middle">  
+                                   <button type="button" class="btn btn-primary btn-cons">Check</button>
                                 </td>
                                 <?php
                             }

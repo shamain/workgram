@@ -53,24 +53,6 @@ class manage_wages_controller extends CI_Controller {
         <?php
     }
 
-//      function get_wages_details(){
-//        $employee_model=new employee_model();
-//        $employee_service = new employee_service();
-//       
-//        $employee_code = $this->input->post('employee_code');
-//        $employee_model->set_company_code($employee_code);
-//        
-//        $company_code = $this->input->post('company_code');
-//        $employee_model->set_company_code($company_code);
-//         
-//        $datepicker= $this->input->post('year');
-//        
-//        $employees=$employee_service->get_employee_by_company_code($employee_model);
-//      
-//        $this->load->view('manage_wages_controller/manage_wages_view',$data);
-//        
-//      }
-
     function get_employee_payment() {
 
 
@@ -100,14 +82,19 @@ class manage_wages_controller extends CI_Controller {
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
             $wage_array = array();
             foreach ($months as $month) {
-                //get wages details here
+                $employee_payment_model->set_employee_code($emp->employee_code);      
+                $wages_details= $employee_payment_service->get_employee_payment($employee_payment_model);
+               
                 $wages_details = 0;
                 if (!empty($wages_details)) {
                     $wage_array[] = $wages_details->type;
-                } else {
-                    $wage_array[] = $this->config->item('ABSENT');
-                }
-            }
+                }                  
+                  else if ($wage_array[]=$this->config->item('is_paid')==true){
+                             $wages_details = $this->config->item('PAID');
+                } else if ($wage_array[]=$this->config->item('is_paid')==false){
+                             $wages_details= $this->config->item('NOT_PAID');
+                } 
+            
             $temp['wage'] = $wage_array;
             $results[] = $temp;
         }
@@ -118,4 +105,4 @@ class manage_wages_controller extends CI_Controller {
         $this->load->view('wages/wages_filter_view', $data);
     }
 
-}
+    }}
