@@ -47,6 +47,7 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true,
         minDate: "0M", // maxDate:"-1M"
+        greaterThan: "#project_start_date_dpicker"
     });
 
     //add project Form
@@ -231,6 +232,12 @@ $(document).on('click', '#report_project_search_btn', function() {
     });
 });
 
+
+//print project report
+$(document).on('click', '#project_print_btn', function() {
+    var win = window.open(site_url + '/project/project_controller/print_project_pdf_report', '_blank');
+    win.focus();
+});
 
 
 

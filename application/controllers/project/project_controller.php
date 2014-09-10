@@ -201,17 +201,21 @@ class Project_controller extends CI_Controller {
         }
     }
 
-    function view_project_report() {
-        $employee_service = new employee_service();
+   public function print_project_pdf_report() {
         $project_service = new Project_service();
 
-        $data['heading'] = "Project Summary";
+
+        $data['heading'] = "Project Report";
         $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $data['employees'] = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
+        $SResultString = $this->load->view('reports/project_report', $data, TRUE);
 
-        $partials = array('content' => 'reports/project_report');
-        $this->template->load('template/main_template', $partials, $data);
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf->SetDisplayMode('fullpage');
+
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
     }
 
     /*
