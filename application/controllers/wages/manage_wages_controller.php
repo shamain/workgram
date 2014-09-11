@@ -90,19 +90,22 @@ class manage_wages_controller extends CI_Controller {
                     if ($wages_details->is_paid) {
                         $wage_array[] = 'PAID';
                     } else {
-                         $wage_array[] = 'NOT PAID';
+                        $wage_array[] = 'NOT PAID';
                     }
+                } else {
+                    $wage_array[] = 'NOT PAID';
                 }
-                
-                $temp['wage'] = $wage_array;
-                $results[] = $temp;
             }
 
-            $data['months'] = $months;
-            $data['results'] = $results;
-
-            $this->load->view('wages/wages_filter_view', $data);
+            $temp['wage'] = $wage_array;
+            $results[] = $temp;
         }
+
+
+        $data['months'] = $months;
+        $data['results'] = $results;
+
+        $this->load->view('wages/wages_filter_view', $data);
     }
 
 }

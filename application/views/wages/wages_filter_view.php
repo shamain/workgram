@@ -32,7 +32,7 @@
                                 ?>
                               
                                 <td class="v-align-middle">  
-                                   <button type="button" class="btn btn-primary btn-cons">Check</button>
+                                   <?php echo $wage; ?>
                                 </td>
                                 <?php
                             }
