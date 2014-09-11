@@ -75,34 +75,34 @@ class manage_wages_controller extends CI_Controller {
         }
 
         for ($i = 0; $i < $num_of_months; $i++) {
-            $months[] = date('M',strtotime("+$i month", $year));
+            $months[] = date('M', strtotime("+$i month", $year));
         }
         foreach ($emp_array as $emp) {
 
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
             $wage_array = array();
             foreach ($months as $month) {
-                $employee_payment_model->set_employee_code($emp->employee_code); 
+                $employee_payment_model->set_employee_code($emp->employee_code);
                 $employee_payment_model->set_year_month($month);
-                $wages_details= $employee_payment_service->get_employee_payment($employee_payment_model);
-               
+                $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
+
                 if (!empty($wages_details)) {
-                    $wage_array[] = $wages_details->type;
-                }                  
-                  else if ($wage_array[]=$this->config->item('is_paid')==true){
-                             $wages_details = $this->config->item('PAID');
-                } else if ($wage_array[]=$this->config->item('is_paid')==false){
-                             $wages_details= $this->config->item('NOT_PAID');
-                } 
-            
-            $temp['wage'] = $wage_array;
-            $results[] = $temp;
+                    if ($wages_details->is_paid) {
+                        $wage_array[] = 'PAID';
+                    } else {
+                         $wage_array[] = 'NOT PAID';
+                    }
+                }
+                
+                $temp['wage'] = $wage_array;
+                $results[] = $temp;
+            }
+
+            $data['months'] = $months;
+            $data['results'] = $results;
+
+            $this->load->view('wages/wages_filter_view', $data);
         }
-
-        $data['months'] = $months;
-        $data['results'] = $results;
-
-        $this->load->view('wages/wages_filter_view', $data);
     }
 
-    }}
+}

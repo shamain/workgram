@@ -177,17 +177,23 @@ class Skill_matrix_controller extends CI_Controller {
         <?php
     }
 
-    //skill report
-    function view_skill_report() {
+    //skill matrix report
+    function view_skill_matrix_report() {
 
         $employee_service = new employee_service();
         $skill_category_service = new Skill_category_service();
         $skill_service = new Skill_service();
         $employee_skill_service = new Employee_skill_service();
 
-        $data['heading'] = "Skill Report";
+        $data['heading'] = "Skill Matrix";
+        $skill_category_arr = array();
 
-//        $data['skill_categories'] = $skill_category_service->get_all_skill_categories();
+        $skill_categories = $skill_category_service->get_all_skill_categories();
+        foreach ($skill_categories as $skill_cat) {
+            $skill_category_arr[] = $skill_cat->skill_cat_name;
+        }
+
+
 //        $data['skills'] = $skill_service->get_all_skills();
 //
 //        $current_assigned_skills = $employee_skill_service->get_skills_for_employee($this->session->userdata('EMPLOYEE_CODE'));
@@ -200,7 +206,7 @@ class Skill_matrix_controller extends CI_Controller {
 //        $data['assigned_skills'] = $skills;
 //        $data['employee_code'] = $this->session->userdata('EMPLOYEE_CODE');
 
-        $partials = array('content' => 'reports/skill_report');
+        $partials = array('content' => 'skill_matrix/skill_report');
         $this->template->load('template/main_template', $partials, $data);
     }
 
@@ -218,8 +224,7 @@ class Skill_matrix_controller extends CI_Controller {
         $data['results'] = $employee_skill_service->get_skills_for_employee($this->input->post('employee_code'));
         $this->load->view('reports/skill_report_search_view', $data);
     }
-    
-    
+
     public function print_my_skill_pdf_report() {
         $employee_skill_service = new Employee_skill_service();
 
@@ -227,12 +232,12 @@ class Skill_matrix_controller extends CI_Controller {
 
         $current_assigned_skills = $employee_skill_service->get_skills_for_employee($emp_code);
         $data['assigned_skills'] = $current_assigned_skills;
-        
+
         $data['title'] = 'Skill Matrix';
         $SResultString = $this->load->view('reports/view_my_skill_report', $data, TRUE);
 
         $this->load->library('MPDF56/mpdf');
-        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
 
         $mpdf->WriteHTML($SResultString);
