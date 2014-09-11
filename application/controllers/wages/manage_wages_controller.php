@@ -82,10 +82,10 @@ class manage_wages_controller extends CI_Controller {
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
             $wage_array = array();
             foreach ($months as $month) {
-                $employee_payment_model->set_employee_code($emp->employee_code);      
+                $employee_payment_model->set_employee_code($emp->employee_code); 
+                $employee_payment_model->set_year_month($month);
                 $wages_details= $employee_payment_service->get_employee_payment($employee_payment_model);
                
-                $wages_details = 0;
                 if (!empty($wages_details)) {
                     $wage_array[] = $wages_details->type;
                 }                  
