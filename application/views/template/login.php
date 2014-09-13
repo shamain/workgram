@@ -53,10 +53,10 @@
         </div>
         <div class="container">
             <div class="row login-container column-seperation">  
-                <div class="col-md-5 col-md-offset-1">
+                <div class="col-md-5 col-md-offset-1" style="margin-top:47px;">
                     <img src="<?php echo base_url(); ?>application_resources/img/logow.png" style="width:100%" class="fadeInDown animated"/>
                     <h2>Sign in to workgram</h2>
-                    <p>Use Facebook, Twitter or your email to sign in.<br>
+                    <p>Collaborative remote working made easy.<br>
                         <a href="#">Sign up Now!</a> for a workgram account,It's free and always will be..</p>
                     <br>
                   
