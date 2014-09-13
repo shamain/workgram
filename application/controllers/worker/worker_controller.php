@@ -45,6 +45,7 @@ class Worker_controller extends CI_Controller {
         $employee_task_model = new Employee_task_model();
         $employee_task_service = new Employee_task_service();
 
+        $employee_task_model->set_employee_id($this->input->post('employee_code', TRUE));
         $employee_task_model->set_task_id($this->input->post('task_id', TRUE));
         $employee_task_model->set_task_status($this->input->post('task_status', TRUE));
 
