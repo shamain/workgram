@@ -108,4 +108,22 @@ class manage_wages_controller extends CI_Controller {
         $this->load->view('wages/wages_filter_view', $data);
     }
 
+
+  function add_new_payments() {
+//        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
+//        if ($perm) {
+
+        $employee_payment_model = new employee_payment_model();
+        $employee_payment_service = new employee_payment_service();
+
+        $employee_payment_model->set_pay_id($this->input->post('pay_id', TRUE));
+        $employee_payment_model->set_employee_code($this->input->post('employee_code', TRUE));
+        $employee_payment_model->set_company_code($this->input->post('company_code', TRUE));
+        $employee_payment_model->set_wages_category_id($this->input->post('wages_category_id', TRUE));
+        $employee_payment_model->set_year_month(($this->input->post('year_month', TRUE)));
+        $employee_payment_model->set_amount($this->input->post('amount', TRUE));
+        $employee_payment_model->set_is_paid($this->input->post('is_paid', TRUE));
+
+        echo $employee_payment_service->add_new_payment($employee_payment_model);
+    }
 }

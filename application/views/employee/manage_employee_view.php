@@ -112,6 +112,7 @@
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
                     <h4 id="add_employee_modalLabel" class="semi-bold text-white">It's a new employee</h4>
+                    
                     <p class="no-margin text-white">Include Employee details here.</p>
                     <br>
                 </div>

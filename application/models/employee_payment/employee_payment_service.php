@@ -33,6 +33,8 @@ class employee_payment_service extends CI_Model {
         return $query->result();
     }
 
-
+          function add_new_payment($employee_payment_model) {
+        return $this->db->insert('employee_payment', $employee_payment_model);
+    }
 
     }
