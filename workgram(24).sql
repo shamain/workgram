@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2014 at 07:38 AM
+-- Generation Time: Sep 13, 2014 at 08:23 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -247,6 +247,7 @@ CREATE TABLE IF NOT EXISTS `employee_tasks` (
   `employee_task_id` int(11) NOT NULL AUTO_INCREMENT,
   `employee_id` int(11) NOT NULL,
   `task_id` int(11) NOT NULL,
+  `task_status` enum('1','0') NOT NULL DEFAULT '0',
   `added_date` datetime NOT NULL,
   PRIMARY KEY (`employee_task_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
@@ -255,13 +256,13 @@ CREATE TABLE IF NOT EXISTS `employee_tasks` (
 -- Dumping data for table `employee_tasks`
 --
 
-INSERT INTO `employee_tasks` (`employee_task_id`, `employee_id`, `task_id`, `added_date`) VALUES
-(1, 2, 1, '0000-00-00 00:00:00'),
-(2, 3, 1, '2014-07-25 00:00:00'),
-(3, 1, 7, '2014-08-25 05:43:16'),
-(4, 2, 2, '2014-08-25 05:45:29'),
-(5, 2, 4, '2014-08-25 05:45:29'),
-(6, 1, 8, '2014-08-25 05:45:29');
+INSERT INTO `employee_tasks` (`employee_task_id`, `employee_id`, `task_id`, `task_status`, `added_date`) VALUES
+(1, 2, 1, '0', '0000-00-00 00:00:00'),
+(2, 3, 1, '0', '2014-07-25 00:00:00'),
+(3, 1, 7, '0', '2014-08-25 05:43:16'),
+(4, 2, 2, '0', '2014-08-25 05:45:29'),
+(5, 2, 4, '0', '2014-08-25 05:45:29'),
+(6, 1, 8, '0', '2014-08-25 05:45:29');
 
 -- --------------------------------------------------------
 
@@ -628,7 +629,7 @@ CREATE TABLE IF NOT EXISTS `statistics` (
   `ip` varchar(300) DEFAULT NULL,
   `browser` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`statistic_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8244 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8277 ;
 
 --
 -- Dumping data for table `statistics`
@@ -8910,7 +8911,41 @@ INSERT INTO `statistics` (`statistic_id`, `user_id`, `action`, `date`, `uri`, `p
 (8240, 0, 'user_unseen_notification_count', 1410585847, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
 (8241, 0, 'user_unseen_notification_count', 1410585848, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
 (8242, 0, 'get_employee_payment', 1410585854, 'wages/manage_wages_controller/get_employee_payment', '{"company_code":"1","employee_code":"5","year":"2014"}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
-(8243, 0, 'get_employee_payment', 1410585859, 'wages/manage_wages_controller/get_employee_payment', '{"company_code":"1","employee_code":"","year":"2014"}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0');
+(8243, 0, 'get_employee_payment', 1410585859, 'wages/manage_wages_controller/get_employee_payment', '{"company_code":"1","employee_code":"","year":"2014"}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8244, 0, 'manage_wages', 1410586767, 'wages/manage_wages_controller/manage_wages', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8245, 0, 'init_notification_menu', 1410586770, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8246, 0, '%5Bobject%20Object%5D', 1410586770, 'wages/manage_wages_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8247, 0, 'user_unseen_notification_count', 1410586771, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8248, 0, 'init_notification_menu', 1410586771, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8249, 0, 'user_unseen_notification_count', 1410586772, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8250, 0, 'get_employee_payment', 1410586772, 'wages/manage_wages_controller/get_employee_payment', '{"company_code":"1","employee_code":"","year":"2014"}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8251, 0, 'manage_wages', 1410586781, 'wages/manage_wages_controller/manage_wages', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8252, 0, '%5Bobject%20Object%5D', 1410586783, 'wages/manage_wages_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8253, 0, 'init_notification_menu', 1410586783, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8254, 0, 'init_notification_menu', 1410586783, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8255, 0, 'user_unseen_notification_count', 1410586784, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8256, 0, 'user_unseen_notification_count', 1410586784, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8257, 0, 'get_employee_payment', 1410586785, 'wages/manage_wages_controller/get_employee_payment', '{"company_code":"1","employee_code":"","year":"2014"}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8258, 0, 'manage_companies', 1410586893, 'company/company_controller/manage_companies', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8259, 0, 'init_notification_menu', 1410586896, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8260, 0, '%5Bobject%20Object%5D', 1410586896, 'company/company_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8261, 0, 'init_notification_menu', 1410586897, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8262, 0, 'user_unseen_notification_count', 1410586897, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8263, 0, 'user_unseen_notification_count', 1410586898, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8264, 0, 'manage_projects', 1410586922, 'project/project_controller/manage_projects', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8265, 0, 'init_notification_menu', 1410586924, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8266, 0, '%5Bobject%20Object%5D', 1410586924, 'project/project_controller/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8267, 0, 'user_unseen_notification_count', 1410586925, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8268, 0, 'init_notification_menu', 1410586925, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8269, 0, 'view_task_for_projects', 1410586925, 'task/task_controller/view_task_for_projects/13', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8270, 0, 'init_notification_menu', 1410586927, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8271, 0, 'view_task_for_projects', 1410586927, 'task/task_controller/view_task_for_projects/%5Bobject%20Object%5D', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8272, 0, 'init_notification_menu', 1410586928, 'notification/notification_controller/init_notification_menu', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0');
+INSERT INTO `statistics` (`statistic_id`, `user_id`, `action`, `date`, `uri`, `post_data`, `ip`, `browser`) VALUES
+(8273, 0, 'user_unseen_notification_count', 1410586928, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8274, 0, 'user_unseen_notification_count', 1410586929, 'notification/notified_users_controller/user_unseen_notification_count', '', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8275, 0, 'get_skill_employees_for_skill_category_filter', 1410586941, 'skill_matrix/skill_matrix_controller/get_skill_employees_for_skill_category_filter', '{"skill_cat_codes":["4"]}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0'),
+(8276, 0, 'get_skill_employees_for_skill_category_filter', 1410586983, 'skill_matrix/skill_matrix_controller/get_skill_employees_for_skill_category_filter', '{"skill_cat_codes":["4","2"]}', '::1', 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0');
 
 -- --------------------------------------------------------
 

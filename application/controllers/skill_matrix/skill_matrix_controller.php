@@ -169,6 +169,7 @@ class Skill_matrix_controller extends CI_Controller {
         $skill_ids = implode(',', $skillarray);
 
         $employees = $employee_skill_service->get_all_employee_for_skills_by_skill_ids($skill_ids);
+        array_unique($employees, $sort_flags)
         ?>
 
         <?php foreach ($employees as $employee) { ?>

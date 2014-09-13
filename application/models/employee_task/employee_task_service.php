@@ -23,4 +23,17 @@ class Employee_task_service extends CI_Model {
         return $this->db->delete('employee_tasks', array('employee_task_id' => $employee_task_id));
     }
 
+    function update_employee_task_status($employee_task_model) {
+
+        $data = array(
+            'task_status' => $employee_task_model->get_task_status()
+        );
+
+
+        $this->db->where('task_id', $employee_task_model->get_task_id());
+        $this->db->where('employee_id', $employee_task_model->get_employee_id());
+
+        return $this->db->update('employee_tasks', $data);
+    }
+
 }

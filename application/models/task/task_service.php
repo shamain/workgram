@@ -74,6 +74,7 @@ class Task_service extends CI_Model {
         $this->db->join('project', 'task.project_id = project.project_id');
         $this->db->where('employee_tasks.employee_id', $employee_code);
         $this->db->where('task.task_status', '0');
+        $this->db->where('employee_tasks.task_status', '0');
         $this->db->where("task.del_ind", "1");
         $this->db->where('project.del_ind', '1');
         $query = $this->db->get();
@@ -87,6 +88,7 @@ class Task_service extends CI_Model {
         $this->db->join('project', 'task.project_id = project.project_id');
         $this->db->where('employee_tasks.employee_id', $employee_code);
         $this->db->where('task.task_status', '0');
+        $this->db->where('employee_tasks.task_status', '0');
         $this->db->where("task.del_ind", "1");
         $this->db->where('project.del_ind', '1');
         $query = $this->db->get();

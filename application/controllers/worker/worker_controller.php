@@ -42,13 +42,14 @@ class Worker_controller extends CI_Controller {
 
     function set_task_status() {
 
-        $task_model = new Task_model();
-        $task_service = new Task_service();
+        $employee_task_model = new Employee_task_model();
+        $employee_task_service = new Employee_task_service();
 
-        $task_model->set_task_id($this->input->post('task_id', TRUE));
+        $employee_task_model->set_task_id($this->input->post('task_id', TRUE));
+        $employee_task_model->set_task_status($this->input->post('task_status', TRUE));
 
 
-//        echo $task_service->
+        echo $employee_task_service->update_employee_task_status($employee_task_model);
     }
 
     function get_screenshot() {
