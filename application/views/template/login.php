@@ -105,6 +105,7 @@
                         </div>
                         <div class="row">
                             <div class="control-group  col-md-10">
+                                <div id="login_msg"></div>
                                 <div class="checkbox checkbox check-success"> <a href="#">Trouble login in?</a>&nbsp;&nbsp;
                                     <input type="checkbox" id="checkbox1" value="1">
                                     <label for="checkbox1">Keep me reminded </label>

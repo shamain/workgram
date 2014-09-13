@@ -48,7 +48,7 @@
                                 $diff12 = date_diff(date_create(date('Y-m-d')), date_create($project_dead_line));
                                 $days_difference = $diff12->d;
                                 ?> 
-                                <tr  id="projects_<?php echo $project->project_id; ?>" <?php if ($days_difference <= 7) { ?> style="background-color: red;" <?php } ?>>
+                                <tr  id="projects_<?php echo $project->project_id; ?>" <?php if ($days_difference <= 7) { ?> style="background-color: papayawhip;" <?php } ?>>
                                     <td><?php echo ++$i; ?></td>
                                     <td><?php echo $project->project_name; ?></td>
                                     <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="100px" height="68px" /></td>

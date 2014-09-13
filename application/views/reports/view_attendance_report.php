@@ -1,5 +1,5 @@
 <div class="grid simple">
-    <div class="grid-body no-border invoice-body"> <br>
+    <div class="grid-body no-border invoice-body "> <br>
         <div class="pull-right">
             <h2><?php echo $title; ?></h2>
         </div>

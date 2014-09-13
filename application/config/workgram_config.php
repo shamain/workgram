@@ -5,6 +5,7 @@
 
 //This is to set the site title
 $config['APPLICATION_MAIN_TITLE']	= "WORKGRAM ";
+$config['LOGIN_OPTION']	= 1;
 
 
 //Employee Types

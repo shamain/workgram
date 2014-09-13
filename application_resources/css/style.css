@@ -7531,3 +7531,7 @@ input[type="checkbox"] {
     
     height: 275px !important;
 }
+
+.myscroll{
+    overflow-x: scroll;
+}

@@ -95,6 +95,7 @@
         <div id="filter_result_div">
             <ul>
                 <?php
+
                 foreach ($my_screen_shots as $my_screen_shot) {
                     ?>
                     <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80">
@@ -121,10 +122,7 @@
                         </div>
                         <div class="meta tasks">
                             <ul>
-                                <li>Camping</li>
-                                <li>Climbing</li>
-                                <li>Fishing</li>
-                                <li>Swimming</li>
+                                <li><?php echo $my_screen_shot->worker_date; ?></li>
                             </ul>
                         </div>
 

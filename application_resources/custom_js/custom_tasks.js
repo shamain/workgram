@@ -36,12 +36,12 @@ $(document).ready(function() {
             task_deadline: {
                 required: true
             },
-//            task_priority: {
-//                required: true
-//            },
-//            task_progress: {
-//                required: true
-//            }
+            task_users: {
+                required: true
+            },
+            task_cats_add: {
+                required: true
+            }
         },
         invalidHandler: function(event, validator) {
             //display error alert on form submit    

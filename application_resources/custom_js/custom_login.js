@@ -114,30 +114,30 @@ $(document).ready(function() {
                 return false;
             }
             else {
-                   if(index==2){
-                       $('.next').hide();
-                        $('.last').show();
-                   } 
-                 
+                if (index == 2) {
+                    $('.next').hide();
+                    $('.last').show();
+                }
+
                 $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).addClass('complete');
                 $('#rootwizard').find('.form-wizard').children('li').eq(index - 1).find('.step').html('<i class="fa fa-check"></i>');
             }
         },
         'onLast': function(tab) {
-           
+
             $.post(site_url + '/company/company_controller/company_registration', $('#commentForm').serialize(), function(msg)
             {
                 if (msg == 1) {
-                   
-                   /* $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
-                    add_privilege_form.reset();
-                    location.reload();*/
-                    
-                     $("#commentForm").find('input[type=text], textarea').val('');
-                    
-                       $('#comapnymodal').modal('toggle');
-                        $('#tab1').addClass('active');
-                     $('#tab3').removeClass('active');
+
+                    /* $("#add_privilege_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >Privilege</a>has been added.</div>');
+                     add_privilege_form.reset();
+                     location.reload();*/
+
+                    $("#commentForm").find('input[type=text], textarea').val('');
+
+                    $('#comapnymodal').modal('toggle');
+                    $('#tab1').addClass('active');
+                    $('#tab3').removeClass('active');
                 } else {
                     $("#add_privilege_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">Privilege</a>has failed.</div>');
                 }
@@ -145,12 +145,12 @@ $(document).ready(function() {
 
 
         },
-        'onPrevious':function(tab, navigation, index){
-               
-                    $('.last').hide();
-                       $('#nextbtn').show();
-                        
-                   
+        'onPrevious': function(tab, navigation, index) {
+
+            $('.last').hide();
+            $('#nextbtn').show();
+
+
         }
     });
 
@@ -176,8 +176,8 @@ $(document).ready(function() {
         autoclose: true,
         todayHighlight: true
     });
-    
-   
+
+
 });
 
 
@@ -210,23 +210,46 @@ function login() {
     var login_password = $('#txtpassword').val();
 
     if ($('#login_form').valid()) {
-
         var x = $('.load-anim').show().delay(5000);
-
+        $('#login_msg').hide();
         $.ajax({
             type: "POST",
             url: site_url + "/login/login_controller/authenticate_user",
             data: "login_username=" + login_username + "&login_password=" + login_password,
             async: false,
             success: function(msg) {
-                $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
                 if (msg == 1) {
-                    $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
+                    $('#login_msg').html('<span class="input-notification success png_bg">Login Success...</span>');
+                    element = $('#txtusername');
+                    var parent = $(element).parent('.input-with-icon');
+                    var icon = $(element).parent('.input-with-icon').children('i');
+                    icon.removeClass("fa fa-exclamation").addClass('fa fa-check');
+                    parent.removeClass('error-control').addClass('success-control');
+                    element = $('#txtpassword');
+                    var parent = $(element).parent('.input-with-icon');
+                    var icon = $(element).parent('.input-with-icon').children('i');
+                    icon.removeClass("fa fa-exclamation").addClass('fa fa-check');
+                    parent.removeClass('error-control').addClass('success-control');
                     setTimeout("location.href = site_url+'/login/login_controller/';", 100);
                     x.fadeOut('slow');
                 } else {
-
+                    x.fadeOut('fast');
                     $('#login_msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                    $('#login_msg').show();
+                    element = $('#txtusername');
+                    label = '<label class="error" for="txtusername">Please enter at least 6 characters.</label>';
+                    $('<span class="error"></span>').insertAfter($(element).parent().parent());
+                    var parent = $(element).parent('.input-with-icon');
+                    var icon = $(element).parent('.input-with-icon').children('i');
+                    icon.removeClass('fa fa-check').addClass('fa fa-exclamation');
+                    parent.removeClass('success-control').addClass('error-control');
+                    element = $('#txtpassword');
+                    label = '<label class="error" for="txtusername">Please enter at least 6 characters.</label>';
+                    $('<span class="error"></span>').insertAfter($(element).parent().parent());
+                    var parent = $(element).parent('.input-with-icon');
+                    var icon = $(element).parent('.input-with-icon').children('i');
+                    icon.removeClass('fa fa-check').addClass('fa fa-exclamation');
+                    parent.removeClass('success-control').addClass('error-control');
                 }
 
             }

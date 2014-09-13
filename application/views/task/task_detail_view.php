@@ -235,9 +235,7 @@
                                 <i class=""></i>
 
                                 <select rows="2" name="task_users[]" id="task_users" style="width: 100%;" multiple="yes" class="select2 form-control">
-                                    <?php foreach ($employees as $employee) { ?>
-                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
-                                    <?php } ?> 
+                                    
                                 </select>
                                 <br><br>
                             </div>

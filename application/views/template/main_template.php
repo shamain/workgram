@@ -117,7 +117,7 @@
                                     <div class="iconset top-menu-toggle-dark"></div>
                                 </a> </li>
                         </ul>
-                        <ul class="nav quick-section">
+<!--                        <ul class="nav quick-section">
                             <li class="quicklinks"> <a href="#" class="" >
                                     <div class="iconset top-reload"></div>
                                 </a> </li>
@@ -128,7 +128,7 @@
                             <li class="m-r-10 input-prepend inside search-form no-boarder"> <span class="add-on"> <span class="iconset top-search"></span></span>
                                 <input name="" type="text"  class="no-boarder " placeholder="Search Dashboard" style="width:250px;">
                             </li>
-                        </ul>
+                        </ul>-->
                     </div>
 
                     <!-- END TOP NAVIGATION MENU -->

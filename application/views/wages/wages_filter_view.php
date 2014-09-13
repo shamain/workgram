@@ -1,51 +1,37 @@
-<div class="row" id="search_result_table">
-    <div class="col-md-1">
-        <div class="invoice-button-action-set">
-            <p>
-                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
-            </p>
-        </div>
-    </div>
-    <div class="col-md-11 scroller" >
-        <div>
-            <table class="table table-bordered no-more-tables">
-                <thead>
-                    <tr>
 
-                        <th class="text-center" style="width:22%">Employee</th>
-                        <?php foreach ($months as $month) { ?>
-                            <th class="text-center"><?php echo date('M', strtotime($month)); ?></th>
-                        <?php } ?>
+<table class="table table-bordered no-more-tables">
+    <thead>
+        <tr>
 
-                    </tr>
+            <th class="text-center" style="width:22%">Employee</th>
+            <?php foreach ($months as $month) { ?>
+                <th class="text-center"><?php echo date('M', strtotime($month)); ?></th>
+            <?php } ?>
 
-                </thead>
-                <tbody>
-                    <?php
-                    for ($i = 0; $i < count($results); $i++) {
-                        ?>
-                        <tr>
-                            <td> <?php echo $results[$i]['employee']; ?></td>
-                            <?php
-                            foreach ($results[$i]['wage'] as $wage) {
-                               
-                                ?>
-                              
-                                <td class="v-align-middle">  
-                                   <?php echo $wage; ?>
-                                </td>
-                                <?php
-                            }
-                            ?>
-                        </tr>
-                    <?php }
+        </tr>
+
+    </thead>
+    <tbody>
+        <?php
+        for ($i = 0; $i < count($results); $i++) {
+            ?>
+            <tr>
+                <td> <?php echo $results[$i]['employee']; ?></td>
+                <?php
+                foreach ($results[$i]['wage'] as $wage) {
                     ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 
+                    <td class="v-align-middle">  
+                        <?php echo $wage; ?>
+                    </td>
+                    <?php
+                }
+                ?>
+            </tr>
+        <?php }
+        ?>
+    </tbody>
+</table>
 
 <!-- Modal -->
 <div class="modal fade" id="add_employee_payment_modal" tabindex="-1" role="dialog" aria-labelledby="add_employee_payment_modalLabel" aria-hidden="true">

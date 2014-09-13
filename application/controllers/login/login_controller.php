@@ -62,23 +62,19 @@ class Login_controller extends CI_Controller {
         $email = $this->input->post('login_username', TRUE);
 
         // set user name with @lankacom.net
-        $username_arr = explode('@', $email);
-        if (!isset($username_arr[1])) {
-            $email = $username_arr[0] . '@gmail.com';
-        }
-
-        $employee_model->set_employee_email($email);
-        $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
-
+//        $username_arr = explode('@', $email);
+//        if (!isset($username_arr[1])) {
+//            $email = $username_arr[0] . '@gmail.com';
+//        }
+//        $employee_model->set_employee_email($email);
+//        $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
         //calling settings_option_handler library's getOption(x,y,z) function to get the set option
         //parameters = setting_id,employee_code,company_id
+//        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
 
-        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
-
-
+        $login_option =  $this->config->item('LOGIN_OPTION');
         // 1 = Username & Password
         if ($login_option == 1) {
-
             //  $logged_user_result = '';
             $employee_model->set_employee_email($email);
             $employee_model->set_employee_password(md5($this->input->post('login_password', TRUE))); // password md 5 change 
@@ -250,7 +246,6 @@ class Login_controller extends CI_Controller {
 
         //calling settings_option_handler library's getOption(x,y,z) function to get the set option
         //parameters = setting_id,employee_code,company_id
-
 //        $login_option = $this->settings_option_handler->get_option($setting_login_type_id, $employee_code_compnay_details->employee_code, $employee_code_compnay_details->company_code);
         $login_option = 1;
 
@@ -283,7 +278,8 @@ class Login_controller extends CI_Controller {
                 echo json_encode($logged_user_details);
             }
         } else {
-            echo '0';die;
+            echo '0';
+            die;
         }
     }
 
