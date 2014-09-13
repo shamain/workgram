@@ -201,62 +201,62 @@ $(document).on('click', '#search_wages_btn', function() {
 
 });
 
- //add employee Form
-    $('#add_employee_form').validate({
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            employee_fname: {
-                required: true
-            },
-            employee_lname: {
-                required: true
-            },
-            employee_email: {
-                required: true,
-                email: true
-            },
-            employee_type: {
-                required: true
-            },
-            employee_contract: {
-                required: true
-            }
-
-
-        },
-        invalidHandler: function(event, validator) {
-            //display error alert on form submit    
-        },
-        errorPlacement: function(label, element) { // render error placement for each input type   
-            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('success-control').addClass('error-control');
-        },
-        highlight: function(element) { // hightlight error inputs
-            var parent = $(element).parent();
-            parent.removeClass('success-control').addClass('error-control');
-
-        },
-        unhighlight: function(element) { // revert the change done by hightlight
-
-        },
-        success: function(label, element) {
-            var parent = $(element).parent('.input-with-icon');
-            parent.removeClass('error-control').addClass('success-control');
-        }, submitHandler: function(form)
-        {
-            $.post(site_url + '/employee/employee_controller/add_new_employee', $('#add_employee_form').serialize(), function(msg)
-            {
-                if (msg == 1) {
-                    $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been added.</div>');
-                    add_employee_form.reset();
-                    location.reload();
-                } else {
-                    $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
-                }
-            });
-
-
-        }
-    });
+// //add employee Form
+//    $('#add_employee_form').validate({
+//        focusInvalid: false,
+//        ignore: "",
+//        rules: {
+//            employee_fname: {
+//                required: true
+//            },
+//            employee_lname: {
+//                required: true
+//            },
+//            employee_email: {
+//                required: true,
+//                email: true
+//            },
+//            employee_type: {
+//                required: true
+//            },
+//            employee_contract: {
+//                required: true
+//            }
+//
+//
+//        },
+//        invalidHandler: function(event, validator) {
+//            //display error alert on form submit    
+//        },
+//        errorPlacement: function(label, element) { // render error placement for each input type   
+//            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
+//            var parent = $(element).parent('.input-with-icon');
+//            parent.removeClass('success-control').addClass('error-control');
+//        },
+//        highlight: function(element) { // hightlight error inputs
+//            var parent = $(element).parent();
+//            parent.removeClass('success-control').addClass('error-control');
+//
+//        },
+//        unhighlight: function(element) { // revert the change done by hightlight
+//
+//        },
+//        success: function(label, element) {
+//            var parent = $(element).parent('.input-with-icon');
+//            parent.removeClass('error-control').addClass('success-control');
+//        }, submitHandler: function(form)
+//        {
+//            $.post(site_url + '/employee/employee_controller/add_new_employee', $('#add_employee_form').serialize(), function(msg)
+//            {
+//                if (msg == 1) {
+//                    $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been added.</div>');
+//                    add_employee_form.reset();
+//                    location.reload();
+//                } else {
+//                    $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
+//                }
+//            });
+//
+//
+//        }
+//    });

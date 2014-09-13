@@ -146,7 +146,7 @@
                      <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">OT Rate</label>
+                                <label class="form-label">Ot Rate</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
