@@ -21,6 +21,9 @@ class Event_controller extends CI_Controller {
             
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+            
+            $this->load->model('employee_event/employee_event_model');
+            $this->load->model('employee_event/employee_event_service');
         }
     }
 
@@ -52,6 +55,8 @@ class Event_controller extends CI_Controller {
         $event_service = new Event_service();
         $event_model = new Event_model();
         $employee_service= new Employee_service();
+        $employee_event_model = new Employee_event_model();
+        $employee_event_service = new Employee_event_service();
 
         $event_model->set_event_title($this->input->post('event_title', TRUE));
         $event_model->set_event_description($this->input->post('event_description', TRUE));
@@ -116,6 +121,11 @@ class Event_controller extends CI_Controller {
         echo $event_service->delete_event(trim($this->input->post('id', TRUE)));
     }
 
-
+    function init_calendar_view(){
+        $event_service= new Event_service();
+        $data=$event_service->get_all_events();
+        echo json_encode($data);
+        
+    }
 }
 

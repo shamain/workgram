@@ -354,7 +354,7 @@ function event_type_select(etypeRadio) {
 }
 
 $(document).ready(function() {
-
+        /*
 		$('#calendar').fullCalendar({
 			defaultDate: '2014-06-12',
 			editable: true,
@@ -392,6 +392,35 @@ $(document).ready(function() {
 					start: '2014-06-13T07:00:00'
 				}
 			]
-		});
-		
+                            new edit
+		}); */
+                      $('#calendar').fullCalendar();                                                                                                                                                    
+                      init_calendar();    
 	});
+        
+        ////////////////////////////////new edit
+        function init_calendar() {
+    var newEvent = new Object();
+    $.getJSON(site_url + '/event/event_controller/init_calendar_view',
+            function(msg) {
+                $.each(msg, function(key, val) {
+
+
+
+                    newEvent.title = val.event_title;
+                    newEvent.start = val.start_date;
+                    newEvent.allDay = false;
+                    newEvent.end = val.end_date;
+                    $('#calendar').fullCalendar('renderEvent',
+                            {
+                                title: newEvent.title,
+                                start: newEvent.start,
+                                end: newEvent.end,
+                                allDay: newEvent.allDay
+
+                            },
+                    true // make the event "stick"
+                            );
+                });
+            });
+}
