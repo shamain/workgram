@@ -7,10 +7,10 @@
         <div class="grid simple ">
             <div class="grid-title">
                 <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a><a href="javascript:;" class="reload"></a> </div>
             </div>
             <div class="grid-body ">
-                <table class="table" id="notified_users_table" >
+                <table class="table table-hover" id="notified_users_table" >
                     <thead>
                         <tr>
                             <th>#</th>
@@ -37,18 +37,18 @@
                                 </td>
                                 <td>
                                     <?php if($notified_user->notified_user_is_seen=='n')
-                                              { echo '<span class="label label-danger">NO</span>';} 
+                                              { echo '<span class="label label-important"><i class="fa fa-times"></i></span>';} 
                                           else 
-                                              {echo '<span class="label label-info">YES</span>';} 
+                                              {echo '<span class="label label-info"><i class="fa fa-check"></i></span>';} 
                                     ?>  
 
                                 </td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/notification/notified_users_controller/edit_notified_users_view/<?php echo $notified_user->notified_users_id; ?>">
-                                        <i class="fa fa-pencil"></i>
+                                        <span class="label label-info">Edit</span>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this" onclick="delete_notified_users(<?php echo $notified_user->notified_users_id; ?>)">
-                                        <i class="fa fa-times"></i>
+                                        <span class="label label-important">Delete</span>
                                     </a>
 
                                 </td>

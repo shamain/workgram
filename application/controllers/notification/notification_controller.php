@@ -1,7 +1,5 @@
 <?php
 
-
-
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
@@ -109,14 +107,14 @@ class Notification_controller extends CI_Controller {
         $notification_model->set_system_id($this->input->post('system_code', TRUE));
         $notification_model->set_notification_msg($this->input->post('notification_msg', TRUE));
         $notification_model->set_notification_area_url($this->input->post('notification_area_url',TRUE));
-        $notification_model->set_notification_added_date(date("Y-m-d H:i:s"));
+        $notification_model->set_notification_added_date(gmdate("Y-m-d H:i:s"));
                        
         echo $notification_service->add_new_notification($notification_model);
         
         $notifications=$notification_service->get_all_notifications();
         
         $all_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $ntype=$this->input->post('ntype', TRUE);
+        $ntype=$this->input->post('ntype', TRUE);  //Radio buttons value(global or specific)
         
         
         if ($ntype == 'specific') {
@@ -144,9 +142,8 @@ class Notification_controller extends CI_Controller {
     function init_notification_menu(){
         $notified_users_service = new Notified_users_service();
         
-        $data = $notified_users_service->get_all_notifications_by_user($this->session->userdata('EMPLOYEE_CODE'));
+        $data = $notified_users_service->get_unseen_notifications_by_user($this->session->userdata('EMPLOYEE_CODE'));
         echo json_encode($data);
     }
-    
-    
+ 
 }
