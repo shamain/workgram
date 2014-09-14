@@ -153,7 +153,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#edit_wages_category_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >wages category</a> has been updated.</div>');
                     edit_wages_category_form.reset();
-                    location.reload();
+                    window.location = site_url + '/wages_category/wages_category_controller/manage_wages_category';
                 } else {
                     $("#edit_wages_category_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">wages category </a> has failed.</div>');
                 }
