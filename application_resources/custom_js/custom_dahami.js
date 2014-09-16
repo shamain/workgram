@@ -202,7 +202,7 @@ $('#add_inquiry_form').validate({
         parent.removeClass('error-control').addClass('success-control');
     }, submitHandler: function(form)
     {
-        $.post(site_url + '/employee_screenshots/employee_screenshots_controller/add_inquiry', $('#add_inquiry_form').serialize(), function(msg)
+        $.post(site_url + '/screenshot_inquiry/screenshot_inquiry_controller/add_screenshot_inquiry', $('#add_inquiry_form').serialize(), function(msg)
         {
             if (msg == 1) {
                 $("#add_inquiry_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >inquiry </a>has been added.</div>');

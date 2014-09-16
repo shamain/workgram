@@ -16,7 +16,7 @@
                                 <div class="overlayer bottom-right fullwidth">
                                     <div class="overlayer-wrapper">
                                         <div class=" p-l-20 p-r-20 p-b-20 p-t-20">
-                                            <div class="pull-right"> <a href="#" class="hashtags transparent"> #Art Design </a> </div>
+                                            <div class="pull-right"> <a href="#" class="hashtags transparent">project added by ...</a> </div>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
@@ -49,13 +49,7 @@
                                     <div class="clearfix"></div>
                                     <div class="p-l-15 p-t-10 p-r-20">
                                         <p>I have made the visuals for nirahathi</p>
-                                        <div class="post p-t-10 p-b-10">
-                                            <ul class="action-bar no-margin p-b-20 ">
-                                                <li><a href="#" class="muted bold"><i class="fa fa-comment  m-r-10"></i>1584</a> </li>
-                                                <li><a href="#" class="text-error bold"><i class="fa fa-heart  m-r-10"></i>47k</a> </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
