@@ -97,161 +97,157 @@
         </div>
     </div>
     <!--////////////////////////////modal//////////////////////////////////-->
-    <!--<div class="modal fade" id="wages_modal" tabindex="-1" role="dialog" aria-labelledby="wages_modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="wages_form" name="wages_form">
-                    <div class="modal-header tiles green">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
-                        <br>
-                        <i class="fa fa-desktop fa-4x"></i>
-                      <div class="modal-header">
-    
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Employee Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="employee_name" class="form-control" type="text" name="employee_name">                              
-                                </div>
+    <!-- Modal -->
+<div class="modal fade" id="add_wages_modal" tabindex="-1" role="dialog" aria-labelledby="add_wages_modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="add_wages_form" name="add_wages_form">
+                <div class="modal-header tiles green">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
+                    <br>
+                    <i class="fa fa-desktop fa-4x"></i>
+                    <h4 id="add_wages_modalLabel" class="semi-bold text-white"><div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="semi-bold text-white">Employee Name</label>
                             </div>
                         </div>
-    
-                       
-                        <br>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                    <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?>">                              
+                            </div>
+                        </div>
                     </div>
-                         <div class="modal-header">
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Year</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="year" class="form-control" type="text" name="year">                              
-                                </div>
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="semi-bold text-white">Year</label>
                             </div>
                         </div>
-                      </div>
-                       <div class="modal-header">
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Month</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="month" class="form-control" type="text" name="month">                              
-                                </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                    <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?>">                              
                             </div>
                         </div>
-                         </div>
-                        </div>
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <i class="">
-                                    <div class="form-group">                               
-                                        <label class="form-label">Total hours worked</label>
-                                        <span style="color: red">*</span>                             
-                                    </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div  class="input-with-icon  right">                                         
-                                    <i class=""></i>
-                                      <input id="workedhours" class="form-control" type="text" name="workedhours">
-    
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Basic Salary</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="basic_salary" class="form-control" type="text" name="basic_salary">                              
-                                </div>
-                            </div>
-                        </div>
-                                <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Bonus</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="bonus" class="form-control" type="text" name="bonus">                              
-                                </div>
-                            </div>
-                        </div>
+                    </div></h4>
                     
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">Allowance</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="allowance" class="form-control" type="text" name="allowance">                              
-                                </div>
+                   
+                    <br>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Employee Name</label>
                             </div>
                         </div>
-    
-    
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">OT Rate</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input id="ot_rate" class="form-control" type="text" name="ot_rate">                              
-                                </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                    <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname ?>">                              
                             </div>
                         </div>
-    
-    
-    
-    
-                    <div id="wages_msg" class="form-row"> </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Paid</button>
-    
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    
                     </div>
-    
-                </form>
-            </div>
-             /.modal-content 
+
+                    <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Basic Salary</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" >                              
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    
+
+                     <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">OT Rate</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="ot_rate" class="form-control" type="text" name="ot_rate">                              
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Allowance</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="allowance" class="form-control" type="text" name="allowance" >                              
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Bonus</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="bonus" class="form-control" type="text" name="bonus" >                              
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Basic Salary</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" >                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div id="add_wages_msg" class="form-row"> </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+
+            </form>
         </div>
-         /.modal-dialog 
-    </div>-->
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
     <script type="text/javascript">
         $('#wages_parent_menu').addClass('active open');
