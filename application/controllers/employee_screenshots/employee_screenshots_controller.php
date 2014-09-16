@@ -49,6 +49,7 @@ class Employee_screenshots_controller extends CI_Controller {
         $partials = array('content' => 'employee_screenshots/screenshot_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-
-}
+    
+    
+ }
 
