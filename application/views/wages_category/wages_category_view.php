@@ -41,7 +41,7 @@
                         <div class="col-md-8">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="basic_salary" class="form-control" type="text" name="basic_salary">                              
+                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <div class="col-md-8">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="ot_rate" class="form-control" type="text" name="ot_rate">                              
+                                <input id="ot_rate" class="form-control" type="text" name="ot_rate" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="col-md-8">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="allowance" class="form-control" type="text" name="allowance">                              
+                                <input id="allowance" class="form-control" type="text" name="allowance" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="col-md-8">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="bonus" class="form-control" type="text" name="bonus">                              
+                                <input id="bonus" class="form-control" type="text" name="bonus" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         </div>
                     </div>

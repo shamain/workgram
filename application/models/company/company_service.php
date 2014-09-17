@@ -47,5 +47,11 @@ class Company_service extends CI_Model {
         $query = $this->db->get_where('company', array('company_code' => $company_code));
         return $query->row();
     }
+    
+    function delete_company($company_code) {
+        $data = array('del_ind' => '0');
+        $this->db->where('company_code', $company_code);
+        return $this->db->update('company', $data);
+    }
 
 }

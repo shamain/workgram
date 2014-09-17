@@ -243,5 +243,19 @@ class Company_controller extends CI_Controller {
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }
+    
+        
+    
+    function delete_company() {
+
+//        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
+//        if ($perm) {
+        $company_service = new Company_service();
+
+        echo $company_service->delete_company(trim($this->input->post('code', TRUE)));
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
 
 }

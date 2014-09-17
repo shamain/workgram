@@ -177,27 +177,27 @@ $(document).on('click', '#company_print_btn', function() {
 
 
 ////delete company
-//function delete_company(code) {
-//
-//    if (confirm('Are you sure want to delete this Company ?')) {
-//
-//        $.ajax({
-//            type: "POST",
-//            url: site_url + '/company/company_controller/delete_company',
-//            data: "code=" + code,
-//            success: function(msg) {
-//                //alert(msg);
-//                if (msg == 1) {
-//                    //document.getElementById(trid).style.display='none';
-//                    $('#company_' + code).hide();
-//                }
-//                else if (msg == 2) {
-//                    alert('Cannot be deleted as it is already assigned to Employees');
-//                }
-//            }
-//        });
-//    }
-//}
+function delete_company(code) {
+
+    if (confirm('Are you sure want to delete this Company ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/company/company_controller/delete_company',
+            data: "code=" + code,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#company_' + code).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Employees');
+                }
+            }
+        });
+    }
+}
 
 
 

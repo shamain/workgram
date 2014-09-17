@@ -100,9 +100,7 @@
                         <li class="dropdown" id="header_task_bar"> <a href="<?php echo site_url(); ?>/dashboard/dashboard_controller/" class="dropdown-toggle active" data-toggle="">
                                 <div class="iconset top-home"></div>
                             </a> </li>
-                        <li class="dropdown" id="header_inbox_bar" > <a href="email.html" class="dropdown-toggle" >
-                                <div class="iconset top-messages"></div>
-                                <span class="badge" id="msgs-badge">2</span> </a></li>
+                      
                         <li class="dropdown" id="portrait-chat-toggler" style="display:none"> <a href="#sidr" class="chat-menu-toggle">
                                 <div class="iconset top-chat-white "></div>
                             </a> </li>

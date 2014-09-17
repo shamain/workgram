@@ -43,7 +43,7 @@
                        
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" value="<?php echo $wages_category->basic_salary; ?>" style="width: 50%">                              
+                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" value="<?php echo $wages_category->basic_salary; ?>" style="width: 50%" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                        
                     </div>
@@ -58,7 +58,7 @@
                        
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="ot_rate" class="form-control" type="text" name="ot_rate" value="<?php echo $wages_category->ot_rate; ?>" style="width: 50%">                              
+                                <input id="ot_rate" class="form-control" type="text" name="ot_rate" value="<?php echo $wages_category->ot_rate; ?>" style="width: 50%" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         
                     </div>
@@ -72,7 +72,7 @@
                        
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="allowance" class="form-control" type="text" name="allowance" value="<?php echo $wages_category->allowance; ?>" style="width: 50%">                              
+                                <input id="allowance" class="form-control" type="text" name="allowance" value="<?php echo $wages_category->allowance; ?>" style="width: 50%" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                        
                     </div>
@@ -86,7 +86,7 @@
                        
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="bonus" class="form-control" type="text" name="bonus" value="<?php echo $wages_category->bonus; ?>" style="width: 50%">                              
+                                <input id="bonus" class="form-control" type="text" name="bonus" value="<?php echo $wages_category->bonus; ?>" style="width: 50%" onkeypress=" return numbersonly(this,event,'.')">                              
                             </div>
                         
                     </div>

@@ -174,7 +174,7 @@
                             <div class="inner-addon left-addon" id="generatePassword">                                         
                                 <i class=""></i>
                                 <input id="employee_password" class="text" type="text" name="employee_password"  >  
-                                <button type="button" class="btn btn-primary btn-sm btn-small"onclick="generatePassword()">Password</button> 
+                                <button type="button" class="btn btn-primary btn-sm btn-small" onclick="generatePassword()">Password</button> 
 
                             </div>
                         </div>
