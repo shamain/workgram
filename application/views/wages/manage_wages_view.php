@@ -128,7 +128,7 @@
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                    <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?>">                              
+                                    <input id="employee_name" class="form-control" type="text" name="employee_name">                              
                             </div>
                         </div>
                     </div></h4>
@@ -141,13 +141,13 @@
                     <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Employee Name</label>
+                                <label class="form-label">Employee worked Hours</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                    <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname ?>">                              
+                                    <input id="worked_hours" class="form-control" type="text" name="worked_hours" >                              
                             </div>
                         </div>
                     </div>
@@ -219,14 +219,14 @@
                    <div class="row form-row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label class="form-label">Basic Salary</label>
+                                <label class="form-label">Total Amount</label>
                                 <span style="color: red">*</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input id="basic_salary" class="form-control" type="text" name="basic_salary" >                              
+                                <input id="amount" class="form-control" type="text" name="amount" >                              
                             </div>
                         </div>
                     </div>
@@ -235,6 +235,7 @@
 
 
                 <div id="add_wages_msg" class="form-row"> </div>
+                <input type="hidden" id="employee_code" name="employee_code" />
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
 
