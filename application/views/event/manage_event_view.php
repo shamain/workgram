@@ -19,7 +19,7 @@
 		
 		$('#calendar').fullCalendar({
 
-			
+						//code for popover
 			eventClick: function(event){
                              
                          //
