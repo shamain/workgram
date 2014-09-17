@@ -75,25 +75,28 @@ class manage_wages_controller extends CI_Controller {
         }
 
         for ($i = 0; $i < $num_of_months; $i++) {
-            $months[] = date('M', strtotime("+$i month", $year));
+            $months[] = date('M y', strtotime("+$i month", $year));
         }
         foreach ($emp_array as $emp) {
 
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $temp['employee_code'] = $emp->employee_code;
             $wage_array = array();
             foreach ($months as $month) {
                 $employee_payment_model->set_employee_code($emp->employee_code);
-                $employee_payment_model->set_year_month($month);
+                $employee_payment_model->set_year_month(date('M', strtotime($month)));
                 $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
+
+                $wage_array['wage_month'] = date('Y-m-01', strtotime($month));
 
                 if (!empty($wages_details)) {
                     if ($wages_details->is_paid) {
-                        $wage_array[] = 'PAID';
+                        $wage_array['wage_status'] = 'PAID';
                     } else {
-                        $wage_array[] = 'NOT PAID';
+                        $wage_array['wage_status'] = 'NOT PAID';
                     }
                 } else {
-                    $wage_array[] = 'NOT PAID';
+                    $wage_array['wage_status'] = 'NOT PAID';
                 }
             }
 
@@ -108,8 +111,7 @@ class manage_wages_controller extends CI_Controller {
         $this->load->view('wages/wages_filter_view', $data);
     }
 
-
-  function add_new_payments() {
+    function add_new_payments() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
 //        if ($perm) {
 
@@ -126,4 +128,17 @@ class manage_wages_controller extends CI_Controller {
 
         echo $employee_payment_service->add_new_payment($employee_payment_model);
     }
+
+    function get_wages_details_for_employee() {
+        $employee_payment_model = new employee_payment_model();
+        $employee_payment_service = new employee_payment_service();
+
+        $employee_payment_model->set_employee_code($this->input->post('employee_code', TRUE));
+        $employee_payment_model->set_year_month(($this->input->post('year_month', TRUE)));
+
+        $data['payment_detail'] = $employee_payment_service->get_payments_by_employee_id_and_month($employee_payment_model);
+
+        $this->load->view('wages/wages_monthly_pop_up_view', $data);
+    }
+
 }

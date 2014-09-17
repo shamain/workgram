@@ -47,8 +47,15 @@
                                 //check whether the project deadline is near(7 days or less than 7 days)
                                 $diff12 = date_diff(date_create(date('Y-m-d')), date_create($project_dead_line));
                                 $days_difference = $diff12->d;
+                                
+//                                if ($days_difference <= 7) {
+//                                    $bg_colour='papayawhip';
+//                                }else if($days_difference >= 7){
+//                                    $bg_colour='red';
+//                                }
+                                
                                 ?> 
-                                <tr  id="projects_<?php echo $project->project_id; ?>" <?php if ($days_difference <= 7) { ?> style="background-color: papayawhip;" <?php } ?>>
+                                <tr  id="projects_<?php echo $project->project_id; ?>" style="background-color: papayawhip;">
                                     <td><?php echo ++$i; ?></td>
                                     <td><?php echo $project->project_name; ?></td>
                                     <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="100px" height="68px" /></td>

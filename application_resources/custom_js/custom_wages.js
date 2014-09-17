@@ -1,4 +1,4 @@
-var  base_url = js_base_url;
+var base_url = js_base_url;
 var site_url = js_site_url;
 
 
@@ -8,17 +8,17 @@ $(document).ready(function() {
         "sDom": "<'row'<'col-md-6'l <'toolbar wages_category_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
         "oTableTools": {
             "aButtons": [
-            {
-                "sExtends": "collection",
-                "sButtonText": "<i class='fa fa-cloud-download'></i>",
-                "aButtons": ["csv", "xls", "pdf", "copy"]
-            }
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                    "aButtons": ["csv", "xls", "pdf", "copy"]
+                }
             ]
         },
         "aoColumnDefs": [
-        {
-            "bSortable": false, 
-            "aTargets": [0]
+            {
+                "bSortable": false,
+                "aTargets": [0]
             }
         ],
         "oLanguage": {
@@ -35,7 +35,7 @@ $(document).ready(function() {
         rules: {
             category_name: {
                 required: true
-                
+
             },
             basic_salary: {
                 required: true,
@@ -58,7 +58,7 @@ $(document).ready(function() {
 
         },
         invalidHandler: function(event, validator) {
-        //display error alert on form submit    
+            //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
             $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
@@ -76,7 +76,7 @@ $(document).ready(function() {
         success: function(label, element) {
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('error-control').addClass('success-control');
-        }, 
+        },
         submitHandler: function(form)
 
         {
@@ -104,7 +104,7 @@ $(document).ready(function() {
         rules: {
             category_name: {
                 required: true
-                
+
             },
             basic_salary: {
                 required: true,
@@ -126,7 +126,7 @@ $(document).ready(function() {
 
         },
         invalidHandler: function(event, validator) {
-        //display error alert on form submit    
+            //display error alert on form submit    
         },
         errorPlacement: function(label, element) { // render error placement for each input type   
             $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
@@ -144,7 +144,7 @@ $(document).ready(function() {
         success: function(label, element) {
             var parent = $(element).parent('.input-with-icon');
             parent.removeClass('error-control').addClass('success-control');
-        }, 
+        },
         submitHandler: function(form)
 
         {
@@ -164,9 +164,9 @@ $(document).ready(function() {
     });
 
 
-    $("#datepicker").datepicker( {
+    $("#datepicker").datepicker({
         format: "yyyy",
-        viewMode: "years", 
+        viewMode: "years",
         minViewMode: "years"
     });
 
@@ -188,14 +188,14 @@ $(document).on('change', '#select_company', function() {
 $(document).on('click', '#search_wages_btn', function() {
 
     var company_code = $('#select_company').val();
-    var employee_code =$('#select_employee').val();
-    var year =$('#year_wages').val();
+    var employee_code = $('#select_employee').val();
+    var year = $('#year_wages').val();
 
-    $.post(site_url + '/wages/manage_wages_controller/get_employee_payment', {company_code:company_code,employee_code:employee_code,year:year}, function(msg) {
+    $.post(site_url + '/wages/manage_wages_controller/get_employee_payment', {company_code: company_code, employee_code: employee_code, year: year}, function(msg) {
         if (msg != '') {
             $("#search_wages_div").html('');
             $("#search_wages_div").html(msg);
-            
+
         }
     });
 
@@ -260,3 +260,22 @@ $(document).on('click', '#search_wages_btn', function() {
 //
 //        }
 //    });
+
+
+function  get_wages_pop_up_view(employee_code, year_month) {
+
+    $.post(site_url + '/wages/manage_wages_controller/get_wages_details_for_employee', {employee_code: employee_code, year_month: year_month}, function(msg) {
+
+        $('#wages_pop_up_inner_content').html('');
+        $('#wages_pop_up_inner_content').html(msg);
+    });
+    
+    $("#wages_pop_up").dialog({
+        autoOpen: false,
+        modal: true,
+        width: "650"
+
+    });
+    $("#wages_pop_up").dialog("option", {modal: false}).dialog("open");
+//    event.preventDefault();
+}
