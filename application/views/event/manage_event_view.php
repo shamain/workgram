@@ -14,6 +14,58 @@
 <!--calender bigin -->
 
 
+<script>
+    $(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+
+			
+			eventClick: function(event){
+                             
+                         //
+                         
+                            $(this).popover({
+                            html: true,
+                            placement: 'bottom',
+     
+                            title: function() {
+                            return event.title.toString();
+                            },
+     
+                            content: function() {
+                                
+                             var data = "<p>Start: " + event.start.toString() + "</p>";
+                            data += "<p>End: " + event.end.toString() + "</p>";
+//                            var data = "<p>Start: " + event.start.toString() + "</p>";
+//                            data += "<p>End: " + event.end.toString() + "</p>";
+                            return data;
+                            }
+                            });
+                            $(this).popover('toggle'); 
+                         
+                        
+                        //alert('hh');
+                        
+                       //--------------------------------------- 
+                        //var title = prompt('Event Title:');
+				var eventData;
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                                }   
+                       //---------------------------------------
+                         },
+
+});
+
+});
+</script>
+
+
 <div>
     <style>
 
