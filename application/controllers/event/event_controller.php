@@ -50,6 +50,7 @@ class Event_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
+    //event_type
     function add_new_event() {
 
         $event_service = new Event_service();
@@ -60,11 +61,14 @@ class Event_controller extends CI_Controller {
 
         $event_model->set_event_title($this->input->post('event_title', TRUE));
         $event_model->set_event_description($this->input->post('event_description', TRUE));
+            $event_model->set_event_type($this->input->post('event_type', TRUE));
         $event_model->set_start_date($this->input->post('start_date', TRUE));
         $event_model->set_end_date($this->input->post('end_date', TRUE));
         $event_model->set_del_ind('1');
         $event_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
         $event_model->set_added_date(date("Y-m-d H:i:s"));
+       //event_type add
+        $event_model->set_event_type($this->input->post('etype', TRUE));
 
 
         echo $event_service->add_new_event($event_model);

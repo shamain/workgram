@@ -399,7 +399,7 @@ $(document).ready(function() {
 	});
         
         ////////////////////////////////new edit
-        function init_calendar() {
+       function init_calendar() {
     var newEvent = new Object();
     $.getJSON(site_url + '/event/event_controller/init_calendar_view',
             function(msg) {
@@ -411,13 +411,23 @@ $(document).ready(function() {
                     newEvent.start = val.start_date;
                     newEvent.allDay = false;
                     newEvent.end = val.end_date;
+                    newEvent.description = val.event_description;
+                    newEvent.event_type=val.event_type;
+                    if(newEvent.event_type=="global"){
+                        newEvent.color='orange';
+                    }
+                    else{
+                        newEvent.color='green';
+                    }
+                    
                     $('#calendar').fullCalendar('renderEvent',
                             {
                                 title: newEvent.title,
                                 start: newEvent.start,
                                 end: newEvent.end,
-                                allDay: newEvent.allDay
-
+                                allDay: newEvent.allDay,
+                                description: newEvent.description,
+                                color: newEvent.color
                             },
                     true // make the event "stick"
                             );

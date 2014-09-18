@@ -28,15 +28,15 @@ class Event_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-
+                //event_type
     function update_event($event_model) {
 
         $data = array(
             'event_title' => $event_model->get_event_title(),
             'event_description' => $event_model->get_event_description(),
             'start_date' => $event_model->get_start_date(),
+              'event_type' => $event_model->get_event_type(),
             'end_date' => $event_model->get_end_date()
-                
         );
 
         $this->db->where('event_id', $event_model->get_event_id());

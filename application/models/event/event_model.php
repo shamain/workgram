@@ -10,6 +10,7 @@ class Event_model extends CI_Model {
     var $del_ind;
     var $added_by;
     var $added_date;
+    var $event_type;
 
     function __construct() {
         parent::__construct();
@@ -78,5 +79,18 @@ class Event_model extends CI_Model {
     public function set_added_date($added_date) {
         $this->added_date = $added_date;
     }
+    
+    
+     //event_type
+    
+       public function get_event_type() {
+        return $this->event_type;
+    }
+    
+   
+      public function set_event_type($event_type) {
+        $this->event_type = $event_type;
+    }
+    
 
 }
