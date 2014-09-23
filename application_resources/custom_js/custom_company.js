@@ -173,9 +173,6 @@ $(document).on('click', '#company_print_btn', function() {
 
 
 
-
-
-
 ////delete company
 function delete_company(code) {
 
@@ -192,7 +189,7 @@ function delete_company(code) {
                     $('#company_' + code).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employees');
+                    alert('Cannot be deleted as it is already assigned to Employees.<br> First delete employees');
                 }
             }
         });

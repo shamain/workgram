@@ -25,9 +25,9 @@ class Company_controller extends CI_Controller {
 
         $this->load->model('privilege/privilege_model');
         $this->load->model('privilege/privilege_service');
-        
+
         $this->load->model('employee_privileges/employee_privileges_model');
-            $this->load->model('employee_privileges/employee_privileges_service');
+        $this->load->model('employee_privileges/employee_privileges_service');
 
 
         $this->load->library('email');
@@ -224,35 +224,41 @@ class Company_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-    
+
     public function print_company_pdf_report() {
         $company_service = new Company_service();
 
-        
+
 
         $current_companies = $company_service->get_all_companies();
         $data['companies'] = $current_companies;
-        
+
         $data['title'] = 'Company Report';
         $SResultString = $this->load->view('reports/view_company_report', $data, TRUE);
 
         $this->load->library('MPDF56/mpdf');
-        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
 
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }
-    
-        
-    
+
     function delete_company() {
 
 //        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
 //        if ($perm) {
         $company_service = new Company_service();
+        $employee_service = new employee_service();
 
-        echo $company_service->delete_company(trim($this->input->post('code', TRUE)));
+        $employees = $employee_service->get_employees_by_company_id_manage(trim($this->input->post('code', TRUE)));
+
+        //if no employees in company we can delete otherwise we cant delete the company
+        if (count($employees) == 0) {
+            echo $company_service->delete_company(trim($this->input->post('code', TRUE)));
+        } else {
+            echo 2;
+        }
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }

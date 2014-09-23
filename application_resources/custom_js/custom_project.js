@@ -201,7 +201,7 @@ function delete_project(id) {
                     $('#projects_' + id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Tasks');
+                    alert('Cannot be deleted as it is already assigned to Tasks.<br>First complete tasks !!');
                 }
             }
         });

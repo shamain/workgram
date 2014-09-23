@@ -115,8 +115,14 @@ class Project_controller extends CI_Controller {
 //        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
 //        if ($perm) {
         $project_service = new Project_service();
+        $task_service = new Task_service();
 
-        echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
+        $not_complete_count = $task_service->get_not_complete_task_count_for_project(trim($this->input->post('id', TRUE)));
+        if($not_complete_count == 0) {
+            echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
+        } else {
+            echo 2;
+        }
 //        } else {
 //            $this->template->load('template/access_denied_page');
 //        }
@@ -201,7 +207,7 @@ class Project_controller extends CI_Controller {
         }
     }
 
-   public function print_project_pdf_report() {
+    public function print_project_pdf_report() {
         $project_service = new Project_service();
 
 
@@ -211,7 +217,7 @@ class Project_controller extends CI_Controller {
         $SResultString = $this->load->view('reports/project_report', $data, TRUE);
 
         $this->load->library('MPDF56/mpdf');
-        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
 
         $mpdf->WriteHTML($SResultString);
