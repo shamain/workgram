@@ -18,6 +18,18 @@ class screenshot_inquiry extends CI_Controller {
         }
     }
     
+    function manage_screenshot_inquiry() {
+
+        echo "dasd";die;
+        $screenshot_inquiry_service = new Screenshot_inquiry_service();
+
+        $data['heading'] = "Manage Screenshot Inquiry";
+        //$data['inquiries'] = $screenshot_inquiry_service->get_all_inquiries($this->session->userdata('INQUIRY_ID'));
+
+        $parials = array('content' => 'screenshot_inquiry/manage_screenshot_inquiry_view');
+        $this->template->load('template/main_template', $parials, $data);
+    }
+    
     function add_screenshot_inquiry() {
 
         $screenshot_inquiry_service = new Screenshot_inquiry_service();
