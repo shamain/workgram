@@ -186,7 +186,7 @@ function delete_company(code) {
                 //alert(msg);
                 if (msg == 1) {
                     //document.getElementById(trid).style.display='none';
-                    $('#company_' + code).hide();
+                    $('#company_'+code).hide();
                 }
                 else if (msg == 2) {
                     alert('Cannot be deleted as it is already assigned to Employees.<br> First delete employees');
