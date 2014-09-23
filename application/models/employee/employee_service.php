@@ -110,7 +110,7 @@ class Employee_service extends CI_Model {
 
     function authenticate_user_with_password($employee_model) {
 
-        $data = array('employee_email' => $employee_model->get_employee_email(), 'employee_password' => $employee_model->get_employee_password(), 'del_ind' => '1');
+        $data = array('employee_email' => $employee_model->get_employee_email(), 'employee_password' => $employee_model->get_employee_password(), 'employee.del_ind' => '1','company.del_ind' => '1');
 
         $this->db->select('employee.*,company.company_name');
         $this->db->from('employee');
