@@ -58,6 +58,7 @@ class Company_controller extends CI_Controller {
         $company_model->set_company_contact($this->input->post('txtCompanyContact', TRUE));
         $company_model->set_company_email($this->input->post('txtCompanyEmail', TRUE));
         $company_model->set_company_desc($this->input->post('txtCompanyDesc', TRUE));
+        $company_model->set_del_ind('1');
 
 
 
@@ -176,6 +177,7 @@ class Company_controller extends CI_Controller {
         $company_model->set_company_address($this->input->post('company_address', TRUE));
         $company_model->set_company_contact(($this->input->post('company_contact', TRUE)));
         $company_model->set_company_desc($this->input->post('company_description', TRUE));
+        $company_model->set_del_ind('1');
 
 
         echo $company_service->add_new_company($company_model);
