@@ -88,6 +88,12 @@
 <br>
 <br>
 <div class="row-fluid">
+    
+                    <!-- report button -->
+                    <div align="right">
+                    <button class="btn btn-primary" id="event_print_btn"><i class="fa fa-print"></i></button>
+                    </div>
+    
     <div class="grid-body no-border">
     <div class="tiles row tiles-container white  no-padding">
         <div id='calendar'></div>

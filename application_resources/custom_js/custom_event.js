@@ -148,7 +148,6 @@ function delete_employee_event(employee_event_id) {
             success: function(msg) {
 
                 if (msg == 1) {
-
                     $('#employee_events_' + employee_event_id).hide();
                 }
                 else if (msg == 2) {
@@ -175,7 +174,7 @@ function delete_event(event_id) {
             success: function(msg) {
                 //alert(msg);
                 if (msg == 1) {
-
+                    location.reload();
                     $('#event_' + event_id).hide();
                 }
                 else if (msg == 2) {
@@ -434,3 +433,11 @@ $(document).ready(function() {
                 });
             });
 }
+
+
+
+//generate report button
+$(document).on('click', '#event_print_btn', function() {
+    var win = window.open(site_url + '/event/event_controller/print_event_pdf_report', '_blank');
+    win.focus();
+});

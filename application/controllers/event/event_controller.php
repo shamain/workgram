@@ -131,5 +131,23 @@ class Event_controller extends CI_Controller {
         echo json_encode($data);
         
     }
+    
+     //for report generate
+      public function print_event_pdf_report() {
+        $event_service = new Event_service();
+
+
+        $data['heading'] = "Events Report";
+        $data['events'] = $event_service->get_all_events();
+
+        $SResultString = $this->load->view('reports/event_report', $data, TRUE);
+
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf->SetDisplayMode('fullpage');
+
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
+    }
 }
 
