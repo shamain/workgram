@@ -53,7 +53,16 @@ class Project_controller extends CI_Controller {
         $data['heading'] = "Add New Project";
 
         $project_stuff_temp_service = new Project_stuff_temp_service();
+        $project_service = new Project_service();
         $project_stuff_temp_service->truncate_project_temp_stuff();
+
+        $result = $project_service->get_last_project_id();
+        $last_id = '';
+        if (!empty($result)) {
+            $last_id = $result->project_id + 1;
+        }
+
+        $data['last_id'] = $last_id;
 
         $partials = array('content' => 'projects/add_project_view');
         $this->template->load('template/main_template', $partials, $data);
@@ -118,7 +127,7 @@ class Project_controller extends CI_Controller {
         $task_service = new Task_service();
 
         $not_complete_count = $task_service->get_not_complete_task_count_for_project(trim($this->input->post('id', TRUE)));
-        if($not_complete_count == 0) {
+        if ($not_complete_count == 0) {
             echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
         } else {
             echo 2;

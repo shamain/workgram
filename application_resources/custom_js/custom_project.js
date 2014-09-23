@@ -216,6 +216,13 @@ $(document).on('click', '#add_project_save_btn', function() {
     }
 });
 
+// edit project sumbit btn action
+$(document).on('click', '#edit_project_save_btn', function() {
+    if ($('#edit_project_form').valid()) {
+        $('#edit_project_form').submit();
+    }
+});
+
 
 //////////////////////Project Report/////////////////////////////////////////////////////////
 // project report search

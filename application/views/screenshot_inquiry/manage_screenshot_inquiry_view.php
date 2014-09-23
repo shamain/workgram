@@ -17,7 +17,7 @@
                                 <th>#</th>
                                 <th>Inquiry name</th>
                                 <th>Description</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -27,11 +27,9 @@
                                 ?> 
                                 <tr  id="inquiry_<?php echo $inquiry->inquiry_id; ?>">
                                     <td><?php echo++$i; ?></td>
-                                    <td><?php echo $company->inquiry_name; ?></td>
-                                    <td><?php echo $company->description; ?></td>
-                                    
+                                    <td><?php echo $inquiry->inquiry_name; ?></td>
+                                    <td><?php echo $inquiry->inquiry_description; ?></td>
 
-                                    
                                 </tr>
                             <?php } ?>    
                         </tbody>
@@ -40,15 +38,8 @@
             </div>
         </div>
     </div>
-<!--    <div class="col-md-1">
-        <div class="invoice-button-action-set">
-            <p>
-                <button class="btn btn-primary" type="button" id="company_print_btn"><i class="fa fa-print"></i></button>
-            </p>
-        </div>
-    </div>-->
 </div>
 
 <script type="text/javascript">
-                                        $('#screenshot_inquiry_parent_menu').addClass('active open');
+    $('#snap_shot_parent_menu').addClass('active open');
 </script>

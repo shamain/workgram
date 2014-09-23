@@ -21,7 +21,6 @@ class Screenshot_inquiry_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('screenshot_inquiry');
-        //$this->db->where('del_ind','1');
         $this->db->order_by("screenshot_inquiry.inquiry_id", "desc");
         $query = $this->db->get();
         return $query->result();
