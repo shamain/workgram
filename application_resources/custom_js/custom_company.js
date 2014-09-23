@@ -189,7 +189,7 @@ function delete_company(code) {
                     $('#company_'+code).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Employees.<br> First delete employees');
+                    alert('Cannot be deleted as it is already assigned to Employees. First delete employees');
                 }
             }
         });
