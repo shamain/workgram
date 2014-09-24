@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="input-with-icon  right">                                       
                             <i class=""></i>
-                            <input id="employee_name" class="form-control" type="text" name="employee_name">                              
+                            <input id="year" class="form-control" type="text" name="year" value="<?php echo date('M Y',  strtotime($year));?>">                              
                         </div>
                     </div>
                 </div></h4>

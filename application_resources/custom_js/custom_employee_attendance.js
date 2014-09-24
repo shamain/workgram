@@ -3,6 +3,7 @@
 $("#att_month_dpicker").datepicker( {
     format: "MM yyyy",
     viewMode: "months", 
+    autoclose: true,
     minViewMode: "months"
 });
 

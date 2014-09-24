@@ -38,7 +38,7 @@ class employee_payment_service extends CI_Model {
         $this->db->select('*');
         $this->db->from('employee_payment');
         $this->db->where('employee_code', $employee_payment_model->get_employee_code());
-        $this->db->where('get_year_month', $employee_payment_model->get_year_month());
+        $this->db->where('year_month', $employee_payment_model->get_year_month());
         $query = $this->db->get();
         return $query->row();
     }

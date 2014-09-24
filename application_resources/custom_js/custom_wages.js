@@ -164,9 +164,10 @@ $(document).ready(function() {
     });
 
 
-    $("#datepicker").datepicker({
+    $("#datepicker_wages").datepicker({
         format: "yyyy",
         viewMode: "years",
+        autoclose: true,
         minViewMode: "years"
     });
 
@@ -263,19 +264,19 @@ $(document).on('click', '#search_wages_btn', function() {
 
 
 function  get_wages_pop_up_view(employee_code, year_month) {
-
+console.log(year_month);
     $.post(site_url + '/wages/manage_wages_controller/get_wages_details_for_employee', {employee_code: employee_code, year_month: year_month}, function(msg) {
 
         $('#wages_pop_up_inner_content').html('');
         $('#wages_pop_up_inner_content').html(msg);
     });
-    
-    $("#wages_pop_up").dialog({
-        autoOpen: false,
-        modal: true,
-        width: "650"
 
-    });
-    $("#wages_pop_up").dialog("option", {modal: false}).dialog("open");
+//    $("#wages_pop_up").dialog({
+//        autoOpen: false,
+//        modal: true,
+//        width: "650"
+//
+//    });
+    $("#wages_pop_up").modal("show");
 //    event.preventDefault();
 }
