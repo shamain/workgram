@@ -90,7 +90,7 @@ $(document).ready(function() {
                 if (msg == 1) {
                     $("#add_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been added.</div>');
                     add_company_form.reset();
-                    window.location = site_url + '/company/company_controller/manage_companies';
+                    window.location = site_url + '/company/company_controller/manage_companies'; //Redirect to the main company view after adding
                 } else {
                     $("#add_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
                 }
@@ -155,7 +155,7 @@ $('#edit_company_form').validate({
             if (msg == 1) {
                 $("#edit_company_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >company </a>has been updated.</div>');
                 edit_company_form.reset();
-                window.location = site_url + '/company/company_controller/manage_companies';
+                window.location = site_url + '/company/company_controller/manage_companies'; //Redirect to the main company view after editing
             } else {
                 $("#edit_company_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">company </a>has failed.</div>');
             }

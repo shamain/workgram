@@ -7,6 +7,9 @@ $("#att_month_dpicker").datepicker( {
     minViewMode: "months"
 });
 
+/*
+ * JS function of search button
+ */
 $(document).on('click', '#search_employee_attendance_btn', function() {
 
     var emp_code = $('#emp_atn_employee').val();
