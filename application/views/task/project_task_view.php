@@ -54,17 +54,17 @@
 
                                 if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png' || $ext == 'svg' || $ext == 'gif') {
                                     ?>
-                                    <img src="<?php echo base_url(); ?>uploads/project_stuff/thumbnail/<?php echo $filename; ?>" />
+                                    <img src="<?php echo base_url(); ?>uploads/project_stuff/pr_<?php echo $project->project_id.'/thumbnail/'. $filename; ?>" />
                                     <?php
                                 } else if ($ext == 'mov' || $ext == 'avi' || $ext == 'flv' || $ext == 'mp4') {
                                     ?>
                                     <video width="320" height="240" controls>
-                                        <source src="<?php echo base_url(); ?>uploads/project_stuff/<?php echo $filename; ?>" type="video/<?php echo $ext; ?>">
+                                        <source src="<?php echo base_url(); ?>uploads/project_stuff/pr_<?php echo $project->project_id.'/'.$filename; ?>" type="video/<?php echo $ext; ?>">
                                     </video> 
                                     <?php
                                 } else {
                                     ?>
-                                    <a href="<?php echo base_url(); ?>uploads/project_stuff/<?php echo $filename; ?>"><?php echo $filename; ?></a>
+                                    <a href="<?php echo base_url(); ?>uploads/project_stuff/pr_<?php echo $project->project_id.'/'.$filename; ?>"><?php echo $filename; ?></a>
                                     <?php
                                 }
                             }

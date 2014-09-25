@@ -257,7 +257,7 @@
                                         }
                                         ?>
 
-                                    <td class="v-align-middle" style="width:9px;height:0;border:10px solid <?php echo $colour; ?>;overflow:hidden">
+                                    <td class="v-align-middle" style="width:9px;height:0;background-color:<?php echo $colour; ?>">
 <!--                                            <div style="padding:1px;top:9px;right:9px;;font-size:smaller;color:#545454;width: 21px;">
                                                 <div style=""></div>
                                             </div>-->

@@ -41,8 +41,9 @@ class UploadHandler
     protected $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        
         $this->options = array(
-            'script_url' => $this->get_full_url().'/',
+            'script_url' => $this->get_full_url().'/uploads/project_stuff/pr_'.$_POST['last_project_id'].'/',
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/uploads/project_stuff/pr_'.$_POST['last_project_id'].'/',
             'upload_url' => $this->get_full_url().'/uploads/project_stuff/pr_'.$_POST['last_project_id'].'/',
             'user_dirs' => false,
