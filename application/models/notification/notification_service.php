@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Name: W.B.M.C. Fernando
+ * ID  : IT08003416
+ */
 class Notification_service extends CI_Model {
 
     function __construct() {

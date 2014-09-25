@@ -1,3 +1,7 @@
+<!--
+   Name: W.B.M.C. Fernando
+   ID  : IT08003416
+-->
 <div class="page-title">	
     <h3><?php echo $heading; ?></h3>		
 </div>
@@ -12,7 +16,7 @@
             <div class="grid-body ">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-8">
-                        <form id="edit_notified_users_form" name="edit_notified_users_form">
+                        <form id="edit_notified_users_form1" name="edit_notified_users_form1">
 
                             <div class="form-group">
 

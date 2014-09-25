@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * Name: W.B.M.C. Fernando
+ * ID  : IT08003416
+ */
 class Notified_users_model extends CI_Model{
     
     var $notified_users_id;

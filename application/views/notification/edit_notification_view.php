@@ -1,3 +1,7 @@
+<!--
+   Name: W.B.M.C. Fernando
+   ID  : IT08003416
+-->
 <div class="page-title">	
     <h3><?php echo $heading; ?></h3>		
 </div>
@@ -7,12 +11,12 @@
         <div class="grid simple ">
             <div class="grid-title">
                 <h4>Advance <span class="semi-bold">Options</span></h4>
-                <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                <div class="tools"> <a href="javascript:;" class="collapse"></a><a href="javascript:;" class="reload"></a> </div>
             </div>
             <div class="grid-body ">
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
-                        <form id="edit_notification_form" name="edit_notification_form">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form id="edit_notification_form1" name="edit_notification_form1">
 
                             <div class="form-group">
                                 
@@ -53,7 +57,7 @@
                     
                             <input id="notification_id" class="form-control" type="hidden" name="notification_id" value="<?php echo $notification->notification_id; ?>" > 
 
-                            <div class="form-actions">
+                            <div class="modal-footer">
                                 <div class="pull-right">
                                     <button class="btn btn-primary btn-cons" type="submit">
                                         <i class="icon-ok"></i>
