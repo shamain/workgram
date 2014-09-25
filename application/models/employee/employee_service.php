@@ -466,6 +466,11 @@ class Employee_service extends CI_Model {
         return $query->num_rows();
     }
     
+    
+    /*
+     * This service function is to get project tasks related to a particular 
+     * employee. passing employee_code as a parameter
+     */
     function get_employee_task_by_project($employee_code) {
         $this->db->select('task.task_id,task.task_name,project.project_name,project.project_id');
         $this->db->from('task');
