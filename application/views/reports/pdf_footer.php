@@ -1,0 +1,1 @@
+ Printed By : <?PHP echo $this->session->userdata('EMPLOYEE_NAME').'|                     '; ?>    <?PHP echo date("F j, Y, g:i a"); ?>
