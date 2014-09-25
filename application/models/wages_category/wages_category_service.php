@@ -49,7 +49,7 @@ class Wages_category_service extends CI_Model {
     }
 
     function get_wages_category_by_id($wages_category_id) {
-        $query = $this->db->get_where('wages_category', array('wages_category_id' => $wages_category_id));
+        $query = $this->db->get_where('wages_category', array('wages_category_id' => $wages_category_id,'del_ind'=>'1'));
         return $query->row();
     }
 

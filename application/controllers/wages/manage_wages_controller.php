@@ -18,6 +18,9 @@ class manage_wages_controller extends CI_Controller {
 
             $this->load->model('employee_payment/employee_payment_model');
             $this->load->model('employee_payment/employee_payment_service');
+            
+             $this->load->model('wages_category/wages_category_model');
+             $this->load->model('wages_category/wages_category_service');
         }
     }
 
@@ -99,9 +102,9 @@ class manage_wages_controller extends CI_Controller {
                 } else {
                     $wage_array['wage_status'] = 'NOT PAID';
                 }
-                $t_array[]=$wage_array;
+                $t_array[] = $wage_array;
             }
-            $temp['wage'] = $t_array ;
+            $temp['wage'] = $t_array;
             $results[] = $temp;
         }
 
@@ -135,14 +138,20 @@ class manage_wages_controller extends CI_Controller {
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
         $employee_service = new Employee_service();
+        $wages_category_service = new wages_category_service();
 
         $employee_payment_model->set_employee_code($this->input->post('employee_code', TRUE));
         $employee_payment_model->set_year_month(($this->input->post('year_month', TRUE)));
 
-        $data['payment_detail'] = $employee_payment_service->get_payments_by_employee_id_and_month($employee_payment_model);
-        $data['employee']=$employee_service->get_employee_by_id($this->input->post('employee_code', TRUE));
-        $data['year']=$this->input->post('year_month', TRUE);
-
+        $payment_detail = $employee_payment_service->get_payments_by_employee_id_and_month($employee_payment_model);
+        $data['employee'] = $employee_service->get_employee_by_id($this->input->post('employee_code', TRUE));
+        $data['year'] = $this->input->post('year_month', TRUE);
+        $data['payment_detail'] = $payment_detail;
+        if (!empty($payment_detail)) {
+            $wages_detail=$wages_category_service->get_wages_category_by_id($payment_detail->wages_category_id);
+            $data['wages_detail'] = $wages_detail;
+        }
+        $data['worked_hours']=0;
         $this->load->view('wages/wages_monthly_pop_up_view', $data);
     }
 
