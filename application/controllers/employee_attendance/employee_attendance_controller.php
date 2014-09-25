@@ -20,6 +20,9 @@ class Employee_attendance_controller extends CI_Controller {
         }
     }
 
+    /*
+     * This function is to display the attendance of employees
+     */
     function manage_employee_attendance() {
         $employee_service = new employee_service();
 
@@ -30,6 +33,10 @@ class Employee_attendance_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
+    
+    /*
+     * Viewing reports
+     */
     function view_employee_attendance_report() {
 
         $employee_service = new employee_service();
@@ -44,6 +51,10 @@ class Employee_attendance_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
+    
+    /*
+     * This function is to get dates for employee attendance
+     */
     function get_dates_for_employee_attendance_filter() {
 
 
@@ -94,6 +105,10 @@ class Employee_attendance_controller extends CI_Controller {
         $this->load->view('employee_attendance/employee_attendance_filter_view', $data);
     }
 
+    
+    /*
+     * This function is to print attendance report
+     */
     public function print_attendance_pdf_report() {
         $employee_service = new employee_service();
         $employee_attendance_model = new Employee_attendance_model();

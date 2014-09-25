@@ -29,6 +29,9 @@ class Employee_profile_controller extends CI_Controller {
         }
     }
 
+    /*
+     * This function is to view the employee profile
+     */
     function view_profile() {
 
         $employee_service = new Employee_service();
@@ -71,7 +74,11 @@ class Employee_profile_controller extends CI_Controller {
         $partials = array('content' => 'employee/employee_profile_view');
         $this->template->load('template/main_template', $partials, $data);
     }
+    
 
+    /*
+     * This function is to dispaly the edit profile view
+     */
     function edit_employee_profile($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE_PROFILE');
 //        if ($perm) {
@@ -89,6 +96,12 @@ class Employee_profile_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
+    
+    /*
+     * This function is to edit employee's details in the profile using the 
+     * function update_employee_profile in employee_service
+     */
 
     function edit_employee() {
 
@@ -112,6 +125,10 @@ class Employee_profile_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
+    /*
+     * This function is to upload a cover image to the profile
+     */
 
     function upload_employee_cover_pic() {
 
@@ -128,6 +145,10 @@ class Employee_profile_controller extends CI_Controller {
         }
     }
 
+    
+    /*
+     * This function is to upload profile pic to employee
+     */
     function upload_employee_avatar() {
 
         $uploaddir = './uploads/employee_avatar/';
@@ -143,6 +164,10 @@ class Employee_profile_controller extends CI_Controller {
         }
     }
 
+    
+    /*
+     * This function is to update employee profile pic
+     */
     function update_employee_avatar() {
         $employee_service = new Employee_service();
         $employee_model = new Employee_model();
@@ -158,6 +183,10 @@ class Employee_profile_controller extends CI_Controller {
         echo $result;
     }
 
+    
+    /*
+     * This function is to update the employee cover image
+     */
     function update_employee_cover_image() {
         $employee_service = new Employee_service();
         $employee_model = new Employee_model();

@@ -32,6 +32,11 @@ class Company_controller extends CI_Controller {
 
         $this->load->library('email');
     }
+    
+    
+    /*manage_companies function
+     * This will display all the companies
+     */
 
     function manage_companies() {
 
@@ -43,7 +48,8 @@ class Company_controller extends CI_Controller {
         $parials = array('content' => 'company/manage_company_view');
         $this->template->load('template/main_template', $parials, $data);
     }
-
+    
+    
     function company_registration() {
 
         $company_model = new Company_model();
@@ -131,6 +137,7 @@ class Company_controller extends CI_Controller {
         }
     }
 
+    
     //generate token
     public function generate_random_string($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -140,6 +147,7 @@ class Company_controller extends CI_Controller {
         }
         return $random_string;
     }
+    
 
     public function account_activation($emp_id, $token) {
 
@@ -163,7 +171,13 @@ class Company_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
+    
 
+    /*
+     * This function is to add a new company using the method add_new_company 
+     * in company service
+     */
+    
     function add_new_company() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
 //        if ($perm) {
@@ -182,7 +196,12 @@ class Company_controller extends CI_Controller {
 
         echo $company_service->add_new_company($company_model);
     }
+    
 
+    /*
+     * This is to represent the edit company view. This funtion is passing 
+     * company_code as the parameter 
+     */
     function edit_company_view($company_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
 //        if ($perm) {
@@ -200,6 +219,11 @@ class Company_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
+    /*
+     * Edit company function using the update_company function in the 
+     * company_service
+     */
 
     function edit_company() {
 
@@ -226,7 +250,11 @@ class Company_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
+    
 
+    /*
+     * Printing reports 
+     */
     public function print_company_pdf_report() {
         $company_service = new Company_service();
 
@@ -246,6 +274,11 @@ class Company_controller extends CI_Controller {
         $mpdf->Output();
     }
 
+    
+    /*
+     * This is to delete a company by checking the no. of employees assign to
+     *  that company
+     */
     function delete_company() {
 
 //        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
