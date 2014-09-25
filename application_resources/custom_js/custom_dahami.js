@@ -1,5 +1,35 @@
+var base_url = js_base_url;
+var site_url = js_site_url;
 
 
+////////////////////screenshot_inquiry//////////////////////////////////////////////////////////////
+$(document).ready(function() {
+    //screenshot_inquiry table
+    var screenshot_inquiry_table = $('#screenshot_inquiry_table').dataTable({
+        "sDom": "<'row'<'col-md-6'l <'toolbar screenshot_inquiry_table_tbar'>><'col-md-6'f>r>t<'row'<'col-md-12'p i>>",
+        "oTableTools": {
+            "aButtons": [
+                {
+                    "sExtends": "collection",
+                    "sButtonText": "<i class='fa fa-cloud-download'></i>",
+                    "aButtons": ["csv", "xls", "pdf", "copy"]
+                }
+            ]
+        },
+        "aoColumnDefs": [
+            {"bSortable": false, "aTargets": [0]}
+        ],
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ ",
+            "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+        }
+    });
+
+    $('#screenshot_inquiry_table_wrapper .dataTables_filter input').addClass("input-medium ");
+    $('#screenshot_inquiry_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
+    $(".select2-wrapper").select2({minimumResultsForSearch: -1});
+    
+});
 
 
 function save_user_privileges(privilege_code, employee_code) {
@@ -242,3 +272,4 @@ $(document).on('click', '.sc_chk_box', function() {
         $(this).parent().next().val('0');
     }
 });
+

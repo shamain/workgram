@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class screenshot_inquiry extends CI_Controller {
+class Screenshot_inquiry_controller extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -16,6 +16,18 @@ class screenshot_inquiry extends CI_Controller {
 
             
         }
+    }
+    
+    function manage_screenshot_inquiry() {
+
+
+        $screenshot_inquiry_service = new Screenshot_inquiry_service();
+
+        $data['heading'] = "Manage Screenshot Inquiry";
+        $data['inquiries'] = $screenshot_inquiry_service->get_all_inquiries();
+
+        $parials = array('content' => 'screenshot_inquiry/manage_screenshot_inquiry_view');
+        $this->template->load('template/main_template', $parials, $data);
     }
     
     function add_screenshot_inquiry() {

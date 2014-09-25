@@ -70,6 +70,7 @@
     </a>
     <ul class="sub-menu">
         <li > <a href="<?php echo site_url(); ?>/employee_screenshots/employee_screenshots_controller/manage_employee_screenshot"> Snap Shots </a> </li>
+        <li > <a href="<?php echo site_url(); ?>/screenshot_inquiry/screenshot_inquiry_controller/manage_screenshot_inquiry"> Inquiries </a> </li>
 
     </ul>
 </li> 

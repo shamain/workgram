@@ -187,6 +187,7 @@
                                     <!-- The loading indicator is shown during file processing -->
                                     <label><em>Attach project materials.</em></label>
                                     <br>
+                                    <input type="hidden" id="last_project_id" value="<?php  echo $last_id;?>" name="last_project_id"/>
                                     <!-- The table listing the files available for upload/download -->
                                     <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
                                 </div>   

@@ -70,5 +70,15 @@ class Project_service extends CI_Model {
 
         return $query->result();
     }
+    
+    function get_last_project_id(){
+        $this->db->select('project_id');
+        $this->db->from('project');
+        $this->db->order_by("project_id", "desc");
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
 
 }

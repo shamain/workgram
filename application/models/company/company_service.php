@@ -22,6 +22,7 @@ class Company_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('company');
+        $this->db->where('del_ind','1');
         $this->db->order_by("company.company_code", "desc");
         $query = $this->db->get();
         return $query->result();
@@ -44,7 +45,7 @@ class Company_service extends CI_Model {
 
     function get_company_by_id($company_code) {
 
-        $query = $this->db->get_where('company', array('company_code' => $company_code));
+        $query = $this->db->get_where('company', array('company_code' => $company_code,'del_ind'=>'1'));
         return $query->row();
     }
     

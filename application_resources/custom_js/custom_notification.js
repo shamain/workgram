@@ -147,7 +147,7 @@ $(document).ready(function() {
     
     //Initialise Notification Menu 
     init_notification_menu();
-    setInterval(init_notification_menu, 2000);
+//    setInterval(init_notification_menu, 2000);
 });
 
 //delete notification

@@ -27,10 +27,10 @@
 
         </div>
         <div class="col-md-2" >
-            <div class="input-with-icon  right input-append primary date  no-padding" id="datepicker">                                       
+            <div class="input-with-icon  right input-append primary date  no-padding" id="datepicker_wages">                                       
                 <i class=""></i>
 
-                <input class="form-control" type="text" input-append id="year_wages"value="<?php echo date('Y') ?>" >
+                <input class="form-control" type="text" input-append id="year_wages"value="<?php echo date('Y') ?>" readonly="true">
                 <span class="add-on">
                     <span class="arrow"></span>
                     <i class="fa fa-th"></i>

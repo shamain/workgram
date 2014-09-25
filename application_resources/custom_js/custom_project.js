@@ -201,7 +201,7 @@ function delete_project(id) {
                     $('#projects_' + id).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Tasks');
+                    alert('Cannot be deleted as it is already assigned to Tasks.<br>First complete tasks !!');
                 }
             }
         });
@@ -213,6 +213,13 @@ function delete_project(id) {
 $(document).on('click', '#add_project_save_btn', function() {
     if ($('#add_project_form').valid()) {
         $('#add_project_form').submit();
+    }
+});
+
+// edit project sumbit btn action
+$(document).on('click', '#edit_project_save_btn', function() {
+    if ($('#edit_project_form').valid()) {
+        $('#edit_project_form').submit();
     }
 });
 
