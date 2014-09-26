@@ -100,7 +100,6 @@ class manage_wages_controller extends CI_Controller {
                 $wage_array['wage_month'] = date('Y-m-01', strtotime(date('M', strtotime($month)) . ' ' . $year));
 
                 if (!empty($wages_details)) {
-                     $wage_array['wage_status'] = $wages_details->is_paid;
                     if ($wages_details->is_paid == 'Y') {
                         $wage_array['wage_status'] = 'PAID';
                     } else {
@@ -161,6 +160,7 @@ class manage_wages_controller extends CI_Controller {
             $wages_detail=$wages_category_service->get_wages_category_by_id($payment_detail->wages_category_id);
             $data['wages_detail'] = $wages_detail;
         }
+
         $data['worked_hours']=0;
         $this->load->view('wages/wages_monthly_pop_up_view', $data);
     }
