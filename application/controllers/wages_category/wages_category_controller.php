@@ -14,6 +14,9 @@ class wages_category_controller extends CI_Controller {
         } else {
               $this->load->model('wages_category/wages_category_model');
              $this->load->model('wages_category/wages_category_service');
+             
+             $this->load->model('employee/employee_model');
+            $this->load->model('employee/employee_service');
         }
     }
 
