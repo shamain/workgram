@@ -21,7 +21,7 @@ class Wages_category_service extends CI_Model {
         $this->db->where('wages_category_id', $wages_category_id);
         return $this->db->update('wages_category', $data);
     }
-
+ 
     public function get_all_wages_categories() {
 
         $this->db->select('*');

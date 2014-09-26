@@ -187,7 +187,7 @@ class Employee_controller extends CI_Controller {
         }
         return $random_string;
     }
-
+ 
     public function account_activation($emp_id, $token) {
 
         $employee_service = new Employee_service();
@@ -210,11 +210,10 @@ class Employee_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
-    
+   /*   Print Employee Report
+    */ 
     public function print_employee_pdf_report() {
         $employee_service = new Employee_service();
-
-        
 
         $current_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $data['employees'] = $current_employees;

@@ -490,5 +490,16 @@ class Employee_service extends CI_Model {
         return $this->db->insert_id();
     }
 
+    //get active employees in a wages_category by wages_category_id
+    function get_employees_by_wages_category_id_manage($wages_category_id) {
+
+        $this->db->select('*');
+        $this->db->from('employee');
+        $this->db->where('wages_category_id', $wages_category_id);
+        $this->db->where('del_ind', '1');
+        $this->db->order_by("employee_code",'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 }

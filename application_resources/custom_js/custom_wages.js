@@ -171,7 +171,30 @@ $(document).ready(function() {
         minViewMode: "years"
     });
 
+
 });
+////delete wages_category
+function delete_wages_category(id) {
+
+    if (confirm('Are you sure want to delete this Wages Category?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/wages_category/wages_category_controller/delete_wages_category',
+            data: "id=" + id,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#wages_category_'+id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted as it is already assigned to Employees. First delete employees');
+                }
+            }
+        });
+    }
+}
 //get employee for company
 $(document).on('change', '#select_company', function() {
 

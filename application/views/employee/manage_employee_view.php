@@ -1,7 +1,7 @@
 <div class="page-title">	
     <h3><?php echo $heading; ?></h3>		
 </div>
-
+<!-- Employee Table  -->
 <div class="row-fluid">
     <div class="col-md-11">
         <div class="span12">
@@ -102,7 +102,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- ADD NEW EMPLOYEE MODEL -->
 <div class="modal fade" id="add_employee_modal" tabindex="-1" role="dialog" aria-labelledby="add_employee_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

@@ -72,16 +72,34 @@ class wages_category_controller extends CI_Controller {
         echo $wages_category_service->update_wages_category($wages_category_model);
     }
 
-    function delete_wages_category() {
-
-
-        $wages_category_service = new wages_category_service();
-
-        echo $wages_category_service->delete_wages_category(trim($this->input->post('wages_category_id', TRUE)));
-    }
+//    function delete_wages_category() {
+//
+//
+//        $wages_category_service = new wages_category_service();
+//
+//        echo $wages_category_service->delete_wages_category(trim($this->input->post('wages_category_id', TRUE)));
+//    }
 
    
+ function delete_wages_category() {
 
+//        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
+//        if ($perm) {
+        $wages_category_service = new wages_category_service();
+        $employee_service = new employee_service();
+
+        $employees = $employee_service->get_employees_by_wages_category_id_manage(trim($this->input->post('id', TRUE)));
+
+        //if no employees are assigned to category we can delete otherwise we cant delete the wages_category
+        if (count($employees) == 0) {
+            echo $wages_category_service->delete_wages_category(trim($this->input->post('id', TRUE)));
+        } else {
+            echo 2;
+        }
+//        } else {
+//            $this->template->load('template/access_denied_page');
+//        }
+    }
     
    
 
