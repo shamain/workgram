@@ -74,3 +74,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $('#notification_parent_menu').addClass('active open');
+</script>
