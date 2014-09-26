@@ -224,11 +224,11 @@ class Project_controller extends CI_Controller {
         $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
         $SResultString = $this->load->view('reports/project_report', $data, TRUE);
-
+        $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
         $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
-
+        $mpdf->SetFooter($footer);
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }

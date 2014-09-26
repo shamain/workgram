@@ -175,11 +175,11 @@ class Notification_controller extends CI_Controller {
         $data['notified_users'] = $notified_users_service->get_all_notified_users();
 
         $SResultString = $this->load->view('reports/notification_report', $data, TRUE);
-
+        $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
         $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
-
+        $mpdf->SetFooter($footer);
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }

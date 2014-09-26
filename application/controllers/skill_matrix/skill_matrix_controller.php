@@ -236,11 +236,11 @@ class Skill_matrix_controller extends CI_Controller {
 
         $data['title'] = 'Skill Matrix';
         $SResultString = $this->load->view('reports/view_my_skill_report', $data, TRUE);
-
+        $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
         $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
-
+        $mpdf->SetFooter($footer);
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }
