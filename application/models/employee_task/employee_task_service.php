@@ -35,5 +35,16 @@ class Employee_task_service extends CI_Model {
 
         return $this->db->update('employee_tasks', $data);
     }
+         //get assigned tasks in a employee by employee code
+    function get_employees_by_employee_task_id_manage($employee_code) {
+
+        $this->db->select('*');
+        $this->db->from('employee_tasks');
+        $this->db->where('employee_code', $employee_code);
+        $this->db->where('del_ind', '1');
+        $this->db->order_by("employee_task_id",'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 }

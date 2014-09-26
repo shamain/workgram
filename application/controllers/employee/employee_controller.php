@@ -96,18 +96,24 @@ class Employee_controller extends CI_Controller {
         }
     }
 
+
+ /* This Function use to delete employee */
     function delete_employee() {
 
-//        $perm = Access_controllerservice :: checkAccess('DELETE_EMPLOYEE');
-//        if ($perm) {
+
         $employee_service = new employee_service();
+        $employee_task_service = new employee_taskservice();
 
-        echo $employee_service->delete_employee(trim($this->input->post('code', TRUE)));
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+        $employee_tasks = $employee_task_service->get_employees_by_employee_task_id_manage(trim($this->input->post('code', TRUE)));
+
+        //if no employees in company we can delete otherwise we cant delete the company
+        if (count($employee_tasks) == 0) {
+            echo $employee_service->delete_employee(trim($this->input->post('code', TRUE)));
+        } else {
+            echo 2;
+        }
+
     }
-
     function edit_employee_view($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
 //        if ($perm) {

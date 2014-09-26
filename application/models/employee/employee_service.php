@@ -217,13 +217,16 @@ class Employee_service extends CI_Model {
         $this->db->last_query();
         return $this->db->insert_id();
     }
-
+/*
+     * This service function is to delete a employee
+     */
     function delete_employee($emp_code) {
         $data = array('del_ind' => '0');
         $this->db->where('employee_code', $emp_code);
         return $this->db->update('employee', $data);
     }
-
+ 
+   
     function updateEmployee($employeemodel) {
 
         //setting the fields need to be update
@@ -491,11 +494,11 @@ class Employee_service extends CI_Model {
     }
 
     //get active employees in a wages_category by wages_category_id
-    function get_employees_by_wages_category_id_manage($wages_category_id) {
+    function get_employees_by_wages_category_id_manage($employee_wages_category) {
 
         $this->db->select('*');
         $this->db->from('employee');
-        $this->db->where('wages_category_id', $wages_category_id);
+        $this->db->where('employee_wages_category', $employee_wages_category);
         $this->db->where('del_ind', '1');
         $this->db->order_by("employee_code",'desc');
         $query = $this->db->get();

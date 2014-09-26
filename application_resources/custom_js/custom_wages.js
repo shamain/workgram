@@ -95,7 +95,7 @@ $(document).ready(function() {
         }
     });
 
-
+});
 
     //edit wages category Form
     $('#edit_wages_category_form').validate({
@@ -172,7 +172,7 @@ $(document).ready(function() {
     });
 
 
-});
+
 ////delete wages_category
 function delete_wages_category(id) {
 
