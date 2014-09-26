@@ -123,7 +123,7 @@
                 <div class="col-md-6">
                     <div class="input-with-icon  right">                                       
                         <i class=""></i>
-                        <input id="amount" class="form-control" type="text" name="amount" value="<?php echo $payment_detail->amount; ?> " >                              
+                        <input id="amount" class="form-control" type="text" name="amount" value="<?php if(!empty($payment_detail)){ echo $payment_detail->amount; }?> " >                              
                     </div>
                 </div>
             </div>
