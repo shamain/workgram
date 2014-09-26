@@ -270,64 +270,6 @@ foreach ($skill_cat_array as $skill_cat) {
 }
 ?>
 
-                                        //                                        var data2 = [
-                                        //
-                                        //                                            {
-                                        //                                                
-                                        //                                                label: "Product 1",
-                                        //                                                data: d1_1,
-                                        //                                                bars: {
-                                        //                                                    show: true,
-                                        //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
-                                        //                                                    fill: true,
-                                        //                                                    lineWidth: 0,
-                                        //                                                    order: 0,
-                                        //                                                    fillColor: "rgba(243, 89, 88, 0.7)"
-                                        //                                                },
-                                        //                                                color: "rgba(243, 89, 88, 0.7)"
-                                        //                                            },
-                                        //
-                                        //                                                 
-                                        //                                            {
-                                        //                                                label: "Product 2",
-                                        //                                                data: d1_2,
-                                        //                                                bars: {
-                                        //                                                    show: true,
-                                        //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
-                                        //                                                    fill: true,
-                                        //                                                    lineWidth: 0,
-                                        //                                                    order: 0,
-                                        //                                                    fillColor: "rgba(251, 176, 94, 0.7)"
-                                        //                                                },
-                                        //                                                color: "rgba(251, 176, 94, 0.7)"
-                                        //                                            },
-                                        //                                            {
-                                        //                                                label: "Product 3",
-                                        //                                                data: d1_3,
-                                        //                                                bars: {
-                                        //                                                    show: true,
-                                        //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
-                                        //                                                    fill: true,
-                                        //                                                    lineWidth: 0,
-                                        //                                                    order: 0,
-                                        //                                                    fillColor: "rgba(10, 166, 153, 0.7)"
-                                        //                                                },
-                                        //                                                color: "rgba(10, 166, 153, 0.7)"
-                                        //                                            },
-                                        //                                            {
-                                        //                                                label: "Product 4",
-                                        //                                                data: d1_4,
-                                        //                                                bars: {
-                                        //                                                    show: true,
-                                        //                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
-                                        //                                                    fill: true,
-                                        //                                                    lineWidth: 0,
-                                        //                                                    order: 0,
-                                        //                                                    fillColor: "rgba(0, 144, 217, 0.7)"
-                                        //                                                },
-                                        //                                                color: "rgba(0, 144, 217, 0.7)"
-                                        //                                            },
-                                        //                                        ];
                                         $.plot($('#stacked-ordered-chart'), data2, {
                                             grid: {
                                                 hoverable: true,

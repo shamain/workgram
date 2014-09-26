@@ -18,8 +18,12 @@ class employee_payment_service extends CI_Model {
     }
 
     public function get_employee_payment($employee_payment_model) {
-
-        $query = $this->db->get_where('employee_payment', array('employee_code' => $employee_payment_model->get_employee_code(), 'year_month' => $employee_payment_model->get_year_month()));
+        $this->db->select('*');
+        $this->db->from('employee_payment');
+        $this->db->where('employee_code', $employee_payment_model->get_employee_code());
+        $this->db->where('year_month', $employee_payment_model->get_year_month());
+        $query = $this->db->get();
+//        echo $this->db->last_query();
         return $query->row();
     }
 
@@ -32,7 +36,7 @@ class employee_payment_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     function get_payments_by_employee_id_and_month($employee_payment_model) {
 
         $this->db->select('*');

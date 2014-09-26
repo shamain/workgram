@@ -94,13 +94,14 @@ class manage_wages_controller extends CI_Controller {
             $t_array = array();
             foreach ($months as $month) {
                 $employee_payment_model->set_employee_code($emp->employee_code);
-                $employee_payment_model->set_year_month(date('M', strtotime($month)) . ' ' . $year);
+                $employee_payment_model->set_year_month($year.date('-m-01', strtotime($month)));
                 $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
 
                 $wage_array['wage_month'] = date('Y-m-01', strtotime(date('M', strtotime($month)) . ' ' . $year));
 
                 if (!empty($wages_details)) {
-                    if ($wages_details->is_paid) {
+                     $wage_array['wage_status'] = $wages_details->is_paid;
+                    if ($wages_details->is_paid == 'Y') {
                         $wage_array['wage_status'] = 'PAID';
                     } else {
                         $wage_array['wage_status'] = 'NOT PAID';
@@ -114,8 +115,6 @@ class manage_wages_controller extends CI_Controller {
             $results[] = $temp;
         }
 
-//        print_r($results);
-//        die;
         $data['months'] = $months;
         $data['results'] = $results;
 
