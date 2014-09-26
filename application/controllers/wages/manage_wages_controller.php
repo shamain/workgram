@@ -38,7 +38,10 @@ class manage_wages_controller extends CI_Controller {
         $partials = array('content' => 'wages/manage_wages_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-
+    
+/* 
+ * this functiion use to get filter of employee in thir company code
+ */
     function get_employee_by_company() {
         $employee_model = new employee_model();
         $employee_service = new employee_service();
@@ -55,7 +58,10 @@ class manage_wages_controller extends CI_Controller {
         ?>
         <?php
     }
-
+    
+/* this function use to get filter data 
+ * and dispay payment status on button
+ */
     function get_employee_payment() {
 
 
@@ -115,7 +121,10 @@ class manage_wages_controller extends CI_Controller {
 
         $this->load->view('wages/wages_filter_view', $data);
     }
-
+/*
+ * this function use to add new payment 
+ */
+    
     function add_new_payments() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
 //        if ($perm) {
@@ -133,7 +142,9 @@ class manage_wages_controller extends CI_Controller {
 
         echo $employee_payment_service->add_new_payment($employee_payment_model);
     }
-
+/*this function use for get data 
+ * to payment pop up model 
+ *  */
     function get_wages_details_for_employee() {
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
@@ -155,4 +166,10 @@ class manage_wages_controller extends CI_Controller {
         $this->load->view('wages/wages_monthly_pop_up_view', $data);
     }
 
+    
+    /*
+     * Printing reports 
+     */
+   
+    
 }
