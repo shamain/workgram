@@ -63,7 +63,7 @@
                 <div class="col-md-6">
                     <div class="input-with-icon  right">                                       
                         <i class=""></i>
-                        <input id="basic_salary" class="form-control" type="text" name="basic_salary" value="<?php echo $wages_detail->basic_salary; ?> ">                              
+                        <input id="basic_salary" class="form-control" type="text" name="basic_salary" value="<?php if(!empty($wages_detail)){ echo $wages_detail->basic_salary; } ?> ">                              
                     </div>
                 </div>
             </div>
