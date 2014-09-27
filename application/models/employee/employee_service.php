@@ -93,6 +93,7 @@ class Employee_service extends CI_Model {
     //get active employees in a company by company code
     /* 
      * this function use in manage_employees() & print_employee_pdf_report() function  in employee controller
+     *  this function use manage_wages() function
      */
     function get_employees_by_company_id_manage($company_code) {
 
