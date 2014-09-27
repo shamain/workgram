@@ -17,7 +17,7 @@ if ($perm) {
 
 <li class="" id="project_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-suitcase"></i> 
         <span class="title">Projects</span> 
         <span class="arrow "></span> 
     </a>
@@ -33,7 +33,7 @@ if ($perm) {
 ?>
 <li class="" id="employee_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-group"></i> 
         <span class="title">Employees</span> 
         <span class="arrow "></span> 
     </a>
@@ -46,7 +46,7 @@ if ($perm) {
 
 <li class="" id="wages_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-money"></i> 
         <span class="title">Wages</span> 
         <span class="arrow "></span> 
     </a>
@@ -59,7 +59,7 @@ if ($perm) {
 
 <li class="" id="skill_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-dashboard"></i> 
         <span class="title">Skills</span> 
         <span class="arrow "></span> 
     </a>
@@ -73,7 +73,7 @@ if ($perm) {
 
 <li class="" id="snap_shot_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-camera"></i> 
         <span class="title">Work Snaps</span> 
         <span class="arrow "></span> 
     </a>
@@ -86,7 +86,7 @@ if ($perm) {
 
 <li class="" id="notification_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-quote-right"></i> 
         <span class="title">Notification</span> 
         <span class="arrow "></span> 
     </a>
@@ -98,7 +98,7 @@ if ($perm) {
 
 <li class="" id="event_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
+        <i class="fa fa-calendar-o"></i> 
         <span class="title">Events</span> 
         <span class="arrow "></span> 
     </a>
@@ -110,7 +110,7 @@ if ($perm) {
 
 <li class="" id="settings_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-wrench"></i> 
+        <i class="fa fa-gears"></i> 
         <span class="title">Settings</span> 
         <span class="arrow "></span> 
     </a>
@@ -123,7 +123,7 @@ if ($perm) {
 
 <li class="" id="attendance_parent_menu"> 
     <a href="javascript:;">
-        <i class="fa fa-wrench"></i> 
+        <i class="fa fa-tasks"></i> 
         <span class="title">Attendance</span> 
         <span class="arrow "></span> 
     </a>

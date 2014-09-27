@@ -7535,3 +7535,7 @@ input[type="checkbox"] {
 .myscroll{
     overflow-x: scroll;
 }
+
+.fcc-button{
+   margin-right:5px; 
+}
