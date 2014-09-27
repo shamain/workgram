@@ -79,7 +79,7 @@
                                             <span class="label label-important">Delete</span>
                                         </a>
                                         <a href="<?php echo site_url(); ?>/employee_privilege/employee_privilege_controller/manage_employee_privileges/<?php echo $employee->employee_code; ?>">
-                                            <i class="fa fa-unlock-alt"></i>
+                                            <span class="label label-warning ">Privilage</span>
                                         </a>
 
                                     </td>
