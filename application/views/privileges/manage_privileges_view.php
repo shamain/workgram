@@ -34,11 +34,11 @@
                                     <?php if ($this->config->item('ADMIN') == $privilege->assign_for) { ?> 
                                         <span class="label label-important">Admin</span>
                                     <?php } else if ($this->config->item('COMPANY_OWNER') == $privilege->assign_for) { ?>
-                                        <span class="label label-important">Company Owner</span>
+                                        <span class="label label-success">Company Owner</span>
                                     <?php } else if ($this->config->item('EMPLOYEE') == $privilege->assign_for) { ?>
-                                        <span class="label label-important">Employee</span>
+                                        <span class="label label-info">Employee</span>
                                     <?php } else { ?>
-                                        <span class="label label-important">All</span>
+                                        <span class="label label-warning">All</span>
                                     <?php } ?>
                                 </td>
                                 <td>

@@ -47,16 +47,20 @@
                                 //check whether the project deadline is near(7 days or less than 7 days)
                                 $diff12 = date_diff(date_create(date('Y-m-d')), date_create($project_dead_line));
                                 $days_difference = $diff12->d;
-                                
+
 //                                if ($days_difference <= 7) {
 //                                    $bg_colour='papayawhip';
 //                                }else if($days_difference >= 7){
-//                                    $bg_colour='red';
+//                                    $bg_colour='#e892a2';
 //                                }
-                                
+
+                                $bg_colour = '';
+                                if ($days_difference >= 7) {
+                                    $bg_colour = '#e892a2';
+                                }
                                 ?> 
-                                <tr  id="projects_<?php echo $project->project_id; ?>" style="background-color: papayawhip;">
-                                    <td><?php echo ++$i; ?></td>
+                                <tr  id="projects_<?php echo $project->project_id; ?>" style="background-color: <?php echo $bg_colour ?>">
+                                    <td><?php echo++$i; ?></td>
                                     <td><?php echo $project->project_name; ?></td>
                                     <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="100px" height="68px" /></td>
                                     <td><?php echo $project->employee_fname . ' ' . $project->employee_lname; ?></td>
@@ -125,5 +129,5 @@
 
 
 <script type="text/javascript">
-    $('#project_parent_menu').addClass('active open');
+                                            $('#project_parent_menu').addClass('active open');
 </script>
