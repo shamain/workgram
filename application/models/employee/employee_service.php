@@ -77,6 +77,19 @@ class Employee_service extends CI_Model {
         return $query->result();
     }
 
+    function get_online_employees_by_company_id($company_code) {
+
+        $this->db->select('*');
+        $this->db->from('employee');
+        $this->db->where('company_code', $company_code);
+        $this->db->where('del_ind', '1');
+        $this->db->where('is_online', 'Y');
+        $this->db->order_by("employee_code","desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    
     //get active employees in a company by company code
     /* 
      * this function use in manage_employees() & print_employee_pdf_report() function  in employee controller
