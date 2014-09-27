@@ -53,16 +53,80 @@
         <!-- JS -->
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/chat.js"></script>
 
-        <script src="http://js.pusher.com/1.12/pusher.min.js"></script>
-        <script src="<?php echo base_url(); ?>application_resources/custom_js/PusherChatWidget.js"></script> 
-        <link href="<?php echo base_url(); ?>application_resources/css/pusher-chat-widget.css" rel="stylesheet" type="text/css"/>
-        <script>
-            setPath("<?php echo base_url(); ?>", "<?php echo site_url(); ?>");
+           <script type="text/javascript">
+               setUname("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?>");
+    setPath("<?php echo base_url(); ?>", "<?php echo site_url(); ?>");
             setName("<?php echo ucfirst($this->session->userdata('EMPLOYEE_FNAME')); ?>");
             setEmail("<?php echo ucfirst($this->session->userdata('EMPLOYEE_EMAIL')); ?>");
 
-        </script>
+var path;
+var ename;
+var eemail;
+ function setPath(x,y){
+     path=x;
+ }
+     function setName(name){
+         ename=name;
+     }
+     
+     function setEmail(email){
+          eemail=email;
+     }
+        
+    	
+    	
+        var chat =  new Chat();
+    	$(function() {
+    	
+    		 chat.getState(); 
+    		 
+    		 // watch textarea for key presses
+             $("#sendie").keydown(function(event) {  
+             
+                 var key = event.which;  
+           
+                 //all keys including return.  
+                 if (key >= 33) {
+                   
+                     var maxLength = $(this).attr("maxlength");  
+                     var length = this.value.length;  
+                     
+                     // don't allow new content if length is maxed out
+                     if (length >= maxLength) {  
+                         event.preventDefault();  
+                     }  
+                  }  
+    		 																																																});
+    		 // watch textarea for release of key press
+    		 $('#sendie').keyup(function(e) {	
+    		 					 
+    			  if (e.keyCode == 13) { 
+    			  
+                    var text = $(this).val();
+    				var maxLength = $(this).attr("maxlength");  
+                    var length = text.length; 
+                     
+                    // send 
+                    if (length <= maxLength + 1) { 
+                     
+    			        chat.send(text, ename);	
+    			        $(this).val("");
+    			        
+                    } else {
+                    
+    					$(this).val(text.substring(0, maxLength));
+    					
+    				}	
+    				
+    				
+    			  }
+             });
+            
+    	});
+    </script>
+      
 
         <!-- JS -->
 
@@ -82,7 +146,7 @@
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
-    <body class="">
+    <body class="" onload="setInterval('chat.update()', 1000)">
         <!-- BEGIN HEADER -->
         <div class="header navbar navbar-inverse ">
             <!-- BEGIN TOP NAVIGATION BAR -->
