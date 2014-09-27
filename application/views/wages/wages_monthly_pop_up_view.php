@@ -135,7 +135,7 @@
         <input type="hidden" id="employee_code" name="employee_code" />
        
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button>
+           
 
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 

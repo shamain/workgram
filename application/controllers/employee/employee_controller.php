@@ -35,7 +35,7 @@ class Employee_controller extends CI_Controller {
         $partials = array('content' => 'employee/manage_employee_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-
+/*this function use to add new employee*/
     function add_new_employee() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_EMPLOYEE');
 //        if ($perm) {
@@ -114,6 +114,7 @@ class Employee_controller extends CI_Controller {
         }
 
     }
+    /*this functon use to manage edit employee view*/
     function edit_employee_view($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
 //        if ($perm) {

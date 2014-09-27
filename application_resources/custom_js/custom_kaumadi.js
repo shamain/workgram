@@ -1,6 +1,6 @@
 var base_url = js_base_url;
 var site_url = js_site_url;
-
+//this function use to generrte random password
    function generatePassword() {
         var length = 8,
                 charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
@@ -10,7 +10,7 @@ var site_url = js_site_url;
         }
         $('#employee_password').val(retVal);
     }
-    
+    //this function use validate contact no filed,wages category field
     function numbersonly(myfield, e, dec) {
     var key;
     var keychar;

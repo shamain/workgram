@@ -41,7 +41,7 @@ class wages_category_controller extends CI_Controller {
         $partials = array('content' => 'wages_category/edit_wages_category');
         $this->template->load('template/main_template', $partials, $data);
     }
-
+/*this function use to ADD new wages category */
     function add_new_wages_category() {
 
         $wages_category_service = new wages_category_service();
@@ -58,7 +58,7 @@ class wages_category_controller extends CI_Controller {
 
         echo $wages_category_service->add_new_wages_category($wages_category_model);
     }
-
+/*this function use to edit new wages category*/
     function edit_wages_category() {
 
         $wages_category_model = new Wages_category_model();
@@ -75,15 +75,9 @@ class wages_category_controller extends CI_Controller {
         echo $wages_category_service->update_wages_category($wages_category_model);
     }
 
-//    function delete_wages_category() {
-//
-//
-//        $wages_category_service = new wages_category_service();
-//
-//        echo $wages_category_service->delete_wages_category(trim($this->input->post('wages_category_id', TRUE)));
-//    }
 
-   
+
+   /*this function use to delete wages category*/
  function delete_wages_category() {
 
 //        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
