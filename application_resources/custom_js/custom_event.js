@@ -418,6 +418,7 @@ $(document).ready(function() {
                     else{
                         newEvent.color='green';
                     }
+                    console.log(newEvent.start+'-' +newEvent.end);
                     
                     $('#calendar').fullCalendar('renderEvent',
                             {

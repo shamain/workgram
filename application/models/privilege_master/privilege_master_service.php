@@ -12,6 +12,7 @@ class Privilege_master_service extends CI_Model {
         $this->db->select('privilege_master.*,system.system');
         $this->db->from('privilege_master');
          $this->db->join('system', 'system.system_code = privilege_master.system_code');
+         $this->db->order_by('privilege_master.privilege_master_code','desc');
         $query = $this->db->get();
         return $query->result();
     }

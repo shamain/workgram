@@ -116,7 +116,7 @@
         <div class="grid simple">
             <div class="grid-body no-border invoice-body "> <br>
                     <div class="pull-right">
-                        <h2><?php echo $title; ?></h2>
+                        <h2><?php echo $title .' of '.$date; ?></h2>
                     </div>
                     <div class="clearfix"></div>
 

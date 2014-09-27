@@ -24,7 +24,7 @@
         <link href="<?php echo base_url(); ?>application_resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>application_resources/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="<?php echo base_url(); ?>application_resources/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="<?php echo base_url(); ?>application_resources/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" media="screen"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
         <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/plugins/jquery-morris-chart/css/morris.css" type="text/css" media="screen">
         <link href="<?php echo base_url(); ?>application_resources/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>

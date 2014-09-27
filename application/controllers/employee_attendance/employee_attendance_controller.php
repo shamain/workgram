@@ -151,6 +151,7 @@ class Employee_attendance_controller extends CI_Controller {
 
         $data['dates'] = $dates;
         $data['results'] = $results;
+        $data['date']=$att_filter_m_picker;
         
         $data['title'] = 'Attendance Report';
         $SResultString = $this->load->view('reports/view_attendance_report', $data, TRUE);
