@@ -13,21 +13,25 @@ if ($perm) {
 
         </ul>
     </li>
-<?php } ?>
+    <?php
+}
+$perm = Access_controll_service::check_access('MANAGE_PROJECTS');
+if ($perm) {
+    ?>
+    <li class="" id="project_parent_menu"> 
+        <a href="javascript:;">
+            <i class="fa fa-suitcase"></i> 
+            <span class="title">Projects</span> 
+            <span class="arrow "></span> 
+        </a>
+        <ul class="sub-menu">
+            <li > <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects"> Manage Projects </a> </li>
 
-<li class="" id="project_parent_menu"> 
-    <a href="javascript:;">
-        <i class="fa fa-suitcase"></i> 
-        <span class="title">Projects</span> 
-        <span class="arrow "></span> 
-    </a>
-    <ul class="sub-menu">
-        <li > <a href="<?php echo site_url(); ?>/project/project_controller/manage_projects"> Manage Projects </a> </li>
+        </ul>
+    </li> 
 
-    </ul>
-</li> 
-
-<?php
+    <?php
+}
 //$perm = Access_controll_service::check_access('MANAGE_EMPLOYEE');
 //if ($perm) {
 ?>
@@ -42,7 +46,7 @@ if ($perm) {
 
     </ul>
 </li> 
-<?php // } ?>
+<?php // }  ?>
 
 <li class="" id="wages_parent_menu"> 
     <a href="javascript:;">

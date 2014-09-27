@@ -34,41 +34,45 @@ class Project_controller extends CI_Controller {
     }
 
     function manage_projects() {
+        $perm = Access_controll_service::check_access('MANAGE_PROJECTS');
+        if ($perm) {
+            $project_service = new Project_service();
 
-        $project_service = new Project_service();
 
+            $data['heading'] = "Manage Projects";
+            $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
 
-        $data['heading'] = "Manage Projects";
-        $data['projects'] = $project_service->get_all_projects_for_company($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-
-        $partials = array('content' => 'projects/manage_projects_view');
-        $this->template->load('template/main_template', $partials, $data);
+            $partials = array('content' => 'projects/manage_projects_view');
+            $this->template->load('template/main_template', $partials, $data);
+        } else {
+            
+        }
     }
 
     function add_project_view() {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
+        $perm = Access_controll_service::check_access('ADD_NEW_PROJECT');
+        if ($perm) {
 
 
-        $data['heading'] = "Add New Project";
+            $data['heading'] = "Add New Project";
 
-        $project_stuff_temp_service = new Project_stuff_temp_service();
-        $project_service = new Project_service();
-        $project_stuff_temp_service->truncate_project_temp_stuff();
+            $project_stuff_temp_service = new Project_stuff_temp_service();
+            $project_service = new Project_service();
+            $project_stuff_temp_service->truncate_project_temp_stuff();
 
-        $result = $project_service->get_last_project_id();
-        $last_id = '';
-        if (!empty($result)) {
-            $last_id = $result->project_id + 1;
+            $result = $project_service->get_last_project_id();
+            $last_id = '';
+            if (!empty($result)) {
+                $last_id = $result->project_id + 1;
+            }
+
+            $data['last_id'] = $last_id;
+
+            $partials = array('content' => 'projects/add_project_view');
+            $this->template->load('template/main_template', $partials, $data);
+        } else {
+            
         }
-
-        $data['last_id'] = $last_id;
-
-        $partials = array('content' => 'projects/add_project_view');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
     }
 
     function add_new_project() {
@@ -121,38 +125,40 @@ class Project_controller extends CI_Controller {
 
     function delete_project() {
 
-//        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
-//        if ($perm) {
-        $project_service = new Project_service();
-        $task_service = new Task_service();
+        $perm = Access_controll_service::check_access('DELETE_PROJECT');
+        if ($perm) {
 
-        $not_complete_count = $task_service->get_not_complete_task_count_for_project(trim($this->input->post('id', TRUE)));
-        if ($not_complete_count == 0) {
-            echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
+            $project_service = new Project_service();
+            $task_service = new Task_service();
+
+            $not_complete_count = $task_service->get_not_complete_task_count_for_project(trim($this->input->post('id', TRUE)));
+            if ($not_complete_count == 0) {
+                echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
+            } else {
+                echo 2;
+            }
         } else {
-            echo 2;
+            
         }
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
     }
 
     function edit_project_view($id) {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
-
-        $project_service = new Project_service();
+        $perm = Access_controll_service::check_access('EDIT_PROJECT');
+        if ($perm) {
 
 
-        $data['heading'] = "Edit Project";
-        $data['project'] = $project_service->get_project_by_id($id);
+            $project_service = new Project_service();
 
 
-        $partials = array('content' => 'projects/edit_project_view');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+            $data['heading'] = "Edit Project";
+            $data['project'] = $project_service->get_project_by_id($id);
+
+
+            $partials = array('content' => 'projects/edit_project_view');
+            $this->template->load('template/main_template', $partials, $data);
+        } else {
+            
+        }
     }
 
     function edit_project() {

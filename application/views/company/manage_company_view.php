@@ -37,14 +37,24 @@
                                     <td><?php echo $company->company_desc; ?></td>
 
                                     <td>
-
-                                        <a href="<?php echo site_url(); ?>/company/company_controller/edit_company_view/<?php echo $company->company_code; ?>">
-                                            <span class="label label-info">Edit</span>
-                                        </a>
-                                        <a style="cursor: pointer;"   title="Delete this company" onclick="delete_company(<?php echo $company->company_code; ?>)">
-                                            <span class="label label-important">Delete</span>
-                                        </a>
-
+                                        <?php
+                                        $perm = Access_controll_service::check_access('EDIT_COMPANY');
+                                        if ($perm) {
+                                            ?>
+                                            <a href="<?php echo site_url(); ?>/company/company_controller/edit_company_view/<?php echo $company->company_code; ?>">
+                                                <span class="label label-info">Edit</span>
+                                            </a>
+                                            <?php
+                                        }
+                                        $perm = Access_controll_service::check_access('DELETE_COMPANY');
+                                        if ($perm) {
+                                            ?>
+                                            <a style="cursor: pointer;"   title="Delete this company" onclick="delete_company(<?php echo $company->company_code; ?>)">
+                                                <span class="label label-important">Delete</span>
+                                            </a>
+                                            <?php
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                             <?php } ?>    
@@ -172,5 +182,5 @@
 <!-- /.modal -->
 
 <script type="text/javascript">
-                                        $('#company_parent_menu').addClass('active open');
+                                                $('#company_parent_menu').addClass('active open');
 </script>

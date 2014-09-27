@@ -326,10 +326,11 @@ var eemail;
                     <ul>
                         <?php echo $this->load->view('template/menu'); ?>
                     </ul>
-                    <div class="side-bar-widgets">
+<!--                    <div class="side-bar-widgets">
                         <p class="menu-title">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="fa fa-plus"></i></a></span></p>
                         <ul class="folders" >
                             <li><a href="#">
+                                    My quick tasks </a> </li>
                                     <div class="status-icon green"></div>
                                     My quick tasks </a> </li>
                             <li><a href="#">
@@ -355,7 +356,7 @@ var eemail;
                                 <p>Gathering requirements</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="clearfix"></div>
                     <!-- END SIDEBAR MENU -->
                 </div>

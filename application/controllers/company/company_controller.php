@@ -178,22 +178,25 @@ class Company_controller extends CI_Controller {
      */
 
     function add_new_company() {
-//        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
-//        if ($perm) {
+        $perm = Access_controll_service::check_access('ADD_NEW_COMPANY');
+        if ($perm) {
 
-        $company_model = new Company_model();
-        $company_service = new Company_service();
+            $company_model = new Company_model();
+            $company_service = new Company_service();
 
-        $company_model->set_company_code($this->input->post('company_code', TRUE));
-        $company_model->set_company_name($this->input->post('company_name', TRUE));
-        $company_model->set_company_email($this->input->post('company_email', TRUE));
-        $company_model->set_company_address($this->input->post('company_address', TRUE));
-        $company_model->set_company_contact(($this->input->post('company_contact', TRUE)));
-        $company_model->set_company_desc($this->input->post('company_description', TRUE));
-        $company_model->set_del_ind('1');
+            $company_model->set_company_code($this->input->post('company_code', TRUE));
+            $company_model->set_company_name($this->input->post('company_name', TRUE));
+            $company_model->set_company_email($this->input->post('company_email', TRUE));
+            $company_model->set_company_address($this->input->post('company_address', TRUE));
+            $company_model->set_company_contact(($this->input->post('company_contact', TRUE)));
+            $company_model->set_company_desc($this->input->post('company_description', TRUE));
+            $company_model->set_del_ind('1');
 
 
-        echo $company_service->add_new_company($company_model);
+            echo $company_service->add_new_company($company_model);
+        } else {
+            
+        }
     }
 
     /*
@@ -202,21 +205,21 @@ class Company_controller extends CI_Controller {
      */
 
     function edit_company_view($company_code) {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
-//        if ($perm) {
+        $perm = Access_controll_service::check_access('EDIT_COMPANY');
+        if ($perm) {
 
-        $company_service = new Company_service();
-
-
-        $data['heading'] = "Edit Company Deatils";
-        $data['company'] = $company_service->get_company_by_id($company_code);
+            $company_service = new Company_service();
 
 
-        $partials = array('content' => 'company/edit_company_view');
-        $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+            $data['heading'] = "Edit Company Deatils";
+            $data['company'] = $company_service->get_company_by_id($company_code);
+
+
+            $partials = array('content' => 'company/edit_company_view');
+            $this->template->load('template/main_template', $partials, $data);
+        } else {
+            
+        }
     }
 
     /*
@@ -226,28 +229,23 @@ class Company_controller extends CI_Controller {
 
     function edit_company() {
 
-//        $perm = Access_controllerservice :: checkAccess('EDIT_COMPANY');
-//        if ($perm) {
+        $perm = Access_controll_service::check_access('EDIT_COMPANY');
+        if ($perm) {
 
-        $company_model = new company_model();
-        $company_service = new company_service();
+            $company_model = new company_model();
+            $company_service = new company_service();
 
-        $company_model->set_company_code($this->input->post('company_code', TRUE));
-        $company_model->set_company_name($this->input->post('company_name', TRUE));
-        $company_model->set_company_email($this->input->post('company_email', TRUE));
-        $company_model->set_company_address($this->input->post('company_address', TRUE));
-        $company_model->set_company_contact($this->input->post('company_contact', TRUE));
-        $company_model->set_company_desc($this->input->post('company_description', TRUE));
+            $company_model->set_company_code($this->input->post('company_code', TRUE));
+            $company_model->set_company_name($this->input->post('company_name', TRUE));
+            $company_model->set_company_email($this->input->post('company_email', TRUE));
+            $company_model->set_company_address($this->input->post('company_address', TRUE));
+            $company_model->set_company_contact($this->input->post('company_contact', TRUE));
+            $company_model->set_company_desc($this->input->post('company_description', TRUE));
 
-
-
-
-
-
-        echo $company_service->update_company($company_model);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+            echo $company_service->update_company($company_model);
+        } else {
+            
+        }
     }
 
     /*
@@ -280,22 +278,22 @@ class Company_controller extends CI_Controller {
 
     function delete_company() {
 
-//        $perm = Access_controllerservice :: checkAccess('DELETE_COMPANY');
-//        if ($perm) {
-        $company_service = new Company_service();
-        $employee_service = new employee_service();
+        $perm = Access_controll_service::check_access('DELETE_COMPANY');
+        if ($perm) {
+            $company_service = new Company_service();
+            $employee_service = new employee_service();
 
-        $employees = $employee_service->get_employees_by_company_id_manage(trim($this->input->post('code', TRUE)));
+            $employees = $employee_service->get_employees_by_company_id_manage(trim($this->input->post('code', TRUE)));
 
-        //if no employees in company we can delete otherwise we cant delete the company
-        if (count($employees) == 0) {
-            echo $company_service->delete_company(trim($this->input->post('code', TRUE)));
+            //if no employees in company we can delete otherwise we cant delete the company
+            if (count($employees) == 0) {
+                echo $company_service->delete_company(trim($this->input->post('code', TRUE)));
+            } else {
+                echo 2;
+            }
         } else {
-            echo 2;
+            
         }
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
     }
 
 }

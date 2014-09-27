@@ -112,7 +112,7 @@ $autoload['language'] = array();
   |
  */
 
-$autoload['model'] = array('access_controll/access_controll_service');
+$autoload['model'] = array('access_controll/access_controll_service','employee/employee_service');
 
 
 /* End of file autoload.php */

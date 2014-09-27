@@ -56,7 +56,7 @@
 
                                 $bg_colour = '';
                                 if ($days_difference >= 7) {
-                                    $bg_colour = '#e892a2';
+                                    $bg_colour = '#FF9F9F';
                                 }
                                 ?> 
                                 <tr  id="projects_<?php echo $project->project_id; ?>" style="background-color: <?php echo $bg_colour ?>">
@@ -102,13 +102,24 @@
                                         <a href="<?php echo site_url(); ?>/task/task_controller/view_task_for_projects/<?php echo $project->project_id; ?>" style="cursor: pointer;"   title="Assign Tasks">
                                             <span class="label label-success">Tasks</span>
                                         </a>
-                                        <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
-                                            <span class="label label-info">Edit</span>
-                                        </a>
-                                        <a style="cursor: pointer;"   title="Delete this Project" onclick="delete_project(<?php echo $project->project_id; ?>)">
-                                            <span class="label label-important">Delete</span>
-                                        </a>
-
+                                        <?php
+                                        $perm = Access_controll_service::check_access('EDIT_PROJECT');
+                                        if ($perm) {
+                                            ?>
+                                            <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $project->project_id; ?>">
+                                                <span class="label label-info">Edit</span>
+                                            </a>
+                                            <?php
+                                        }
+                                        $perm = Access_controll_service::check_access('DELETE_PROJECT');
+                                        if ($perm) {
+                                            ?>
+                                            <a style="cursor: pointer;"   title="Delete this Project" onclick="delete_project(<?php echo $project->project_id; ?>)">
+                                                <span class="label label-important">Delete</span>
+                                            </a>
+                                            <?php
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                             <?php } ?>    
@@ -129,5 +140,5 @@
 
 
 <script type="text/javascript">
-                                            $('#project_parent_menu').addClass('active open');
+                                                $('#project_parent_menu').addClass('active open');
 </script>
