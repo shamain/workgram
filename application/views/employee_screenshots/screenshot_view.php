@@ -189,7 +189,62 @@
                         </div
                     </div>
                 </div>
+                
+                <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Added by</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_by">                              
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Added to</label>
+                                <span style="color: red">*</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_to">                              
+                            </div>
+                        </div>
+                    </div>
+                <div class="row form-row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">Birth Day</label>
+                                <span style="color: red">*</span><br>
 
+                                <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
+                                    <i class=""></i>
+
+                                    <input class="form-control" type="text" input-append id="employee_bday" name="employee_bday" readonly="true"  value="<?php echo $employee->employee_bday; ?>">
+                                    <span class="add-on">
+                                        <span class="arrow"></span>
+                                        <i class="fa fa-th"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_name">                              
+                            </div>
+                        </div>
+                    </div>
+
+                
         </div>
         <div id="add_inquiry_msg" class="form-row"> </div>
         <div class="modal-footer">
