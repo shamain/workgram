@@ -212,7 +212,20 @@
                     </div>
                 </div>
 
-             
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Added by</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_by">                              
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row form-row">
                     <div class="col-md-5">
@@ -224,7 +237,7 @@
                     <div class="col-md-6">
                         <div class="input-with-icon  right">                                       
                             <i class=""></i>
-                            <input id="added_to" class="form-control" type="text" name="added_to">                              
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_to">                              
                         </div>
                     </div>
                 </div>
@@ -240,7 +253,7 @@
                     <div class="col-md-6">
                         <div class="input-with-icon  right">                                       
                             <i class=""></i>
-                            <input id="project" class="form-control" type="text" name="project">                              
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_project">                              
                         </div>
                     </div>
                 </div>
@@ -255,7 +268,7 @@
                     <div class="col-md-6">
                         <div class="input-with-icon  right">                                       
                             <i class=""></i>
-                            <input id="task" class="form-control" type="text" name="task">                              
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_task">                              
                         </div>
                     </div>
                 </div>
