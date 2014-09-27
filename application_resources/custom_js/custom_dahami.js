@@ -211,7 +211,6 @@ $('#add_inquiry_form').validate({
         added_date: {
             required: true
         },
-        
         added_to: {
             required: true
         },
