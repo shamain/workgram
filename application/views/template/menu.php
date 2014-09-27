@@ -1,15 +1,19 @@
+<?php
+$perm = Access_controll_service::check_access('MANAGE_COMPANY');
+if ($perm) {
+    ?>
+    <li class="" id="company_parent_menu"> 
+        <a href="javascript:;">
+            <i class="fa fa-file-text"></i> 
+            <span class="title">Companies</span> 
+            <span class="arrow "></span> 
+        </a>
+        <ul class="sub-menu">
+            <li > <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies"> Manage Companies </a> </li>
 
-<li class="" id="company_parent_menu"> 
-    <a href="javascript:;">
-        <i class="fa fa-file-text"></i> 
-        <span class="title">Companies</span> 
-        <span class="arrow "></span> 
-    </a>
-    <ul class="sub-menu">
-        <li > <a href="<?php echo site_url(); ?>/company/company_controller/manage_companies"> Manage Companies </a> </li>
-
-    </ul>
-</li>
+        </ul>
+    </li>
+<?php } ?>
 
 <li class="" id="project_parent_menu"> 
     <a href="javascript:;">
@@ -23,6 +27,10 @@
     </ul>
 </li> 
 
+<?php
+//$perm = Access_controll_service::check_access('MANAGE_EMPLOYEE');
+//if ($perm) {
+?>
 <li class="" id="employee_parent_menu"> 
     <a href="javascript:;">
         <i class="fa fa-file-text"></i> 
@@ -34,6 +42,7 @@
 
     </ul>
 </li> 
+<?php // } ?>
 
 <li class="" id="wages_parent_menu"> 
     <a href="javascript:;">
@@ -124,15 +133,3 @@
     </ul>
 </li> 
 
-<li class="" id="reports_parent_menu"> 
-    <a href="javascript:;">
-        <i class="fa fa-wrench"></i> 
-        <span class="title">Reports</span> 
-        <span class="arrow "></span> 
-    </a>
-    <ul class="sub-menu">
-        <li > <a href="<?php echo site_url(); ?>/project/project_controller/view_project_report">Project Report </a> </li>
-        <li > <a href="<?php echo site_url(); ?>/skill_matrix/skill_matrix_controller/view_skill_report">Skill Report </a> </li>
-
-    </ul>
-</li> 

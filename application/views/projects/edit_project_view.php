@@ -174,6 +174,11 @@
                                                 <span>Cancel upload</span>
                                             </button>
 
+                                            <button class="btn btn-danger delete" type="button">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                                <span>Delete</span>
+                                            </button>
+                                            <input class="toggle" type="checkbox">
 
                                         </div>
                                         <!-- The global progress information -->

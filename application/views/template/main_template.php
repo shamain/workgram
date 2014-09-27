@@ -531,7 +531,7 @@ var eemail;
             <!-- jQuery Image Gallery styles -->
 
             <!-- CSS to style the file input field as button and adjust the jQuery UI progress bars -->
-            <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/jupload/css/jquery.fileupload-ui.css" />
+            <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/jupload/css/jquery.fileupload.css" />
 
             <script type="text/javascript">
                 $(document).ready(function() {

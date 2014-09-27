@@ -31,11 +31,12 @@
                     <div class="col-md-12">
                         <?php
                         $privilege_masters = $privilege_master_service->get_privilege_master_by_system_code($system->system_code);
+                    
                         if (count($privilege_masters) != 0) {
                             ?> 
                             <div class="divcls" >
                                 <div class="row-fluid">
-                                    <div class="checkbox check-primary">
+                                    <div class="checkbox check-primary" style="display: flex">
                                         <div id="msgsystem<?php echo $system->system_code; ?>" class="msgsystem"></div>
                                         <div id="loader_ajax_check_all_hrm<?php echo $system->system_code; ?>" class="loader_ajax_check_all_hrm"> </div>
                                         <input type="checkbox" value="<?php echo $system->system_code; ?>" onclick="save_privileges_from_system(<?php echo $system->system_code; ?>,<?php echo $employee_detail->employee_code; ?>)" name="privilegessystem[]" id="privilegesystem<?php echo $system->system_code; ?>" class="checkbox msgsystemchk<?php echo $system->system_code; ?>">
@@ -52,21 +53,22 @@
 
                                     <p>
                                         <?php
-                                        $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for($privilege_master->privilege_master_code, $employee_detail->employee_type);
+                                        $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for_emp($privilege_master->privilege_master_code, $employee_detail->employee_type,$system->system_code);
 
                                         foreach ($privileges as $privilege) {
                                             ?>
 
                                         <div class="divcls" >
                                             <div class="row-fluid">
-                                                <div class="checkbox check-primary">
+                                                <div class="checkbox check-primary" style="display: flex">
+                                                    <div id="msg<?php echo $privilege->privilege_code; ?>" class="msgdisplay" ></div>
                                                     <input <?php
                                                     if (in_array($privilege->privilege_code, $assigned_privileges)) {
                                                         echo 'checked="checked"';
                                                     }
                                                     ?>  type="checkbox" value="<?php echo $privilege->privilege_code; ?>" onclick="save_privileges_from_user(<?php echo $privilege->privilege_code; ?>,<?php echo $employee_code; ?>)" name="privileges[]" id="privilege<?php echo $privilege->privilege_code; ?>" class="checkbox chkbox<?php echo $system->system_code; ?>">
                                                     <label for="privilege<?php echo $privilege->privilege_code; ?>"><?php echo $privilege->privilege; ?></label>
-                                                    <div id="msg<?php echo $privilege->privilege_code; ?>" class="msgdisplay"></div>
+                                                    
                                                 </div>
                                             </div>
 

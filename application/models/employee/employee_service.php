@@ -8,6 +8,7 @@ class Employee_service extends CI_Model {
     }
 
     //update employee
+    /*this function use in employee controller edit_employee() function*/
     function update_employee($employee_model) {
 
         $data = array('employee_no' => $employee_model->get_employee_no(),
@@ -76,19 +77,37 @@ class Employee_service extends CI_Model {
         return $query->result();
     }
 
+    function get_online_employees_by_company_id($company_code) {
+
+        $this->db->select('*');
+        $this->db->from('employee');
+        $this->db->where('company_code', $company_code);
+        $this->db->where('del_ind', '1');
+        $this->db->where('is_online', 'Y');
+        $this->db->order_by("employee_code","desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    
     //get active employees in a company by company code
+    /* 
+     * this function use in manage_employees() & print_employee_pdf_report() function  in employee controller
+     *  this function use manage_wages() function
+     */
     function get_employees_by_company_id_manage($company_code) {
 
         $this->db->select('*');
         $this->db->from('employee');
         $this->db->where('company_code', $company_code);
         $this->db->where('del_ind', '1');
-        $this->db->order_by("employee_code",'desc');
+        $this->db->order_by("employee_code","desc");
         $query = $this->db->get();
         return $query->result();
     }
 
     //get user details by employee code
+    /*this function use in employee controller edit_employee_view($employee_code)  function*/
     function get_employee_by_id($emp_code) {
 
         $query = $this->db->get_where('employee', array('employee_code' => $emp_code));
@@ -136,6 +155,7 @@ class Employee_service extends CI_Model {
     }
 
     //check token match for the actual one
+    /*this function use in employee controller in  function account_activation($emp_id, $token)*/
     public function check_user_id_token_combination($employee_model) {
         $this->db->where('employee_code', $employee_model->get_employee_code());
         $this->db->where('account_activation_code', $employee_model->get_account_activation_code());
@@ -144,6 +164,7 @@ class Employee_service extends CI_Model {
     }
 
     //check token match for the actual one
+     /*this function use in employee controller in  function account_activation($emp_id, $token)*/
     function activate_employee_account($employee_model) {
         $data = array('del_ind' => $employee_model->get_del_ind());
         $this->db->where('employee_code', $employee_model->get_employee_code());
@@ -210,15 +231,17 @@ class Employee_service extends CI_Model {
 
         return $this->db->insert('employee', $employee_model);
     }
-
+/*
+ * this function use in employee controller add_new_employee() function
+ */
     function add_employee($employee_model) {
 
         $this->db->insert('employee', $employee_model);
         $this->db->last_query();
         return $this->db->insert_id();
     }
-/*
-     * This service function is to delete a employee
+    /*
+     * this function use in employee controller delete_employee() function
      */
     function delete_employee($emp_code) {
         $data = array('del_ind' => '0');

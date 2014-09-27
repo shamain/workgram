@@ -133,7 +133,7 @@ class Employee_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-
+/*this function use to edit employee details using update_employee function*/
     function edit_employee() {
 
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
@@ -169,7 +169,7 @@ class Employee_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-
+/*this function use to upload image*/
     function upload_image() {
 
         $uploaddir = './uploads/employee_avatar/';

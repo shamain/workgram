@@ -16,7 +16,7 @@ class employee_payment_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-
+/*this function use in get_employee_payment() function in wages controller*/
     public function get_employee_payment($employee_payment_model) {
         $this->db->select('*');
         $this->db->from('employee_payment');
@@ -36,7 +36,7 @@ class employee_payment_service extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
-
+/*this function use in get_wages_details_for_employee() function in wages controler*/
     function get_payments_by_employee_id_and_month($employee_payment_model) {
 
         $this->db->select('*');

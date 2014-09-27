@@ -40,7 +40,7 @@ class manage_wages_controller extends CI_Controller {
     }
     
 /* 
- * this functiion use to get filter of employee in thir company code
+ * this function use to get employee by company
  */
     function get_employee_by_company() {
         $employee_model = new employee_model();
@@ -119,9 +119,7 @@ class manage_wages_controller extends CI_Controller {
 
         $this->load->view('wages/wages_filter_view', $data);
     }
-/*
- * this function use to add new payment 
- */
+
     
     function add_new_payments() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
