@@ -38,14 +38,18 @@ class Company_controller extends CI_Controller {
      */
 
     function manage_companies() {
+        $perm = Access_controll_service::check_access('MANAGE_COMPANY');
+        if ($perm) {
+            $company_service = new company_service();
 
-        $company_service = new company_service();
+            $data['heading'] = "Manage Company";
+            $data['companies'] = $company_service->get_all_companies($this->session->userdata('COMPANY_CODE'));
 
-        $data['heading'] = "Manage Company";
-        $data['companies'] = $company_service->get_all_companies($this->session->userdata('COMPANY_CODE'));
-
-        $parials = array('content' => 'company/manage_company_view');
-        $this->template->load('template/main_template', $parials, $data);
+            $parials = array('content' => 'company/manage_company_view');
+            $this->template->load('template/main_template', $parials, $data);
+        } else {
+            
+        }
     }
 
     function company_registration() {

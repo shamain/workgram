@@ -35,7 +35,7 @@
                             ?> 
                             <div class="divcls" >
                                 <div class="row-fluid">
-                                    <div class="checkbox check-primary">
+                                    <div class="checkbox check-primary" style="display: flex">
                                         <div id="msgsystem<?php echo $system->system_code; ?>" class="msgsystem"></div>
                                         <div id="loader_ajax_check_all_hrm<?php echo $system->system_code; ?>" class="loader_ajax_check_all_hrm"> </div>
                                         <input type="checkbox" value="<?php echo $system->system_code; ?>" onclick="save_privileges_from_system(<?php echo $system->system_code; ?>,<?php echo $employee_detail->employee_code; ?>)" name="privilegessystem[]" id="privilegesystem<?php echo $system->system_code; ?>" class="checkbox msgsystemchk<?php echo $system->system_code; ?>">
@@ -59,14 +59,15 @@
 
                                         <div class="divcls" >
                                             <div class="row-fluid">
-                                                <div class="checkbox check-primary">
+                                                <div class="checkbox check-primary" style="display: flex">
+                                                    <div id="msg<?php echo $privilege->privilege_code; ?>" class="msgdisplay" ></div>
                                                     <input <?php
                                                     if (in_array($privilege->privilege_code, $assigned_privileges)) {
                                                         echo 'checked="checked"';
                                                     }
                                                     ?>  type="checkbox" value="<?php echo $privilege->privilege_code; ?>" onclick="save_privileges_from_user(<?php echo $privilege->privilege_code; ?>,<?php echo $employee_code; ?>)" name="privileges[]" id="privilege<?php echo $privilege->privilege_code; ?>" class="checkbox chkbox<?php echo $system->system_code; ?>">
                                                     <label for="privilege<?php echo $privilege->privilege_code; ?>"><?php echo $privilege->privilege; ?></label>
-                                                    <div id="msg<?php echo $privilege->privilege_code; ?>" class="msgdisplay"></div>
+                                                    
                                                 </div>
                                             </div>
 

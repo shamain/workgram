@@ -30,6 +30,9 @@ class Dashboard_controller extends CI_Controller {
 
             $this->load->model('employee/employee_model');
             $this->load->model('employee/employee_service');
+
+            $this->load->model('access_controll/access_controll_model');
+            $this->load->model('access_controll/access_controll_service');
         }
     }
 
