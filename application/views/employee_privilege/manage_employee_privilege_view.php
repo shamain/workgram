@@ -31,6 +31,7 @@
                     <div class="col-md-12">
                         <?php
                         $privilege_masters = $privilege_master_service->get_privilege_master_by_system_code($system->system_code);
+                    
                         if (count($privilege_masters) != 0) {
                             ?> 
                             <div class="divcls" >
@@ -52,7 +53,7 @@
 
                                     <p>
                                         <?php
-                                        $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for($privilege_master->privilege_master_code, $employee_detail->employee_type);
+                                        $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for_emp($privilege_master->privilege_master_code, $employee_detail->employee_type,$system->system_code);
 
                                         foreach ($privileges as $privilege) {
                                             ?>
