@@ -6,7 +6,15 @@
         <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80" style="display: block; opacity: 1;">
 
             <div class="meta name employee">
-                <div class="img_wrapper"> <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>" alt="" /> </div>
+                <div class="img_wrapper">
+                    <a href='<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>' 
+                       class='fresco' 
+                       data-fresco-group='example' 
+                       data-fresco-caption="<?php echo $my_screen_shot->project_name . ' - ' . $my_screen_shot->employee_fname . ' ' . $my_screen_shot->employee_lname; ?>"> 
+                        <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>" alt="" /> 
+                    </a>
+
+                </div>
                 <div class="titles">
                     <h2><?php echo $my_screen_shot->project_name; ?></h2>
                     <p><em><?php echo $my_screen_shot->employee_fname . ' ' . $my_screen_shot->employee_lname; ?></em></p>
