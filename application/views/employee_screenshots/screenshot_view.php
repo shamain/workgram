@@ -95,7 +95,6 @@
         <div id="filter_result_div">
             <ul>
                 <?php
-
                 foreach ($my_screen_shots as $my_screen_shot) {
                     ?>
                     <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80">
@@ -106,7 +105,7 @@
                                 <a href='<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>' 
                                    class='fresco' 
                                    data-fresco-group='example' 
-                                   data-fresco-caption="<?php echo $my_screen_shot->project_name.' - '.$my_screen_shot->employee_fname . ' ' . $my_screen_shot->employee_lname; ?>"> 
+                                   data-fresco-caption="<?php echo $my_screen_shot->project_name . ' - ' . $my_screen_shot->employee_fname . ' ' . $my_screen_shot->employee_lname; ?>"> 
                                     <img src="<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>" alt="" /> 
                                 </a>
 
@@ -190,61 +189,91 @@
                     </div>
                 </div>
                 
-                <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Added by</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_by">                              
-                            </div>
+                                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Added date</label>
+                            <span style="color: red">*</span>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="inquiry_date">                                       
+                                        <i class=""></i>
+
+                                        <input class="form-control" type="text" input-append id="added_date" name="added_date" readonly="true">
+                                        <span class="add-on">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-th"></i>
+                                        </span>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Added by</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_by">                              
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Added to</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_to">                              
+                        </div>
+                    </div>
+                </div>
                 
+
                 <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Added to</label>
-                                <span style="color: red">*</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_added_to">                              
-                            </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">project</label>
+                            <span style="color: red">*</span>
                         </div>
                     </div>
-                <div class="row form-row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label class="form-label">Birth Day</label>
-                                <span style="color: red">*</span><br>
-
-                                <div class="input-with-icon  right input-append primary date  no-padding" id="employee_bday_edit_dpicker">                                       
-                                    <i class=""></i>
-
-                                    <input class="form-control" type="text" input-append id="employee_bday" name="employee_bday" readonly="true"  value="<?php echo $employee->employee_bday; ?>">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-with-icon  right">                                       
-                                <i class=""></i>
-                                <input id="inquiry_name" class="form-control" type="text" name="inquiry_name">                              
-                            </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_project">                              
                         </div>
                     </div>
+                </div>
 
-                
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Task</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="inquiry_name" class="form-control" type="text" name="inquiry_task">                              
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
         <div id="add_inquiry_msg" class="form-row"> </div>
         <div class="modal-footer">

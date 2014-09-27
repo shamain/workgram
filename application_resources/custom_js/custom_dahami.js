@@ -207,6 +207,19 @@ $('#add_inquiry_form').validate({
         },
         inquiry_description: {
             required: true
+        },
+        added_date: {
+            required: true
+        },
+        
+        added_to: {
+            required: true
+        },
+        project: {
+            required: true
+        },
+        task: {
+            required: true
         }
 
 
@@ -246,7 +259,12 @@ $('#add_inquiry_form').validate({
 
     }
 });
-
+//date picker
+ $('#inquiry_date').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayHighlight: true
+    });
 
 //check box actions
 //check all checkboxes

@@ -6,8 +6,15 @@ class Screenshot_inquiry_model extends CI_Model{
     var $inquiry_name;
     var $inquiry_description;
     var $added_date;
+    var $added_by;
+    var $added_to;
+    var $project;
+    var $task;
     
-    function __construct() {
+
+ 
+
+        function __construct() {
         parent::__construct();
     }
     public function get_inquiry_id() {
@@ -25,6 +32,22 @@ class Screenshot_inquiry_model extends CI_Model{
     public function get_added_date() {
         return $this->added_date;
     }
+    
+       public function get_added_by() {
+        return $this->added_by;
+    }
+
+    public function get_added_to() {
+        return $this->added_to;
+    }
+
+    public function get_project() {
+        return $this->project;
+    }
+
+    public function get_task() {
+        return $this->task;
+    }
 
     public function set_inquiry_id($inquiry_id) {
         $this->inquiry_id = $inquiry_id;
@@ -40,6 +63,22 @@ class Screenshot_inquiry_model extends CI_Model{
 
     public function set_added_date($added_date) {
         $this->added_date = $added_date;
+    }
+    
+        public function set_added_by($added_by) {
+        $this->added_by = $added_by;
+    }
+
+    public function set_added_to($added_to) {
+        $this->added_to = $added_to;
+    }
+
+    public function set_project($project) {
+        $this->project = $project;
+    }
+
+    public function set_task($task) {
+        $this->task = $task;
     }
 
 

@@ -4,7 +4,7 @@
 
 <div class="row-fluid">
     <div class="col-md-11">
-        <div class="span12">
+        <div class="span20">
             <div class="grid simple ">
                 <div class="grid-title">
                     <h4>Advance <span class="semi-bold">Options</span></h4>
@@ -17,6 +17,11 @@
                                 <th>#</th>
                                 <th>Inquiry name</th>
                                 <th>Description</th>
+                                <th>Added date</th>
+                                <th>Added by</th>
+                                <th>Added to</th>
+                                <th>Project</th>
+                                <th>Task</th>
 
                             </tr>
                         </thead>
@@ -29,6 +34,11 @@
                                     <td><?php echo++$i; ?></td>
                                     <td><?php echo $inquiry->inquiry_name; ?></td>
                                     <td><?php echo $inquiry->inquiry_description; ?></td>
+                                    <td><?php echo $inquiry->added_date; ?></td>
+                                    <td><?php echo $inquiry->added_by; ?></td>
+                                    <td><?php echo $inquiry->added_to; ?></td>
+                                    <td><?php echo $inquiry->project; ?></td>
+                                    <td><?php echo $inquiry->task; ?></td>
 
                                 </tr>
                             <?php } ?>    
