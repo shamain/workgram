@@ -1,4 +1,5 @@
-
+<script>
+    var tick_array = Array();
 <?php
 //formating the graph data 
 
@@ -12,14 +13,21 @@ foreach ($all_multi_array as $row) {
     if (($row['emp_name'] != '')) {
 
         $emp_names[] = "'" . $row['emp_name'] . "'";
+        ?>
+            var ticks = Array();
+            ticks.push(<?php echo $row['emp_code'] ?>);
+            ticks.push('<?php echo $row['emp_name']?>');
+            tick_array.push(ticks);
+        <?php
     }
 }
 
 $emp_names_string = implode(',', $emp_names);
+
 //$colours_string = implode(',', $colours);
 ?>
-
-
+console.log(tick_array);
+</script>
 
 <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
 <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-flot/jquery.flot.min.js"></script>
@@ -209,18 +217,28 @@ $emp_names_string = implode(',', $emp_names);
 
 
 <script>
+    var main_arr = new Array();
 <?php
 $v = 0;
-$employee_skill_service= new Employee_skill_service();
+$employee_skill_service = new Employee_skill_service();
 foreach ($skill_cat_array as $skill_cat) {
     ?>
-                                            var v<?php echo $v; ?> = new Array();
-    <?php foreach ($all_multi_array as $row) { 
-        
+        var v = new Array();
+    <?php
+    foreach ($all_multi_array as $row) {
+        $exp_level = $employee_skill_service->get_employee_expert_levels($row['emp_code'], $skill_cat['cat_code']);
+        if (!empty($exp_level)) {
+            $exp_level = $exp_level->exp_level;
+        } else {
+            $exp_level = 0;
+        }
         ?>
-        
+            var map_data = new Array();
+            map_data.push(<?php echo $row['emp_code'] ?>);
+            map_data.push(<?php echo $exp_level ?>);
+            v.push(map_data);
     <?php } ?>
-
+        main_arr.push(v);
     <?php
     ++$v;
 }
@@ -249,60 +267,61 @@ foreach ($skill_cat_array as $skill_cat) {
 //                                            [1333238400000, 20],
 //                                            [1335830400000, 15]
 //                                        ];
-                                        // ORDERED & STACKED  
-                                        var data2 = new Array();
+    // ORDERED & STACKED  
+    var data2 = new Array();
 <?php
 $v = 0;
 foreach ($skill_cat_array as $skill_cat) {
     ?>
 
-                                            var temp = {
-                                                label: "<?php echo $skill_cat['cat_string']; ?>",
-                                                data: <?php echo 'v' . $v; ?>,
-                                                bars: {
-                                                    show: true,
-                                                    barWidth: 12 * 24 * 60 * 60 * 300 * 2,
-                                                    fill: true,
-                                                    lineWidth: 0,
-                                                    order: 0,
-                                                    fillColor: "<?php echo $skill_cat['colour']; ?>"
-                                                },
-                                                color: "<?php echo $skill_cat['colour']; ?>"
-                                            };
+        var temp = {
+            label: "<?php echo $skill_cat['cat_string']; ?>",
+            data: main_arr[<?php echo $v; ?>],
+            bars: {
+                show: true,
+                barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                fill: true,
+                lineWidth: 0,
+                order: 0,
+                fillColor: "<?php echo $skill_cat['colour']; ?>"
+            },
+            color: "<?php echo $skill_cat['colour']; ?>"
+        };
 
-                                            data2.push(temp);
+        data2.push(temp);
 
 
     <?php
     ++$v;
 }
 ?>
+console.log(data2);
+    $.plot($('#stacked-ordered-chart'), data2, {
+        grid: {
+            hoverable: true,
+            clickable: false,
+            borderWidth: 1,
+            borderColor: '#f0f0f0',
+            labelMargin: 8
 
-                                        $.plot($('#stacked-ordered-chart'), data2, {
-                                            grid: {
-                                                hoverable: true,
-                                                clickable: false,
-                                                borderWidth: 1,
-                                                borderColor: '#f0f0f0',
-                                                labelMargin: 8
-
-                                            },
-                                            xaxis: {
-                                                min: (new Date(2011, 11, 15)).getTime(),
-                                                max: (new Date(2012, 04, 18)).getTime(),
-                                                mode: "time",
-                                                timeformat: "%b",
-                                                tickSize: [1, "month"],
-                                                monthNames: [<?php echo $emp_names_string; ?>],
-                                                tickLength: 0, // hide gridlines
-                                                axisLabel: 'Employees',
-                                                axisLabelUseCanvas: true,
-                                                axisLabelFontSizePixels: 12,
-                                                axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-                                                axisLabelPadding: 5
-                                            },
-                                            stack: true
-                                        });
+        },
+        xaxis: {
+            min: (new Date(2011, 11, 15)).getTime(),
+            max: (new Date(2012, 04, 18)).getTime(),
+            mode: "time",
+            timeformat: "%b",
+            ticks: tick_array,
+            tickSize: [1, "month"],
+            monthNames: [<?php echo $emp_names_string; ?>],
+            tickLength: 0, // hide gridlines
+            axisLabel: 'Employees',
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 12,
+            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+            axisLabelPadding: 5
+        },
+        stack: true
+    });
 
 
 

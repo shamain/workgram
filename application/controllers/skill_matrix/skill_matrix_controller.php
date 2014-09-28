@@ -59,6 +59,7 @@ class Skill_matrix_controller extends CI_Controller {
 
             $skill_cat_array[$i] = array(
                 'cat_string' => $cat_string,
+                'cat_code' => $skill_cats[$i]->skill_cat_code,
                 'colour' => $skill_cats[$i]->colour
             );
         }
