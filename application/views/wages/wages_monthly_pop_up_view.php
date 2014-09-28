@@ -4,39 +4,43 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >×</button>
             <br>
             <i class="fa fa-desktop fa-4x"></i>
-            <h4 id="wages_pop_upLabel" class="semi-bold text-white"><div class="row form-row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="semi-bold text-white">Employee Name</label>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <label  class="semi-bold text-white"><?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?>                           
-                        </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row form-row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="semi-bold text-white">Year </label>
-                        </div>
-                    </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="semi-bold text-white"><?php echo date('M Y',  strtotime($year));?>  </label>
-                        </div>
-                    </div>
-                
-                </div></h4>
+            <h4 id="wages_pop_upLabel" class="semi-bold text-white">
+                    
+                </h4>
 
 
             <br>
         </div>
         <div class="modal-body">
-
+            <div class="row form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="form-label">Employee Name</label>
+                        <span style="color: red">*</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-with-icon  right">                                       
+                        <i class=""></i>
+                        <input id="employee_name" class="form-control" type="text" name="employee_name" value="<?php echo $employee->employee_fname . ' ' . $employee->employee_lname; ?> ">                              
+                    </div>
+                </div>
+            </div>
+          
+             <div class="row form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="form-label">Year </label>
+                        <span style="color: red">*</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-with-icon  right">                                       
+                        <i class=""></i>
+                        <input id="year" class="form-control" type="text" name="year" value="<?php echo date('M Y',  strtotime($year));?>  ">                              
+                    </div>
+                </div>
+            </div>
             <div class="row form-row">
                 <div class="col-md-5">
                     <div class="form-group">
@@ -52,6 +56,7 @@
                     
                 </div>
             </div>
+                 </div>
 
             <div class="row form-row">
                 <div class="col-md-5">

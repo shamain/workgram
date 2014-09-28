@@ -71,6 +71,7 @@
                                     <tr>
 
                                         <th class="text-center" style="width:22%">Employee</th>
+                                        <th class="text-center" style="width:22%">Employee Type</th>
                                         <th class="text-center" style="width:22%">January</th>
                                         <th class="text-center" style="width:22%">February</th>
                                         <th class="text-center" style="width:22%">March</th>
@@ -83,7 +84,7 @@
                                         <th class="text-center" style="width:22%">October</th>
                                         <th class="text-center" style="width:22%">November</th>
                                         <th class="text-center" style="width:22%">December</th>
-
+                                     
                                     </tr>
 
                                 </thead>

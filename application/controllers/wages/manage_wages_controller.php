@@ -73,7 +73,9 @@ class manage_wages_controller extends CI_Controller {
 
         $company_code = $this->input->post('company_code');
         $emp_code = $this->input->post('employee_code');
+       
         $year = $this->input->post('year');
+        
 
         $results = array();
         $emp_array = array();
@@ -91,6 +93,7 @@ class manage_wages_controller extends CI_Controller {
         foreach ($emp_array as $emp) {
 
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $temp['employee_type']= $emp->employee_type;   
             $temp['employee_code'] = $emp->employee_code;
             $wage_array = array();
             $t_array = array();
@@ -172,13 +175,16 @@ class manage_wages_controller extends CI_Controller {
 
     public function print_wages_pdf_report() {
         $employee_service = new employee_service();
+        $company_service = new company_service();
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
 
         $company_code = $this->input->get('company_code');
         $emp_code = $this->input->get('employee_code');
         $year = $this->input->get('year');
-
+        
+        $company=$company_service->get_company_by_id($company_code);
+        $data['company_name']= ucfirst($company->company_name);
         $results = array();
         $emp_array = array();
         $num_of_months = 12;
@@ -195,6 +201,7 @@ class manage_wages_controller extends CI_Controller {
         foreach ($emp_array as $emp) {
 
             $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $temp['employee_type']= $emp->employee_type; 
             $temp['employee_code'] = $emp->employee_code;
             $wage_array = array();
             $t_array = array();
