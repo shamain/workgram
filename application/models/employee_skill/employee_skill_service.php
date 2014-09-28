@@ -64,6 +64,21 @@ class Employee_skill_service extends CI_Model {
 
         return $query->result();
     }
+    
+    
+    function get_employee_expert_levels($emp_code, $skill_cat_code) {
+
+        $this->db->select('employee_skill.expert_level');
+        $this->db->from('employee_skill');
+        $this->db->join('skill', 'employee_skill.skill_code = skill.skill_code');
+        $this->db->where('employee_skill.del_ind', '1');
+        $this->db->where('skill.del_ind', '1');
+        $this->db->where('employee_skill.employee_code', $emp_code);
+        $this->db->where('skill.skill_cat_code', $skill_cat_code);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 
     function delete_employee_skill($employee_skill_id) {
         $data = array('del_ind' => '0');

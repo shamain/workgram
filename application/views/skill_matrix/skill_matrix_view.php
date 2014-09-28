@@ -211,10 +211,13 @@ $emp_names_string = implode(',', $emp_names);
 <script>
 <?php
 $v = 0;
+$employee_skill_service= new Employee_skill_service();
 foreach ($skill_cat_array as $skill_cat) {
     ?>
                                             var v<?php echo $v; ?> = new Array();
-    <?php foreach ($all_multi_array as $row) { ?>
+    <?php foreach ($all_multi_array as $row) { 
+        
+        ?>
         
     <?php } ?>
 
