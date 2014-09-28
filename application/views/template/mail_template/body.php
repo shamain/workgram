@@ -247,7 +247,7 @@
                       Please find below information to activate your account.
                       <p>Username : <?php  echo $pasword;?></p>
                   <p>Password : <?php  echo $user_name;?></p>
-                      <p><?php  echo $link;?></p>
+                  
                     </td>
                   </tr>
                 </table>
@@ -262,7 +262,7 @@
                         <w:anchorlock/>
                         <center>
                       <![endif]-->
-                          <a href="http://"
+                          <a href="<?php  echo $link;?>"
                         style="background-color:#f5774e;color:#ffffff;display:inline-block;font-family:'Source Sans Pro', Helvetica, Arial, sans-serif;font-size:18px;font-weight:400;line-height:45px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;">Activate Account</a>
                           <!--[if mso]>
                         </center>
