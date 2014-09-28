@@ -219,7 +219,7 @@ $('#edit_employee_form').validate({
 //delete projects
 function delete_employee(code) {
 
-    if (confirm('Are you sure want to delete this Employee ?')) {
+    if (confirm('Are you sure want to deactivate this Employee ?')) {
 
         $.ajax({
             type: "POST",
@@ -232,7 +232,7 @@ function delete_employee(code) {
                     $('#employee_' + code).hide();
                 }
                 else if (msg == 2) {
-                    alert('Cannot be deleted as it is already assigned to Tasks');
+                    alert('Cannot be deactivate as it is already assigned to Tasks');
                 }
             }
         });
