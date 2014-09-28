@@ -222,10 +222,10 @@ class manage_wages_controller extends CI_Controller {
 
         $data['year'] = $year;
         $data['results'] = $results;
-        $data['year']=$datepicker_wages;
+        $data['year']=$year;
         
         $data['title'] = 'Wages Report';
-        $SResultString = $this->load->view('reports/view_attendance_report', $data, TRUE);
+        $SResultString = $this->load->view('reports/view_wages_report', $data, TRUE);
         $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
         $mpdf=new mPDF('utf-8', 'A4-L');
