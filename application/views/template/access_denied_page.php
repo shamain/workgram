@@ -1,87 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <!-- Viewport metatags -->
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="320" />
+    <meta charset="utf-8" />
+    <title>Workgram</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
 
-    <!-- iOS webapp metatags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- BEGIN CORE CSS FRAMEWORK -->
+    <link href="<?php echo base_url(); ?>application_resources/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<?php echo base_url(); ?>application_resources/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>application_resources/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>application_resources/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>application_resources/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- END CORE CSS FRAMEWORK -->
 
-    <!-- CSS Reset -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/application_resources/css/reset.css" media="screen" />
-    <!--  Fluid Grid System -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/application_resources/css/fluid.css" media="screen" />
-    <!-- Theme Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/application_resources/css/dandelion.theme.css" media="screen" />
-    <!--  Main Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/application_resources/css/dandelion.css" media="screen" />
-    <!-- Demo Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/application_resources/css/demo.css" media="screen" />
-
-    <!-- jQuery JavaScript File -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>/application_resources/js/jquery-1.7.2.min.js"></script>
-
-    <!-- Plugin Files -->
-
-    <!-- Demo JavaScript Files -->
-
-    <!-- Core JavaScript Files -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>/application_resources/js/core/dandelion.core.js"></script>
-
-    <title>MIS LankaCom - Access Denied</title>
-
+    <!-- BEGIN CSS TEMPLATE -->
+    <link href="<?php echo base_url(); ?>application_resources/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>application_resources/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url(); ?>application_resources/css/custom-icon-set.css" rel="stylesheet" type="text/css" />
+    <!-- END CSS TEMPLATE -->
 </head>
+<!-- END HEAD -->
 
-<body>
-
-<!-- Main Wrapper. Set this to 'fixed' for fixed layout and 'fluid' for fluid layout' -->
-<div id="da-wrapper" class="fluid">
-
-    <!-- Content -->
-    <div id="da-content">
-
-        <!-- Container -->
-        <div class="da-container clearfix">
-
-            <div id="da-error-wrapper">
-
-                <div id="da-error-pin"></div>
-                <div id="da-error-code">
-                    access <span>denied</span>
+<!-- BEGIN BODY -->
+<body class="error-body no-top">
+    <div class="error-wrapper container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10">
+                <div class="error-container" >
+                    <div class="error-main">
+                        <div class="error-number"> Access Denied </div>
+                        <div class="error-description" > We seem to have lost you in the clouds. </div>
+                        <div class="error-description-mini"> The page your looking for is not here </div>
+                        <br>
+                        
+                    </div>
                 </div>
 
-                <h1 class="da-error-heading">Whoops, it seems you are lost</h1>
-                <p><a href="#" class="back">CLICK HERE</a> To Go Back.</p>
-
-                <script>
-                    $(document).ready(function(){
-                        $('a.back').click(function(){
-                            parent.history.back();
-                            return false;
-                        });
-                    });
-                </script>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="span12 error-container">
+            
+            <div class="copyright">
+                All work copyright of respective owner, 2014 Workgram Incorporated
             </div>
 
         </div>
-
     </div>
+    <!-- END CONTAINER --> 
 
-    <!-- Footer -->
-    <div id="da-footer">
-        <div class="da-container clearfix">
-            <p>Copyright 2013. Lankacom. All Rights Reserved.</p>
-        </div>
-    </div>
+    <!-- BEGIN CORE JS FRAMEWORK--> 
+    <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-1.8.3.min.js" type="text/javascript"></script> 
+    <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+    <script src="<?php echo base_url(); ?>application_resources/plugins/pace/pace.min.js" type="text/javascript"></script>  
+    <!-- BEGIN CORE TEMPLATE JS --> 
 
-</div>
-
+    <!-- END CORE TEMPLATE JS --> 
 </body>
-
-</html>

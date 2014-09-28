@@ -48,7 +48,7 @@ class Company_controller extends CI_Controller {
             $parials = array('content' => 'company/manage_company_view');
             $this->template->load('template/main_template', $parials, $data);
         } else {
-            
+            $this->template->load('template/access_denied_page');
         }
     }
 
