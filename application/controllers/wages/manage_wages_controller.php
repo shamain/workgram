@@ -168,5 +168,73 @@ class manage_wages_controller extends CI_Controller {
      * Printing reports 
      */
    
-    
+     public function print_wages_pdf_report() {
+        $employee_service = new employee_service();
+        $employee_payment_model = new employee_payment_model();
+        $employee_payment_service = new employee_payment_service();
+
+        $company_code = $this->input->post('company_code');
+        $emp_code = $this->input->post('employee_code');
+        $year = $this->input->post('year');
+
+        $results = array();
+        $emp_array = array();
+        $num_of_months = 12;
+
+        if ($emp_code != '') {
+            $emp_array[] = $employee_service->get_employee($emp_code);
+        } else {
+            $emp_array = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
+        }
+
+        for ($i = 0; $i < $num_of_months; $i++) {
+            $months[] = date('M', strtotime("+$i month", $year));
+        }
+        foreach ($emp_array as $emp) {
+
+            $temp['employee'] = ucfirst($emp->employee_fname . ' ' . $emp->employee_lname);
+            $temp['employee_code'] = $emp->employee_code;
+            $wage_array = array();
+            $t_array = array();
+            foreach ($months as $month) {
+                $employee_payment_model->set_employee_code($emp->employee_code);
+                $employee_payment_model->set_year_month($year.date('-m-01', strtotime($month)));
+                $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
+
+                $wage_array['wage_month'] = date('Y-m-01', strtotime(date('M', strtotime($month)) . ' ' . $year));
+
+                if (!empty($wages_details)) {
+                    if ($wages_details->is_paid == 'Y') {
+                        $wage_array['wage_status'] = 'PAID';
+                    } else {
+                        $wage_array['wage_status'] = 'NOT PAID';
+                    }
+                } else {
+                    $wage_array['wage_status'] = 'NOT PAID';
+                }
+                $t_array[] = $wage_array;
+            }
+            $temp['wage'] = $t_array;
+            $results[] = $temp;
+        }
+
+        
+
+        $data['year'] = $year;
+        $data['results'] = $results;
+        $data['year']=$datepicker_wages;
+        
+        $data['title'] = 'Wages Report';
+        $SResultString = $this->load->view('reports/view_attendance_report', $data, TRUE);
+        $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
+        $this->load->library('MPDF56/mpdf');
+        $mpdf=new mPDF('utf-8', 'A4-L');
+        $mpdf->SetDisplayMode('fullpage');
+        $mpdf->SetFooter($footer);
+        $mpdf->WriteHTML($SResultString);
+        $mpdf->Output();
+    }
+
+
+
 }

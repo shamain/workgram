@@ -5,6 +5,7 @@
 <div class="row-fluid">
     <div class="col-md-11">
         <div class="col-md-4" >
+                <!-- select company-->
             <select class="select2 span12" id="select_company">
                 <option value="">Select Company</option>
                 <?php
@@ -42,10 +43,12 @@
             <button id="search_wages_btn" style="margin-left:12px" name="search_wages_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
         </div>
     </div>
+    <!-- print button-->
+ 
     <div class="col-md-1">
         <div class="invoice-button-action-set">
             <p>
-                <button class="btn btn-primary" type="button"><i class="fa fa-print"></i></button>
+                <button class="btn btn-primary" type="button" id="wages_print_btn"><i class="fa fa-print"></i></button>
             </p>
         </div>
     </div>

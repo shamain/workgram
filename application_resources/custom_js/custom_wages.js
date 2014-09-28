@@ -225,65 +225,6 @@ $(document).on('click', '#search_wages_btn', function() {
 
 });
 
-// //add employee Form
-//    $('#add_employee_form').validate({
-//        focusInvalid: false,
-//        ignore: "",
-//        rules: {
-//            employee_fname: {
-//                required: true
-//            },
-//            employee_lname: {
-//                required: true
-//            },
-//            employee_email: {
-//                required: true,
-//                email: true
-//            },
-//            employee_type: {
-//                required: true
-//            },
-//            employee_contract: {
-//                required: true
-//            }
-//
-//
-//        },
-//        invalidHandler: function(event, validator) {
-//            //display error alert on form submit    
-//        },
-//        errorPlacement: function(label, element) { // render error placement for each input type   
-//            $('<span class="error"></span>').insertAfter($(element).parent()).append(label)
-//            var parent = $(element).parent('.input-with-icon');
-//            parent.removeClass('success-control').addClass('error-control');
-//        },
-//        highlight: function(element) { // hightlight error inputs
-//            var parent = $(element).parent();
-//            parent.removeClass('success-control').addClass('error-control');
-//
-//        },
-//        unhighlight: function(element) { // revert the change done by hightlight
-//
-//        },
-//        success: function(label, element) {
-//            var parent = $(element).parent('.input-with-icon');
-//            parent.removeClass('error-control').addClass('success-control');
-//        }, submitHandler: function(form)
-//        {
-//            $.post(site_url + '/employee/employee_controller/add_new_employee', $('#add_employee_form').serialize(), function(msg)
-//            {
-//                if (msg == 1) {
-//                    $("#add_employee_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The <a class="link" >employee </a>has been added.</div>');
-//                    add_employee_form.reset();
-//                    location.reload();
-//                } else {
-//                    $("#add_employee_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The <a class="link" href="#">employee </a>has failed.</div>');
-//                }
-//            });
-//
-//
-//        }
-//    });
 
 
 function  get_wages_pop_up_view(employee_code, year_month) {
@@ -303,3 +244,11 @@ console.log(year_month);
     $("#wages_pop_up").modal("show");
 //    event.preventDefault();
 }
+//print attendance report
+$(document).on('click', '#wages_print_btn', function() {
+ var company_code = $('#select_company').val();
+    var emp_code = $('#select_employee').val();
+    var year = $('#year_wages').val();
+    var win = window.open(site_url + '/wages/manage_wages_controller/print_wages_pdf_report()?company_code='+ company_code+'&emp_code=' + emp_code+'&year='+year, '_blank');
+    win.focus();
+});
