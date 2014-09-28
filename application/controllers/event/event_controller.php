@@ -26,7 +26,7 @@ class Event_controller extends CI_Controller {
             $this->load->model('employee_event/employee_event_service');
         }
     }
-
+            //load the manage event view
     function manage_event() {
 
         $event_service = new event_service();
@@ -39,7 +39,7 @@ class Event_controller extends CI_Controller {
         $parials = array('content' => 'event/manage_event_view');
         $this->template->load('template/main_template', $parials, $data);
     }
-
+        //load the edit event view
     function edit_event_view($event_id) {
 
         $event_service = new Event_service();
@@ -117,12 +117,11 @@ class Event_controller extends CI_Controller {
 
     function delete_event() {
 
-
         $event_service = new Event_service();
 
         echo $event_service->delete_event(trim($this->input->post('id', TRUE)));
     }
-
+            //to add  events to the cal plugin
     function init_calendar_view() {
         $event_service = new Event_service();
         $data = $event_service->get_all_events();
@@ -146,7 +145,7 @@ class Event_controller extends CI_Controller {
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }
-
+                    //to load the  the calender view
     function show_calander_view() {
 
         $event_service = new event_service();
