@@ -187,7 +187,7 @@
                   <tr>
                     <td style="font-size:40px; font-weight: 600; color: #ffffff; text-align:center;" class="mobile-spacing">
                     <div class="mobile-br">&nbsp;</div>
-                      Welcome to the party <?php  echo $name;?>!!
+                      Welcome to the party!!
                     <br/>
                     </td>
                   </tr>
@@ -224,12 +224,12 @@
                       <table cellspacing="0" cellpadding="0" class="force-full-width">
                         <tr>
                           <td style="border-bottom:1px solid #e3e3e3; font-weight: bold; text-align:left">
-                          Dear employeege nama danna,
+                          Dear <?php  echo $name;?>,
                           </td>
                         </tr>
                         <tr>
                           <td style="text-align:left;">
-                           methana dine danna
+                          <?phpecho date('Y-m-d H:i:s');?>
                           </td>
                         </tr>
                       </table>
@@ -245,8 +245,8 @@
                     <td style="text-align: left;">
                     <br>
                       Please find below information to activate your account.
-                      <p>Username : <?php  echo $pasword;?></p>
-                  <p>Password : <?php  echo $user_name;?></p>
+                      <p>Username : <?php  echo $user_name;?></p>
+                  <p>Password : <?php  echo $pasword;?></p>
                   
                     </td>
                   </tr>
