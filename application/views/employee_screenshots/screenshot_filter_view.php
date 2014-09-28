@@ -5,6 +5,8 @@
         ?>
         <li class="mix northeast camping climbing fishing swimming" data-name="Acadia" data-area="47452.80" style="display: block; opacity: 1;">
 
+            <!--zoom screenshot-->
+            
             <div class="meta name employee">
                 <div class="img_wrapper">
                     <a href='<?php echo base_url(); ?>uploads/screenshots/<?php echo $user_name . '/' . $my_screen_shot->worker_shot_name; ?>' 
