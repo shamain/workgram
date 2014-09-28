@@ -44,9 +44,12 @@ class Skill_matrix_controller extends CI_Controller {
         $data['employees'] = $all_multi_array = array();
         for ($i = 0; $i < count($all_employees); $i++) {
             $emp_string = $all_employees[$i]->employee_fname;
+            $emp_co = $all_employees[$i]->employee_code;
 
             $all_multi_array[$emp_string] = array(
-                'emp_name' => $emp_string
+                'emp_name' => $emp_string,
+                'emp_code' => $emp_co
+                    
             );
         }
         $skill_cat_array = array();

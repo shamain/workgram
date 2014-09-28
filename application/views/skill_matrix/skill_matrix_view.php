@@ -209,22 +209,20 @@ $emp_names_string = implode(',', $emp_names);
 
 
 <script>
-
 <?php
 $v = 0;
 foreach ($skill_cat_array as $skill_cat) {
     ?>
-                                            var <?php echo 'v' . $v; ?> = [
-                                                [1325376000000, 140],
-                                                [1328054400000, 70],
-                                                [1330560000000, 100],
-                                                [1333238400000, 60],
-                                                [1335830400000, 35]
-                                            ];
+                                            var v<?php echo $v; ?> = new Array();
+    <?php foreach ($all_multi_array as $row) { ?>
+        
+    <?php } ?>
+
     <?php
     ++$v;
 }
 ?>
+
 //                                        var v1 = [
 //                                            [1325376000000, 80],
 //                                            [1328054400000, 60],
