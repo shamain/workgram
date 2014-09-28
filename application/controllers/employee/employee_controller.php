@@ -110,7 +110,7 @@ class Employee_controller extends CI_Controller {
         $employee_tasks = $employee_task_service->get_not_complete_task_count_for_employee(trim($this->input->post('code', TRUE)));
 
         //if no employees in company we can delete otherwise we cant delete the company
-        if (count($employee_tasks) == 0) {
+        if ($employee_tasks == 0) {
             echo $employee_service->delete_employee(trim($this->input->post('code', TRUE)));
         } else {
             echo 2;
