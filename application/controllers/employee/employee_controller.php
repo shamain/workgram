@@ -19,6 +19,9 @@ class Employee_controller extends CI_Controller {
 
             $this->load->model('wages_category/wages_category_model');
             $this->load->model('wages_category/wages_category_service');
+            
+             $this->load->model('employee_task/employee_task_model');
+            $this->load->model('employee_task/employee_task_service');
         }
     }
 
@@ -101,8 +104,8 @@ class Employee_controller extends CI_Controller {
     function delete_employee() {
 
 
-        $employee_service = new employee_service();
-        $employee_task_service = new employee_taskservice();
+        $employee_service = new Employee_service();
+        $employee_task_service = new Employee_task_service();
 
         $employee_tasks = $employee_task_service->get_not_complete_task_count_for_employee(trim($this->input->post('code', TRUE)));
 
