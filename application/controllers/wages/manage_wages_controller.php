@@ -18,9 +18,9 @@ class manage_wages_controller extends CI_Controller {
 
             $this->load->model('employee_payment/employee_payment_model');
             $this->load->model('employee_payment/employee_payment_service');
-            
-             $this->load->model('wages_category/wages_category_model');
-             $this->load->model('wages_category/wages_category_service');
+
+            $this->load->model('wages_category/wages_category_model');
+            $this->load->model('wages_category/wages_category_service');
         }
     }
 
@@ -38,10 +38,11 @@ class manage_wages_controller extends CI_Controller {
         $partials = array('content' => 'wages/manage_wages_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-    
-/* 
- * this function use to get employee by company
- */
+
+    /*
+     * this function use to get employee by company
+     */
+
     function get_employee_by_company() {
         $employee_model = new employee_model();
         $employee_service = new employee_service();
@@ -58,10 +59,11 @@ class manage_wages_controller extends CI_Controller {
         ?>
         <?php
     }
-    
-/* this function use to get filter data 
- * and dispay payment status on button
- */
+
+    /* this function use to get filter data 
+     * and dispay payment status on button
+     */
+
     function get_employee_payment() {
 
 
@@ -94,7 +96,7 @@ class manage_wages_controller extends CI_Controller {
             $t_array = array();
             foreach ($months as $month) {
                 $employee_payment_model->set_employee_code($emp->employee_code);
-                $employee_payment_model->set_year_month($year.date('-m-01', strtotime($month)));
+                $employee_payment_model->set_year_month($year . date('-m-01', strtotime($month)));
                 $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
 
                 $wage_array['wage_month'] = date('Y-m-01', strtotime(date('M', strtotime($month)) . ' ' . $year));
@@ -120,7 +122,6 @@ class manage_wages_controller extends CI_Controller {
         $this->load->view('wages/wages_filter_view', $data);
     }
 
-    
     function add_new_payments() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_COMPANY');
 //        if ($perm) {
@@ -138,9 +139,11 @@ class manage_wages_controller extends CI_Controller {
 
         echo $employee_payment_service->add_new_payment($employee_payment_model);
     }
-/*this function use for get data 
- * to payment pop up model 
- *  */
+
+    /* this function use for get data 
+     * to payment pop up model 
+     *  */
+
     function get_wages_details_for_employee() {
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
@@ -155,27 +158,26 @@ class manage_wages_controller extends CI_Controller {
         $data['year'] = $this->input->post('year_month', TRUE);
         $data['payment_detail'] = $payment_detail;
         if (!empty($payment_detail)) {
-            $wages_detail=$wages_category_service->get_wages_category_by_id($payment_detail->wages_category_id);
+            $wages_detail = $wages_category_service->get_wages_category_by_id($payment_detail->wages_category_id);
             $data['wages_detail'] = $wages_detail;
         }
 
-        $data['worked_hours']=0;
+        $data['worked_hours'] = 0;
         $this->load->view('wages/wages_monthly_pop_up_view', $data);
     }
 
-    
     /*
      * Printing reports 
      */
-   
-     public function print_wages_pdf_report() {
+
+    public function print_wages_pdf_report() {
         $employee_service = new employee_service();
         $employee_payment_model = new employee_payment_model();
         $employee_payment_service = new employee_payment_service();
 
-        $company_code = $this->input->post('company_code');
-        $emp_code = $this->input->post('employee_code');
-        $year = $this->input->post('year');
+        $company_code = $this->input->get('company_code');
+        $emp_code = $this->input->get('employee_code');
+        $year = $this->input->get('year');
 
         $results = array();
         $emp_array = array();
@@ -198,7 +200,7 @@ class manage_wages_controller extends CI_Controller {
             $t_array = array();
             foreach ($months as $month) {
                 $employee_payment_model->set_employee_code($emp->employee_code);
-                $employee_payment_model->set_year_month($year.date('-m-01', strtotime($month)));
+                $employee_payment_model->set_year_month($year . date('-m-01', strtotime($month)));
                 $wages_details = $employee_payment_service->get_employee_payment($employee_payment_model);
 
                 $wage_array['wage_month'] = date('Y-m-01', strtotime(date('M', strtotime($month)) . ' ' . $year));
@@ -218,23 +220,20 @@ class manage_wages_controller extends CI_Controller {
             $results[] = $temp;
         }
 
-        
 
         $data['year'] = $year;
         $data['results'] = $results;
-        $data['year']=$year;
-        
+        $data['months'] = $months;
+
         $data['title'] = 'Wages Report';
         $SResultString = $this->load->view('reports/view_wages_report', $data, TRUE);
         $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
-        $mpdf=new mPDF('utf-8', 'A4-L');
+        $mpdf = new mPDF('utf-8', 'A4-L');
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->SetFooter($footer);
         $mpdf->WriteHTML($SResultString);
         $mpdf->Output();
     }
-
-
 
 }

@@ -142,7 +142,7 @@
                                         ?>
 
                                         <td class="v-align-middle">  
-                                            <button type="button" onclick="get_wages_pop_up_view(<?php echo $results[$i]['employee_code']; ?>,'<?php echo $wage['wage_month']; ?>')"  class="btn btn-default btn-cons" value="<?php echo $wage['wage_status']; ?>"><?php echo $wage['wage_status']; ?></button>  
+                                            <?php echo $wage['wage_status']; ?>
 
                                         </td>
                                         <?php

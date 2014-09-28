@@ -249,6 +249,6 @@ $(document).on('click', '#wages_print_btn', function() {
  var company_code = $('#select_company').val();
     var emp_code = $('#select_employee').val();
     var year = $('#year_wages').val();
-    var win = window.open(site_url + '/wages/manage_wages_controller/print_wages_pdf_report()?company_code='+ company_code+'&emp_code=' + emp_code+'&year='+year, '_blank');
+    var win = window.open(site_url + '/wages/manage_wages_controller/print_wages_pdf_report?company_code='+ company_code+'&emp_code=' + emp_code+'&year='+year, '_blank');
     win.focus();
 });
