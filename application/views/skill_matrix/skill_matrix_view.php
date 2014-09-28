@@ -279,7 +279,7 @@ foreach ($skill_cat_array as $skill_cat) {
             data: main_arr[<?php echo $v; ?>],
             bars: {
                 show: true,
-                barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                barWidth: 0.5,
                 fill: true,
                 lineWidth: 0,
                 order: 0,
@@ -296,6 +296,7 @@ foreach ($skill_cat_array as $skill_cat) {
 }
 ?>
 console.log(data2);
+console.log(tick_array);
     $.plot($('#stacked-ordered-chart'), data2, {
         grid: {
             hoverable: true,
@@ -306,19 +307,18 @@ console.log(data2);
 
         },
         xaxis: {
-            min: (new Date(2011, 11, 15)).getTime(),
-            max: (new Date(2012, 04, 18)).getTime(),
-            mode: "time",
-            timeformat: "%b",
+            min: 0,
+            max:tick_array.length,
+            
             ticks: tick_array,
-            tickSize: [1, "month"],
+            tickSize: tick_array.length,
             monthNames: [<?php echo $emp_names_string; ?>],
             tickLength: 0, // hide gridlines
             axisLabel: 'Employees',
             axisLabelUseCanvas: true,
             axisLabelFontSizePixels: 12,
             axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-            axisLabelPadding: 5
+            axisLabelPadding: 0
         },
         stack: true
     });
