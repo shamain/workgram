@@ -13,7 +13,7 @@ class Project_service extends CI_Model {
         $this->db->from('project');
         $this->db->join('employee', 'employee.employee_code = project.added_by');
         $this->db->where('project.company_code', $company_code);
-        $this->db->order_by("project.project_end_date", "desc");
+        $this->db->order_by("project.project_end_date", "ASC");
         $query = $this->db->get();
         return $query->result();
     }

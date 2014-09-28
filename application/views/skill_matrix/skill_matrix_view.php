@@ -54,7 +54,7 @@ $emp_names_string = implode(',', $emp_names);
     <div class="span12">
         <div class="grid simple ">
             <div class="grid-body ">
-                <input type="hidden" value="<?php echo $this->session->userdata('EMPLOYEE_CODE');?>" id="skill_matrix_print_user"/>
+                <input type="hidden" value="<?php echo $this->session->userdata('EMPLOYEE_CODE'); ?>" id="skill_matrix_print_user"/>
                 <table class="table table-hover" id="my_skill_table" >
                     <thead>
                         <tr>  
@@ -210,37 +210,44 @@ $emp_names_string = implode(',', $emp_names);
 
 <script>
 
-                                        var v0 = [
-                                            [1325376000000, 140],
-                                            [1328054400000, 70],
-                                            [1330560000000, 100],
-                                            [1333238400000, 60],
-                                            [1335830400000, 35]
-                                        ];
-
-                                        var v1 = [
-                                            [1325376000000, 80],
-                                            [1328054400000, 60],
-                                            [1330560000000, 30],
-                                            [1333238400000, 35],
-                                            [1335830400000, 30]
-                                        ];
-
-                                        var v2 = [
-                                            [1325376000000, 80],
-                                            [1328054400000, 40],
-                                            [1330560000000, 30],
-                                            [1333238400000, 20],
-                                            [1335830400000, 10]
-                                        ];
-
-                                        var v3 = [
-                                            [1325376000000, 15],
-                                            [1328054400000, 10],
-                                            [1330560000000, 15],
-                                            [1333238400000, 20],
-                                            [1335830400000, 15]
-                                        ];
+<?php
+$v = 0;
+foreach ($skill_cat_array as $skill_cat) {
+    ?>
+                                            var <?php echo 'v' . $v; ?> = [
+                                                [1325376000000, 140],
+                                                [1328054400000, 70],
+                                                [1330560000000, 100],
+                                                [1333238400000, 60],
+                                                [1335830400000, 35]
+                                            ];
+    <?php
+    ++$v;
+}
+?>
+//                                        var v1 = [
+//                                            [1325376000000, 80],
+//                                            [1328054400000, 60],
+//                                            [1330560000000, 30],
+//                                            [1333238400000, 35],
+//                                            [1335830400000, 30]
+//                                        ];
+//
+//                                        var v2 = [
+//                                            [1325376000000, 80],
+//                                            [1328054400000, 40],
+//                                            [1330560000000, 30],
+//                                            [1333238400000, 20],
+//                                            [1335830400000, 10]
+//                                        ];
+//
+//                                        var v3 = [
+//                                            [1325376000000, 15],
+//                                            [1328054400000, 10],
+//                                            [1330560000000, 15],
+//                                            [1333238400000, 20],
+//                                            [1335830400000, 15]
+//                                        ];
                                         // ORDERED & STACKED  
                                         var data2 = new Array();
 <?php
@@ -303,7 +310,7 @@ foreach ($skill_cat_array as $skill_cat) {
 
 <script>
     $('#skill_parent_menu').addClass('active open');
-    
+
     $(document).ready(function() {
 
         $('.slider-element').slider();
