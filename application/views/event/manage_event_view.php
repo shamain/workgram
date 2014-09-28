@@ -238,6 +238,7 @@
                                 <span style="color: red">*</span>
                             </div>
                         </div>
+                        <div class="col-md-6">
                         <div class="input-with-icon  right input-append primary date  no-padding" id="project_start_date_edit_dpicker">                                       
                             <i class=""></i>
 
@@ -256,6 +257,8 @@
                                 <span style="color: red">*</span>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                        
                         <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
                             <i class=""></i>
 
@@ -286,11 +289,12 @@
                                     <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
                                 <?php } ?> 
                             </select>
-                            <br><br>
+                           <br><br>
+                            <button type="button" class=" btn btn-default"id="btnEventClear" onClick="clearEventSelected();">Clear</button>
                         </div>
                     </div>
-                    <button type="button" id="btnEventClear" onClick="clearEventSelected();">Clear</button>
-                </div>
+                    </div>
+                  
 
                 <!-- multi select field end -->
 

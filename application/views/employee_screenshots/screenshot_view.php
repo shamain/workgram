@@ -188,89 +188,69 @@
                         </div
                     </div>
                 </div>
-                
-                                <div class="row form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="form-label">Added date</label>
-                            <span style="color: red">*</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <div class="input-with-icon  right input-append primary date  no-padding" id="inquiry_date">                                       
-                                        <i class=""></i>
-
-                                        <input class="form-control" type="text" input-append id="added_date" name="added_date" readonly="true">
-                                        <span class="add-on">
-                                            <span class="arrow"></span>
-                                            <i class="fa fa-th"></i>
-                                        </span>
-                                    </div>
-                        </div>
-                    </div>
-                </div>
 
                 
+        
 
-                <div class="row form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="form-label">Added to</label>
-                            <span style="color: red">*</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="added_to" class="form-control" type="text" name="added_to">                              
-                        </div>
-                    </div>
+
+
+        <div class="row form-row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="form-label">Added to</label>
+                    <span style="color: red">*</span>
                 </div>
-                
-
-                <div class="row form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="form-label">project</label>
-                            <span style="color: red">*</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="project" class="form-control" type="text" name="project">                              
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-with-icon  right">                                       
+                    <i class=""></i>
+                    <input id="added_to" class="form-control" type="text" name="added_to">                              
                 </div>
-
-                <div class="row form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="form-label">Task</label>
-                            <span style="color: red">*</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="input-with-icon  right">                                       
-                            <i class=""></i>
-                            <input id="task" class="form-control" type="text" name="task">                              
-                        </div>
-                    </div>
-                </div>
-
-
-        </div>
-        <div id="add_inquiry_msg" class="form-row"> </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
+            </div>
         </div>
 
-        </form>
+
+        <div class="row form-row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="form-label">project</label>
+                    <span style="color: red">*</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-with-icon  right">                                       
+                    <i class=""></i>
+                    <input id="project" class="form-control" type="text" name="project">                              
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="form-label">Task</label>
+                    <span style="color: red">*</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-with-icon  right">                                       
+                    <i class=""></i>
+                    <input id="task" class="form-control" type="text" name="task">                              
+                </div>
+            </div>
+        </div>
+
+
     </div>
+    <div id="add_inquiry_msg" class="form-row"> </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+    </div>
+
+</form>
+</div>
 </div>
 </div>
 <script type="text/javascript">
