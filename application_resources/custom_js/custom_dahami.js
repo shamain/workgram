@@ -127,6 +127,7 @@ $(function() {
             });
 
         } else if (dimension == 'project') {
+            console.log(filterString);
             $.post(site_url + '/worker/worker_controller/get_project_filter_data', {dimension: dimension, filterString: filterString}, function(msg)
             {
                 $("#tasks_ul").html('');

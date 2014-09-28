@@ -246,7 +246,9 @@ $(document).on('click', '#project_print_btn', function() {
     win.focus();
 });
 
-
+function delete_project_files(element){
+    $(element).parent().parent().hide();
+}
 
 
 

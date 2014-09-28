@@ -80,5 +80,7 @@ class Project_service extends CI_Model {
 
         return $query->row();
     }
+    
+    
 
 }

@@ -38,9 +38,9 @@ class Screenshot_inquiry_controller extends CI_Controller {
         $screenshot_inquiry_model->set_inquiry_description($this->input->post('inquiry_description', TRUE));
         $screenshot_inquiry_model->set_added_date(date("Y-m-d H:i:s"));
         $screenshot_inquiry_model->set_added_by($this->session->userdata('EMPLOYEE_NAME'));
-        $screenshot_inquiry_model->set_added_to($this->input->post('inquiry_added_to', TRUE));
-        $screenshot_inquiry_model->set_project($this->input->post('inquiry_project', TRUE));
-        $screenshot_inquiry_model->set_task($this->input->post('inquiry_task', TRUE));
+        $screenshot_inquiry_model->set_added_to($this->input->post('added_to', TRUE));
+        $screenshot_inquiry_model->set_project($this->input->post('project', TRUE));
+        $screenshot_inquiry_model->set_task($this->input->post('task', TRUE));
 
         echo $screenshot_inquiry_service->add_screenshot_inquiry($screenshot_inquiry_model);
     }

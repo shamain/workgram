@@ -35,32 +35,10 @@ $config['HOLIDAY_DAY_C']='#e5cc26';
 
 
 
-//LankaCom Country ID
-$config['LCS_COUNTRY_ID']	= "1";
-
-$config['LCS_CURRENCY_ID']	= "1";
-
-//LankaCom Customer ID
-$config['LCS_CUSTOMER_ID']	= "0";
-
-//LankaCom Company ID
-$config['LCS_COMPANY_ID'] = "1";
-
-
-
-//Admin Department ID
-$config['ADMIN_DEPARTMENT_ID']	="1";
-
 
 $config['MAILBOX']             = "{203.143.14.246:143/notls}";
 $config['MAILBOX2']            = "{203.143.14.229:143/notls}";
 
-
-// Image path for different document
-$config['EMPLOYEE_IMAGE']       = "employee_photo";
-$config['EMPLOYEE_CONTRACT'] 	= "contract_document";
-$config['ITEM_MASTER'] 		 = "item_master";
-$config['LEAVE_DOC'] 		 = "leave_docs";
 
 
 

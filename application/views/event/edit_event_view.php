@@ -97,3 +97,7 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+                                                $('#event_parent_menu').addClass('active open');
+</script>

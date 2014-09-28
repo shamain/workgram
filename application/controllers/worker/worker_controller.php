@@ -108,7 +108,7 @@ class Worker_controller extends CI_Controller {
         $filterString = $this->input->post('filterString', TRUE);
         $filterString = str_replace(' ', ',', $filterString);
 
-        $projects = $task_service->get_tasks_for_project_and_employee($filterString,'');
+        $projects = $task_service->get_tasks_for_project_and_employee('',$filterString);
         ?>
         <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 

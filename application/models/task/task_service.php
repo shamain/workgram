@@ -112,7 +112,7 @@ class Task_service extends CI_Model {
         $this->db->join('employee_tasks', 'employee_tasks.task_id = task.task_id');
         $this->db->join('employee', 'employee.employee_code = task.added_by');
         if ($employee_code != '') {
-            $this->db->where('employee_tasks.employee_id', $employee_code);
+            $this->db->where('employee_tasks.employee_id IN('.$employee_code.')');
         }
         if ($project_id != '') {
             $this->db->where('task.project_id', $project_id);
