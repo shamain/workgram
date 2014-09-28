@@ -115,6 +115,7 @@ class Task_controller extends CI_Controller {
         foreach ($task_employees as $task_employee) {
             $employee_task_model->set_employee_id($task_employee);
             $employee_task_model->set_task_id($task_id);
+            $employee_task_model->set_task_status('0');
             $employee_task_model->set_added_date(date("Y-m-d H:i:s"));
 
             $msg = $employee_task_service->add_employee_task($employee_task_model);

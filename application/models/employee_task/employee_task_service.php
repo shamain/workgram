@@ -52,7 +52,7 @@ class Employee_task_service extends CI_Model {
 
          $this->db->select('*');
         $this->db->from('employee_tasks');
-        $this->db->where('employee_code', $employee_code);
+        $this->db->where('employee_id', $employee_code);
         $this->db->where('task_status', '0');
 
         return $this->db->count_all_results();
