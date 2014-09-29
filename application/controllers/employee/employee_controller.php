@@ -49,7 +49,7 @@ class Employee_controller extends CI_Controller {
         $employee_service = new employee_service();
         $privilege_master_service = new Privilege_master_service();
         $privilege_service = new Privilege_service();
-         $employee_privilege_model = new Employee_privileges_model();
+        $employee_privilege_model = new Employee_privileges_model();
         $employee_privilege_service = new Employee_privileges_service();
 
         $name = ucfirst($this->input->post('employee_fname', TRUE)) . ' ' . ucfirst($this->input->post('employee_lname', TRUE));
@@ -93,8 +93,10 @@ class Employee_controller extends CI_Controller {
 
         if ($emp_id) {
 
-            $data['name'] = $name;
+             $data['name'] = $name;
             $data['link'] = $link;
+            $data['pasword'] = $this->input->post('txtPassword', TRUE);
+            $data['user_name'] = $this->input->post('txtEmail', TRUE);
 
 
 
