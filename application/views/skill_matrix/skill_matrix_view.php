@@ -245,7 +245,16 @@ foreach ($skill_cat_array as $skill_cat) {
     ++$v;
 }
 ?>
+
+var sortable = [];
+for (var vehicle in main_arr)
+      sortable.push([vehicle, main_arr[vehicle]])
+sortable.sort(function(a, b) {return a[1] - b[1]})
+
+
+
 console.log(main_arr);
+
 
 
 //                                        var v1 = [
