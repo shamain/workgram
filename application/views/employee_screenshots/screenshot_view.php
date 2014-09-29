@@ -43,9 +43,18 @@
                 ?>
             </ul>
         </div>
+
     </div>
-    <button id="search_screenshot_btn" style="margin-left:12px" name="search_screenshot_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
-    <button class="btn btn-primary" style="margin-left:12px" background-color="#f35958"  id="add_inquiry_btn" data-toggle="modal" data-target="#add_inquiry_modal">Add Inquiry</button>
+    <div class="input-with-icon  right input-append primary date  no-padding" id="sc_date_dpicker" style="margin-left:20px;">                                       
+
+        <input class="form-control" type="text" readonly="true" id="sc_filter_m_picker" value="<?php echo date("Y-m-d"); ?>">
+        <span class="add-on">
+            <span class="arrow"></span>
+            <i class="fa fa-th"></i>
+        </span>
+    </div>
+    <button id="search_screenshot_btn" style="margin-left:50px; margin-top: -30px;" name="search_screenshot_btn" class="btn btn-primary"><i class="fa fa-search"></i></button>
+    <button class="btn btn-primary" style="margin-left:10px; margin-top: -30px;" background-color="#f35958"  id="add_inquiry_btn" data-toggle="modal" data-target="#add_inquiry_modal">Add Inquiry</button>
     <div class="pull-right">
         <div class="btn-group" data-toggle="buttons-radio">
             <button id="ToList" class="btn btn-primary active" type="button">
@@ -77,16 +86,16 @@
                 Date 
 
             </div>
-            <div class="meta rec">
-                <div class="checkbox check-primary checkbox-circle">
-                    <input id="main_sc_chk_box" type="checkbox"  class="main_sc_chk_box">
-                    <label for="main_sc_chk_box"></label>
-                </div>
-<!--                <a href="<?php echo site_url(); ?>/screenshot/screenshot_controller/edit_screenshot_view/<?php echo $employee_screenshot_id->worker_id; ?>">
-                    <i class="fa fa-pencil"></i>
-                </a>-->
-
-            </div>
+            <!--            <div class="meta rec">
+                            <div class="checkbox check-primary checkbox-circle">
+                                <input id="main_sc_chk_box" type="checkbox"  class="main_sc_chk_box">
+                                <label for="main_sc_chk_box"></label>
+                            </div>
+                            <a href="<?php echo site_url(); ?>/screenshot/screenshot_controller/edit_screenshot_view/<?php echo $employee_screenshot_id->worker_id; ?>">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+            
+                        </div>-->
 
         </div>
 
@@ -126,14 +135,14 @@
                         </div>
 
 
-                        <div class="meta mark">
-                            <div class="checkbox check-primary checkbox-circle">
-                                <input id="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"  type="checkbox" class="sc_chk_box">
-                                <label for="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"></label>
-                            </div>
-                            <input type="hidden" value="0" name="chk_boxes[]">
-                            <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
-                        </div>
+                        <!--                        <div class="meta mark">
+                                                    <div class="checkbox check-primary checkbox-circle">
+                                                        <input id="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"  type="checkbox" class="sc_chk_box">
+                                                        <label for="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"></label>
+                                                    </div>
+                                                    <input type="hidden" value="0" name="chk_boxes[]">
+                                                    <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
+                                                </div>-->
                     </li>
                 <?php } ?>
                 <!-- END LIST OF PARKS -->
@@ -189,68 +198,68 @@
                     </div>
                 </div>
 
-                
-        
 
 
 
-        <div class="row form-row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="form-label">Added to</label>
-                    <span style="color: red">*</span>
+
+
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Added to</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="added_to" class="form-control" type="text" name="added_to">                              
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-with-icon  right">                                       
-                    <i class=""></i>
-                    <input id="added_to" class="form-control" type="text" name="added_to">                              
+
+
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">project</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="project" class="form-control" type="text" name="project">                              
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="form-label">Task</label>
+                            <span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-with-icon  right">                                       
+                            <i class=""></i>
+                            <input id="task" class="form-control" type="text" name="task">                              
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+        <div id="add_inquiry_msg" class="form-row"> </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
         </div>
 
-
-        <div class="row form-row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="form-label">project</label>
-                    <span style="color: red">*</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-with-icon  right">                                       
-                    <i class=""></i>
-                    <input id="project" class="form-control" type="text" name="project">                              
-                </div>
-            </div>
-        </div>
-
-        <div class="row form-row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="form-label">Task</label>
-                    <span style="color: red">*</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-with-icon  right">                                       
-                    <i class=""></i>
-                    <input id="task" class="form-control" type="text" name="task">                              
-                </div>
-            </div>
-        </div>
-
-
+        </form>
     </div>
-    <div id="add_inquiry_msg" class="form-row"> </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-    </div>
-
-</form>
-</div>
 </div>
 </div>
 <script type="text/javascript">

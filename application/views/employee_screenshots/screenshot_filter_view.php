@@ -32,14 +32,14 @@
             </div>
 
 
-            <div class="meta rec">
+<!--            <div class="meta rec">
                 <div class="checkbox check-primary checkbox-circle">
                     <input id="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"  type="checkbox" class="sc_chk_box">
                     <label for="<?php echo $my_screen_shot->worker_id . 'chk'; ?>"></label>
                 </div>
                 <input type="hidden" value="0" name="chk_boxes[]">
                 <input type="hidden" value="<?php echo $my_screen_shot->worker_id; ?>" >
-            </div>
+            </div>-->
         </li>
     <?php } ?>
     <!-- END LIST OF PARKS -->
