@@ -489,7 +489,7 @@ function initNotificationMenu() {
                 }
                 else
                 {
-                    if ((parseInt(divNotificationCount.innerHTML)) < parseInt(unseen_count))
+                    if (((parseInt(divNotificationCount.innerHTML)) < parseInt(unseen_count)) || (unseen_count == 1 && divNotificationCount.className == ""))
                     {
                         divNotificationCount.className = "badge badge-important hide";
                         showTooltip(unseen_count);
