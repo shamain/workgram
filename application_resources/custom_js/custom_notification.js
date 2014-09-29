@@ -385,7 +385,7 @@ function delete_notified_users(notified_users_id) {
 $(document).ready(function() {
     document.getElementById('notification-count').className="badge badge-important hide";
     initNotificationMenu();
-//    setInterval(initNotificationMenu, 3000);
+    setInterval(initNotificationMenu, 3000);
 });
 
 //window onload

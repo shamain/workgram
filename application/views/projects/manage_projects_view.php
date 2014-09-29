@@ -55,11 +55,11 @@
 //                                }
 
                                 $bg_colour = '';
-                                if ($days_difference >= 7) {
+                                if ($days_difference <= 7) {
                                     $bg_colour = '#FF9F9F';
                                 }
                                 ?> 
-                                <tr  id="projects_<?php echo $project->project_id; ?>" style="background-color: <?php echo $bg_colour ?>">
+                                <tr  id="projects_<?php echo $project->project_id; ?>" >
                                     <td><?php echo++$i; ?></td>
                                     <td><?php echo $project->project_name; ?></td>
                                     <td><img src="<?PHP echo base_url(); ?>uploads/project_logo/<?php echo $project->project_logo; ?>" alt="" width="100px" height="68px" /></td>

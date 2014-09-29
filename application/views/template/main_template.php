@@ -146,7 +146,7 @@ var eemail;
     </head>
     <!-- END HEAD -->
     <!-- BEGIN BODY -->
-    <body class="" > <!--onload="setInterval('chat.update()', 1000)" -->
+    <body class="" onload="setInterval('chat.update()', 1000)"> <!--onload="setInterval('chat.update()', 1000)" -->
         <!-- BEGIN HEADER -->
         <div class="header navbar navbar-inverse ">
             <!-- BEGIN TOP NAVIGATION BAR -->

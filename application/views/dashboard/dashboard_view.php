@@ -12,8 +12,8 @@
                         <div class="controller overlay right"> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
                         <div class="tiles green " style="max-height:345px">
                             <div class="tiles-body">
-                                <h4 class="text-white m-t-20 m-b-10 m-r-20">Current Project </h4>
-                                <h3 class="text-white m-t-20 m-b-10 m-r-20"><span class="semi-bold"> Niharathi Web</span> </h3>
+                                <h4 class="text-white ">Current Project </h4>
+                                <h3 class="text-white"><span class="semi-bold"> Niharathi Web</span> </h3>
                                 <div class="overlayer bottom-right fullwidth">
                                     <div class="overlayer-wrapper">
                                         <div class=" p-l-20 p-r-20 p-b-20 p-t-20">
