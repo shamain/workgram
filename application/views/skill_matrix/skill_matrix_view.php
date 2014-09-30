@@ -26,7 +26,7 @@ $emp_names_string = implode(',', $emp_names);
 
 //$colours_string = implode(',', $colours);
 ?>
-console.log(tick_array);
+
 </script>
 
 <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-sparkline/jquery-sparkline.js"></script>
@@ -190,9 +190,9 @@ console.log(tick_array);
 
                             <div class="form-group">
                                 <label class="form-label">References</label>
-
                                 <div class="input-with-icon  right">                                       
                                     <i class=""></i>
+
                                     <input id="reference" class="form-control" type="text" name="reference" style="width: 50%">                              
                                 </div>
                             </div>
@@ -237,12 +237,25 @@ foreach ($skill_cat_array as $skill_cat) {
             map_data.push(<?php echo $row['emp_code'] ?>);
             map_data.push(<?php echo $exp_level ?>);
             v.push(map_data);
+//            console.log(v);
     <?php } ?>
+//        console.log(v);
         main_arr.push(v);
     <?php
     ++$v;
 }
 ?>
+
+var sortable = [];
+for (var vehicle in main_arr)
+      sortable.push([vehicle, main_arr[vehicle]])
+sortable.sort(function(a, b) {return a[1] - b[1]})
+
+
+
+console.log(main_arr);
+
+
 
 //                                        var v1 = [
 //                                            [1325376000000, 80],
@@ -273,13 +286,13 @@ foreach ($skill_cat_array as $skill_cat) {
 $v = 0;
 foreach ($skill_cat_array as $skill_cat) {
     ?>
-
+console.log(main_arr[<?php echo $v; ?>]);
         var temp = {
             label: "<?php echo $skill_cat['cat_string']; ?>",
             data: main_arr[<?php echo $v; ?>],
             bars: {
                 show: true,
-                barWidth: 12 * 24 * 60 * 60 * 300 * 2,
+                barWidth: 0.5,
                 fill: true,
                 lineWidth: 0,
                 order: 0,
@@ -295,7 +308,7 @@ foreach ($skill_cat_array as $skill_cat) {
     ++$v;
 }
 ?>
-console.log(data2);
+
     $.plot($('#stacked-ordered-chart'), data2, {
         grid: {
             hoverable: true,
@@ -306,19 +319,18 @@ console.log(data2);
 
         },
         xaxis: {
-            min: (new Date(2011, 11, 15)).getTime(),
-            max: (new Date(2012, 04, 18)).getTime(),
-            mode: "time",
-            timeformat: "%b",
+            min: 0,
+          //  max:tick_array.length,
+            
             ticks: tick_array,
-            tickSize: [1, "month"],
+            //tickSize: tick_array.length,
             monthNames: [<?php echo $emp_names_string; ?>],
             tickLength: 0, // hide gridlines
             axisLabel: 'Employees',
             axisLabelUseCanvas: true,
             axisLabelFontSizePixels: 12,
             axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-            axisLabelPadding: 5
+            axisLabelPadding: 0
         },
         stack: true
     });

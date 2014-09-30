@@ -28,7 +28,14 @@ $(document).ready(function() {
     $('#screenshot_inquiry_table_wrapper .dataTables_filter input').addClass("input-medium ");
     $('#screenshot_inquiry_table_wrapper .dataTables_length select').addClass("select2-wrapper span12");
     $(".select2-wrapper").select2({minimumResultsForSearch: -1});
-    
+
+    //add project form start date datepicker
+    $('#sc_date_dpicker').datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+        todayHighlight: true
+    });
+
 });
 
 
@@ -105,10 +112,10 @@ $(function() {
 
     var $filters = $('#work_snap_filters').find('li'),
             dimensions = {
-                employee: 'all', // Create string for first dimension
-                project: 'all', // Create string for first dimension
-                tasks: 'all' // Create string for second dimension
-            };
+        employee: 'all', // Create string for first dimension
+        project: 'all', // Create string for first dimension
+        tasks: 'all' // Create string for second dimension
+    };
 
     // Bind checkbox click handlers:
 
@@ -170,7 +177,8 @@ $(function() {
 
         }
 
-        $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks}, function(msg)
+        var filter_date = $('#sc_filter_m_picker').val();
+        $.post(site_url + '/worker/worker_controller/get_screenshot', {employee: dimensions.employee, project: dimensions.project, task: dimensions.tasks,filter_date:filter_date}, function(msg)
         {
             $("#filter_result_div").html('');
             $("#filter_result_div").html(msg);
@@ -260,11 +268,11 @@ $('#add_inquiry_form').validate({
     }
 });
 //date picker
- $('#inquiry_date').datepicker({
-        format: "yyyy-mm-dd",
-        autoclose: true,
-        todayHighlight: true
-    });
+$('#inquiry_date').datepicker({
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayHighlight: true
+});
 
 //check box actions
 //check all checkboxes

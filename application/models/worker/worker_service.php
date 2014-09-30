@@ -65,7 +65,7 @@ class Worker_service extends CI_Model {
         if ($worker_model->get_worker_project_task_id() != '' && $worker_model->get_worker_project_task_id() != 'all') {
             $this->db->where('worker.worker_project_task_id IN('. $worker_model->get_worker_project_task_id().')');
         }
-
+        $this->db->where('worker.worker_date', $worker_model->get_worker_date());
         $this->db->where('worker.del_ind', '1');
         $this->db->where('project.del_ind', '1');
         $this->db->where('task.del_ind', '1');

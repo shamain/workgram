@@ -61,6 +61,8 @@ class Worker_controller extends CI_Controller {
         $employee = $this->input->post('employee', TRUE);
         $project = $this->input->post('project', TRUE);
         $task = $this->input->post('task', TRUE);
+        $filter_date = $this->input->post('filter_date', TRUE);
+
 
         $employee = str_replace(' ', ',', $employee);
         $project = str_replace(' ', ',', $project);
@@ -69,6 +71,7 @@ class Worker_controller extends CI_Controller {
         $worker_model->get_emp_code($employee);
         $worker_model->set_worker_project_id($project);
         $worker_model->set_worker_project_task_id($task);
+        $worker_model->set_worker_date($filter_date);
 
         $data['my_screen_shots'] = $worker_service->filter_screen_shotsfor_user($worker_model);
         $username_arr = explode('@', $this->session->userdata('EMPLOYEE_EMAIL'));
@@ -108,7 +111,7 @@ class Worker_controller extends CI_Controller {
         $filterString = $this->input->post('filterString', TRUE);
         $filterString = str_replace(' ', ',', $filterString);
 
-        $projects = $task_service->get_tasks_for_project_and_employee('',$filterString);
+        $projects = $task_service->get_tasks_for_project_and_employee('', $filterString);
         ?>
         <li class="active" data-filter="all" data-dimension="project"><a href="#">All</a></li>
 

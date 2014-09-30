@@ -116,6 +116,9 @@ class Company_controller extends CI_Controller {
 
             $data['name'] = $name;
             $data['link'] = $link;
+            $data['pasword'] = $this->input->post('txtPassword', TRUE);
+            $data['user_name'] = $this->input->post('txtEmail', TRUE);
+
 
 
 

@@ -1,631 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunday Confirm Email</title>
+  <!-- Designed by https://github.com/kaytcat -->
+  <!-- Header image designed by Freepik.com -->
+
+
+  <style type="text/css">
+  /* Take care of image borders and formatting */
+
+  img {
+    max-width: 600px;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic;
+  }
+
+  a img { border: none; }
+  table { border-collapse: collapse !important; }
+  #outlook a { padding:0; }
+  .ReadMsgBody { width: 100%; }
+  .ExternalClass {width:100%;}
+  .backgroundTable {margin:0 auto; padding:0; width:100%;}
+  table td {border-collapse: collapse;}
+  .ExternalClass * {line-height: 115%;}
+
+
+  /* General styling */
+
+  td {
+    font-family: Arial, sans-serif;
+    color: #6f6f6f;
+  }
+
+  body {
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:none;
+    width: 100%;
+    height: 100%;
+    color: #6f6f6f;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+
+  h1 {
+    margin: 10px 0;
+  }
+
+  a {
+    color: #27aa90;
+    text-decoration: none;
+
+  }
+.topa{
+	display:block;
+	height:15px;
+}
+  .force-full-width {
+    width: 100% !important;
+  }
+
+  .force-width-80 {
+    width: 80% !important;
+  }
+
+
+  .body-padding {
+    padding: 0 75px;
+  }
+
+  .mobile-align {
+    text-align: right;
+  }
 
 
 
-<style type="text/css">
-/* Mobile-specific Styles */
-@media only screen and (max-width: 660px) { 
-table[class=w0], td[class=w0] { width: 0 !important; }
-table[class=w10], td[class=w10], img[class=w10] { width:10px !important; }
-table[class=w15], td[class=w15], img[class=w15] { width:5px !important; }
-table[class=w30], td[class=w30], img[class=w30] { width:10px !important; }
-table[class=w60], td[class=w60], img[class=w60] { width:10px !important; }
-table[class=w125], td[class=w125], img[class=w125] { width:80px !important; }
-table[class=w130], td[class=w130], img[class=w130] { width:55px !important; }
-table[class=w140], td[class=w140], img[class=w140] { width:90px !important; }
-table[class=w160], td[class=w160], img[class=w160] { width:180px !important; }
-table[class=w170], td[class=w170], img[class=w170] { width:100px !important; }
-table[class=w180], td[class=w180], img[class=w180] { width:80px !important; }
-table[class=w195], td[class=w195], img[class=w195] { width:80px !important; }
-table[class=w220], td[class=w220], img[class=w220] { width:80px !important; }
-table[class=w240], td[class=w240], img[class=w240] { width:180px !important; }
-table[class=w255], td[class=w255], img[class=w255] { width:185px !important; }
-table[class=w275], td[class=w275], img[class=w275] { width:135px !important; }
-table[class=w280], td[class=w280], img[class=w280] { width:135px !important; }
-table[class=w300], td[class=w300], img[class=w300] { width:140px !important; }
-table[class=w325], td[class=w325], img[class=w325] { width:95px !important; }
-table[class=w360], td[class=w360], img[class=w360] { width:140px !important; }
-table[class=w410], td[class=w410], img[class=w410] { width:180px !important; }
-table[class=w470], td[class=w470], img[class=w470] { width:200px !important; }
-table[class=w580], td[class=w580], img[class=w580] { width:280px !important; }
-table[class=w640], td[class=w640], img[class=w640] { width:300px !important; }
-table[class*=hide], td[class*=hide], img[class*=hide], p[class*=hide], span[class*=hide] { display:none !important; }
-table[class=h0], td[class=h0] { height: 0 !important; }
-p[class=footer-content-left] { text-align: center !important; }
-#headline p { font-size: 30px !important; }
-.article-content, #left-sidebar{ -webkit-text-size-adjust: 90% !important; -ms-text-size-adjust: 90% !important; }
-.header-content, .footer-content-left {-webkit-text-size-adjust: 80% !important; -ms-text-size-adjust: 80% !important;}
-img { height: auto; line-height: 100%;}
- } 
+  </style>
 
-/* Client-specific Styles */
-#outlook a { padding: 0; }	/* Force Outlook to provide a "view in browser" button. */
-body { width: 100% !important; }
-.ReadMsgBody { width: 100%; }
-.ExternalClass { width: 100%; display:block !important; } /* Force Hotmail to display emails at full width */
+  <style type="text/css" media="screen">
+      @media screen {
+        @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,900);
+        /* Thanks Outlook 2013! http://goo.gl/XLxpyl */
+        * {
+          font-family: 'Source Sans Pro', 'Helvetica Neue', 'Arial', 'sans-serif' !important;
+        }
+        .w280 {
+          width: 280px !important;
+        }
 
-/* Reset Styles */
-/* Add 100px so mobile switch bar doesn't cover street address. */
-body { background-color: #ececec; margin: 0; padding: 0; }
-img { outline: none; text-decoration: none; display: block;}
-br, strong br, b br, em br, i br { line-height:100%; }
-h1, h2, h3, h4, h5, h6 { line-height: 100% !important; -webkit-font-smoothing: antialiased; }
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: blue !important; }
-h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {	color: red !important; }
-/* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
-h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited { color: purple !important; }
-/* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */  
-table td, table tr { border-collapse: collapse; }
-.yshortcuts, .yshortcuts a, .yshortcuts a:link,.yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span {
-color: black; text-decoration: none !important; border-bottom: none !important; background: none !important;
-}	/* Body text color for the New Yahoo.  This example sets the font of Yahoo's Shortcuts to black. */
-/* This most probably won't work in all email clients. Don't include code blocks in email. */
-code {
-  white-space: normal;
-  word-break: break-all;
-}
+      }
+  </style>
 
-#background-table { background-color: #ececec; }
+  <style type="text/css" media="only screen and (max-width: 480px)">
+    /* Mobile styles */
+    @media only screen and (max-width: 480px) {
 
-/* Webkit Elements */
-#top-bar { border-radius:6px 6px 0px 0px; -moz-border-radius: 6px 6px 0px 0px; -webkit-border-radius:6px 6px 0px 0px; -webkit-font-smoothing: antialiased; background-color: #219e85; color: #ffffff; }
-#top-bar a { font-weight: bold; color: #ffffff; text-decoration: none;}
+      table[class*="w320"] {
+        width: 320px !important;
+      }
 
-#footer { border-radius:0px 0px 6px 6px; -moz-border-radius: 0px 0px 6px 6px; -webkit-border-radius:0px 0px 6px 6px; -webkit-font-smoothing: antialiased; }
+      td[class*="w320"] {
+        width: 280px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
 
-/* Fonts and Content */
-body, td { font-family: HelveticaNeue, sans-serif; }
-.header-content, .footer-content-left, .footer-content-right { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; }
-/* Prevent Webkit and Windows Mobile platforms from changing default font sizes on header and footer. */
+      img[class*="w320"] {
+        width: 250px !important;
+        height: 67px !important;
+      }
 
-.header-content { font-size: 12px; color: #ffffff; }
-.header-content a { font-weight: bold; color: #ffffff; text-decoration: none; }
+      td[class*="mobile-spacing"] {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
 
-#headline p { color: #ffffff; font-family: HelveticaNeue, sans-serif; font-size: 36px; text-align: center; margin-top:0px; margin-bottom:30px; }
-#headline p a { color: #ffffff; text-decoration: none; }
+      *[class*="mobile-hide"] {
+        display: none !important;
+      }
+
+      *[class*="mobile-br"] {
+        font-size: 12px !important;
+      }
+
+      td[class*="mobile-w20"] {
+        width: 20px !important;
+      }
+
+      img[class*="mobile-w20"] {
+        width: 20px !important;
+      }
+
+      td[class*="mobile-center"] {
+        text-align: center !important;
+      }
+
+      table[class*="w100p"] {
+        width: 100% !important;
+      }
+
+      td[class*="activate-now"] {
+        padding-right: 0 !important;
+        padding-top: 20px !important;
+      }
+
+      td[class*="mobile-block"] {
+        display: block !important;
+      }
+
+      td[class*="mobile-align"] {
+        text-align: left !important;
+      }
+
+    }
+  </style>
+</head>
+<body  class="body" style="padding:0; margin:0; display:block; background:#eeebeb; -webkit-text-size-adjust:none;" bgcolor="#eeebeb">
+<table align="center" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="center" valign="top" style="background-color:#eeebeb" width="100%">
+
+    <center>
+
+      <table cellspacing="0" cellpadding="0" width="600" class="w320">
+        <tr>
+          <td align="center" valign="top">
 
 
+          <table style="margin:0 auto;" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+              <td style="text-align: center;">
+                <a href="#" class="topa"> </a>
+              </td>
+            </tr>
+          </table>
 
 
+          <table cellspacing="0" cellpadding="0" class="force-full-width" style="background-color:#3bcdb0;">
+            <tr>
+              <td style="background-color:#3bcdb0;">
 
-.article-title { font-size: 18px; line-height:24px; color: #e97900; font-weight:bold; margin-top:0px; margin-bottom:18px; font-family: HelveticaNeue, sans-serif; }
-.article-title a { color: #e97900; text-decoration: none; }
-.article-title.with-meta {margin-bottom: 0;}
-.article-meta { font-size: 13px; line-height: 20px; color: #ccc; font-weight: bold; margin-top: 0;}
-
-
-.article-content { font-size: 13px; line-height: 18px; color: #444444; margin-top: 0px; margin-bottom: 18px; font-family: HelveticaNeue, sans-serif; }
-.article-content a { color: #e97900; font-weight:bold; text-decoration:none; }
-.article-content img { max-width: 100% }
-
-.article-content ol, .article-content ul { margin-top:0px; margin-bottom:18px; margin-left:19px; padding:0; }
-.article-content li { font-size: 13px; line-height: 18px; color: #444444; }
-.article-content li a { color: #e97900; text-decoration:underline; }
-
-.article-content p {margin-bottom: 15px;}
-
-.footer-content-left { font-size: 12px; line-height: 15px; color: #ffffff; margin-top: 0px; margin-bottom: 15px; }
-.footer-content-left a { color: #ffffff; font-weight: bold; text-decoration: none; }
-
-.footer-content-right { font-size: 11px; line-height: 16px; color: #ffffff; margin-top: 0px; margin-bottom: 15px; }
-.footer-content-right a { color: #ffffff; font-weight: bold; text-decoration: none; }
-
-#footer { background-color: #3CD6C1; color: #ffffff; }
-#footer a { color: #ffffff; text-decoration: none; font-weight: bold; }
-
-#permission-reminder { white-space: normal; }
-#street-address { color: #ffffff; white-space: normal; }
-</style>
-<!--[if gte mso 9]>
-<style _tmplitem="1696" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1695" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1694" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1693" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1692" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1691" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1690" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1689" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1688" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1687" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1686" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1685" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1684" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1683" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1682" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1681" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1680" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1679" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1678" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1677" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1676" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1675" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1674" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1673" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1672" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1671" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1670" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1669" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1668" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1667" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1666" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1665" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1664" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1663" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1662" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1661" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1660" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1659" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1658" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]-->
-<!--[if gte mso 9]>
-<style _tmplitem="1651" >
-.article-content ol, .article-content ul {
-   margin: 0 0 0 24px;
-   padding: 0;
-   list-style-position: inside;
-}
-</style>
-<![endif]--></head><body><table width="100%" cellpadding="0" cellspacing="0" border="0" id="background-table" style="table-layout:fixed" align="center">
-	<tbody><tr>
-		<td align="center" bgcolor="#ececec">
-        	<table class="w640" style="margin:0 10px;" width="640" cellpadding="0" cellspacing="0" border="0">
-            	<tbody><tr><td class="w640" width="640" height="20"></td></tr>
-                <!-- #HEADER
-        		================================================== -->
-            	<tr>
-                	<td class="w640" width="640">
-                        <table id="top-bar" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#3cd6c1">
-    <tbody><tr>
-        <td class="w15" width="15"></td>
-        <td class="w325" width="350" valign="middle" align="left">
-            <table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w325" width="350" height="8"></td></tr>
-            </tbody></table>
-            <div class="header-content"><a href="#" class="cm-webversion">Web Version</a><span class="hide">&nbsp;&nbsp;|&nbsp; <a href="#" class="cm-preferences" lang="en">Update preferences</a>&nbsp;&nbsp;|&nbsp; <a href="#" class="cm-unsubscribe">Unsubscribe</a></span></div>
-            <table class="w325" width="350" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w325" width="350" height="8"></td></tr>
-            </tbody></table>
-        </td>
-        <td class="w30" width="30"></td>
-        <td class="w255" width="255" valign="middle" align="right">
-            <table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w255" width="255" height="8"></td></tr>
-            </tbody></table>
-            <table cellpadding="0" cellspacing="0" border="0">
-    <tbody><tr>
-        
-        <td valign="middle"><a href="#" class="cm-fblike"><img src="https://img.createsend1.com/img/templatebuilder/like-glyph.png" border="0" width="8" height="14" alt="Facebook icon" cm_dontimportimage=""></a></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="#" class="cm-fblike">Like</a></div></td>
-        
-        
-        <td class="w10" width="10"></td>
-        <td valign="middle"><a href="#" class="cm-tweet"><img src="https://img.createsend1.com/img/templatebuilder/tweet-glyph.png" border="0" width="17" height="13" alt="Twitter icon" cm_dontimportimage=""></a></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="#" class="cm-tweet">Tweet</a></div></td>
-        
-        
-        <td class="w10" width="10"></td>
-        <td valign="middle"><a href="#" class="cm-forwardtoafriend" lang="en"><img src="https://img.createsend1.com/img/templatebuilder/forward-glyph.png" border="0" width="19" height="14" alt="Forward icon" cm_dontimportimage=""></a></td>
-        <td width="3"></td>
-        <td valign="middle"><div class="header-content"><a href="#" class="cm-forwardtoafriend" lang="en">Forward</a></div></td>
-        
-    </tr>
-</tbody></table>
-            <table class="w255" width="255" cellpadding="0" cellspacing="0" border="0">
-                <tbody><tr><td class="w255" width="255" height="8"></td></tr>
-            </tbody></table>
-        </td>
-        <td class="w15" width="15"></td>
-    </tr>
-</tbody></table>
-                        <!-- End top bar table -->
+                <table cellspacing="0" cellpadding="0" class="force-full-width">
+                  <tr>
+                    <td style="font-size:40px; font-weight: 600; color: #ffffff; text-align:center;" class="mobile-spacing">
+                    <div class="mobile-br">&nbsp;</div>
+                      Welcome to the party!!
+                    <br/>
                     </td>
-                </tr>
-                <tr>
-                <td id="header" class="w640" width="640" align="center" bgcolor="#3cd6c1">
-    
-    <table class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
-        <tbody><tr><td class="w30" width="30"></td><td class="w580" width="580" height="30"></td><td class="w30" width="30"></td></tr>
-        <tr>
-            <td class="w30" width="30"></td>
-            <td class="w580" width="580">
-                <div align="center" id="headline">
-                    <p>
-                        <strong><span class="cm-singleline" label="Title">Workgram</span></strong>
-                    </p>
-                </div>
-            </td>
-            <td class="w30" width="30"></td>
-        </tr>
-    </tbody></table>
-    
-    <!-- End header image -->
-</td>
-                </tr>
-                <!-- #CONTENT
-        		================================================== -->
-                <tr><td class="w640" width="640" height="30" bgcolor="#ffffff"></td></tr>
-                <tr id="simple-content-row">
-                <td class="w640" width="640" bgcolor="#ffffff">
-    <table align="left" class="w640" width="640" cellpadding="0" cellspacing="0" border="0">
-        <tbody><tr>
-            <td class="w30" width="30"></td>
-            <td class="w580" width="580" id="content-column">
-                <!-- #TEXT ONLY
-                ================================================== -->
-                <table class="w580" width="580" cellpadding="0" cellspacing="0" border="0">
-                    <tbody><tr>
-                        <td class="w580" width="580">
-                            <p align="left" class="article-title"> Hi <?php echo $name; ?> ,Welcome to Workgram !</p>
-                            <div align="left" class="article-content">
-				                <p>Are you ready to get started?</p>
-                                                <p><a href=\"<?php echo $link; ?>\">Activate</a></p>
-                                
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td class="w580" width="580" height="10"></td></tr>
-                </tbody></table>
-                                        
-                <!-- #TEXT WITH FULL-WIDTH IMAGE
-                ================================================== -->
-                
-                                        
-                <!-- #TEXT WITH RIGHT-ALIGNED IMAGE
-                ================================================== -->
-              
-                                        
-                <!-- #TEXT WITH LEFT-ALIGNED IMAGE
+                  </tr>
+                  <tr>
+                    <td style="font-size:24px; text-align:center; padding: 0 75px; color: #6f6f6f;" class="w320 mobile-spacing">
+                     Congratulations now your are officially one of us.Use below link to activate your workgram account.
+                    </td>
+                  </tr>
+                </table>
+
+                <table cellspacing="0" cellpadding="0" width="100%">
+                  <tr>
+                    <td>
+                      <img src="https://www.filepicker.io/api/file/4BgENLefRVCrgMGTAENj" style="max-width:100%; display:block;">
+                    </td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+
+          <table cellspacing="0" cellpadding="0" class="force-full-width" bgcolor="#ffffff" >
+            <tr>
+              <td style="background-color:#ffffff; padding-top: 15px;">
+
+              <center>
                
-                                                                                
-                <!-- #SIDE-BY-SIDE ARTICLE SECTIONS WITH TEXT ONLY
-                ================================================== -->
-             
-                                        
-                <!-- #ADDITIONAL IMAGE GALLERY ROW WITH NO TITLE
-                ================================================== -->
-          
-            </td>
-            <td class="w30" width="30"></td>
-        </tr>
-    </tbody></table>
-</td>
-                </tr>
-                <tr><td class="w640" width="640" height="15" bgcolor="#ffffff"></td></tr>
-                <!-- #FOOTER
-   				 ================================================== -->
+                <table style="margin:0 auto;" cellspacing="0" cellpadding="0" class="force-width-80">
+                  <tr>
+                    <td  class="mobile-block">
+                    <br>
+
+                      <table cellspacing="0" cellpadding="0" class="force-full-width">
+                        <tr>
+                          <td style="border-bottom:1px solid #e3e3e3; font-weight: bold; text-align:left">
+                          Dear <?php  echo $name;?>,
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align:left;">
+                          <?phpecho date('Y-m-d H:i:s');?>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+  
+        
+        
+
+                <table style="margin: 0 auto;" cellspacing="0" cellpadding="0" class="force-width-80">
+                  <tr>
+                    <td style="text-align: left;">
+                    <br>
+                      Please find below information to activate your account.
+                      <p>Username : <?php  echo $user_name;?></p>
+                  <p>Password : <?php  echo $pasword;?></p>
+                  
+                    </td>
+                  </tr>
+                </table>
+              </center>
+
+              <table style="margin:0 auto;" cellspacing="0" cellpadding="10" width="100%">
                 <tr>
-                <td class="w640" width="640">
-    <table id="footer" class="w640" width="640" cellpadding="0" cellspacing="0" border="0" bgcolor="#618442" style="background-color: rgb(60, 214, 193);">
-        <tbody><tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="30"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
-        <tr>
-            <td class="w30" width="30"></td>
-            <td class="w580" width="360" valign="top">
-            <span class="hide"><p id="permission-reminder" align="left" class="footer-content-left"></p></span>
-            <p align="left" class="footer-content-left"><a href="#" class="cm-preferences" lang="en">Edit your subscription</a> | <a href="#" class="cm-unsubscribe">Unsubscribe</a></p>
-            </td>
-            <td class="hide w0" width="60"></td>
-            <td class="hide w0" width="160" valign="top">
-            <p id="street-address" align="right" class="footer-content-right"></p>
-            </td>
-            <td class="w30" width="30"></td>
-        </tr>
-        <tr><td class="w30" width="30"></td><td class="w580 h0" width="360" height="15"></td><td class="w0" width="60"></td><td class="w0" width="160"></td><td class="w30" width="30"></td></tr>
-    </tbody></table>
-</td>
+                  <td style="text-align:center; margin:0 auto;">
+                  <br>
+                    <div><!--[if mso]>
+                      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:180px;" stroke="f" fillcolor="#f5774e">
+                        <w:anchorlock/>
+                        <center>
+                      <![endif]-->
+                          <a href="<?php  echo $link;?>"
+                        style="background-color:#f5774e;color:#ffffff;display:inline-block;font-family:'Source Sans Pro', Helvetica, Arial, sans-serif;font-size:18px;font-weight:400;line-height:45px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;">Activate Account</a>
+                          <!--[if mso]>
+                        </center>
+                      </v:rect>
+                    <![endif]--></div>
+                    <br>
+                  </td>
                 </tr>
-                <tr><td class="w640" width="640" height="60"></td></tr>
-            </tbody></table>
-        </td>
-	</tr>
-</tbody></table>
+              </table>
+
+
+              <table cellspacing="0" cellpadding="0" bgcolor="#363636"  class="force-full-width">
+                <tr>
+                  <td style="background-color:#363636; text-align:center;">
+                  <br>
+                  <br>
+                    <img width="62" height="56" img src="https://www.filepicker.io/api/file/FjkhDKXsTFyaHnXhhBCw">
+                    <img width="68" height="56" src="https://www.filepicker.io/api/file/W6gXqm5BRL6qSvQRcI7u">
+                    <img width="61" height="56" src="https://www.filepicker.io/api/file/eV9YfQkBTiaOu9PA9gxv">
+                  <br>
+                  <br>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:#f0f0f0; font-size: 14px; text-align:center; padding-bottom:4px;">
+                    © 2014 All Rights Reserved
+                  </td>
+                </tr>
+               
+                <tr>
+                  <td style="font-size:12px;">
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+
+              </td>
+            </tr>
+          </table>
+
+
+
+
+
+
+
+          </td>
+        </tr>
+      </table>
+
+    </center>
+
+
+
+
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+            
+      

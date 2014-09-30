@@ -59,7 +59,7 @@
     <div class="col-md-1">
         <div class="invoice-button-action-set">
             <p>
-               <button class="btn btn-primary" id="event_print_btn"><i class="fa fa-print"></i></button>
+                <button class="btn btn-primary" id="event_print_btn"><i class="fa fa-print"></i></button>
             </p>
         </div>
     </div>
@@ -156,50 +156,50 @@
                             </div>
                         </div>
 
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label">End Date</label>
-                                    <span style="color: red">*</span>
-                                </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label">End Date</label>
+                                <span style="color: red">*</span>
                             </div>
-                            <div class="col-md-6">
-
-                                <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
-                                    <i class=""></i>
-
-                                    <input class="form-control" type="text" id="end_date" name="end_date" readonly="true">
-                                    <span class="add-on">
-                                        <span class="arrow"></span>
-                                        <i class="fa fa-th"></i>
-                                    </span>
-                                </div>
-                            </div>
-
                         </div>
+                        <div class="col-md-6">
+
+                            <div class="input-with-icon  right input-append primary date  no-padding" id="project_end_date_edit_dpicker">                                       
+                                <i class=""></i>
+
+                                <input class="form-control" type="text" id="end_date" name="end_date" readonly="true">
+                                <span class="add-on">
+                                    <span class="arrow"></span>
+                                    <i class="fa fa-th"></i>
+                                </span>
+                            </div>
+                        </div>
+
+
 
                         <!-- multi select field start-->
-                        <div class="row form-row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label class="form-label" id="lblevent">Select Users (Send to...)</label>
-                                    <span style="color: red">*</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
 
-                                    <select rows="2" name="employee_events[]" id="employee_events" style="width: 100%;" multiple="yes" class="select2 form-control">
-                                        <?php foreach ($employees as $employee) { ?>
-                                            <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
-                                        <?php } ?> 
-                                    </select>
-                                    <br><br>
-                                    <button type="button" class=" btn btn-default"id="btnEventClear" onClick="clearEventSelected();">Clear</button>
-                                </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="form-label" id="lblevent">Select Users (Send to...)</label>
+                                <span style="color: red">*</span>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+
+                                <select rows="2" name="employee_events[]" id="employee_events" style="width: 100%;" multiple="yes" class="select2 form-control">
+                                    <?php foreach ($employees as $employee) { ?>
+                                        <option value="<?php echo $employee->employee_code; ?>"><?php echo $employee->employee_fname, ' ', $employee->employee_lname; ?></option> 
+                                    <?php } ?> 
+                                </select>
+                                <br><br>
+                                <button type="button" class=" btn btn-default"id="btnEventClear" onClick="clearEventSelected();">Clear</button>
+                            </div>
+                        </div>
+
 
 
                         <!-- multi select field end -->
@@ -216,6 +216,6 @@
 
                 </div>
         </div>
-<script type="text/javascript">
-                                                $('#event_parent_menu').addClass('active open');
-</script>
+        <script type="text/javascript">
+                                        $('#event_parent_menu').addClass('active open');
+        </script>

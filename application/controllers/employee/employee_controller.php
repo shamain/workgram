@@ -19,8 +19,8 @@ class Employee_controller extends CI_Controller {
 
             $this->load->model('wages_category/wages_category_model');
             $this->load->model('wages_category/wages_category_service');
-            
-             $this->load->model('employee_task/employee_task_model');
+
+            $this->load->model('employee_task/employee_task_model');
             $this->load->model('employee_task/employee_task_service');
         }
     }
@@ -38,13 +38,19 @@ class Employee_controller extends CI_Controller {
         $partials = array('content' => 'employee/manage_employee_view');
         $this->template->load('template/main_template', $partials, $data);
     }
-/*this function use to add new employee*/
+
+    /* this function use to add new employee */
+
     function add_new_employee() {
 //        $perm = Access_controllerservice :: checkAccess('ADD_EMPLOYEE');
 //        if ($perm) {
 
         $employee_model = new employee_model();
         $employee_service = new employee_service();
+        $privilege_master_service = new Privilege_master_service();
+        $privilege_service = new Privilege_service();
+        $employee_privilege_model = new Employee_privileges_model();
+        $employee_privilege_service = new Employee_privileges_service();
 
         $name = ucfirst($this->input->post('employee_fname', TRUE)) . ' ' . ucfirst($this->input->post('employee_lname', TRUE));
         $email = $this->input->post('employee_email', TRUE);
@@ -68,14 +74,29 @@ class Employee_controller extends CI_Controller {
 
         $emp_id = $employee_service->add_employee($employee_model);
 
+        //assign default privileges in the beginning 
+        $privilege_masters = $privilege_master_service->get_available_master_privileges();
+
+        foreach ($privilege_masters as $privilege_master) {
+            $privileges = $privilege_service->get_privileges_by_master_privilege_assigned_for($privilege_master->privilege_master_code, $this->config->item('COMPANY_OWNER'));
+            foreach ($privileges as $privilege) {
+
+                $employee_privilege_model->set_employee_code($emp_id);
+                $employee_privilege_model->set_privilege_code($privilege->privilege_code);
+                $employee_privilege_service->add_new_employee_privilege_system($employee_privilege_model);
+            }
+        }
+
 
         $link = base_url() . "index.php/employee/employee_controller/account_activation/" . urlencode($emp_id) . "/" . md5($token);
 
 
         if ($emp_id) {
 
-            $data['name'] = $name;
+             $data['name'] = $name;
             $data['link'] = $link;
+            $data['pasword'] = $this->input->post('txtPassword', TRUE);
+            $data['user_name'] = $this->input->post('txtEmail', TRUE);
 
 
 
@@ -99,8 +120,8 @@ class Employee_controller extends CI_Controller {
         }
     }
 
+    /* This Function use to delete employee */
 
- /* This Function use to delete employee */
     function delete_employee() {
 
 
@@ -115,9 +136,10 @@ class Employee_controller extends CI_Controller {
         } else {
             echo 2;
         }
-
     }
-    /*this functon use to manage edit employee view*/
+
+    /* this functon use to manage edit employee view */
+
     function edit_employee_view($employee_code) {
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
 //        if ($perm) {
@@ -136,7 +158,9 @@ class Employee_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-/*this function use to edit employee details using update_employee function*/
+
+    /* this function use to edit employee details using update_employee function */
+
     function edit_employee() {
 
 //        $perm = Access_controllerservice :: checkAccess('EDIT_EMPLOYEE');
@@ -172,7 +196,9 @@ class Employee_controller extends CI_Controller {
 //            $this->template->load('template/access_denied_page');
 //        }
     }
-/*this function use to upload image*/
+
+    /* this function use to upload image */
+
     function upload_image() {
 
         $uploaddir = './uploads/employee_avatar/';
@@ -197,7 +223,7 @@ class Employee_controller extends CI_Controller {
         }
         return $random_string;
     }
- 
+
     public function account_activation($emp_id, $token) {
 
         $employee_service = new Employee_service();
@@ -220,19 +246,21 @@ class Employee_controller extends CI_Controller {
             echo $this->load->view('users/invalid_url', $data);
         }
     }
-   /*   Print Employee Report
-    */ 
+
+    /*   Print Employee Report
+     */
+
     public function print_employee_pdf_report() {
         $employee_service = new Employee_service();
 
         $current_employees = $employee_service->get_employees_by_company_id_manage($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
         $data['employees'] = $current_employees;
-        
+
         $data['title'] = 'Employee Report';
         $SResultString = $this->load->view('reports/view_employee_report', $data, TRUE);
         $footer = $this->load->view('reports/pdf_footer', $data, TRUE);
         $this->load->library('MPDF56/mpdf');
-        $mpdf=new mPDF('utf-8', 'A4');
+        $mpdf = new mPDF('utf-8', 'A4');
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->SetFooter($footer);
         $mpdf->WriteHTML($SResultString);

@@ -242,7 +242,7 @@ class Login_controller extends CI_Controller {
         }
 
         $employee_model->set_employee_email($email);
-        $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
+       // $employee_code_compnay_details = $employee_service->get_employee_company_and_code_with_email($employee_model);
 
         //calling settings_option_handler library's getOption(x,y,z) function to get the set option
         //parameters = setting_id,employee_code,company_id
